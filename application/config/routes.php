@@ -38,7 +38,8 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "Listings";
+$route['^(?!users|alerts).*'] = "Listings/$0";
 $route['404_override'] = '';
 
 
