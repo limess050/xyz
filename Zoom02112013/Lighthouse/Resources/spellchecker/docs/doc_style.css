@@ -1,0 +1,31 @@
+	BODY {
+		font-family: MS Sans Serif, Arial, Verdana;
+		font-size: 10pt;
+	}
+	SPAN.Title {
+		font-size: 12pt;
+		font-weight: bold;
+		font-align: center;
+	}
+	A {
+		color: navy;
+		font-weight: bold;
+	}
+	A:Hover {
+		color: orange;
+	}
+	SPAN.cp {
+		font-size: 8pt;
+		color: silver;
+	}
+	A.Nav {
+		font-weight: normal;
+		text-decoration: none;
+	}
+	.code {
+		font-family: Courier New;
+		font-size: 9pt;
+		color: navy;
+		text-decoration:none;
+	}
+	

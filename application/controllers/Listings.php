@@ -10,7 +10,15 @@ class Listings extends CI_Controller {
 
 	public function index()
 	{
+		$this->db->where('parent_section', 1);
+		$this->db->order_by('section_name');
+		$data['sections'] = $this->db->get('sections');
+
 		//echo $this->session->userdata('current_url');
+		$this->load->view('header');
+		$this->load->view('menu',$data);
+		$this->load->view('home');
+		$this->load->view('footer');
 	}
 
 	public function listingdetail($listing_id)

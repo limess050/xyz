@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Create Table</title>
+<link rel=stylesheet href="../css/MSStandard.css" type="text/css">
+<script type="text/javascript" src="../../dojo/dojo.js"></script>
+<script type="text/javascript" src="../js/library.js"></script>
+<script type="text/javascript" src="../js/wysiwyg.js"></script>
+<script type="text/javascript">
+var htmlToolbar = opener.dialogParams["htmlToolbar"];
+var htmlField = opener.dialogParams["htmlField"];
+
+// Table functions
+function resizeTableTool(e) {
+	var tdObj = xGetEventSrcElement(e);
+	if (tdObj != null && tdObj.tagName == "TD") {
+		var trObj = tdObj.parentNode;
+		var tableObj = trObj.parentNode;
+		var cIndex = tdObj.cellIndex;
+		var rIndex = trObj.rowIndex;
+
+		var cDiff = cIndex + 2 - trObj.cells.length;
+		var rDiff = rIndex + 2 - tableObj.rows.length;
+
+		tdObj.onclick = doInsertTable;
+
+		// Insert or delete rows if necessary.
+		if (rDiff > 0) {
+			for (var r1 = 0; r1 < rDiff; r1 ++) {
+				newTR = tableObj.appendChild(document.createElement("TR"));
+				for (var c = 0; c < trObj.cells.length; c ++) {
+					newTD = newTR.appendChild(document.createElement("TD"));
+					newTD.onmouseover = resizeTableTool;
+					newTD.innerHTML = "&nbsp;";
+				}
+			}
+		} else if (rDiff < 0) {
+			for (var r1 = 0; r1 > rDiff; r1 --) {
+				tableObj.deleteRow(tableObj.rows.length - 1);
+			}
+		}
+
+		for (var r = 0; r < tableObj.rows.length; r ++) {
+			// Insert or delete cells if necessary.
+			if (cDiff > 0) {
+				for (var c1 = 0; c1 < cDiff; c1 ++) {
+					newTD = tableObj.rows[r].appendChild(document.createElement("TD"));
+					newTD.onmouseover = resizeTableTool;
+					newTD.innerHTML = "&nbsp;";
+				}
+			} else if (cDiff < 0) {
+				for (var c1 = 0; c1 > cDiff; c1 --) {
+					tableObj.rows[r].deleteCell(tableObj.rows[r].cells.length - 1);
+				}
+			}
+
+			for (var c = 0; c < tableObj.rows[r].cells.length; c ++) {
+				if (cIndex >= c && rIndex >= r) {
+					tableObj.rows[r].cells[c].style.backgroundColor = "#BECDDE";
+				} else {
+					tableObj.rows[r].cells[c].style.backgroundColor = "transparent";
+				}
+			}
+		}
+		document.getElementById("numberOfCols").innerHTML = trObj.cells.length - 1;
+		document.getElementById("numberOfRows").innerHTML = tableObj.rows.length - 1;
+	}
+}
+
+function doInsertTable(e) {
+	var tdObj = xGetEventSrcElement(e);
+	var numRows = tdObj.parentNode.rowIndex + 1;
+	var numCells = tdObj.cellIndex + 1;
+	var rng = xGetSelectionRange(htmlField.contentWindow);
+
+	//IE
+	if (rng.pasteHTML) {
+		var tblHTML = "<table cellspacing=0 cellpadding=5 border=0>";
+		for (var r = 0; r < numRows; r ++) {
+			tblHTML += "<tr>";
+			for (var c = 0; c < numCells; c ++) { tblHTML += "<td></td>"; }
+			tblHTML += "</tr>";
+		}
+		tblHTML += "</table>";
+		rng.pasteHTML(tblHTML);
+
+		// move cursor into new table and show table properties
+		var currentSelection = xGetSelectionRange(htmlField.contentWindow);
+		currentSelection.move("character",-1);
+		currentSelection.select();
+		element = getCurrent(htmlField,"TABLE");
+		if (element == null) {
+			currentSelection.move("character",2);
+			currentSelection.select();
+		}
+
+	//Firefox
+	} else {
+
+		var tbl,tr,td
+		tbl = htmlField.contentWindow.document.createElement("TABLE");
+		tbl.cellSpacing = 0;
+		tbl.cellPadding = 5;
+		tbl.border = 0;
+		for (var r = 0; r < numRows; r ++) {
+			tr = htmlField.contentWindow.document.createElement("TR");
+			for (var c = 0; c < numCells; c ++) {
+				td = htmlField.contentWindow.document.createElement("TD");
+				td.appendChild(htmlField.contentWindow.document.createElement("BR"))
+				tr.appendChild(td);
+			}
+			tbl.appendChild(tr);
+		}
+		rng.insertNode(tbl);
+		rng.selectNodeContents(tbl);
+		xSelectRange(htmlField.contentWindow,rng);
+		// This is a workaround for a problem in Firefox that causes the rowIndex property to not be available
+		// This step should not be necessary and should be revisited.
+		tbl.innerHTML = tbl.innerHTML;
+	}
+	htmlToolbar.dialog("table",null,null,window);
+}
+
+function setEvents() {
+	var cells = document.getElementsByTagName("TD");
+	for (var i = 0; i < cells.length; i ++) {
+		cells[i].onclick = doInsertTable;
+		cells[i].onmouseover = resizeTableTool;
+	}
+}
+window.onload = setEvents;
+</script>
+<style>
+table {
+	table-layout:fixed;
+	background-color: #efefef
+}
+table, td {
+	width:15px;
+	height:15px;
+	border:1px solid #999999;
+	cursor:pointer;
+}
+</style>
+</head>
+<body id="dialog">
+<h1>Create Table</h1>
+<p>Select the size of table you want to create.</p>
+<div style="height:300px">
+<span id="numberOfCols">1</span> by <span id="numberOfRows">1</span><br>
+<table border=1 cellpadding=0 cellspacing=0>
+	<tr>
+		<td style="background-color:#BECDDE">&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+</div>
+<input type=button value=Cancel class="button" onclick="window.close()">
+</body>
+</html>

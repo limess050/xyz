@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>CFX_JSpellCheck Documentation - Front End</title>
+	<link href="doc_style.css" type="text/css" rel="stylesheet"> 
+</head>
+
+<body>
+<P>
+<a href="http://www.cfdev.com/"><IMG height=86 alt=CFDEV.COM src="cfdev2000.gif" width=361 border=0></a><br>
+<br>
+To call the front end on a textarea, consider the following example...<br>
+<br>
+<span class="code">&lt;form name<FONT 
+color=#0000ff>"myFormName"</FONT>&gt;<BR>&nbsp; &lt;textarea name=<FONT 
+color=#0000ff>"myFieldName"</FONT>&gt;<FONT color=#000000>Spelllde 
+Wrang</FONT>&lt;/textarea&gt;<BR>&nbsp; &lt;input onClick=<FONT 
+color=#0000ff>"doSpell()"</FONT> type=<FONT color=#0000ff>"button" 
+</FONT>value=<FONT color=#0000ff>"Check Spelling"</FONT>&gt;<BR>
+
+</span><SPAN 
+class=code>&lt;/form&gt;</SPAN></P>
+<P>The following script could be used to open the spell 
+checking window...</P>
+<P><SPAN class=code><FONT color=#990000><FONT color=#800000>&lt;script 
+language=<FONT color=#0000ff>"javascript"</FONT>&gt;<BR><FONT 
+color=#808080>//called when the Check spelling button is 
+clicked<BR></FONT></FONT><FONT color=#000000><STRONG><FONT 
+color=#000080>function</FONT></STRONG> doSpell<FONT color=#0000ff>()</FONT> 
+<STRONG><FONT color=#000080>  
+{<BR></FONT></STRONG>&nbsp;&nbsp;&nbsp; 
+window.<STRONG>open</STRONG>(<FONT 
+color=#0000ff>"/spellchecker/window.cfm?jsvar=document.myFormName.myFieldName.value"</FONT>, 
+<STRONG><FONT 
+color=#000080>null</FONT></STRONG>,&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<FONT 
+color=#0000ff>"height=230,width=450,status=no,toolbar=no,menubar=no,location=no"</FONT>);&nbsp;<BR><STRONG><FONT color=#000080>}</FONT></STRONG><BR><FONT 
+color=#800000>&lt;/script&gt;</FONT></FONT><BR></FONT></SPAN></P>
+The following things should be noted...
+<ul type="square">
+	<li>The example above assumes that your front end has been installed in a directory called spellchecker directly under the web server
+	root (/spellchecker).</li>
+	<li>window.cfm?jsvar=xxx - is the page you should open up in a new window.  jsvar should be a javascript variable that points to the content that should be spell checked.</li>
+</ul>
+
+</body>
+</html>

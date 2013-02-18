@@ -1,0 +1,15 @@
+Lighthouse/Resources/js/lighthouse.js and lighthouse_all.js
+	ShowPopupCalendar modified to use d/m/yyy format
+	
+	CheckDate function in _all.js also changed (matchArray[x] values swapped for day and month)
+	
+Lighthouse/page.cfm changed to search for current business listings in 404 process. (Starting at line 108).
+
+2/18/2010
+Lighthouse/Tags/MS_TableAddEdit.cfm
+ID="MainAdminTable" added at line 289 so jQuery could refenrence the able to add a row in admin/HelpfulHints.cfm and Admin/RelevantLinks.cfm
+
+11/5/2012
+Lighthouse/page.cfm line 409
+Added:
+<META NAME="country" CONTENT="Tanzania">

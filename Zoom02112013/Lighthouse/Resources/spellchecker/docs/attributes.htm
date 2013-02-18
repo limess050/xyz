@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+<title>&lt;CFX_JSpellCheck&gt;</title>
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+<a href="http://www.cfdev.com/"><IMG height=86 alt=CFDEV.COM src="cfdev2000.gif" width=361 border=0></a><br>
+<br>
+
+<B><FONT FACE="Arial">&lt;CFX_JSpellCheck&gt; Attribute Reference</B></FONT><BR>
+<BR>
+<STYLE>TD { font-family: arial; font-size: x-small; } </STYLE>
+
+<TABLE BORDER =1 CELLSPACING=1 BORDERCOLOR="#000000" CELLPADDING=2>
+<TR><TD VALIGN="center">
+<P ALIGN="center"><STRONG>Attribute</STRONG></P></TD>
+<TD VALIGN="center">
+<STRONG><P ALIGN="center">Type</STRONG></P></TD>
+<TD VALIGN="center">
+<STRONG><P align="center">State</STRONG></P></TD>
+<TD VALIGN="center">
+<STRONG><P ALIGN="center">Description</STRONG></P></TD>
+</TR>
+<TR><TD VALIGN="center"><a name="inc"></a>
+<STRONG><P>clx</STRONG></P></TD>
+<TD VALIGN="center">
+<P> text (path)</P>  </TD>
+<TD VALIGN="center">
+<FONT COLOR="#ff0000"><P>REQUIRED</FONT></P></TD>
+<TD VALIGN="center">
+<P>Compressed Lexicon File, path to the file in the 
+      lex directory with the extension .clx usually 
+      c:\CFX_JSpellCheck\lex\american.clx for the american dictionary.</P>    </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="fieldname"></a>
+<STRONG><P>tlx</STRONG></P></TD>
+<TD VALIGN="center">
+<P>text (path)</P></TD>
+<TD VALIGN="center">
+<FONT COLOR="#ff0000"><P>REQUIRED</FONT></P></TD>
+<TD VALIGN="center">
+      <P>Text&nbsp;Lexicon File, path to the file in the lex directory with the 
+      extension .tlx usually
+      c:\CFX_JSpellCheck\lex\american.tlx for the american 
+      dictionary.</P>      </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="type"></a>
+<STRONG><P>userdict</STRONG></P></TD>
+<TD VALIGN="center">
+<P>text (path)</P></TD>
+<TD VALIGN="center">
+      <P><FONT color=#ff0000>REQUIRED</FONT></P> </TD>
+<TD VALIGN="center">
+      <P>User Dictionary File, path to the file which will contain a user 
+      defined dictionary. This is usually c:\CFX_JSpellCheck\lex\userdic.tlx.</P>         </TD>
+</TR>
+  <TR>
+    <TD vAlign=center><STRONG>words</STRONG></TD>
+    <TD vAlign=center>text</TD>
+    <TD vAlign=center>&nbsp;</TD>
+    <TD vAlign=center>This is a string of words that will be spell 
+  checked.</TD></TR>
+  <TR>
+    <TD vAlign=center><STRONG>action</STRONG></TD>
+    <TD vAlign=center>text</TD>
+    <TD vAlign=center>check or add</TD>
+    <TD vAlign=center>Used to distinguish between checking words, or adding 
+      a&nbsp;word</TD></TR>
+<TR><TD VALIGN="center"><a name="ds"></a>
+<STRONG><P>searchdepth</STRONG></P></TD>
+<TD VALIGN="center">
+<P>integer</P></TD>
+<TD VALIGN="center"><P> 1 to100</P></TD>
+<TD VALIGN="center">
+<P>An integer specifing the search depth, this 
+      attribute has significant impact on the spell checkers response time. Default value is 50, high values conduct 
+      a more in depth search.</P>             </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="table">
+<STRONG><P>englishphonetic</STRONG></P></a></TD>
+<TD VALIGN="center">
+<P>boolean</P></TD>
+<TD VALIGN="center">
+      <P>  default:false</P></TD>
+<TD VALIGN="center">
+<P>Should be set to true if you are using 
+      the&nbsp;English language.&nbsp; This option will use an English Phonetic 
+      Comparator for searches.&nbsp; This comparator searches by phonetics, 
+      which often produces better results, and a few tests show that it has a higher return 
+    time.</P>        </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="primarykey"></a>
+<STRONG><P>format</STRONG></P></TD>
+<TD VALIGN="center">
+<P>text</P></TD>
+<TD VALIGN="center">
+<P>  javascript  or  wddx&lt;  /P&gt;&lt;      /P&gt;<  /P></TD>
+<TD VALIGN="center">
+<P>Returns either a set of Java Script arrays of 
+      mispelled words, or output in WDDX XML Format, WDDX can easily be read by ColdFusion Application Server.&nbsp; 
+      Default is JavaScript</P>           </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="primarykeyvalue"></a>
+<STRONG><P>multilingual</STRONG></P></TD>
+<TD VALIGN="center">
+<P>boolean</P></TD>
+<TD VALIGN="center">&lt;
+  P&gt;  default:      false&lt;  /P&gt;</TD>
+<TD VALIGN="center">
+<P>PLEASE NOTE: this is a server wide setting, the 
+      value used here, could effect other spell checkers on your server.&nbsp; 
+      If you are only using one language PER SERVER&nbsp;then set this attribute 
+      to false.&nbsp; It allows us to cache the SpellChecker object, providing a 
+      huge performance gain, by reusing objects.&nbsp; When set to true, 
+      CFX_JSpellCheck will create a new object each time the tag is called, resulting in approximate performance loss of 
+      30-60%.&nbsp;</P>          </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="image"></a>
+<STRONG><P>striphtml</STRONG></P></TD>
+<TD VALIGN="center">
+<P>boolean</P></TD>
+<TD VALIGN="center">
+<P>default: true</P> </TD>
+<TD VALIGN="center">
+<P>Removes all tags from the words input 
+      attribute.&nbsp; It will also remove anything inside 
+      &lt;script&gt;javascript&lt;/script&gt; or &lt;style&gt;css&lt;/style&gt; 
+      tags.</P>         </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="imageurl"></a>
+<STRONG><P>variable</STRONG></P></TD>
+<TD VALIGN="center">
+<P>  text</P>  </TD>
+<TD VALIGN=        "center">  &nbsp;&nbsp;&nbsp;</TD>
+<TD VALIGN="center">
+<P>The name of the variable the output of the tag 
+      will be stored in.&nbsp; If this attribute is not specified, then it will 
+      output the result where &lt;CFX_JSpellCheck&gt; is called.</P>     </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="imagepath"></a>
+<STRONG><P>lexdir</STRONG></P></TD>
+<TD VALIGN="center">
+<P> text (path)</P>  </TD> 
+    <TD vAlign=center>&nbsp;&nbsp; </TD>
+<TD VALIGN="center">
+<P>This attribute is a shortcut for specifying the 
+      tlx, clx, and userdict attributes.&nbsp; Just put the path to the lex dir, 
+      and it will assume american.clx, american.tlx, and userdic.tlx for the clx, tlx, and userdic attributes 
+  respectivly.</P>        </TD>
+</TR>
+<TR><TD VALIGN="center"><a name="upload"></a>
+<STRONG><P>word</STRONG></P></TD>
+<TD VALIGN="center">
+<P>text</P></TD>
+<TD VALIGN="center">
+<P>&nbsp;action= add</P> </TD>
+<TD VALIGN="center">
+<P>A word to add to the user dictionary when type=add 
+      is specified.</P>    </TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -23,5 +23,10 @@ class Common extends CI_Model
 		 	redirect('alerts');
 	}
 
+	function menu()
+	{
+		
+	}
+
 	
 }

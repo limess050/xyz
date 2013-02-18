@@ -1,0 +1,10 @@
+
+Wrapping in html edit mode doesn't work in textareas:
+https://bugzilla.mozilla.org/show_bug.cgi?id=82711
+https://bugzilla.mozilla.org/show_bug.cgi?id=41464
+
+Styles for links don't appear properly in design mode:
+https://bugzilla.mozilla.org/show_bug.cgi?id=300358
+
+Enter does not create a new paragraph
+https://bugzilla.mozilla.org/show_bug.cgi?id=92686

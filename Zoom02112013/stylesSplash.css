@@ -1,0 +1,10 @@
+html,body{height:100%;margin:0;padding:0;}
+body {text-align:center; background:#e1e1e1 url('../images/DAR-coming-soon.jpg') top center no-repeat; }
+
+.content {padding:588px 0 50px;width:544px; margin:0 auto; text-align:left;}
+h1 {margin:0 0 0 9px; overflow:hidden;text-indent:-9999px;width:254px;height:61px;background:url('../images/logo-ongrey.gif') left top no-repeat; }
+
+p {margin:16px auto; font-size:13px; line-height:21px; font-family:Verdana, "Helvetica Neue", Arial, Helvetica, sans-serif; color:#000;text-align:left;}
+a {color:#0068B3;}
+
+p.comingsoon {text-indent:-9999px; font-size:1px; line-height:0px;margin:0; padding:0;}

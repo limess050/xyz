@@ -1,0 +1,7 @@
+/////////////////////////////////////
+// Generic functions for public websites
+/////////////////////////////////////
+
+//shortcut for document.write
+function write(s){document.write(s);}
+

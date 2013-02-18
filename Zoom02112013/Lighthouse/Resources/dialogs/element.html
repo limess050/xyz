@@ -1,0 +1,600 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Element Properties</title>
+<link rel=stylesheet href="../css/MSStandard.css" type="text/css">
+<script type="text/javascript" src="../../dojo/dojo.js"></script>
+<script type="text/javascript" src="../js/library.js"></script>
+<script type="text/javascript" src="../js/wysiwyg.js"></script>
+<script type="text/javascript">
+var dialogParams = opener.dialogParams;
+var htmlToolbar = dialogParams["htmlToolbar"];
+var htmlField = dialogParams["htmlField"];
+var dialogName = dialogParams["dialogName"];
+var elementName = dialogParams["elementName"];
+var siteEditor = dialogParams["siteEditor"];
+var fileDir = dialogParams["fileDir"];
+var element, pageTitle, tabs, propertyGroups;
+var originalWidth,originalHeight;
+var rules = opener.getStylesheetRules(htmlField);
+var originalContent = htmlField.editArea.innerHTML;
+var emailRE = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i;
+
+function setValues() {
+
+	//Initialize tabs and property groups
+	tabs = getEl("tabs").getElementsByTagName("SPAN");
+	propertyGroups = getEl("properties").getElementsByTagName("DIV");
+	for (var i = 0; i < tabs.length; i ++) {
+		tabs[i].onclick = selectTab;
+	}
+
+	switch (dialogName) {
+
+
+		////////////////////////////////////////////////
+		// ANCHOR
+		////////////////////////////////////////////////
+		case "anchor" :
+
+			element = selectCurrent(htmlField,"A");
+			var text = "";
+			if (element != null) text = element.name;
+			if (text == "") {
+				if (xGetSelectionRange(htmlField.contentWindow).type != "Control") {
+					text = xGetRangeText(xGetSelectionRange(htmlField.contentWindow));
+					//Replace Non-word characters with underscore
+					text = text.replace(/\W+/g,"_");
+					//Remove underscores from beginning and end
+					text = text.replace(/(^_|_$)/g,"");
+				} else {
+					text = "";
+				}
+			}
+			getEl("anchor").value = text;
+
+			break;
+
+		////////////////////////////////////////////////
+		// LINK
+		////////////////////////////////////////////////
+		case "link" :
+
+			var href = "";
+			var anchor = "";
+			var target = "";
+
+			element = selectCurrent(htmlField,"A");
+
+			// If we found a current link, get current values
+			if (element != null) {
+				href = trimLocalUrl(element.getAttribute("HREF"));
+				href = replace(href,htmlField.window.location.href,"");
+				var bookmarkRE = /#(.+)/i;
+				if (bookmarkRE.test(href)) {
+					var bookmarkMatch = href.match(bookmarkRE);
+					anchor = bookmarkMatch[1];
+				}
+				if (href != "#" + anchor) {
+					getEl("address").value = href;
+				}
+				target = element.getAttribute("TARGET");
+			}
+			// anchors
+			var anchorField = getEl("anchorList");
+			var links = htmlField.editArea.getElementsByTagName("A");
+			var noAnchors = true;
+			if (links.length > 0) {
+				for (var l = 0; l < links.length; l ++) {
+					if (links[l].name != null && links[l].name != "") {
+						o = document.createElement("OPTION");
+						o.text = links[l].name;
+						o.value = links[l].name;
+						anchorField.options[anchorField.options.length] = o;
+						if (anchor == links[l].name) o.selected = true;
+						noAnchors = false;
+					}
+				}
+			}
+			if (noAnchors) {
+				anchorField.options[0].text = "-- No anchors available --";
+			}
+			// target
+			if (target == "" || target == "_self") {
+				getEl("targetSelf").checked = true;
+			} else {
+				getEl("targetBlank").checked = true;
+			}
+			
+			getEl("address").onchange = fixRelativePath;
+			
+			break;
+
+		////////////////////////////////////////////////
+		// IMAGE
+		////////////////////////////////////////////////
+		case "img" :
+
+			element = selectCurrent(htmlField,"IMG");
+			getEl("imagesrc").value = trimLocalUrl(element.src);
+			getEl("alt").value = element.alt;
+			getEl("border").value = element.border;
+			if (element.align == "left") getEl("alignLeft").checked = true;
+			else if (element.align == "right") getEl("alignRight").checked = true;
+			else getEl("alignNormal").checked = true;
+			getEl("height").value = element.height;
+			getEl("width").value = element.width;
+			getEl("vspace").value = element.vspace;
+			getEl("hspace").value = element.hspace;
+			getEl("imagePreview").onload = setOriginalSize;
+			getEl("imagePreview").src = element.src;
+			break;
+
+		////////////////////////////////////////////////
+		// TABLE
+		////////////////////////////////////////////////
+		case "table" :
+
+			element = getCurrent(htmlField,"TABLE");
+			if (element == null) {
+				window.location = "tableCreate.html";
+			} else {
+				tableRemoveGuidelines(htmlField.editArea)
+				getEl("tableBorder").value = element.border;
+				getEl("cellPadding").value = element.cellPadding;
+				getEl("cellSpacing").value = element.cellSpacing;
+			}
+			break;
+
+		////////////////////////////////////////////////
+		// TABLE ROW
+		////////////////////////////////////////////////
+		case "tr" :
+
+			element = getCurrent(htmlField,"TR");
+			if (element == null) {
+				window.location = "tableCreate.html";
+			} else {
+				if (element.align == "left") getEl("trAlignLeft").checked = true;
+				else if (element.align == "right") getEl("trAlignRight").checked = true;
+				else if (element.align == "center") getEl("trAlignCenter").checked = true;
+				if (element.vAlign == "top") getEl("trVAlignTop").checked = true;
+				else if (element.vAlign == "middle") getEl("trVAlignMiddle").checked = true;
+				else if (element.vAlign == "bottom") getEl("trVAlignBottom").checked = true;
+			}
+			break;
+
+		////////////////////////////////////////////////
+		// TABLE CELL
+		////////////////////////////////////////////////
+		case "td" :
+
+			element = getCurrent(htmlField,"TD");
+			if (element == null) {
+				window.location = "tableCreate.html";
+			} else {
+				if (element.align == "left") getEl("tdAlignLeft").checked = true;
+				else if (element.align == "right") getEl("tdAlignRight").checked = true;
+				else if (element.align == "center") getEl("tdAlignCenter").checked = true;
+				if (element.vAlign == "top") getEl("tdVAlignTop").checked = true;
+				else if (element.vAlign == "middle") getEl("tdVAlignMiddle").checked = true;
+				else if (element.vAlign == "bottom") getEl("tdVAlignBottom").checked = true;
+			}
+			break;
+
+
+		////////////////////////////////////////////////
+		// OTHER ELEMENTS
+		////////////////////////////////////////////////
+		default :
+
+			element = getCurrent(htmlField,elementName.toUpperCase());
+			break;
+	}
+
+	////////////////////////////////////////////////
+	// General Properties
+	////////////////////////////////////////////////
+	var ul = getEl("classes");
+	ul.innerHTML = "";
+	var li;
+	for (var r = 0; r < rules.length; r ++) {
+		if (arrayContains(rules[r][2],"") || arrayContains(rules[r][2],elementName)) {
+			li = "<li><input type=\"checkbox\" id=\"" + rules[r][0] + "\"";
+			if (element != null && element.className.search(new RegExp("(^| )" + rules[r][0] + "($| )","i")) > -1) {
+				li += " checked";
+			}
+			li += "><label for=\"" + rules[r][0] + "\">" + rules[r][3] + "</label></li>";
+			ul.innerHTML += li;
+		}
+	}
+	if (ul.innerHTML == "") {
+		ul.innerHTML += "<li>There are no " + getFriendlyTagName(elementName).toLowerCase() + " styles available.</li>";
+	}
+	if (element != null) {
+		getEl("style").value = element.style.cssText;
+		getEl("title").value = element.title;
+	}
+
+
+	// Set page title
+	getEl("pagetitle").innerHTML = getFriendlyTagName(elementName) + " Properties";
+
+	// Show appropriate properties
+	if (getEl(dialogName + "InfoProperties") != null) getEl(dialogName + "InfoProperties").style.display = "block";
+	if (getEl(dialogName + "AdvancedProperties") != null) getEl(dialogName + "AdvancedProperties").style.display = "block";
+}
+
+function applyChanges() {
+
+	switch (dialogName) {
+
+		////////////////////////////////////////////////
+		// ANCHOR
+		////////////////////////////////////////////////
+		case "anchor" :
+
+			var anchor = getEl("anchor").value;
+			//Remove spaces and pound signs
+			anchor = anchor.replace(/ /g,"_");
+			anchor = anchor.replace(/#/g,"");
+			if (anchor != "") {
+				if (element == null) {
+					// if nothing selected, use anchor as text
+					var currentRange = htmlField.getTrimmedSelection();
+					if (getCurrent(htmlField,"IMG") == null && xGetSelection(htmlField.contentWindow).type != "Control") {
+						if (xGetRangeText(currentRange).length == 0) {
+							xInsertTextInRange(htmlField.contentWindow.document,currentRange,getEl("anchor").value);
+							xSelectRange(htmlField.contentWindow,currentRange);
+						}
+					}
+
+					//Firefox does not support CreateBookmark
+					if (isGecko()){
+						htmlField.contentWindow.document.execCommand("CreateLink",false,"test");
+						element = selectCurrent(htmlField,"A");
+						if (element == null) {
+							element = getElementInSelection(htmlField,"A");
+						}
+						element.removeAttribute("href");
+					} else {
+						htmlField.contentWindow.document.execCommand("CreateBookmark",false,anchor);
+						element = selectCurrent(htmlField,"A");
+					}
+				}
+				element.name = anchor;
+			}
+			break;
+
+		////////////////////////////////////////////////
+		// LINK
+		////////////////////////////////////////////////
+		case "link" :
+
+			var url = "";
+			var address = getEl("address").value;
+			var anchorField = getEl("anchorList");
+			if (address != "") {
+				url = address;
+			} else if (anchorField.selectedIndex > 0) {
+				url = "#" + anchorField.options[anchorField.selectedIndex].text;
+			}
+			if (url != "") {
+				// if nothing selected, use url as text
+				var currentRange = htmlField.getTrimmedSelection();
+				if (getCurrent(htmlField,"IMG") == null && xGetSelection(htmlField.contentWindow).type != "Control") {
+					if (xGetRangeText(currentRange).length == 0) {
+						xInsertTextInRange(htmlField.contentWindow.document,currentRange,url);
+						xSelectRange(htmlField.contentWindow,currentRange);
+					}
+				}
+				// if address is email, add mailto protocol
+				if (emailRE.test(url)) {
+					url = "mailto:" + url;
+				}
+				if (element == null) {
+					htmlField.contentWindow.document.execCommand("CreateLink",false,url);
+					element = selectCurrent(htmlField,"A");
+					if (element == null) {
+						element = getElementInSelection(htmlField,"A");
+					}
+				} else {
+					element.href = url;
+				}
+				if (element != null) {
+					if (getEl("targetBlank").checked) {
+						element.target = "_blank";
+					} else {
+						element.target = "";
+					}
+				}
+			}
+			break;
+
+		////////////////////////////////////////////////
+		// IMAGE
+		////////////////////////////////////////////////
+		case "img" :
+
+			element.src = getEl("imagesrc").value;
+			element.alt = getEl("alt").value;
+			element.border = getEl("border").value;
+			if (getEl("alignLeft").checked) element.align = "left";
+			else if (getEl("alignRight").checked) element.align = "right";
+			else element.align = "";
+			element.height = getEl("height").value;
+			element.width = getEl("width").value;
+			element.vspace = getEl("vspace").value;
+			element.hspace = getEl("hspace").value;
+			break;
+
+		////////////////////////////////////////////////
+		// TABLE
+		////////////////////////////////////////////////
+		case "table" :
+
+			element.border = getEl("tableBorder").value;
+			element.cellPadding = getEl("cellPadding").value;
+			element.cellSpacing = getEl("cellSpacing").value;
+			break;
+
+		////////////////////////////////////////////////
+		// TABLE ROW
+		////////////////////////////////////////////////
+		case "tr" :
+
+			if (getEl("trAlignLeft").checked) element.align = "left";
+			else if (getEl("trAlignCenter").checked) element.align = "center";
+			else if (getEl("trAlignRight").checked) element.align = "right";
+			if (getEl("trVAlignTop").checked) element.vAlign = "top";
+			else if (getEl("trVAlignMiddle").checked) element.vAlign = "middle";
+			else if (getEl("trVAlignBottom").checked) element.vAlign = "bottom";
+			break;
+
+		////////////////////////////////////////////////
+		// TABLE CELL
+		////////////////////////////////////////////////
+		case "td" :
+
+			if (getEl("tdAlignLeft").checked) element.align = "left";
+			else if (getEl("tdAlignCenter").checked) element.align = "center";
+			else if (getEl("tdAlignRight").checked) element.align = "right";
+			if (getEl("tdVAlignTop").checked) element.vAlign = "top";
+			else if (getEl("tdVAlignMiddle").checked) element.vAlign = "middle";
+			else if (getEl("tdVAlignBottom").checked) element.vAlign = "bottom";
+			break;
+
+	}
+
+	////////////////////////////////////////////////
+	// General Properties
+	////////////////////////////////////////////////
+	if (element == null) {
+		element = getCurrent(htmlField,elementName.toUpperCase());
+	}
+	if (element != null) {
+		var ul = getEl("classes");
+		var className = "";
+		for (var i = 0; i < ul.childNodes.length; i ++) {
+			if (ul.childNodes[i].childNodes[0].checked) {
+				if (className != "") className += " ";
+				className += ul.childNodes[i].childNodes[0].id;
+			}
+		}
+		element.className = className;
+		element.style.cssText = getEl("style").value;
+		element.title = getEl("title").value;
+	}
+
+
+}
+
+////////////////////////////////////////////////
+// LINK FUNCTIONS
+////////////////////////////////////////////////
+function setUrl(url) {
+	getEl("address").value = url;
+}
+function fixRelativePath(){
+	if (this.value.charAt(0)!="/" && this.value.search(/^\w+:\/\//)!=0 && !emailRE.test(this.value)){
+		this.value = "/" + this.value;
+	}
+}
+
+////////////////////////////////////////////////
+// IMAGE FUNCTIONS
+////////////////////////////////////////////////
+var resetSize = false;
+function setImageUrl(url) {
+	getEl("imagesrc").value = url;
+	getEl("imagePreview").src = url;
+	resetSize = true;
+}
+function setOriginalSize() {
+	setTimeout("setOriginalSize2()",100);
+}
+function setOriginalSize2() {
+	// Set original size
+	originalWidth = getEl("imagePreview").width;
+	originalHeight = getEl("imagePreview").height;
+	getEl("originalWidth").innerHTML = originalWidth;
+	getEl("originalHeight").innerHTML = originalHeight;
+	// Set current percentage
+	setPercentFromPixel();
+	if (resetSize) setToOriginalSize();
+}
+function setToOriginalSize() {
+	getEl("percentHeight").value = "100";
+	getEl("percentWidth").value = "100";
+	setPixelFromPercent();
+}
+function setPixelFromPercent() {
+	getEl("height").value = parseInt(getEl("percentHeight").value/100*originalHeight);
+	getEl("width").value = parseInt(getEl("percentWidth").value/100*originalWidth);
+}
+function setPercentFromPixel() {
+	getEl("percentHeight").value = parseInt(getEl("height").value/originalHeight*100);
+	getEl("percentWidth").value = parseInt(getEl("width").value/originalWidth*100);
+}
+
+////////////////////////////////////////////////
+// General Functions
+////////////////////////////////////////////////
+function saveChanges() {
+	applyChanges();
+	if (dialogName == "table") tableSetGuidelines(htmlField.editArea);
+	window.onunload = null;
+	window.close();
+	return false;
+}
+
+function cancelChanges() {
+	htmlField.editArea.innerHTML = originalContent;
+	window.close();
+}
+
+function getEl(id) {
+	return document.getElementById(id);
+}
+
+function selectTab(e) {
+	var tab = xGetEventSrcElement(e);
+
+	for (var i = 0; i < propertyGroups.length; i ++) {
+		if (propertyGroups[i].id + "tab" == tab.id) {
+			propertyGroups[i].className = "selected";
+			tab.className = "selected";
+		} else if (document.getElementById(propertyGroups[i].id + "tab") != null) {
+			propertyGroups[i].className = "unselected";
+			document.getElementById(propertyGroups[i].id + "tab").className = "unselected";
+		}
+	}
+
+}
+</script>
+</head>
+<body id="dialog" onload="setValues()">
+<form onsubmit="return saveChanges()">
+<h1 id="pagetitle">Element Properties</h1>
+
+<div id="tabs">
+	<span id="infotab" class="selected">Info</span>
+	<span id="advancedtab" class="unselected">Advanced</span>
+</div>
+
+<div id="properties">
+	<div id="info" class="selected">
+
+		<!-- Anchor -->
+		<div id="anchorInfoProperties" style="display:none">
+			<p><label for=anchor><b>Insert a name for your anchor:</b></label><br/><input type=text id=anchor name=anchor size=50></p>
+		</div>
+
+		<!-- Link -->
+		<div id="linkInfoProperties" style="display:none">
+			<p><label for="address"><b>Link to a url or to an email address...</b></label><br>
+			<input type=text name=address id=address size=50 value=""><br>
+			<script>
+			if (siteEditor) {
+				document.write("<a href=\"../../../admin/index.cfm?adminFunction=dialogs%2FgoToPage&action=getUrl\" target=\"dialog2\" onclick=\"popupDialog('dialog2',500,400,'resizable=1,scrollbars=1,status=1')\">Choose a page on this site</a>");
+			}
+			if (fileDir != "") {
+				if (siteEditor) document.write(" | ");
+				document.write("<a href=\"fileBrowser.cfm?uploadDir=" + fileDir + "\" target=\"dialog2\">Choose a File</a>");
+			}
+			</script></p>
+			<p><label for="anchorList"><b>... or link to an anchor within this page:</b></label><br>
+			<select id=anchorList><option></option></select></p>
+			<p><label for="target"><b>Specify a target for this link:</b></label><br>
+			<input type="radio" name="target" id="targetSelf" value="_self"><label for="targetSelf">Same Window</label>
+			<input type="radio" name="target" id="targetBlank" value="_blank"><label for="targetBlank">New Window</label></p>
+		</div>
+
+		<!-- Image -->
+		<div id="imgInfoProperties" style="display:none">
+			<div style="float:right;">
+			<label for=imagePreview><b>Image Preview:</b> <span id=originalWidth>???</span> x <span id=originalHeight>???</span> Pixels</label><br>
+			<div style="overflow=auto;width:200px;height:250px;margin-top:3px;border:1px solid black;background-color:white;"><img id="imagePreview"></div>
+			</div>
+			<p><label for=imagesrc><b>Image Source:</b></label><br/><input type=text id=imagesrc size=30><br/>
+			<script>
+			if (fileDir != "") document.write("<a href=\"fileBrowser.cfm?uploadDir=" + fileDir + "\" target=\"dialog2\">Choose an Image</a>");
+			</script></p>
+			<p><label for=alt><b>Alternate Text:</b></label><br/><input type=text id=alt size=30></p>
+			<p><label for=border><b>Border:</b></label><br/><input type=text id=border size=3></p>
+			<p><label for=align><b>Alignment:</b></label><br/>
+			<input type="radio" name="align" id="alignNormal" value=""><label for="alignNormal">Normal</label>
+			<input type="radio" name="align" id="alignLeft" value=""><label for="alignLeft">Left</label>
+			<input type="radio" name="align" id="alignRight" value=""><label for="alignRight">Right</label></p>
+
+		</div>
+
+		<!-- Table -->
+		<div id="tableInfoProperties" style="display:none">
+			<p><label for=tableBorder><b>Border:</b></label><br/><input type=text id=tableBorder size=3></p>
+			<p><label for=cellPadding><b>Cell padding:</b></label><br/><input type=text id=cellPadding size=3></p>
+			<p><label for=cellSpacing><b>Cell spacing:</b></label><br/><input type=text id=cellSpacing size=3></p>
+		</div>
+
+		<!-- Table Row -->
+		<div id="trInfoProperties" style="display:none">
+			<p><label for=trAlign><b>Horizontal Alignment:</b></label><br/>
+			<input type="radio" name="trAlign" id="trAlignLeft" value=""><label for="trAlignLeft">Left</label>
+			<input type="radio" name="trAlign" id="trAlignCenter" value=""><label for="trAlignCenter">Center</label>
+			<input type="radio" name="trAlign" id="trAlignRight" value=""><label for="trAlignRight">Right</label></p>
+			<p><label for=trVAlign><b>Vertical Alignment:</b></label><br/>
+			<input type="radio" name="trVAlign" id="trVAlignTop" value=""><label for="trVAlignTop">Top</label>
+			<input type="radio" name="trVAlign" id="trVAlignMiddle" value=""><label for="trVAlignMiddle">Middle</label>
+			<input type="radio" name="trVAlign" id="trVAlignBottom" value=""><label for="trVAlignBottom">Bottom</label></p>
+		</div>
+
+		<!-- Table Cell -->
+		<div id="tdInfoProperties" style="display:none">
+			<p><label for=tdAlign><b>Horizontal Alignment:</b></label><br/>
+			<input type="radio" name="tdAlign" id="tdAlignLeft" value=""><label for="tdAlignLeft">Left</label>
+			<input type="radio" name="tdAlign" id="tdAlignCenter" value=""><label for="tdAlignCenter">Center</label>
+			<input type="radio" name="tdAlign" id="tdAlignRight" value=""><label for="tdAlignRight">Right</label></p>
+			<p><label for=tdVAlign><b>Vertical Alignment:</b></label><br/>
+			<input type="radio" name="tdVAlign" id="tdVAlignTop" value=""><label for="tdVAlignTop">Top</label>
+			<input type="radio" name="tdVAlign" id="tdVAlignMiddle" value=""><label for="tdVAlignMiddle">Middle</label>
+			<input type="radio" name="tdVAlign" id="tdVAlignBottom" value=""><label for="tdVAlignBottom">Bottom</label></p>
+		</div>
+
+		<!-- General -->
+		<p><label for="classes"><b>Style(s):</b></label></p><ul id="classes"></ul>
+
+	</div>
+	<div id="advanced" class="unselected">
+
+		<!-- Image -->
+		<div id="imgAdvancedProperties" style="display:none">
+			<p><b>Pixel Size:</b><br>
+			<label for=height>Height:</label><input type="text" size=3 id="height" onkeyup="setPercentFromPixel()">
+			<label for=height>Width:</label><input type="text" size=3 id="width" onkeyup="setPercentFromPixel()">
+			</p>
+			<p><b>Percentage of original:</b><br>
+			<label for=percentHeight>Height:</label><input type="text" size=3 id="percentHeight" onkeyup="setPixelFromPercent()">
+			<label for=percentWidth>Width:</label><input type="text" size=3 id="percentWidth" onkeyup="setPixelFromPercent()">
+			</p>
+			<p><b>Space around image:</b><br>
+			<label for=border>Top and bottom:</label><input type=text id=vspace size=3>
+			<label for=border>Left and right:</label><input type=text id=hspace size=3>
+			</p>
+		</div>
+
+		<!-- General -->
+		<p><label for=title><b>Descriptive Title (Appears on mouseover):</b></label><br/><input type=text id=title size=50></p>
+		<p><label for=style><b>Style Attributes (Must use valid css syntax):</b></label><br/><input type=text id=style size=50></p>
+
+	</div>
+</div>
+
+<p>
+<input type=submit value=OK class="button">
+<input type=button value=Cancel class="button" onclick="cancelChanges()">
+<input type=button value=Apply class="button" onclick="applyChanges()">
+</p>
+
+</form>
+</body>
+</html>

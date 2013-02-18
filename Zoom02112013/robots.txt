@@ -1,0 +1,19 @@
+User-agent: *
+Crawl-delay: 1
+Disallow: /admin
+Disallow: /Lighthouse
+Disallow: /templates
+#disallowing uploads directory.
+#If some uploads need to be indexed, add an Allow line.
+#Allow: /uploads/publicdocs
+Disallow: /uploads
+
+Disallow: /clients
+Disallow: /ModernCF2
+Disallow: /ReportBadListing.cfm
+Disallow: /Includes/GetJAndELinksTable.cfc
+Disallow: /includes/ClickThroughExpanded.cfc
+Disallow: /Includes/ClickThroughExternal.cfc
+Disallow: /includes/GetCategories.cfc
+Disallow: /includes/*
+Disallow: /intTasks/*

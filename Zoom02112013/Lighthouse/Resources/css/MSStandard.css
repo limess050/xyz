@@ -1,0 +1,507 @@
+/*
+Standard style for admin
+*/
+
+/*
+Import standard wysiwyg styles and site wysiwyg styles.  These should also be imported by the site
+stylesheet to give the site wysiwyg access to styles.
+*/
+@import url(MSStandard_wysiwyg.css);
+@import url(../../../style_wysiwyg.css);
+
+
+BODY {
+	background-color:white;
+}
+* {
+	font-family: Verdana,Sans-Serif !important;
+	font-size:12px;
+}
+
+input.button,td.button,div.button,span.button {
+	background-color:#BECDDE;
+	font-weight:bold;
+	color:black;
+	font-size:11px !important;
+	line-height:17px;
+	border: 1px solid black !important;
+	padding:2px 4px;
+	margin:1px;
+	cursor:pointer;
+	vertical-align:middle;
+}
+
+
+/* The title that appears at the top of every page */
+.PAGETITLE,h1 {
+	font-size:18px;
+	font-weight:bold;
+	color:Gray;
+}
+h2 {
+	font-size:16px;
+	font-weight:bold;
+	color:black;
+}
+h3 {
+	font-size:14px;
+	font-weight:bold;
+	color:#999999;
+}
+
+/* Any text not covered by the classes below */
+.NORMALTEXT {
+	font-size:13px;
+}
+.NORMALTEXT A {
+	color:#374F89;
+}
+.NORMALTEXT A:visited {
+	color:#374F89;
+}
+
+/* Whereever small text is appropriate */
+.SMALLTEXT {
+	font-size:11px;
+}
+
+table.info {
+	border-top:1px solid black;
+	border-right:1px solid black;
+}
+table.info th, table.info td {
+	border-bottom:1px solid black;
+	border-left:1px solid black;
+	padding:5px;
+}
+table.info th {
+	text-align:left;
+	background-color:#666;
+	color:#fff;
+}
+
+/* Lighthouse syntax errors */
+div#lighthouse_errors * {
+	color:red !important;
+	font-weight:bold !important;
+}
+
+/* The status message which appears after an action has been performed (e.g. a record has been deleted) */
+.STATUSMESSAGE, div.STATUSMESSAGE * {
+	color:#374F89;
+	font-weight:bold;
+	font-style:italic;
+	font-size:13pt;
+}
+
+/*.VIEWTABLE,.ACTIONBUTTONTABLE,.EDITACTIONTABLE {  };*/
+
+/* Table that holds the records on the view page */
+.VIEWTABLE {
+	border:1px solid white;
+}
+.VIEWTABLE tr {
+	background-color:#efefef;
+}
+.VIEWTABLE tr.alternate {
+	background-color:#e6e6e6;
+}
+.VIEWTABLE tr.selected {
+	background-color:#333333;
+	color:white !important;
+	font-style:italic;
+}
+.VIEWTABLE td {
+	border:1px solid white;
+	padding:1px 4px 1px 4px;
+	font-size:12px;
+}
+.VIEWTOTALROW {
+	color:white !important;
+	background-color:#666666 !important;
+}
+tr#viewgroupheaderrow {
+	background-color:#ffffff;
+}
+td.viewgroupheadercell {
+	background-color: #efefef;
+	text-align: center;
+	font-size:10px;
+	font-weight:bold;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+
+/*
+ACTIONCELL and ACTIONLINK are used for the action buttons that appear at the top of the page.
+VIEWACTIONCELL and VIEWACTIONLINK are used for the action buttons that appear on the right of the View table (Edit and Delete).
+VIEWHEADERCELL and VIEWHEADERLINK are used for the column headers on the View page.
+*/
+.ACTIONCELL,.VIEWACTIONCELL,.VIEWHEADERCELL,.EDITACTIONCELL {
+	background-color:#374F89;
+	font-weight:bold;
+	color:white !important;
+	font-size:13px !important;
+	border-left: 1px solid white !important;
+	border-bottom: 1px solid white !important;
+	padding:2px 4px 2px 4px;
+	cursor:pointer;
+}
+.ACTIONCELL A,.VIEWACTIONCELL A,.VIEWHEADERCELL A,.EDITACTIONCELL A {
+	text-decoration:none;
+	color:white !important;
+}
+.ACTIONCELL A:HOVER, .VIEWACTIONCELL A:HOVER, .VIEWHEADERCELL A:HOVER, .EDITACTIONCELL A:HOVER {
+	color: #efefef;
+}
+
+
+/* PAGENAV is used for the page navigation on the View page */
+table.pagenav td.pagenavcurrent {
+	font-size:13px;
+	color:black;
+	font-weight:bold;
+	padding:2px;
+}
+table.pagenav a {
+	font-size:13px;
+	color:#374F89;
+	border:1px solid white;
+	padding:2px;
+	position:relative;
+}
+table.pagenav a:hover {
+	color:black;
+	border:1px outset #5191CD;
+}
+table.pagenav a:active {
+	color:black;
+	border:1px inset #5191CD;
+}
+select#pagenavNum {
+	border: 1px solid #374F89;
+	color: black;
+	font-size:11px;
+	margin-left:5px;
+}
+
+
+/* Styles for the add/edit page */
+.ADDTABLE,.SEARCHTABLE {
+	font-size:12px;
+}
+.ADDLABELCELL,.SEARCHLABELCELL {
+	font-weight: bold;
+	text-align:right;
+	vertical-align:top;
+}
+.ADDFIELDCELL,.SEARCHFIELDCELL {  }
+
+
+/* Column group styles */
+tbody.columngroup {
+	background-color: #efefef;
+}
+tr.columngroup td {
+	background-color: white;
+	padding:0px;
+}
+tr.columngroup h2 {
+	background-color: #efefef;
+	text-align: center;
+	font-size:14px;
+	margin: 5px 0px 0px 0px;
+	padding: 10px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+tbody.columngroup td.ADDLABELCELL, tbody.columngroup td.SEARCHLABELCELL {
+	border-left: 1px solid black;
+}
+tbody.columngroup td.ADDFIELDCELL, tbody.columngroup td.SEARCHFIELDCELL {
+	border-right: 1px solid black;
+}
+tbody.columngroup tr.lastrowingroup td {
+	border-bottom: 1px solid black;
+}
+tbody.columngroup tr.lastrowingroup td td {
+	border-bottom-width:0px;
+}
+
+
+
+/* Toolbar */
+.TOOLBARTABLE {
+	font-size:12px;
+	border-width: 2px;
+	border-color: #D3DDE9;
+	border-style: outset;
+	background: #BECDDE;
+}
+.TOOLBARBUTTONUP,.TOOLBARBUTTONDOWN,.TOOLBARBUTTONMOUSEOVER,.TOOLBARDIVIDER {
+	border-width: 1px;
+	border-color: #BECDDE;
+	border-style: solid;
+	cursor: pointer;
+}
+.TOOLBARBUTTONMOUSEOVER {
+	border-style: outset;
+}
+.TOOLBARBUTTONDOWN {
+	border-style: inset;
+}
+.TOOLBARDIVIDER {
+	width: 1px;
+	border-style: inset;
+}
+SELECT.TOOLBARSELECT {
+	height: 23px;
+	width: 150px;
+	font-size:11px;
+}
+
+/* Create Table table */
+
+div.editable, iframe.editable {
+	font-family:Arial;
+	font-size:12px;
+	width:600px;
+	height:300px;
+	padding:5px;
+	overflow:auto;
+	background:white;
+	margin-right:0px;
+	border:1px solid #999999;
+	cursor:auto;
+}
+div.editable.compact, iframe.editable.compact {
+	width:550px;
+	height:200px;
+}
+
+span.HELPBUTTONUP,span.HELPBUTTONDOWN {
+	font-size:12px;
+	font-weight:bold;
+	padding:2px;
+	border:1px solid #374F89;
+	cursor:pointer;
+}
+span.HELPBUTTONDOWN {
+	border:2px inset;
+	padding:1px;
+}
+div.HELPTEXT {
+	width:300px;
+	padding:5px;
+	font-size:12px;
+	font-weight:normal;
+	border:1px solid #374F89;
+	background-color:#ffffff;
+	visibility: hidden;
+	position: absolute;
+	text-align:left;
+}
+
+table.childtableedit {
+	margin-top:5px;
+}
+table.childtableedit tr {
+	vertical-align:top;
+}
+table.childtableedit th {
+	text-align:left;
+}
+table.childtableedit td.button {
+	line-height:12px;
+}
+td.childtableeditdisplay {
+	border-top:1px dashed #999999;
+}
+tr.childtablerowtemplate {
+	display:none;
+}
+table.childtableview {
+}
+table.childtableview tr {
+	background-color:transparent;
+}
+table.childtableview td {
+	border-width:0px;
+	border-bottom:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+}
+table.childtableview th {
+	color:#333333;
+	text-align:left;
+	border-bottom:1px solid #999999;
+	border-right:1px solid #999999;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* Dialog boxes                                                              */
+/*---------------------------------------------------------------------------*/
+body#dialog {
+	margin:0px;
+	padding: 10px;
+	font-size:11px;
+}
+body#dialog * {
+	font-size:11px;
+}
+body#dialog a {
+	color:black !important;
+}
+body#dialog td.ACTIONCELL a, body#dialog td.ADDLABELCELL a {
+	color:white !important;
+}
+body#dialog h1 {
+	font-size:18px;
+	color:gray;
+	margin-top: 0px;
+	margin-bottom:10px;
+}
+body#dialog div#tabs {
+	line-height:19px;
+}
+body#dialog div#tabs span {
+	font-weight:bold;
+	color:black;
+	border: 1px solid black;
+	padding:1px 8px 3px 8px;
+	margin-left: 5px;
+	background-color:#dfdfdf;
+	cursor:pointer;
+}
+body#dialog div#tabs span.selected {
+	border-bottom: 1px solid #BECDDE;
+	background-color:#BECDDE;
+	padding-top:3px;
+}
+body#dialog div#properties {
+	border: 1px solid black;
+	background-color:#BECDDE;
+}
+div#properties div#info, div#properties div#advanced {
+	height:290px;
+	overflow:auto;
+	padding:5px 10px 5px 10px;
+}
+body#dialog div#properties div.unselected {
+	display:none;
+}
+body#dialog *.button {
+	background-color:#BECDDE;
+	font-weight:bold;
+	color:black;
+	font-size:11px !important;
+	border: 1px solid black !important;
+	padding:2px 4px 2px 4px;
+	cursor:pointer;
+}
+body#dialog ul#classes {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+body#dialog p {
+	margin-top:5px;
+	margin-bottom:8px;
+}
+body#dialog form {
+	margin:0px;
+}
+
+table.SelectPopup {
+	border:1px solid silver;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* Site menu.                                                                */
+/*---------------------------------------------------------------------------*/
+
+/* Menu Colors */
+#menuBar {
+	background-color: #374F89;
+	border-bottom: 1px solid #5191CD;
+	padding: 4px 0px 4px 0px;
+}
+
+#menuButtonGroupLeft {
+	text-align: left;
+	float:left;
+}
+#menuButtonGroupRight {
+	text-align: right;
+	color: white;
+}
+
+a.menuButton, a.menuButtonActive {
+	border: 1px solid #374F89;
+	color: white !important;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 2px;
+	padding: 2px 6px 2px 6px;
+	text-decoration: none;
+	position: relative;
+	white-space: nowrap;
+}
+
+a.menuButton:hover {
+	border: 1px outset #5191CD;
+}
+
+a.menuButtonActive {
+	border: 1px inset #5191CD;
+}
+
+.menu {
+	background-color: #374F89;
+	border: 2px outset #5191CD;
+	position: absolute;
+	visibility: hidden;
+	z-index: 100;
+}
+
+a.menuItem, .menuItemHdr {
+	color: #FFFFFF !important;
+	cursor: pointer;
+	display: block;
+	font-size: 11px;
+	margin: 0px;
+	padding: 2px 12px 2px 12px;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+a.menuItem:hover {
+	color: black !important;
+	background-color: #5191CD;
+}
+
+.menuItemHdr {
+	font-weight: bold;
+}
+
+.menuItemSep {
+	border: 1px inset #FFFFFF;
+	margin: 3px 0px 3px 0px;
+}
+
+#loggedInAs {
+	font-size:11px;
+	font-style:italic;
+	font-weight:normal;
+}
+
+span.dojoTooltip {
+	width:300px;
+	padding:10px;
+	background:#BECDDE;
+}

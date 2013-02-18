@@ -1,0 +1,1147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy, see www.w3.org">
+        <title>Modern Signal Lighthouse Release Notes</title>
+    </head>
+    <body>
+        <h1>Modern Signal Lighthouse</h1>
+        <h2>Release Notes</h2>
+        <h3>Version 2.5.2</h3>
+        <p>
+            Released February 1, 2008
+        </p>
+        <b>Summary:
+            <br>
+        </b>
+        This is a maintenance release that includes the recent file browser patch and a couple small fixes.&nbsp; It's
+        highly recommended that anyone using version 2.5.0 or 2.5.1 upgrade to this
+        version.
+        <br>
+        <b>
+            <br>
+        </b>
+        <a title="" style="" class="" target="_blank" href="/uploads/Distributions/Lighthouse_2.5.2.zip"><b>Download Now</b></a>
+        <br>
+        <br>
+        <b>Upgrade Notes:</b>
+        <br>
+        Upgrading from 2.5.x, simply replace the Lighthouse directory with the one in this release.<h3>Issues Resolved in This Release:</h3>
+        <ul>
+            <li>
+                <a href="/admin/ex_checklist.cfm?action=Edit&amp;pk=5100&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D14" target="_blank">Radio button values lost when linking directly to site editor</a>
+            </li>
+            <li>
+                <a href="/admin/ex_checklist.cfm?action=Edit&amp;pk=5101&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D14" target="_blank">Table where clause ignored for list order action</a>
+            </li>
+        </ul>
+        <hr><h3>Version 2.5.1</h3>
+        <p>
+            Released November 5, 2007
+        </p>
+        <b>Summary:
+            <br>
+        </b>
+        This is a maintenance release with a number of small fixes.� It's
+        highly recommended that anyone using version 2.5.0 upgrade to this
+        version.
+        <br>
+        <b>
+            <br>
+        </b>
+        <b>Download Now</b>
+        <br>
+        <br>
+        <b>Upgrade Notes:</b>
+        <br>
+        Upgrading from 2.5.0, simply replace the Lighthouse directory with the
+        one in this release.
+        <br>
+        <h3>Issues Resolved in This Release:</h3>
+        <ul>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4362&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D13" target="_blank">RSS links broken</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4387&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D13" target="_blank">Multiple images in editable area in
+                    Firefox</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4644&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D13" target="_blank">table cell vertical align doesn't work</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4656&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D13" target="_blank">Required child table column</a>
+            </li>
+        </ul>
+        <hr><h3>Version 2.5.0</h3>
+        <p>
+            Released August 24, 2007
+        </p>
+        <b>Summary:
+            <br>
+            <br>
+        </b>
+        This ended up being a bigger release than planned (it was
+        originally called 2.4.1).� Originally just intended to be a maintenance
+        release, one thing led to another and the user interface for the site
+        editor has been almost completely redesigned.� The new design is easier
+        on the eyes, and provides a lot more timely information to the user, 
+        and hopefully improves the general user experience.� 
+        <br>
+        <br>
+        In addition to the visible changes, a lot has changed under the
+        covers.� The benefits of most of the architecture changes won't be
+        fully realized until a later release, but the benefits are going to be
+        significant.
+        <br>
+        <br>
+        Changes to look for now are:
+        <br>
+        <ul>
+            <li>
+                Page topic tagging: similar to tagging in other high-profile
+                applications (Flickr, Gmail), allows pages to be tagged with
+                topics, which then informs the search results and can be used in
+                custom code throughout the site.
+            </li>
+            <li>
+                If the user attempts to leave a page without saving his or her
+                changes, they will be warned and given a chance to save.
+            </li>
+            <li>
+                If a user's session expires while editing, their changes will
+                be preserved and submitted after they log in again.
+            </li>
+            <li>
+                Ability to edit the Description meta tag on a page by page
+                basis.
+                <br>
+            </li>
+        </ul>
+        <b>Upgrade Notes:</b>
+        <br>
+        <ul>
+            <li>
+                Follow <a title="" style="" class="" target="" href= "/upgradinglighthouse">general upgrading instructions</a>
+                <br>
+            </li>
+            <li>
+                Make modifications to specific files:
+            </li>
+            <li style="list-style: none">
+                <ul>
+                    <li>
+                        404.cfm
+                    </li>
+                    <li style="list-style: none">
+                        <ul>
+                            <li>
+                                This file is no longer used.� Change 404 errors
+                                to go to /Lighthouse/404.cfm.
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        Application.cfm
+                    </li>
+                    <li style="list-style: none">
+                        <ul>
+                            <li>
+                                Add scriptprotect="all" to cfapplication tag to
+                                protect against cross-site scripting attacks.
+                                <br>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                Add &lt;cfinclude
+                                template="Lighthouse/Functions/Init.cfm"&gt; under
+                                &lt;!--- Include Libraries ---&gt;
+                            </li>
+                            <li>
+                                Change &lt;cfif ApplicationIsInitialized()&gt;
+                                to &lt;cfif Not ApplicationIsInitialized()&gt;.
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        error.cfm
+                    </li>
+                    <li style="list-style: none">
+                        <ul>
+                            <li>
+                                This file is no longer used.� If the error
+                                message needs to be customized, the variable
+                                Application.ErrorMessage can be set in
+                                Application.cfm
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        page.cfm
+                    </li>
+                    <li style="list-style: none">
+                        <ul>
+                            <li>
+                                This file should now be just one line:
+                                <br>
+                                &lt;cfinclude
+                                template="Lighthouse/page.cfm"&gt;
+                                <br>
+                                If it is necessary to add content to the
+                                &lt;head&gt; element of the page, use the
+                                &lt;cfhtmlhead&gt; tag.
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        rss.cfm
+                    </li>
+                    <li style="list-style: none">
+                        <ul>
+                            <li>
+                                This file has been replaced by
+                                /Lighthouse/rss.cfm
+                                <br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        style.css
+                    </li>
+                    <li style="list-style: none">
+                        <ul>
+                            <li>
+                                There is no longer any automatic space between
+                                page parts.� To make space between the title and
+                                body, specify it here:
+                                <br>
+                                /*Set bottom margin for title*/
+                                <br>
+                                .title {
+                                <br>
+                                ��� margin-bottom:1em;
+                                <br>
+                                }
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Templates
+            </li>
+            <li style="list-style: none">
+                <ul>
+                    <li>
+                        If you reference the variable "memberFullName", change
+                        it to "session.User.FullName".
+                    </li>
+                    <li>
+                        If you reference the variable "sectionName", change it
+                        to #Request.Page.GetSectionName()#
+                    </li>
+                    <li>
+                        If you reference the variable "cookieCrumbText", change
+                        it to #Request.Page.GetCookieCrumb()#
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Restart ColdFusion Application service (if possible), or
+                re-initialize Lighthouse (add lh_initialize=1 to the url).
+            </li>
+        </ul>
+        <b>API Changes
+            <br>
+        </b>
+        <br>
+        None
+        <br>
+        <h3>Issues Resolved in This Release:</h3>
+        <ul>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=2994&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">body styles conflict for Firefox wysiwyg</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=3132&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">Description Meta Tag</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=3134&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">warn user if leaving page without saving
+                    changes</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=3176&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">Topic-tagging pages</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=3625&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">allow negative numeric values</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=3894&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">Edits lost if session expires</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=3910&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">Add Company field for Users table</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4069&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">Site Users showing up as admin users.</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4105&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">Reordering of pages not working properly</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4116&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">State table for default database</a>
+            </li>
+            <li>
+                <a href= "/admin/ex_checklist.cfm?action=Edit&amp;pk=4117&amp;queryParams=Searching%3D1%26FixProjectVersionID%3D1" target="_blank">Popup Calendar</a>
+            </li>
+        </ul>
+        <hr><h3>Version 2.4.0</h3>
+        <p>
+            <strong>API Changes:</strong>
+        </p>
+        <table cellspacing="0" border="1">
+            <tr>
+                <th>
+                    Tag
+                </th>
+                <th>
+                    Parameter
+                </th>
+                <th>
+                    Notes
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    MS_TableColumn
+                </td>
+                <td>
+                    ShowFileBrowser
+                </td>
+                <td>
+                    Added parameter.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    MS_TableColumn
+                </td>
+                <td>
+                    IncludeFile
+                </td>
+                <td>
+                    Added access to expression value from IncludeFile in the
+                    #value# variable.
+                </td>
+            </tr>
+        </table>
+        <p>
+            <b>Bug Fixes:</b>
+        </p>
+        <p>
+            General
+        </p>
+        <ul>
+            <li>
+                The way that the Request.AppVirtualPath variable was set did
+                not work well for sites that reside in subdirectories.� Changed
+                this so that it should no longer include the trailing "/".� Changed
+                comments in Application.cfm to reflect this.
+            </li>
+        </ul>
+        <p>
+            Wysiwyg
+        </p>
+        <ul>
+            <li>
+                The path to the style.xml was hardcoded, which meant that it
+                wouldn't be found in sites that reside in subdirectories.
+            </li>
+            <li>
+                When specifying a relative url (e.g. index.cfm) for a link,
+                this could result in an incorrect url because the file is assumed
+                to be relative to the admin directory.� Changed this so that a "/"
+                is automatically added to relative urls so that the file is assumed
+                to be relative to the server root.
+                <br>
+            </li>
+        </ul>
+        <p>
+            Database
+        </p>
+        <ul>
+            <li>
+                For columns of type="pseudo", the IncludeFile parameter was not
+                working.� Fixed that, and also ensured that the include file has
+                access to a variable called #value# that contains the value of the
+                pseudo column's expression.
+            </li>
+            <li>
+                There could be a problem with sorting if the name of column was
+                contained within the name of another column.
+                <br>
+            </li>
+        </ul>
+        <b>New Features:</b>
+        <p>
+            Installation
+        </p>
+        <ul>
+            <li>
+                Added db/Install/SQLPackage.exe.� You can now run this file to
+                set up a new database.� Will (hopefully) make installation much
+                quicker and easier.
+                <br>
+            </li>
+        </ul>
+        <p>
+            General
+        </p>
+        <ul>
+            <li>
+                Added a new admin page at /admin/index.cfm?adminFunction=about
+                that shows version information for Lighthouse and Coldfusion.
+            </li>
+            <li>
+                Added the ability to set up a Google Analytics account for a
+                site.� Within Application.cfm, set the
+                Application.GoogleAnalyticsAcctNum variable to the account number
+                supplied by Google.
+            </li>
+            <li>
+                Upgraded Dojo Toolkit to version 0.4.2.
+            </li>
+        </ul>
+        <p>
+            Site Editor
+        </p>
+        <ul>
+            <li>
+                Big UI change!� Added an area on the left side to give quicker
+                access to page properties and for navigating the site.� Icons
+                indicate which pages are Inactive, Hidden (by new "Show in
+                Navigation" property) and/or members-only.� The Go to�Page dialog
+                has been removed.
+            </li>
+            <li>
+                Added "Show in Navigation" page property.� If unchecked, the
+                page will be excluded from the side navigation.
+            </li>
+            <li>
+                Added "Can Be Deleted" field to the Manage Pages tool.� Pages
+                that are unchecked can still be deleted through Manage Pages, but
+                not through the site editor.� The trash can icon is removed.� This
+                is mainly to avoid the accidental deletion of main section pages,
+                or any important pages.� Note that there was a field in the
+                database called "SectionHome" that has been changed to "CanDelete",
+                which much more accurately described its function.
+            </li>
+            <li>
+                When doing a site search, search terms are automatically
+                highlighted.� There is a new style in style.css to control the
+                appearance of the highlight.
+            </li>
+        </ul>
+        <p>
+            Database
+        </p>
+        <ul>
+            <li>
+                For columns of type=File, added a new�parameter called
+                ShowFileBrowser.� If set to "Yes", a button is displayed�that
+                allows the user to select a previously uploaded file.�
+            </li>
+        </ul>
+        <p>
+            <strong>Upgrading:</strong>
+        </p>
+        <ul>
+            <li>
+                Replace entire Lighthouse directory with directory from
+                distribution.
+            </li>
+            <li>
+                Run "db\Upgrade\2.3.3 to 2.4.0.sql".
+            </li>
+            <li>
+                Add section in Application.cfm for initializing the
+                application.� Find that part of Application.cfm and copy it after
+                all Request variables have been set.�
+            </li>
+            <li>
+                Check Request.AppVirtualPath in Application.cfm.� If it
+                contains a trailing "/", remove it, and remove any instructions in
+                the comments that say that the trailing "/" is required.
+            </li>
+            <li>
+                /404.cfm updated.
+            </li>
+            <li>
+                /page.cfm -- add reference to
+                Application.GoogleAnalyticsInclude in order to use Google
+                Analytics.
+            </li>
+            <li>
+                /style.css now contains a style called "span.searchedkeyword"
+                that defines how highlighted search terms will appear in
+                pages.
+            </li>
+            <li>
+                Remove /Lighthouse/Application.cfm.� This is left over from a
+                time when the Lighthouse directory might be used by multiple
+                sites.
+            </li>
+        </ul>
+        <hr><h3>Version 2.3.3</h3>
+        <h4>Bug Fixes:</h4>
+        <p>
+            Wysiwyg
+        </p>
+        <ul>
+            <li>
+                Styles in Firefox didn't work without a cache directory at the
+                server root. That directory is no longer needed.
+            </li>
+        </ul>
+        <p>
+            Database
+        </p>
+        <ul>
+            <li>
+                Fixed some problems associated with having the application in a
+                subdirectory and clarified the proper way to specify
+                Request.AppVirtualPath in Application.cfm for applications in
+                subdirectories.
+            </li>
+        </ul>
+        <h4>New Features:</h4>
+        <p>
+            Wysiwyg
+        </p>
+        <ul>
+            <li>
+                Added comments to style_wysiwyg.css to clarify a little better
+                how styles should be specified for the wysiwyg.
+            </li>
+        </ul>
+        <hr><h3>Version 2.3.2</h3>
+        <h4>Bug Fixes:</h4>
+        <p>
+            Site Editor
+        </p>
+        <ul>
+            <li>
+                Friendly urls didn't work if the site was in a
+                subdirectory.
+            </li>
+        </ul>
+        <h4>New Features:</h4>
+        <p>
+            Site Editor
+        </p>
+        <ul>
+            <li>
+                Unicode support. This allows us to support content that uses
+                non-latin characters (Chinese and Russian, for instance). In order
+                for this to work, the datasource needs to have the option checked
+                to "Enable Unicode for data sources configured for non-Latin
+                characters".
+            </li>
+            <li>
+                Added a new tag called ActiveContent.cfm to be used for
+                including interactive Flash in web pages. This is to get around the
+                new limitations of IE that require the user to click on Flash
+                before interacting with it if it is included in the page in the
+                normal mannter. There is an example of using the tag in
+                /templates/home.cfm.
+            </li>
+        </ul>
+        <p>
+            Database
+        </p>
+        <ul>
+            <li>
+                I added the ability for the display options be temporary. The
+                display options page now has a checkbox to remember the display
+                setting, which is checked by default so that it still works the way
+                it has always worked unless you uncheck the box. If the box is
+                unchecked, the display options are carried in the url, and they
+                remain until the user browses away from the current admin page.
+                Once you are in this "temporary view" mode, changes made to the
+                columns displayed, column order, or number of rows displayed, will
+                only be temporary and will not be saved in the user's profile,
+                unless they go to the Display Options page and check the
+                "Remember..." box.
+            </li>
+            <li>
+                Unicode support. This allows us to support content that uses
+                non-latin characters (Chinese and Russian, for instance). There is
+                a new MS_TableColumn parameter called "unicode". In order to use
+                unicode, set that parameter to "true", use an nvarchar field in the
+                database, and set the ColdFusion datasource to "Enable Unicode for
+                data sources configured for non-Latin characters".
+            </li>
+            <li>
+                Added support for the file, select-popup, and checkbox column
+                types for child tables.
+            </li>
+            <li>
+                New parameter for MS_TableChild called "editbydefault". If set
+                to "No", child records will be displayed in read-only mode and the
+                user will need to click a button to edit the record.
+            </li>
+            <li>
+                New parameter for MS_TableChild called "ordercolumn". The int
+                column used to order the child table. If this is supplied, the user
+                will have the ability to re-order the child records. To set the
+                order without allowing the user to reorder the records, use the
+                orderby parameter.
+            </li>
+            <li>
+                New parameter for MS_TableColumn called "autoselect". If "Yes",
+                the select popup will automatically come up when a record is added.
+                Currently only implemented if the column is within a child
+                table.
+            </li>
+            <li>
+                New parameter for MS_Table called "groupby". This parameter is
+                used to specify the group by clause of the select statement on the
+                view page. This is most useful for generating reports. When the
+                group by clause is specified, the only columns that can be
+                displayed are columns in the group by clause, and pseudo columns
+                that use aggregate functions. Trying to display any other columns
+                will result in an SQL error, so they should be marked as
+                AllowView="No".
+            </li>
+            <li>
+                New parameter for MS_TableColumn called "allowview". If set to
+                "No", there will be no option to view the column on the view page.
+                This is different from "Hidden" in that is it still searchable and
+                editable. This parameter was created along with the GroupBy
+                paramter of MS_Table. If you are grouping on a list of columns, you
+                may want to search on a column (say, a date range), but don't want
+                to include the column in the group by.
+            </li>
+            <li>
+                Changed the MS_TableColumn searchtype parameter. Changed
+                default from "Equals" to "Contains". If type is "textarea",
+                "Equals" is not allowed and if "Equals" is specified it will
+                automatically change to "Contains".
+            </li>
+        </ul>
+        <hr><h3>Version 2.3.1</h3>
+        <h4>Bug Fixes:</h4>
+        Site Editor
+        <br>
+        <ul>
+            <li>
+                User-friendly urls did not work with a secure website
+                (https).
+            </li>
+            <li>
+                Spellcheck appeared to be disabled even when it was
+                installed.
+            </li>
+        </ul>
+        <p>
+            Wysiwyg
+        </p>
+        <ul>
+            <li>
+                Trying to set an anchor on an image caused the image to
+                disappear.� (The same problem was previously fixed for links.)
+                <br>
+            </li>
+        </ul>
+        <p>
+            Database
+            <br>
+        </p>
+        <ul>
+            <li>
+                When displaying RSS files in Internet Exploror, invalid
+                characters produced errors.
+            </li>
+            <li>
+                Searching on a multiple select field produced an error if the
+                FKType was text.
+                <br>
+            </li>
+        </ul>
+        <h4>New Features:</h4>
+        General
+        <br>
+        <ul>
+            <li>
+                Improved error handling.� Added an additional &lt;cferror&gt;
+                tag to Application.cfm to handle errors not previously handled.
+                <br>
+            </li>
+        </ul>
+        <hr><h3>Version 2.3.0</h3>
+        <br>
+        <br>
+        <h4>Bug Fixes:</h4>
+        <p>
+            Wysiwyg
+        </p>
+        <ul>
+            <li>
+                Font in admin was gray instead of black.
+            </li>
+        </ul>
+        <p>
+            Database
+        </p>
+        <ul>
+            <li>
+                Popup select boxes should transfer edits to main browser
+                window. One change needs to be made to existing code to make it
+                work. In the ViewURL parameter for the column, the url should
+                include the select parameter just like the popupUrl does.
+                E.g.:�
+                <br>
+                <code>
+                    &lt;lh:MS_TableColumn
+                    <br>
+                    ��� ColName="HourID"
+                    <br>
+                    ����DispName="Related Hours"
+                    <br>
+                    ����Type="select-multiple-popup"
+                    <br>
+                    ����PopupURL="ex_hours.cfm?action=Add&amp;select=Y"
+                    <br>
+                    ����ViewURL="ex_hours.cfm?action=Edit&amp;pk=##pk##&amp;select=Y"
+                    <br>
+                    ����..../&gt;
+                </code>
+            </li>
+            <li>
+                There were problems if a field is marked as Required and Hidden
+                at the same time. Added a mechanism to show warnings about syntax
+                errors. In this case, if a column is required and hidden, a default
+                value must be specified.
+            </li>
+        </ul>
+        <h4>New Features:</h4>
+        <p>
+            Installation:
+        </p>
+        <ul>
+            <li>
+                Admin pages now use custom tags with prefixes instead of the
+                cfmodule. This makes the code cleaner and improves performance. For
+                example, to call the MS_Table tag, use cfimport tag at the top of
+                the template (e.g. &lt;cfimport prefix="lh"
+                taglib="../Lighthouse/Tags"&gt;) and call the tag as
+                &lt;lh:MS_Table ...&gt;.
+            </li>
+            <li>
+                Changed name of ModernCF2 directory to "Lighthouse". The
+                Lighthouse directory is now assumed to be a subdirectory from the
+                web root. It was previously possible to have more than one site
+                accessing the same ModernCF2 directory, but since that feature
+                wasn't really used, and required setting several additional
+                variables in the Application.cfm file, it seemed to make sense to
+                go for simplicity over flexibility in this case.
+            </li>
+            <li>
+                Changed Application.cfm to use Request scope variables and
+                trimmed down the number of variables needed. This could require
+                some changes to current code when updating, but in most cases it
+                should be possible to do global search and replace operations to
+                make the changes.
+            </li>
+            <li>
+                Added the parameter Request.lh_authType that can be "basic" or
+                "auto". It is used authenticate password-protected RSS feeds (see
+                below). Basic authentication is preferable, but requires that all
+                authentication (basic and nt) be turned off in IIS, which may not
+                be possible in shared environments.
+            </li>
+            <li>
+                Added the ability to easily password protect development sites.
+                When setting development paramters in Application.cfm, include the
+                Lighthouse/Admin/checkQaLogin.cfm file. This will password protect
+                the entire site with a popup window. The user can enter the same
+                username and password given to them to view the admin. This
+                requires that Request.lh_authType be set to "basic".
+            </li>
+            <li>
+                To use user-friendly urls (see below), set up custom 404 error
+                to point to /404.cfm.
+            </li>
+        </ul>
+        <p>
+            Site Editor
+        </p>
+        <ul>
+            <li>
+                The properties button now generates a popup just like all the
+                other toolbar buttons. This makes it more consistent, and also, I
+                think, makes it intuitive to have to push the page live for the
+                changes to take effect.
+            </li>
+            <li>
+                Added "Restore Deleted Pages" function under Site menu in
+                admin. When a page is deleted, the working version is deleted and
+                the live version is archived. The "Restore Deleted Pages" function
+                allows any archived version of a deleted page to be restored. Also,
+                if the user goes to a page in the site editor that has been
+                deleted, they will will be alerted to the fact that the page has
+                been deleted and given the chance to view the archives, if
+                available.
+            </li>
+            <li>
+                Allow the use of search engine- and user-friendly urls. In
+                order to enable this the variable Request.lh_useFriendlyUrls in
+                Application.cfm must be set to true, and the file /404.cfm must be
+                set to handle 404 errors for the server. (HostMySite allows us to
+                specify the 404 handler in their control panel, so this should be
+                easy to do for most, if not all, of our clients.) If this is
+                enabled, then the name of the page can be appended to the site url
+                to go to the page. The New Page and Page Properties dialogs have
+                been enhanced to automatically strip out unwanted characters and to
+                show the resulting url. If the name of page changes, the archive
+                table will be searched to find the current page that corresponds to
+                the old page name.
+            </li>
+            <li>
+                Added a new page called "Search Engine Awareness" under Site
+                menu in admin that gives easy access to tools to submit the site to
+                search engines, and to manage the robots.txt file. Note that
+                robots.txt file on devel is read only because it's in Vault, so it
+                produces an error to try to change it on devel. Should work on the
+                live server, though.
+            </li>
+            <li>
+                Added a new field for "browser title" on the page properties
+                screen that we can use to put more descriptive
+                search-engine-friendly titles. If no browser title is specified,
+                the site and page title will be used. Previously the nav title was
+                used here, but now it only uses the nav title if no page title is
+                available.
+            </li>
+            <li>
+                Added a favicon.ico file to the distribution. This file is used
+                by the browser to give a custom icon for the site in the address
+                bar and bookmarks. It would be nice for the designer to create a
+                favicon.ico for every site, but it's probably not necessary.
+            </li>
+        </ul>
+        <p>
+            Database
+        </p>
+        <ul>
+            <li>
+                When a record with a file column type is deleted, there is now
+                an option to delete the file from the file system. There is a new
+                parameter for image columns called "DeleteWithRecord". The
+                parameter merely determines if the file is selected to be deleted
+                by default or not. The user can always to choose whether to delete
+                the file or not.
+            </li>
+            <li>
+                As alternative to exporting search results to Excel, added
+                ability to generate a CSV file that can then be downloaded.
+            </li>
+            <li>
+                Added the ability to download an RSS feed for any search
+                results. Added RssTitle, RssDescription, and RssPubDate parameters
+                for the MS_Table tag. RSS is already pretty popular, but will
+                probably become completely ubiquitous when the next version of IE
+                comes out, which integrates an RSS reader.
+                <br>
+                The RSS feed can also be used to add a Live Bookmark in Firefox.
+                http://www.mozilla.com/firefox/livebookmarks.html
+                <br>
+                Also added a template in Site Editor called "Index Page with RSS
+                Feed". This provides a link to an RSS feed that includes all of the
+                child pages for the page.
+                <br>
+                There are two types of authentication that can be used to access
+                password-protected RSS feeds through most readers. The first and
+                preferable one is basic authentication. This produces a u/p popup
+                so that the user can enter their site login. In order for CF to do
+                basic authentication, though, all IIS authentication has to be
+                turned off, so this may not be available. I set up an alternative
+                method of authentication that passes a code in the url of the RSS
+                feed, so that the user should be able to log into the site in their
+                browser, and then the RSS reader will automatically be given access
+                based on the code in the url. In addition to the code being
+                verified, the RSS reader must come from the same IP address as the
+                browser used to login to the site. This is to prevent people from
+                passing around a url that could potentially give anybody access to
+                sensitive information. I'm not really sure how well this type of
+                authentication is going to work in practice.
+            </li>
+            <li>
+                Added a new MS_TableChild tag to specify a table that has a
+                many-to-one relationship with the main table. E.g. An OderLines
+                table would be a child to an Orders table. You can use this in
+                place of an MS_TableColumn tag and use the MS_TableColumn tag to
+                identify columns of the child table. There are some limitations to
+                the types of columns that can be placed within the child table. No
+                multiple-value columns will work -- so that rules out
+                select-multiple, checkboxgroup, etc. The functionality is limited
+                in general, as the main goal of this release was to enable some
+                specific features of our intranet (comments for issues, for
+                example).
+            </li>
+        </ul>
+        <hr><h3>Version 2.2.0</h3>
+        <p>
+            This is a significant release, including wysiwyg support for
+            Firefox. The name of the product has now officially changed from
+            ModernCF to Lighthouse!
+        </p>
+        <h4>Bug Fixes:</h4>
+        <p>
+            DB
+        </p>
+        <ul>
+            <li>
+                Adding a a new record now shows a more user-friendly status
+                message.
+            </li>
+        </ul>
+        <h4>New Features:</h4>
+        Documentation/Installation Help: 
+        <ul>
+            <li>
+                Added new page for setup information on Modern Signal website:
+                http://www.modernsignal.com/page.cfm?pageID=53
+            </li>
+            <li>
+                The db folder now contains more helpfully names files. In the
+                Upgrade folder are sql files that aim to be all you need to upgrade
+                the database from one version to another. These files should be
+                used with extreme caution, however, as they have been tested
+                little, if at all.
+            </li>
+        </ul>
+        <p>
+            Wysiwyg
+        </p>
+        <ul>
+            <li>
+                Firefox support. One major difference in Firefox is that
+                hitting Enter inserts a line break rather than a paragraph break.
+                This is recognized as a bug by mozilla
+                (https://bugzilla.mozilla.org/show_bug.cgi?id=92686), but it is
+                unclear when or if this will be fixed.
+            </li>
+            <li>
+                Improved and standardized all properties popup windows. All now
+                have "OK", "Cancel", and "Apply" options, and gave access to styles
+                for all elements.
+            </li>
+            <li>
+                Added style.xml file in the same folder as style.css for saving
+                user-friendly names for styles that will be used in the wysiwyg.
+                This was formally done with the editor-description property within
+                the css file, but because that is not valid css, it didn't work in
+                Firefox.
+            </li>
+        </ul>
+        Site Editor 
+        <ul>
+            <li>
+                Firefox support.
+            </li>
+            <li>
+                Browse button now goes directly to page rather than showing a
+                popup to choose the user. In most cases the popup is just a
+                nuisance. If user impersonation is needed, we can build a separate
+                screen to accomplish that.
+            </li>
+            <li>
+                Standardized most dialog windows with same format as wysiwyg
+                popups.
+            </li>
+            <li>
+                Added template and permissions options to New Page dialog.
+            </li>
+            <li>
+                Included a default robots.txt file.
+            </li>
+            <li>
+                Added News Home and News Article templates.
+            </li>
+        </ul>
+        DB 
+        <ul>
+            <li>
+                Added Options menu in admin with "Save Page" link, and removed
+                Save Current Page from the bottom from all menus. The Options menu
+                will be used in the future for other miscellaneous page
+                functions.
+            </li>
+            <li>
+                Added ShowDate parameter for columns of type Date. Setting this
+                parameter to false and setting ShowTime to true creates a column
+                that just shows the time.
+            </li>
+            <li>
+                Added SiteEditor parameter for columns of type TextArea. If
+                true, then Site Editor-related options will be available in the
+                wysiwyg.
+            </li>
+            <li>
+                Added a drop-down in page nav on view page to select the number
+                of results to display per page. In the past, once you select View
+                All you can't go back to restricting the number of results without
+                going to the Display Options page.
+            </li>
+        </ul>
+        <hr><h3>Version 2.1.04</h3>
+        <h4>BUG FIXES</h4>
+        Site Editor 
+        <ul>
+            <li>
+                Using anchor links caused links to point to working version of
+                pages. NEW FEATURES: Wysiwyg
+            </li>
+            <li>
+                Removing style changes &lt;pre&gt; tags to &lt;p&gt; tags. Site
+                Editor
+            </li>
+            <li>
+                Refined page nav so that it works with a greater variety of
+                styles. (Added div tag within li tags.)
+            </li>
+            <li>
+                Greatly improved site search. Title matches now appear higher
+                than body matches. DB
+            </li>
+            <li>
+                Added MS_TableColumnGroup tag. It takes the parameters Name and
+                Label (which defaults to Name). Wrap it around columns to logically
+                group columns. Puts a header and box around columns on the Search
+                and Add/Edit pages, and a Header on the View page.
+            </li>
+        </ul>
+        <hr><h3>Version 2.1.03</h3>
+        <h4>Bug fixes:</h4>
+        <ul>
+            <li>
+                For the HTML toolbar, the remove formatting button doesn't get
+                these types of tags within the content. &lt;?xml:namespace prefix =
+                st1 /&gt;&lt;st1:time Hour="17" Minute="0"&gt;
+            </li>
+            <li>
+                Possible to view a page in edit mode even if not logged in
+                (although cannot actually change content). New Features:
+                Wysiwyg
+            </li>
+            <li>
+                Strip out &lt;address&gt; tags when the remove formatting is
+                clicked.
+            </li>
+            <li>
+                Add cut/paste and undo/redo buttons to the wysiwyg html
+                bar.
+            </li>
+            <li>
+                Hid old font drop-downs and added an icon (looks like an
+                eyeball) that shows a styles drop-down with checkboxes so that
+                multiple classes can be applied to a tag. All classes defined for
+                the edit area are automatically available, as long as a special
+                stylesheet property called "editor-description" is added to the
+                stylesheet. This allows us to show just the classes that make sense
+                and to display a user-friendly name for the class. Added a
+                style_wysiwyg.css file in the application root to hold wysiwyg
+                styles that are also imported in admin.
+            </li>
+            <li>
+                Added general file support to file browser, so that non-image
+                files have appropriate icons displayed.
+            </li>
+            <li>
+                Link dialog now has "Choose a File" option that links to file
+                browser. Site Editor
+            </li>
+            <li>
+                In versions dialog, only last 20 saved versions are displayed.
+                DB
+            </li>
+            <li>
+                Changes to enhance the UI for popup select screens. The style
+                of the row changes when it is selected, and the button changes to
+                "Deselect". If adding or editing, in the popup window, "Submit
+                &amp; Select" button appears.
+            </li>
+            <li>
+                Instead of the little asterisk for editing a column, clicking
+                on the column header now shows a drop-down menu with display
+                options. Essentially gives quick access to the options on the
+                display options page (hiding columns and moving columns). There is
+                a new column on the far left with a "+" that allows you to select
+                new columns to display.
+            </li>
+            <li>
+                Added a Clients checkbox to the Admin Users screen so that it
+                is easier to see what clients a user is associated to.
+            </li>
+            <li>
+                An admin link can now contain a variable. So the new href can
+                be
+                ex_checklist.cfm?action=View&amp;Searching=1&amp;ChecklistStatusID=1,2&amp;userid=#session.userid#
+            </li>
+            <li>
+                For columns of type "select-multiple" box automatically expands
+                up to 10 to hold items and make it easier to scroll when the list
+                is long.
+            </li>
+            <li>
+                Added "Search" and "Reset" buttons to the top of search page
+                and aligned right to make consistent with Add/Edit page.
+            </li>
+            <li>
+                Added event "OnAfterSearch" to include code at the bottom of
+                the view page. Architecture Changes:
+            </li>
+            <li>
+                Added MCFLib_cf5.cfm and MCFLib_mx.cfm files to split function
+                library so that preferred mx methods can be implemented without
+                dropping support for CF5.
+            </li>
+        </ul>
+        <hr><h3>Version 2.1.02</h3>
+        <h4>Bug fixes:</h4>
+        <ul>
+            <li>
+                Increased client data string from 1000 chars to 8000 to avoid
+                problems when setting display options for tables that have a large
+                number of columns. New Features:
+            </li>
+            <li>
+                Ability to override Users table name.
+            </li>
+            <li>
+                News admin module
+            </li>
+            <li>
+                Stopped using client variables and replaced them with custom
+                mechanism to store client data in database.
+            </li>
+            <li>
+                New Site Page Nav style. Default page nav now uses nexted
+                &lt;ul&gt; lists to be more symantically correct and to simplify
+                stylesheet.
+            </li>
+            <li>
+                SiteEditor search results template now uses an &lt;ol&gt; list
+                to display results.
+            </li>
+        </ul>
+        <hr><h3>Version 2.1.01</h3>
+        This is the first organized release.
+    </body>
+</html>

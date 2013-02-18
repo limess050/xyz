@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>CFX_JSpellCheck Documentation - Installing</title>
+	<link href="doc_style.css" type="text/css" rel="stylesheet"> 
+</head>
+
+<body>
+<a href="http://www.cfdev.com/"><img src="cfdev2000.gif" width="361" height="86" alt="CFDEV.COM" border="0"></a><br>
+<b>CFX_JSpellCheck Install Instructions</b>
+<br><br>
+If you are running Windows NT/2000 you should run Setup.exe. The default installation path is C:\CFX_JSpellCheck. Do not place spaces in the path if you change the default. The dictionaries will be copied to the installation directory and the paths for the dictionaries are defaulted to C:\CFX_JSpellCheck. Follow the instructions below to change the dictionary paths.
+<br><br>
+If you are running any Other Platform please follow the instructions below...
+<br><br>
+1) Unpack the zip to a temporary directory. Read And agree to License.txt
+<br><br>
+2) Create a directory called CFX_JSpellCheck in your filesystem.
+<br><br>
+3) Copy the contents of the CustomTags directory in the temporary directory to your newly created CFX_JSpellCheck directory.
+<br><br>
+4) Copy the docs, and spellchecker directory to a directory on your web server
+<br><br>
+5) Edit spellchecker\application.cfm, change the path to Request.clx, Request.tlx, and Request.userDict to match their location on your server. The default directory is C:\CFX_JSpellCheck.
+<br><br>
+6) Get a JVM, If you have not done so already goto http://java.sun.com/products/ and download the Java 2 Standard Edition JRE (Java Runtime Environment), install it.
+<br><br>
+7) Log into your ColdFusion Administrator, click on "Java" from the menu on the left.
+<br><br>
+8) If there is not already a value (There shouldn't be unless you already installed it) Enter the path to your Java Virtual Machine "JVM". The default on windows is c:\program files\JavaSoft\JRE\1.3\bin\hotspot\jvm.dll or /usr/java/jdk1.3/hotspot/libjvm.so
+<br><br>
+ If you cannot find the locations try: 
+	Start -> Find -> jvm.dll (Windows)
+	$>  find / | grep libjvm.so (UNIX)
+<br><br>
+9) In the classpath setting (Still in the Java Settings of CF Administrator) put the location of com.cfdev.cfx.CFX_JSpellCheck.jar  Typically:
+	c:\CFX_JSpellCheck\CFX_JSpellCheck.jar
+<br><br>
+If there are other values in this setting, seperate with a semi-colin (;) for windows, and with a colin (:) for UNIX.
+<br><br>
+Click "Apply"
+<br><br>
+10) Click on "CFX Tags" from the left menu.  Enter in CFX_JSpellCheck in the text box, and select "Java" for tag type, click add.
+<br><br>
+11) Under Class Name put: CFX_JSpellCheck and enter a description, the supplied description is "Java Based Server Side Spell Checker by CFDEV.COM"
+<br><br>
+Click "Apply"
+<br><br>
+12) Restart ColdFusion.
+<br><br>
+
+
+
+</body>
+</html>

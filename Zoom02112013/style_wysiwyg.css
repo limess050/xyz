@@ -1,0 +1,55 @@
+/*******************************
+Styles for the wysiwyg.  Imported by the main site stylesheet as well as the admin stylesheet to give
+access to classes that should be available to the wysiwyg.
+Define style names in the style.xml file.
+
+For best results, explicitely specify the html tags to which the styles can be applied.  
+I.e. "p.Blue" rather than just ".Blue"
+To define a style that can be applied to any arbitrary text, define it for the span tag:
+"span.Blue"
+********************************/
+
+/* Images */
+img.leftAligned {
+	margin: 20px 20px 20px 0px;
+	float:left;
+}
+
+/* Text */
+p.bigtext, p.bigtext *, ul.bigtext, ul.bigtext *, span.bigtext, span.bigtext *, td.bigtext, td.bigtext *, a.bigtext {
+	font-size:18px !important;
+	line-height: 22px !important;
+}
+
+p.bluetext, p.bluetext *, ul.bluetext, ul.bluetext *, span.bluetext, span.bluetext *, td.bluetext, td.bluetext *, a.bluetext {
+	color:#374F89 !important;
+	font-weight:bold;
+}
+
+p.greentext, p.greentext *, ul.greentext, ul.greentext *, span.greentext, span.greentext *, td.greentext, td.greentext *, a.greentext {
+	color:green !important;
+	font-style:italic;
+}
+
+p.Important, p.Important *, ul.Important, ul.Important *, span.Important, span.Important *, td.Important, td.Important *, a.Important {
+	font-weight:bold;
+	font-style:italic;
+	color:red !important;
+}
+
+/* Paragraphs */
+p.featureBox,div.featureBox {
+	float:right;
+	width:250px;
+	border:1px dotted black;
+	padding:10px;
+	margin:10px;
+	font-style:italic;
+}
+
+/* Tables */
+tr.tableHeader, tr.tableHeader *, td.tableHeader, td.tableHeader * {
+	background-color:black;
+	color:white;
+	font-weight:bold;
+}
