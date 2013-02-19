@@ -26,6 +26,10 @@
 		<title>Tanzania Directory for Business, Entertainment & Travel Info</title>
 				
 			<META NAME="description" CONTENT="Welcome to ZoomTanzania, where locals go to find  accurate and up-to-date business, entertainment, jobs, real estate, cars, travel and classified information.">
+
+		<script>
+
+  </script>
 </head>
 <body>
 	<div class="wrapper">

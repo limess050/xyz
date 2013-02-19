@@ -10,8 +10,8 @@ class Listings extends CI_Controller {
 
 	public function index()
 	{
-		$this->db->where('parent_section', 1);
-		$this->db->order_by('section_name');
+		$this->db->where('ParentSectionID', 1);
+		$this->db->order_by('title');
 		$data['sections'] = $this->db->get('sections');
 
 		//echo $this->session->userdata('current_url');

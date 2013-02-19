@@ -13,7 +13,7 @@
             <div class="col_1">
                 <ul class="greybox">
             <?php endif; ?>
-                    <li><a href="#"><?php echo $section->section_name; ?></a></li>
+                    <li><a href="#"><?php echo $section->Title; ?></a></li>
              <?php $first++; ?>
              <?php if($first == 8): ?>
              <?php $first = 0; ?>
