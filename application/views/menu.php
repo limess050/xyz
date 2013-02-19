@@ -7,20 +7,20 @@
                 <h2>Tanzania Business Directory</h2>
             </div>
 
-            <?php $first = 0; foreach ($sections->result() as $section): ?>
+             <?php //$first = 0; foreach ($sections->result() as $section): ?>
             
-            <?php if($first == 0): ?>
-            <div class="col_1">
-                <ul class="greybox">
-            <?php endif; ?>
-                    <li><a href="#"><?php echo $section->Title; ?></a></li>
-             <?php $first++; ?>
-             <?php if($first == 8): ?>
-             <?php $first = 0; ?>
-                </ul>  
-            </div>
-            <?php endif; ?>
-            <?php endforeach; ?>
+            <?php //if($first == 0): ?>
+            <!-- <div class="col_1"> -->
+                <!-- <ul class="greybox"> -->
+            <?php //endif; ?>
+                    <!-- <li><a href="#"><?php echo $section->Title; ?></a></li> -->
+             <?php //$first++; ?>
+             <?php //if($first == 8): ?>
+             <?php //$first = 0; ?>
+                <!-- </ul>   -->
+            <!-- </div> -->
+            <?php //endif; ?>
+            <?php //endforeach; ?> 
             
             
           <div class="col_2">

@@ -21,7 +21,8 @@
 			<!--  jCarousel carousel script -->
 			<script type="text/javascript" src="js/carousel.js" language="javascript"></script>
 
-
+			    <script src="js/tabcontent.js" type="text/javascript"></script>
+    <link href="styles/tabcontent.css" rel="stylesheet" type="text/css" />
 
 		<title>Tanzania Directory for Business, Entertainment & Travel Info</title>
 				

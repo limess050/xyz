@@ -42,30 +42,43 @@
 
 </div>
 <div style = "width: 420px; float: right; clear: none;">
-		<div class="promotitle" >
+		<!-- <div class="promotitle" >
 
 	 		<h2><a href="Tanzania-Events-Calendar">Upcoming Special Events</a></h2>
 
-	</div>
+	</div> -->
 
-	<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">Nunc tincidunt</a></li>
-    <li><a href="#tabs-2">Proin dolor</a></li>
-    <li><a href="#tabs-3">Aenean lacinia</a></li>
-  </ul>
-  <div id="tabs-1">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
-  </div>
-  <div id="tabs-2">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-  </div>
-  <div id="tabs-3">
-    <p><strong>Click this tab again to close the content pane.</strong></p>
-    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-  </div>
-</div>
-	</div>
+	<!-- <div style="width: 500px; margin: 0 auto; padding: 120px 0 40px; font: 0.85em arial;"> -->
+        <ul class="tabs" persist="true">
+            <li class="classifieds-title">Classifieds</li>
+            <li><a href="#" rel="view1">Latest</a></li>
+            <li><a href="#" rel="view2">Most Viewed</a></li>
+            <li><a href="#" rel="view3">Post Free</a></li>
+            <li><a href="#" rel="view4">Tips</a></li>
+        </ul>
+        <div class="tabcontents">
+            <div id="view1" class="tabcontent">
+                <b>Persistence</b>
+                <p>Setting &lt;ul class="tabs" <b>persist="ture"</b>&gt;...&lt;/ul&gt; will turn on the <strong>persistence</strong> feature: 
+                the most recently clicked tab will be remembered even if the page is reloaded or revisited within the browser session. </p>
+                <p style="font-size:small;"><span style="color:red;">Note:</span> If you open this page directly with physical path(i.e. file:///D:/tabcontent/demo.html ) instead of from web app, you may not see this feature.</p>
+                
+            </div>
+            <div id="view2" class="tabcontent">
+                <b>Multiple Tab Contents</b>
+                <p>You can have multiple tab contents on the same page, with only one copy of the CSS and JavaScript files.</p>
+            </div>
+            <div id="view3" class="tabcontent">
+                <b>Bookmark Support</b>
+                <p>You can also open a tab or a bookmark from a link anywhere on the page.</p>
+                <p id="mark4">This is a paragraph with id="mark4".</p>
+                <p>By clicking the bookmark link at the bottom of this Tab Content, you will see me with this Tab Content panel being opened at the same time.</p>
+            </div>
+            <div id="view4" class="tabcontent">
+                <b>Opened by a link from another page</b>
+                <p>Link from another page can select a tab on the target page when loaded.</p>                
+            </div>
+        </div>
+
+    </div>
 	<div class="clear" style = "margin-top: 10px;"></div>
