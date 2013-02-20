@@ -41,7 +41,7 @@
 
 
 </div>
-<div style = "width: 420px; float: right; clear: none;">
+<div style = "width: 420px; float: right; clear: none; ">
 		<!-- <div class="promotitle" >
 
 	 		<h2><a href="Tanzania-Events-Calendar">Upcoming Special Events</a></h2>
@@ -57,11 +57,43 @@
             <li><a href="#" rel="view4">Tips</a></li>
         </ul>
         <div class="tabcontents">
+        	<div style = "margin-bottom: 10px; font-size: 12px; font-weight: bold; word-spacing: 3px;">
+        	<a href="#" rel="view5">Jobs Only</a> | <a href="">Vehicles Only</a> | <a href="">Real Estate Only</a> | <a href="">FSBO Only</a><br>
+        	</div>
             <div id="view1" class="tabcontent">
 
-                <a href = "http://www.zoomtanzania.com/listingdetail?ListingID=39761">Residential house for commercial purposes</a> $US 1,700/Month, Dar Es Salaam
-                <img src="images/sitewide/btn.viewall_on.gif" alt="View All" name="btn-viewallfortanzania" width="93" height="20" border="0" id="btn-viewallfortanzania">
-                
+			<div style = "float: left; clear: none; font-size: 12px;width: 290px; padding-bottom:15px;">
+               <img src="ListingImages/HomepageThumbnails/jobs.gif" alt="View All" name="btn-viewallfortanzania" width="60" border="0" id="btn-viewallfortanzania" style = "float: left; margin-right: 5px;"> <a href = "http://www.zoomtanzania.com/listingdetail?ListingID=39761">Managing Director</a> - HumanCapital on behalf of client, Dar Es Salaam
+           	</div>
+            <div style = "float: left; clear: none; width: 100px; padding-bottom:15px;">	
+                <img src="images/sitewide/btn.viewall_on.gif" alt="View All" name="btn-viewallfortanzania" width="93" height="20" border="0" id="btn-viewallfortanzania" style = "float: right;">
+           	</div>	
+           		 
+				<div class="clear" style = "border-top:2px;"></div>
+           	<div style = "float: left; clear: none; font-size: 12px;width: 290px; padding-bottom:15px;">
+               <img src="ListingImages/HomepageThumbnails/110213011507BF87145_1.jpg" alt="View All" name="btn-viewallfortanzania" width="60" border="0" id="btn-viewallfortanzania" style = "float: left; margin-right: 5px;"> <a href = "http://www.zoomtanzania.com/listingdetail?ListingID=39761">2003 Nissan March in Sky Blue, UA-AK12</a> TSH 7,200,000, Dar Es Salaam
+           	</div>
+            <div style = "float: left; clear: none; width: 100px; padding-bottom:15px;">	
+                <img src="images/sitewide/btn.viewall_on.gif" alt="View All" name="btn-viewallfortanzania" width="93" height="20" border="0" id="btn-viewallfortanzania" style = "float: right;">
+           	</div>
+
+
+			<div style = "float: left; clear: none; font-size: 12px;width: 290px; padding-bottom:15px;">
+               <img src="ListingImages/HomepageThumbnails/190213003336TEAK.jpeg" alt="View All" name="btn-viewallfortanzania" width="60" border="0" id="btn-viewallfortanzania" style = "float: left; margin-right: 5px;"> <a href = "http://www.zoomtanzania.com/listingdetail?ListingID=39761">Residential house for commercial purposes</a> $US 1,700/Month, Dar Es Salaam
+           	</div>
+            <div style = "float: left; clear: none; width: 100px; padding-bottom:15px;">	
+                <img src="images/sitewide/btn.viewall_on.gif" alt="View All" name="btn-viewallfortanzania" width="93" height="20" border="0" id="btn-viewallfortanzania" style = "float: right;">
+           	</div>	
+           		
+
+           	<div style = "float: left; clear: none; font-size: 12px;width: 290px; padding-bottom:15px;">
+               <img src="ListingImages/HomepageThumbnails/080213042601S2.jpg" alt="View All" name="btn-viewallfortanzania" width="60" border="0" id="btn-viewallfortanzania" style = "float: left; margin-right: 5px;"> <a href = "http://www.zoomtanzania.com/listingdetail?ListingID=39761">Samsung Galaxy Tab 2 GT-P3113 8GB, Wi-Fi, 7in - Titanium Silver for Sale</a> TSH 425,000 Dar Es Salaam
+           	</div>
+            <div style = "float: left; clear: none; width: 100px; padding-bottom:15px;">	
+                <img src="images/sitewide/btn.viewall_on.gif" alt="View All" name="btn-viewallfortanzania" width="93" height="20" border="0" id="btn-viewallfortanzania" style = "float: right;">
+           	</div>
+
+
             </div>
             <div id="view2" class="tabcontent">
                 <b>Multiple Tab Contents</b>
@@ -80,4 +112,48 @@
         </div>
 
     </div>
+	<div class="clear" style = "margin-top: 10px;"></div>
+	<div style = "border: 2px #000 solid; width: 310px; height: 260px; float: left; clear: none;">
+	</div>
+
+		<div style = "width: 200px;  float: left; clear: none; text-align: center; margin-left: 10px;">
+				<div class="promotitle" >
+
+	 		<h2>Latest Featuered Business</h2>
+
+	</div>	
+					<div class="promo-latestfeaturebiz" style = "height: 220px; padding-top:10px;">
+	
+					<img src = "ListingImages/HomepageThumbnails/erolink.png" />
+					<p><a href = "">EroLink - Recruitment Specialist</a></p>
+	</div>
+</div>
+	<div style = "width: 200px;  float: left; clear: none; text-align: center; margin-left: 10px;">
+				<div class="promotitle" >
+
+	 		<h2>Latest Travel Special</h2>
+
+	</div>
+				<div class="promo-latestfeaturebiz" style = "height: 220px; padding-top:10px;">
+					<img src = "ListingImages/HomepageThumbnails/sud-africa.jpg" />
+					<p><a href = "">Easter in South Africa: 3 Nights in Cape Town for only USD290 - By Rickshaw Travels $US 290</a></p>
+	
+	</div>
+	</div>
+	<div style = "width: 270px; height: 260px; float: right; clear: none; text-align: center;">
+				<div class="promotitle" >
+
+	 		<h2>Get Social With Zoom</h2>
+
+	</div>
+	<br>
+	<br>
+		<img src = "images/home/Facebook.png" style = "margin-right: 10px;" />
+		<img src = "images/home/youtube.png" style = "margin-right: 10px;"/>
+		<img src = "images/home/twitter.png" style = "margin-right: 10px;" />
+		<Br>
+		<Br>
+		<img src = "images/home/Google-Plus.png" style = "margin-right: 20px;"/>
+		<img src = "images/home/pinterest.png" style = "margin-right: 20px;" />
+	</div>
 	<div class="clear" style = "margin-top: 10px;"></div>

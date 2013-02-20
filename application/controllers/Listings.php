@@ -12,11 +12,11 @@ class Listings extends CI_Controller {
 	{
 		$this->db->where('ParentSectionID', 1);
 		$this->db->order_by('title');
-		//$data['sections'] = $this->db->get('sections');
-		$data['text']='';
+		$data['sections'] = $this->db->get('sections');
+		//$data['text']='';
 		//echo $this->session->userdata('current_url');
 		$this->load->view('header');
-		$this->load->view('menu');
+		$this->load->view('menu',$data);
 		$this->load->view('home');
 		$this->load->view('footer');
 	}

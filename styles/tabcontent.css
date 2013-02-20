@@ -85,8 +85,9 @@ div.tabcontent
 div.tabcontents
 {
     border: 1px solid #B7B7B7; 
-    padding: 30px 10px;
+    padding: 10px 10px;
     background-color:#FFF;
     border-radius: 0 2px 2px 2px;
-    height:205px;
+    height:245px;
+    font-size: 14px;
 }
