@@ -12,17 +12,16 @@ ul.tabs
 
 ul.tabs li.classifieds-title
 {
-    background: #F0F0F0 url(../images/home/bg.homepagetitles.gif) 0 0 repeat-x;
-
-        font: normal 12px Verdana;
+    background: #F0F0F0 url(../images/home/bg.homepagetitles.gif) 0 0 no-repeat;
+    font-size: 11px ;
     text-decoration: none;
     position: relative;
     z-index: 1;
     padding: 7px 10px;
     border: 1px solid #CCC;
     border-bottom-color:#B7B7B7;
-    color: #000;
-    /*background: #F0F0F0 url(tabbg.gif) 0 0 repeat-x;*/
+    color: #0088e8;
+    font-weight: bold;
     border-radius: 2px 2px 0 0;
     outline:none;
 }
@@ -85,7 +84,8 @@ div.tabcontent
 
 div.tabcontents
 {
-    border: 1px solid #B7B7B7; padding: 30px;
+    border: 1px solid #B7B7B7; 
+    padding: 30px 10px;
     background-color:#FFF;
     border-radius: 0 2px 2px 2px;
     height:205px;

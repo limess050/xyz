@@ -50,7 +50,7 @@
 
 	<!-- <div style="width: 500px; margin: 0 auto; padding: 120px 0 40px; font: 0.85em arial;"> -->
         <ul class="tabs" persist="true">
-            <li class="classifieds-title">Classifieds</li>
+            <li class="classifieds-title">CLASSIFIEDS</li>
             <li><a href="#" rel="view1">Latest</a></li>
             <li><a href="#" rel="view2">Most Viewed</a></li>
             <li><a href="#" rel="view3">Post Free</a></li>
@@ -58,10 +58,9 @@
         </ul>
         <div class="tabcontents">
             <div id="view1" class="tabcontent">
-                <b>Persistence</b>
-                <p>Setting &lt;ul class="tabs" <b>persist="ture"</b>&gt;...&lt;/ul&gt; will turn on the <strong>persistence</strong> feature: 
-                the most recently clicked tab will be remembered even if the page is reloaded or revisited within the browser session. </p>
-                <p style="font-size:small;"><span style="color:red;">Note:</span> If you open this page directly with physical path(i.e. file:///D:/tabcontent/demo.html ) instead of from web app, you may not see this feature.</p>
+
+                <a href = "http://www.zoomtanzania.com/listingdetail?ListingID=39761">Residential house for commercial purposes</a> $US 1,700/Month, Dar Es Salaam
+                <img src="images/sitewide/btn.viewall_on.gif" alt="View All" name="btn-viewallfortanzania" width="93" height="20" border="0" id="btn-viewallfortanzania">
                 
             </div>
             <div id="view2" class="tabcontent">

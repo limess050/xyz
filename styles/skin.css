@@ -68,11 +68,15 @@
 .jcarousel-skin-tango .jcarousel-next-horizontal, .jcarousel-skin-tango-movies-carousel .jcarousel-next-horizontal {
     position: absolute;
     top: 275px;
-    right: 245px;
+    right: 170px;
     width: 32px;
     height: 32px;
     cursor: pointer;
     background: transparent url(../images/home/next-horizontal.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-tango-movies-carousel .jcarousel-next-horizontal {
+    right: 70px;
 }
 
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-next-horizontal, .jcarousel-skin-tango-movies-carousel .jcarousel-direction-rtl .jcarousel-next-horizontal {
@@ -98,11 +102,15 @@
 .jcarousel-skin-tango .jcarousel-prev-horizontal, .jcarousel-skin-tango-movies-carousel .jcarousel-prev-horizontal {
     position: absolute;
     top: 275px;
-    left: 255px;
+    left: 160px;
     width: 32px;
     height: 32px;
     cursor: pointer;
     background: transparent url(../images/home/prev-horizontal.png) no-repeat 0 0;
+}
+
+.jcarousel-skin-tango-movies-carousel .jcarousel-prev-horizontal {
+    left: 70px;
 }
 
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-prev-horizontal, .jcarousel-skin-tango-movies-carousel .jcarousel-direction-rtl .jcarousel-prev-horizontal {
