@@ -156,4 +156,108 @@
 		<img src = "images/home/Google-Plus.png" style = "margin-right: 20px;"/>
 		<img src = "images/home/pinterest.png" style = "margin-right: 20px;" />
 	</div>
+	<div class="clear15" ></div>
+
+<div class = "promo-tideandlunartitle" style = "height: 39px; width: 170px; float: left; clear: none;" >
+<div class="float-left">
+	<img src="images/sitewide/icon.exchangerates.gif" alt="Exchange Rates" width="28" height="39" align="left">
+</div>
+<div class="float-left promo-tideandlunartitletext"><strong>EXCHANGE RATES:</strong><br>
+					<em><?php echo date('D., M d, Y'); ?></em></div>
+	</div>
+	<div style ="display:inline-block; width 830px; height: 39px; border: 1px solid #dadada">
+
+	<div style ="display:inline-block; margin:0; font-weight: bold; padding-left:10px; padding-right:10px; vertical-align: super">1 USD</div>	
+		<table style = "font-size: 12px; display: inline-block">
+			<tr>
+				
+				<td style = "border-bottom: 1px #ccc solid"><strong>Buy:</strong> 1606 TZS</td>
+
+
+			</tr>			
+			<tr>
+				<td><strong>Sell:</strong> 1615 TZS</td>
+
+
+			</tr>
+		</table>
+	<div style = "display: inline-block; border-left: 2px #000 solid; height:29px; margin-left: 10px;"></div>
+	<div style =" display:inline-block; margin:0; font-weight: bold; padding-left:10px; padding-right:10px; vertical-align: super">1 EUR</div>	
+		<table style = "font-size: 12px; display: inline-block;">
+			<tr>
+
+				<td style = "border-bottom: 1px #ccc solid"><strong>Buy:</strong> 2161 TZS</td>
+
+			</tr>			
+			<tr>
+
+
+				<td><strong>Sell:</strong> 2174 TZS</td>
+			</tr>
+		</table>	
+
+		<div style = "display: inline-block; border-left: 2px #000 solid; height:29px; margin-left: 10px;"></div>
+	<div style =" display:inline-block; margin:0; font-weight: bold; padding-left:10px; padding-right:10px; vertical-align: super">1 GBP</div>	
+		<table style = "font-size: 12px; display: inline-block;">
+			<tr>
+
+				<td style = "border-bottom: 1px #ccc solid"><strong>Buy:</strong> 2531 TZS</td>
+
+			</tr>			
+			<tr>
+
+
+				<td><strong>Sell:</strong> 2546 TZS</td>
+			</tr>
+		</table>		
+
+		<div style = "display: inline-block; border-left: 2px #000 solid; height:29px; margin-left: 10px;"></div>
+	<div style =" display:inline-block; margin:0; font-weight: bold; padding-left:10px; padding-right:10px; vertical-align: super">1 ZAR</div>	
+		<table style = "font-size: 12px; display: inline-block;">
+			<tr>
+
+				<td style = "border-bottom: 1px #ccc solid"><strong>Buy:</strong> 179 TZS</td>
+
+			</tr>			
+			<tr>
+
+
+				<td><strong>Sell:</strong> 180 TZS</td>
+			</tr>
+		</table>		
+	<div style = "display: inline-block; border-left: 2px #000 solid; height:29px; margin-left: 10px;"></div>
+	<div style =" display:inline-block; margin:0; font-weight: bold; padding-left:10px; padding-right:10px; vertical-align: super">1 ZAR</div>	
+		<table style = "font-size: 12px; display: inline-block;">
+			<tr>
+
+				<td style = "border-bottom: 1px #ccc solid"><strong>Buy:</strong> 179 TZS</td>
+
+			</tr>			
+			<tr>
+
+
+				<td><strong>Sell:</strong> 180 TZS</td>
+			</tr>
+		</table>
+
+
+
+	</div>
+
+
+<div class="clear15" ></div>
+
+	<div class = "promo-tideandlunartitle" style = "height: 39px; width: 170px; float: left; clear: none;" >
+<div class="float-left">
+	<img src="images/sitewide/icon.tideandlunar.gif" alt="Exchange Rates" width="28" height="39" align="left">
+</div>
+<div class="float-left promo-tideandlunartitletext"><strong>TIDE AND LUNAR:</strong><br>
+					<em><?php echo date('D., M d, Y'); ?></em></div>
+	</div>
+	<div style ="display:inline-block; width 830px; height: 39px; border: 1px solid #dadada">
+		<table>
+			<tr><td>High</td><td>3:22 AM | 2.82 m</td><td>Low</td><td>9:42 AM | 0.39 m</td><td>High</td><td>3:22 PM | 2.82 m</td><td>Low</td><td>9:42 PM | 0.39 m</td></tr>
+			<tr><td colspan=8>View Tides For Tomorrow | Next Seven Days | Full Schedule</td></tr>
+		</table>
+	</div>
 	<div class="clear" style = "margin-top: 10px;"></div>

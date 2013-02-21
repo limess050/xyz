@@ -1,22 +1,27 @@
 <ul id="menu">
     <li><a href="#" >Home</a></li>
     <li><a href="#" class="drop">Business Directory</a><!-- Begin Home Item -->
-    <div class="dropdown_5columns"><!-- Begin 5 columns container  -->
+        <div class="dropdown_5columns"><!-- Begin 5 columns container  -->
         
             <div class="col_5">
                 <h2>Tanzania Business Directory</h2>
             </div>
 
-             <?php $first = 0; foreach ($sections->result() as $section): ?>
+            <?php $first = 0; foreach ($biz->result() as $section): ?>
             
             <?php if($first == 0): ?>
-            <div class="col_1">
+                <div class="col_1">
                 <ul class="greybox">
             <?php endif; ?>
+
                     <li><a href="#"><?php echo $section->Title; ?></a></li>
+
              <?php $first++; ?>
+
              <?php if($first == 8): ?>
+
              <?php $first = 0; ?>
+
                 </ul>  
             </div>
             <?php endif; ?>
@@ -26,59 +31,73 @@
           <div class="col_2">
             
                 <p class="black_box">
-                    <img src = "images/home/abstract-2.jpg" />
-                    This is a black box, you can use it to highligh some content. Sed sed lacus nulla, et lacinia risus. Phasellus vitae sapien ac leo mollis porta quis sit amet nisi. Mauris hendrerit, metus cursus accumsan tincidunt.Quisque vestibulum nisi non nunc blandit placerat. Mauris facilisis, risus ut lobortis posuere, diam lacus congue lorem, ut condimentum ligula est vel orci. Donec interdum lacus at velit varius gravida. Nulla ipsum risus.</p>
-            
+                    <img src = "images/home/abstract-2.jpg" height=90 width=250 class = "center_image" />
+
+                    Procurement made easy! Learn how to request a quote from up to 6 business at one time > <a href = "">Click Here</a>
+                    </p>
+                <p class="black_box">
+                    <img src = "images/home/abstract-2.jpg" height=90 width=250  class = "center_image"/>
+
+                    Is your business listed? Top ten reasons to list your business > <a href = "">Click Here</a>
+                </p>
             </div>
         
-            <!-- <div class="col_5">
-                <h2>Here is some content with side images</h2>
-            </div>
-           
-            <div class="col_3">
             
-                <img src="img/01.jpg" width="70" height="70" class="img_left imgshadow" alt="" />
-                <p>Maecenas eget eros lorem, nec pellentesque lacus. Aenean dui orci, rhoncus sit amet tristique eu, tristique sed odio. Praesent ut interdum elit. Sed in sem mauris. Aenean a commodo mi. Praesent augue lacus.<a href="#">Read more...</a></p>
-        
-                <img src="img/02.jpg" width="70" height="70" class="img_left imgshadow" alt="" />
-                <p>Aliquam elementum felis quis felis consequat scelerisque. Fusce sed lectus at arcu mollis accumsan at nec nisi. Aliquam pretium mollis fringilla. Nunc in leo urna, eget varius metus. Aliquam sodales nisi.<a href="#">Read more...</a></p>
-            
-            </div>
-            
-            <div class="col_2">
-            
-                <p class="black_box">This is a black box, you can use it to highligh some content. Sed sed lacus nulla, et lacinia risus. Phasellus vitae sapien ac leo mollis porta quis sit amet nisi. Mauris hendrerit, metus cursus accumsan tincidunt.Quisque vestibulum nisi non nunc blandit placerat. Mauris facilisis, risus ut lobortis posuere, diam lacus congue lorem, ut condimentum ligula est vel orci. Donec interdum lacus at velit varius gravida. Nulla ipsum risus.</p>
-            
-            </div> -->
         
         </div>
-        <!-- <div class="dropdown_2columns"> Begin 2 columns container 
-    
-            <div class="col_2">
-                <h2>Welcome !</h2>
-            </div>
-    
-            <div class="col_2">
-                <p>Hi and welcome here ! This is a showcase of the possibilities of this awesome Mega Drop Down Menu.</p>             
-                <p>This item comes with a large range of prepared typographic stylings such as headings, lists, etc.</p>             
-            </div>
-    
-            <div class="col_2">
-                <h2>Cross Browser Support</h2>
-            </div>
-            
-            <div class="col_1">
-                <img src="img/browsers.png" width="125" height="48" alt="" />
-            </div>
-            
-            <div class="col_1">
-                <p>This mega menu has been tested in all major browsers.</p>
-            </div>
-          
-        </div> End 2 columns container -->
+
     
     </li><!-- End Home Item -->
-    <li><a href="#" >Tourism Directory</a></li>
+    <li><a href="#" class="drop">Tourism Directory</a>
+<div class="dropdown_5columns"><!-- Begin 5 columns container  -->
+        
+            <div class="col_5">
+                <h2>Tanzania Tourism Directory</h2>
+            </div>
+
+            <?php $first = 0; foreach ($tours->result() as $section): ?>
+            
+            <?php if($first == 0): ?>
+                <div class="col_1">
+                <ul class="greybox">
+            <?php endif; ?>
+
+                    <li><a href="<?php echo $section->URLSafeTitleDashed ?>"><?php echo $section->Title; ?></a></li>
+
+             <?php $first++; ?>
+
+             <?php if($first == 8): ?>
+
+             <?php $first = 0; ?>
+
+                </ul>  
+            </div>
+            <?php endif; ?>
+            <?php endforeach; ?> 
+            <?php if($first != 8): ?>
+                </ul>  
+            </div>
+            <?php endif; ?>
+            
+          <div class="col_2">
+            
+                <p class="black_box">
+                    <img src = "images/home/abstract-2.jpg" height=90 width=250 class = "center_image" />
+
+                    Procurement made easy! Learn how to request a quote from up to 6 business at one time > <a href = "">Click Here</a>
+                    </p>
+                <p class="black_box">
+                    <img src = "images/home/abstract-2.jpg" height=90 width=250  class = "center_image"/>
+
+                    Is your business listed? Top ten reasons to list your business > <a href = "">Click Here</a>
+                </p>
+            </div>
+        
+            
+        
+        </div>
+
+    </li>
     <li><a href="#" >Restaurants & Nightlife</a></li>
     <li><a href="#" class="drop">Arts & Entertainment</a><!-- Begin 4 columns Item -->
     

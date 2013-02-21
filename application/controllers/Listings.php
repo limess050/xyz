@@ -10,11 +10,22 @@ class Listings extends CI_Controller {
 
 	public function index()
 	{
+		//$this->load->driver('cache');
 		$this->db->where('ParentSectionID', 1);
-		$this->db->order_by('title');
-		$data['sections'] = $this->db->get('sections');
+		$this->db->order_by('Title');
+		$data['biz'] = $this->db->get('sections');
+
+		$this->db->where('ParentSectionID', 21);
+		$this->db->order_by('Title');
+		$data['tours'] = $this->db->get('categories');
+
+		$this->db->where('ParentSectionID', 32);
+		$this->db->order_by('Title');
+		$data['arts'] = $this->db->get('categories');
+
 		//$data['text']='';
 		//echo $this->session->userdata('current_url');
+	//	$this->cache->file->save('sections', $data['sections'], 300);
 		$this->load->view('header');
 		$this->load->view('menu',$data);
 		$this->load->view('home');

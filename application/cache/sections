@@ -1,0 +1,1 @@
+a:3:{s:4:"time";i:1361428386;s:3:"ttl";i:300;s:4:"data";O:18:"CI_DB_mysql_result":8:{s:7:"conn_id";i:0;s:9:"result_id";i:0;s:12:"result_array";a:0:{}s:13:"result_object";a:0:{}s:20:"custom_result_object";a:0:{}s:11:"current_row";i:0;s:8:"num_rows";i:24;s:8:"row_data";N;}}
