@@ -79,7 +79,7 @@ if ($results->num_rows() > 0) {
             $validation_arr[] = $val;
         echo form_label('form field type');
         
-        $results_to_selectField=$this->dataFetcher->loadSelectInputTypes();
+        $results_to_selectField=$this->datafetcher->loadSelectInputTypes();
         if($results_to_selectField->num_rows()>0){
          ?>
          <select name="formfieldtype" class="">
@@ -88,7 +88,7 @@ if ($results->num_rows() > 0) {
             $select_out='';
            foreach ($results_to_selectField->result_array()as $rowsTobedisplayed) {
                $select='';
-               $results_two=$this->dataFetcher->loadSelectInputTypesByid($id);
+               $results_two=$this->datafetcher->loadSelectInputTypesByid($id);
                
                foreach ($results_two->result_array() as $rowTocompare) {
                    
@@ -119,7 +119,7 @@ if ($results->num_rows() > 0) {
 //        $validation_arr[] = $val;
         
 
-        $results_drawsfrom = $this->dataFetcher->drawsFromColumn($id);
+        $results_drawsfrom = $this->datafetcher->drawsFromColumn($id);
         if ($results_drawsfrom->num_rows() > 0) {
             foreach ($results_drawsfrom->result_array() as $drawsfields) {
 
@@ -167,14 +167,14 @@ if ($results->num_rows() > 0) {
 
         <?php
         /*         * ********************************************************************************* */
-        $db_results = $this->dataFetcher->loadInputValidations();
+        $db_results = $this->datafetcher->loadInputValidations();
         if ($db_results->num_rows() > 0) {
             $outputValidation = '';
 
             foreach ($db_results->result_array() as $inputValidations) {
                 $checked = '';
 
-                foreach ($this->dataFetcher->loadsValidationrulesByName($inputValidations['input_rules'], $id)->result_array() as $rules) {
+                foreach ($this->datafetcher->loadsValidationrulesByName($inputValidations['input_rules'], $id)->result_array() as $rules) {
 
                     if (strcasecmp($inputValidations['input_rules'], $rules['rule_name']) == 0) {
                         $checked = "checked";

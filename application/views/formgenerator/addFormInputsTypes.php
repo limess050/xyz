@@ -7,7 +7,7 @@
 
 
 $data = array('name' => '', 'class' => 'myform');
-echo form_open('formGenerator/addInputsTypes/', $data);
+echo form_open('formgenerator/addInputsTypes/', $data);
 echo form_fieldset();
 ?>
 <ul>
@@ -44,7 +44,7 @@ echo form_fieldset();
         }
         echo form_label('form field type');
         
-        $results_to_selectField=$this->dataFetcher->loadSelectInputTypes();
+        $results_to_selectField=$this->datafetcher->loadSelectInputTypes();
         if($results_to_selectField->num_rows()>0){
          ?>
          <select name="formfieldtype" class="">
@@ -104,7 +104,7 @@ echo form_fieldset();
             
             echo '<div class="error">'.form_error('validation_chck').'</div>';
         }
-            $db_results=$this->dataFetcher->loadInputValidations();
+            $db_results=$this->datafetcher->loadInputValidations();
             if($db_results->num_rows()>0){
                 $outputValidation='';
                 foreach ($db_results->result_array() as $inputValidations) {

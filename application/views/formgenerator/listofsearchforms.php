@@ -8,7 +8,7 @@
 
 $this->load->view('formgenerator/header');
 $this->load->view('formgenerator/content');
-$results = $this->datafetcher->formsCreatedSections();
+$results = $this->datafetcher->formsCreatedSections($table="search_forms");
 
 
 if ($results->num_rows() > 0) {
@@ -39,7 +39,7 @@ if ($results->num_rows() > 0) {
             foreach ($results->result_array() as $value) {
                 $sn++;
                 //check if subsections detected 
-                $result_categories = $this->datafetcher->sectionCategory($value['SecID']);
+                $result_categories = $this->datafetcher->sectionCategory($value['SecID'],$table="search_forms");
                 
                 $forms_output = '';
                 
@@ -83,7 +83,7 @@ if ($results->num_rows() > 0) {
 
                     $forms_output.='<tr><td>' . $name . '</td><td>' . $forms['Title'] . '</td>
                        
-                    <td>' . anchor('formgenerator/editform/' . $formid . $forms['CategoryID'], $title =img(array('src'=>'icons/edit.png')), $attrib = array('title' => 'edit', 'class' => ''), $attrib = array('title' => 'edit', 'class' => '')) . nbs(3) . anchor_popup('formgenerator/generateform/' . $formid . $forms['CategoryID'], $title =img(array('src'=>'icons/accept.png')), $attrib = array('title' => 'view', 'class' => '')) . nbs(3) . anchor('formgenerator/formdelete/' . $formid . $forms['CategoryID'],$title =img(array('src'=>'icons/cancel.png')), $attrib = array('title' => 'delete', 'class' => ''), $attrib = array('title' => 'delete', 'class' => '')) . '</td>
+                    <td>' . anchor('mastersearch/editform/' . $formid . $forms['CategoryID'], $title =img(array('src'=>'icons/edit.png')), $attrib = array('title' => 'edit', 'class' => ''), $attrib = array('title' => 'edit', 'class' => '')) . nbs(3) . anchor_popup('mastersearch/generateform/' . $formid . $forms['CategoryID'], $title =img(array('src'=>'icons/accept.png')), $attrib = array('title' => 'view', 'class' => '')) . nbs(3) . anchor('mastersearch/deletesearchform/' . $formid . $forms['CategoryID'],$title =img(array('src'=>'icons/cancel.png')), $attrib = array('title' => 'delete', 'class' => ''), $attrib = array('title' => 'delete', 'class' => '')) . '</td>
                        
 </tr>';
                 }

@@ -7,7 +7,7 @@
 $this->load->view('header');
 $this->load->view('content');
 
-$results = $this->dataFetcher->generatedformsInformations();
+$results = $this->datafetcher->generatedformsInformations();
 
 
 if ($results->num_rows() > 0) {
@@ -24,7 +24,7 @@ if ($results->num_rows() > 0) {
             
         if (empty($value['sections_without_subsections'])) {
             //if it is empty means its section without subsections 
-            $sectionswithsubsectionsresults = $this->dataFetcher->loadSubsection($value['category_id']);
+            $sectionswithsubsectionsresults = $this->datafetcher->loadSubsection($value['category_id']);
             foreach ($sectionswithsubsectionsresults->result_array() as $rowsvalue) {
 
                 $out_sub.=$rowsvalue['cat_name'];
@@ -33,7 +33,7 @@ if ($results->num_rows() > 0) {
         }
         else{
               //if category is  not empty means  section with subsections
-            $sectionwithoutsubsectionsresults = $this->dataFetcher->loadsection($value['sections_without_subsections']);
+            $sectionwithoutsubsectionsresults = $this->datafetcher->loadsection($value['sections_without_subsections']);
             foreach ($sectionwithoutsubsectionsresults->result_array() as $rows) {
                 $out_sub.=$rows['cat_name'];
                 $formid='subsec/';
@@ -42,7 +42,7 @@ if ($results->num_rows() > 0) {
         }
 
         //the final row output printed 
-        $output.='<tr><td>' . $value['cat_name'] . '</td><td>'. anchor('formGenerator/editform/' .$formid. $value['cat_id'], $title = 'click', $attrib = array('title' => 'click', 'class' => '')) .'</td><td>'.anchor_popup('formGenerator/generateform/' .$formid. $value['cat_id'], $title = 'click', $attrib = array('title' => 'click', 'class' => '')) . '</td><td>'. anchor('formGenerator/formdelete/' .$formid. $value['cat_id'], $title = 'click', $attrib = array('title' => 'click', 'class' => '')).'</td></tr>';
+        $output.='<tr><td>' . $value['cat_name'] . '</td><td>'. anchor('formgenerator/editform/' .$formid. $value['cat_id'], $title = 'click', $attrib = array('title' => 'click', 'class' => '')) .'</td><td>'.anchor_popup('formgenerator/generateform/' .$formid. $value['cat_id'], $title = 'click', $attrib = array('title' => 'click', 'class' => '')) . '</td><td>'. anchor('formgenerator/formdelete/' .$formid. $value['cat_id'], $title = 'click', $attrib = array('title' => 'click', 'class' => '')).'</td></tr>';
     } echo $output;
     ?>
     </table> 
