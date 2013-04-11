@@ -21,7 +21,7 @@ $config['use_mongodb'] = FALSE;
 | $ mongorestore sql/mongo
 |
 */
-$config['collections']['users']          = 'users';
+$config['collections']['users']          = 'lh_users';
 $config['collections']['groups']         = 'groups';
 $config['collections']['login_attempts'] = 'login_attempts';
 
@@ -31,7 +31,7 @@ $config['collections']['login_attempts'] = 'login_attempts';
 | -------------------------------------------------------------------------
 | Database table names.
 */
-$config['tables']['users']           = 'users';
+$config['tables']['users']           = 'lh_users';
 $config['tables']['groups']          = 'groups';
 $config['tables']['users_groups']    = 'users_groups';
 $config['tables']['login_attempts']  = 'login_attempts';
@@ -81,16 +81,16 @@ $config['max_rounds']     = 9;
  | The controller should check this function and act
  | appropriately. If this variable set to 0, there is no maximum.
  */
-$config['site_title']                 = "Example.com";       // Site Title, example.com
-$config['admin_email']                = "admin@example.com"; // Admin Email, admin@example.com
+$config['site_title']                 = "ZoomTanzania.com";       // Site Title, example.com
+$config['admin_email']                = "info@zoomtanzania.com"; // Admin Email, admin@example.com
 $config['default_group']              = 'members';           // Default group, use name
 $config['admin_group']                = 'admin';             // Default administrators group, use name
-$config['identity']                   = 'email';             // A database column which is used to login with
+$config['identity']                   = 'username';             // A database column which is used to login with
 $config['min_password_length']        = 8;                   // Minimum Required Length of Password
 $config['max_password_length']        = 20;                  // Maximum Allowed Length of Password
 $config['email_activation']           = FALSE;               // Email Activation for registration
 $config['manual_activation']          = FALSE;               // Manual Activation for registration
-$config['remember_users']             = TRUE;                // Allow users to be remembered and enable auto-login
+$config['remember_users']             = FALSE;                // Allow users to be remembered and enable auto-login
 $config['user_expire']                = 86500;               // How long to remember the user (seconds). Set to zero for no expiration
 $config['user_extend_on_login']       = FALSE;               // Extend the users cookies everytime they auto-login
 $config['track_login_attempts']       = FALSE;               // Track the number of failed login attempts for each user or ip.

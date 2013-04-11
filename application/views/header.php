@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<base href = "<?php echo base_url(); ?>" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<META NAME="country" CONTENT="Tanzania">
-		
-	
-		<link rel=stylesheet href="styles/style.css?V=02152013" type="text/css">
-		<link rel=stylesheet href="styles/menu.css?V=02152013" type="text/css">
+<base href = "<?php echo base_url(); ?>" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META NAME="country" CONTENT="Tanzania">
+<?php
+		if(isset($Meta->BrowserTitle) and ($Meta->BrowserTitle != '' ))
+			$BrowserTitle = $Meta->BrowserTitle;
+		else
+			$BrowserTitle = $Meta->H1Text;
+
+		if(isset($Meta->MetaDescr) and $Meta->MetaDescr != '')
+			$MetaDescr = $Meta->MetaDescr;
+		else
+			$MetaDescr = '';
 
 
-		<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
-		<!--  jQuery UI script -->
-		<script type="text/javascript" src="js/jquery-ui-1.8.12.custom.min.js"></script>
+	?>
+	<title><?php echo $BrowserTitle; ?></title>
 
-			<!--  jCarousel library -->
-			<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
-			<!--  jCarousel skin stylesheet -->
-			<link rel="stylesheet" type="text/css" href="styles/skin.css" />
-			<!--  jCarousel carousel script -->
-			<script type="text/javascript" src="js/carousel.js" language="javascript"></script>
+	<META NAME="description" CONTENT="<?php echo $MetaDescr; ?>">
 
-			    <script src="js/tabcontent.js" type="text/javascript"></script>
-    <link href="styles/tabcontent.css" rel="stylesheet" type="text/css" />
+	<script>
 
-		<title>Tanzania Directory for Business, Entertainment & Travel Info</title>
-				
-			<META NAME="description" CONTENT="Welcome to ZoomTanzania, where locals go to find  accurate and up-to-date business, entertainment, jobs, real estate, cars, travel and classified information.">
+</script>
+<link href="styles/common.css" rel="stylesheet" type="text/css" />
 
+<link rel="shortcut icon" href="../favicon.ico">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        
+        <script type="text/javascript" src="js/legacy/jquery-ui-1.8.12.custom.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/megamenudefault.css" />
+		<link rel="stylesheet" type="text/css" href="styles/megamenucomponent.css" />
+<!-- 		<link href="styles/legacy/menu.css" rel="stylesheet" type="text/css" /> -->
+		<link href="styles/tabcontent.css" rel="stylesheet" type="text/css" />
+		<link href="styles/home.css" rel="stylesheet" type="text/css" />
+		<link href="styles/style_categories.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="styles/legacy/skin.css" />
+				<link href="styles/footer.css?323343" rel="stylesheet" type="text/css" />
+		<link href="styles/exchange.css" rel="stylesheet" type="text/css" />
+		 <script src="js/tabcontent.js" type="text/javascript"></script>
+		 <script src="js/modernizr.custom.js"></script>
+      <script src="js/modernizr.custom.63321.js"></script>
+        <script src="js/cbpHorizontalMenu.js"></script>
 		<script>
+			// $(function() {
+			// 	cbpHorizontalMenu.init();
+			// });
 
-  </script>
+			$(document).ready(function(){
+				$('#cbp-hrmenu > ul > li').hover(
+					function(){
+						$(this).addClass('cbp-hropen');
+					},
+					function(){
+						$(this).removeClass('cbp-hropen');
+					}
+				);
+
+			});
+		</script>
+        <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+        <!--<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>-->
+         <script type="text/javascript" src="js/carousel.js" language="javascript"></script>
 </head>
+
 <body>
-	<div class="wrapper">
-		<div class="masthead">
-		<div class="myaccount"><a href="myaccount" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btn-myaccount','','images/sitewide/btn.myaccount_on.gif',1)"><img src="images/sitewide/btn.myaccount_off.gif" alt="My Account" name="btn-myaccount" width="114" height="25" border="0" id="btn-myaccount" /></a></div>
-		<div class="loggedIn">&nbsp;&nbsp;<noscript><div style="color:red">This site requires javaScript to function correctly. Please use your browser's options to enable javaScript.</div></noscript>
-		<!-- <span id="UserWelcome"><cfif IsDefined('session.UserID') and Len(session.UserID) and IsDefined('session.UserName')>Welcome, #session.UserName#<br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="Logout=Y">(log out)</a>&nbsp;&nbsp;&nbsp;</cfif></span> --></div>
-		<div class="search searchByID">
-			<form action="#lh_getPageLink(53,'sitesearch')#" method="get" onSubmit="return checkListingID(this);">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search by Listing ID#&nbsp;&nbsp;<input name="searchString" type="text" value="Listing ID" class="searchByIDfield" maxlength="7"  onFocus="if (this.value=='Listing ID') {this.value=''};"/>
-				<input type="hidden" name="SearchByID" value="1">
-				<input name="go" id="btn-go" type="image" value="Go" src="images/sitewide/btn.go_off.gif" alt="Search" align="absmiddle" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btn-go','','images/sitewide/btn.go_on.gif',1)" />
-			</form>
-		</div>
-		<div class="search searchByName">
-			<form action="#lh_getPageLink(53,'sitesearch')#" method="get">
-				<span id="SearchByNameField" style="float: right;">
-				<input name="searchString" type="text" value="Search ZoomTanzania.com" class="searchfield" maxlength="50"  onFocus="if (this.value=='Search ZoomTanzania.com') {this.value=''};"/>
-				<input name="go" id="btn-go" type="image" value="Go" src="images/sitewide/btn.go_off.gif" alt="Search" align="absmiddle" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('btn-go','','images/sitewide/btn.go_on.gif',1)" />
-				</span>
-				<span id="searchByNameText" style="float: right;">
-				Search by Business Name or Type of Business&nbsp;&nbsp;<br>
-				Ex: Auto Emporium OR Car Dealers
-				</span>
-			</form>
-		</div>
-		<div class="clear"></div>
-	</div>
-	
-	<!-- LOGO AND AD ROW -->
-	<div class="logoandad">
-		<div id="logo" class="float-left"><a href=""><img src="images/sitewide/logoZoom.gif"  alt="ZoomTanzania. Find What You Need - Fast!" /></a></div>
-		<div id="ad" class="float-right">
-			<img src = "images/Airtel-Bure.jpg">	
-		</div>
-		<div class="clear"></div>
+	<div id="loginbar"><div id="loginbutton"><a  href="#">log in</a>  |   <a  href="#">register</a> </div><div id="searchbutton"><input name="zoomsearch" type="text" id="zoomsearch" value="search in zoomtanzania" size="30" maxlength="70" />
+	  <a  href="#">  <input name="zoom search" type="button" value="zoom search" /> 
+		  
+	</a>        
+	<input name="zoomidsearch" type="text" id="zoomidsearch" value="# zoom ID" size="10" maxlength="70" />
+	  <a  href="#">  
+	  <input name="idsearch" type="button" value="#search by listing ID" />
+		  
+	</a></div></div>
+	<div id="page">
+	<div id="bannerextrapage" align="center"><a href="#"></a></div>
+	<div id="header">
+	<div id="logo">
+		<span><img src="images/sitewide/logoZoom.png"  style=""/></span>
+		<span id="banner"><a href="#"><img style = "margin-top:12px;" src="images/Airtel-Bure.jpg" alt="banner" width="675" height="83" /></a></span>
 	</div>

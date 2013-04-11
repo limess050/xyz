@@ -1,0 +1,211 @@
+/* 
+    Document   : form
+    Created on : Mar 12, 2013, 12:58:54 PM
+    Author     : Vincent David
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+form.myform{
+ font-family: Arial,Helvetica,sans-serif;
+}
+#error_box{
+    margin:20px;
+    border: 1px solid #BD4B3B;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size:  13px;
+    color: #BF4833;
+}
+form.myform fieldset{
+    border:1px solid #ffffff;  
+  }
+form.myform fieldset ul{
+
+}
+form.myform fieldset ul li{
+
+    list-style:  none;
+  }
+  form.myform fieldset ul li input.priceVal{
+   width: 226px;   
+  }
+  form.myform fieldset ul li select{
+      width: 300px;
+      border:1px solid #007C00;
+  }
+form.myform fieldset ul li label{
+    width:180px;
+    margin-left:5px;
+/*    margin-right: 20px;*/
+    font-family:inherit;
+    font-size: 13px;
+    display: inline-block;
+}
+form.myform fieldset ul li input{
+    width: 300px;
+    border:1px solid #007C00;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+    margin-bottom:5px;
+    margin-top: 3px;
+/*    margin-left: 80px;*/
+}
+form.myform fieldset ul li select.events{
+
+    width: 300px;
+    border:1px solid #007C00;
+     margin-bottom:10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 5px;
+
+}
+form.myform fieldset ul li select{
+    display: inline-block;
+}
+form.myform fieldset ul li textArea{
+
+    width: 500px;
+    height: 260px;
+    margin-bottom:10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border:1px solid #007C00;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+form.myform fieldset ul li input.images{
+    border:1px solid #007C00;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+     margin-bottom:10px;
+    margin-top: 10px;
+    margin-left: 2px;
+    }
+form.myform fieldset ul li input.submit{
+    width: 300px;
+    border:1px solid #007C00;
+    border-radius: 5px;
+    margin-left: 80px;
+     margin-bottom:10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+form.myform fieldset ul li label.tips{
+    
+    max-width:120px;
+    min-height:20px;
+    margin-left:20px;
+    margin-top: 5px;
+    font-size: 12px;
+    display: inline-block;
+}
+/**css for form creator interface*/
+form.myformcreator{
+    width: 100%;
+    
+}
+form.myformcreator fieldset {
+  border:0px;
+}
+form.myformcreator fieldset ul li{
+    list-style: none;
+
+}
+form.myformcreator fieldset ul li label{
+    
+    width: 200px;
+    display: inline-block;
+/*    border: 1px solid #000;*/
+    margin-left:2px;
+  
+    
+}
+form.myformcreator fieldset ul li select{
+    
+    width: 220px;
+/*    display: inline-block;*/
+    border: 1px solid  #007C00;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left:40px;
+    
+/*      padding:10px;*/
+   }
+   form.myformcreator fieldset ul li  select.autoload{
+    
+    width: 220px;
+    display: inline-block;
+    border: 1px solid  #007C00;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left:50px;
+    
+/*      padding:10px;*/
+   }
+   
+   form.myformcreator fieldset ul li select option{
+/*     border-bottom: 1px solid  #007C00;  */
+   }
+   form.myformcreator fieldset ul li ul fieldset{
+       border:1px solid #007C00;
+   }
+   form.myformcreator fieldset ul li ul fieldset li input.checkbox{
+       border:1px solid #4EA6EA;
+       margin-left: 5px;
+       display: inline-block;
+       
+       margin-right:0px;
+   }
+   form.myformcreator fieldset ul li ul fieldset li  select{
+/*       position: relative;
+       left:2px;
+       display: inline-block;*/
+   }form.myformcreator fieldset ul li ul fieldset li input{
+      
+      width: 200px;
+   }
+   form.myformcreator fieldset ul  li textarea{
+      
+      width: 200px;
+      border: 1px solid #4EA6EA;
+   }
+   form.myformcreator fieldset ul  li textArea{
+      
+      width: 200px;
+      border: 1px solid #007C00;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+   }
+   div.error{
+       color:#F51A15;
+       font-style: italic;
+       border:1px solid #F51A15;
+       font-size: 14px;
+       width: 40%;
+       text-transform: lowercase;
+       text-indent: 10px;
+      
+          
+   }
+/*   #container{
+       margin: 0 auto;
+       width: 920px;
+   }*/
+   form.myform ul li table.price{
+       margin-left: 180px;
+       margin-top: -12px;
+       width: 300px;
+       display: block;
+   }
+   form.myform ul li table.price tr td select.pricetd{
+       width: 80px;
+   }

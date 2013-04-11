@@ -1,0 +1,435 @@
+@charset "UTF-8";
+/* CSS Document */
+#upcomingeventslide {
+	position: absolute;
+	width: 600px;
+	margin: 0px 5px 0px 220px;
+	padding: 8px;
+	float:left;
+	text-align: center; /* orizzontale */
+}
+#homerow1 {
+	position: relative;
+	width: 1020px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	float:left;
+}
+#homerow2 {
+	position: relative;
+	width: 1020px;
+	margin: 0px 5px 0px 0px;
+	padding: 8px;
+}
+#homerow3 {
+	position: relative;
+	width: 1020px;
+	margin: 20px 5px 0px 0px;
+	padding: 8px;
+	text-align:center;
+}
+#homerow4 {
+	position: relative;
+	width: 1020px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	text-align:center;
+}
+#homerow5 {
+	position: relative;
+	width: 1020px;
+	margin: 0px 0px 0px 0px;
+	padding-left: 8px;
+	text-align:center;
+}
+.container {
+	width: 580px;
+	position: relative;
+	float:left;
+	padding:10px 0px 0px 0px;
+	text-align:center;
+}
+.precontainer_tab {
+	width: 580px;
+	overflow: visible;
+	position: relative;
+	visibility: visible;
+	z-index: 1;
+	float:left !important; 	
+}
+.container_tab {
+	width: 500px;
+	overflow: visible;
+	position: relative;
+	visibility: visible;
+	margin-left:40px;
+	padding-top: 20px;	
+}
+	
+#columncontent {
+	/*position: absolute;*/
+	width: 600px;
+	padding-top: 30px;
+	float: left;
+	line-height: 15px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+/*	margin-left: 210px;*/
+	top: 1px;
+}
+#directorytitle {
+	position: absolute;
+	width: 600px;
+	padding: 10px;
+	float: left;
+	line-height: 15px;
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+	margin-left: 200px;
+}
+
+#welcometext{
+	padding-top:18px;
+	padding-left:20px;
+	padding-right:20px;
+	color:#FFF
+	
+}
+#welcometext div {
+	float:left;
+}
+h4{
+	letter-spacing: -1px;
+	display: block;
+	outline: 0;
+	text-decoration: none;
+	line-height: 18px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+h5{
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0px;
+	display:block;
+	outline:0;
+	text-decoration:none;
+	line-height: 16px;
+	color:#0D4E91;
+}
+
+#box_center {
+	width: 530px;
+	overflow: hidden;
+	margin: 0px 0 30px 0;
+}
+#box_left {
+	width: 210px;
+	overflow: hidden;
+	float:left;
+	padding:10px 0px 10px 0px;
+	text-align: center;
+	cursor: pointer;
+	 /* orizzontale */
+}
+#box_left div {
+	font-size: 11px;
+	text-align: center !important; 
+}
+#box_left li img 
+{margin-top: 5px;
+border:#CCC solid 1px;
+}
+#box_left a{
+	line-height: 11px;
+	display: block;
+	cursor:pointer;
+}
+#box_event {
+	width: 180px;
+	overflow: hidden;
+	float: left;
+	padding:30px 20px 10px 10px;
+	text-align: center; /* orizzontale */
+	
+}
+#box_event img{
+	border:#CCC solid 1px;
+	
+}
+#box_right {
+	width: 210px;
+	overflow: hidden;
+	float: right;
+	padding:30px 20px 0px 0px;
+	text-align: center; /* orizzontale */
+}
+#box_right li img 
+{margin-top: 5px;
+}
+
+#box_banner {
+	width: 210px;
+	overflow: hidden;
+	float:left;
+	padding:20px 0px 0px 0px;
+	text-align: center; /* orizzontale */
+}
+.box h2
+.box h3 
+.box h4 {
+	letter-spacing: 0px;
+	display: block;
+	outline: 0;
+	text-decoration: none;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+/*INDEX + PAGES SIDEBAR*/
+#sidebar {
+	width: 220px;
+	float: left;
+	margin-left: auto; margin-right: auto;
+	display:block;
+	line-height: 15px;
+	padding-left:0px;
+	padding-top:20px;
+}
+#sidebar ul {
+	list-style: none;
+}
+
+#sidebar ul li {
+	padding: 10px 0 10px 0;
+}
+
+#sidebar ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}
+/*INDEX + BANNER SIDEBAR RIGHT*/
+#sidebar2 {
+	width: 200px;
+	float: left;
+	margin-right:0px;
+	clear: none;
+}
+
+#sidebar2 ul {
+	list-style: none;
+}
+
+#sidebar2 ul li {
+	padding: 20px 0 20px 0;
+}
+
+#sidebar2 ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}
+/*KIMEO*/
+.smallcap {
+	font-variant: normal;
+	font-weight: 700;
+	text-transform: lowercase;
+}
+.smallcategory {
+	font-variant: normal;
+	font-weight: 600;
+	text-transform: none;
+	line-height: 12px;
+	color: #22558F;
+}
+.smallbreadcrumbs {
+	font-variant: normal;
+	font-weight: 500;
+	text-transform: none;
+	line-height: 12px;
+	color: #4A7D81;
+	font-size: 12px;
+}
+.smallcategorynormal {
+	font-variant: normal;
+	font-weight: 200;
+	text-transform: capitalize;
+	line-height: 12px;
+}
+.uppercap {
+font-variant: normal;
+	font-weight: 700;
+	text-transform: uppercase;}
+	
+	
+.titlecategory {
+	font-variant: normal;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 16px;
+	color: #000000;
+}
+	
+.itemcenter {
+		text-align: center; /* orizzontale */
+		float:center;}
+		
+		/*BUSINESS PAGE*/
+	.business {
+	width: 100%;
+	position: relative;
+	margin-left: auto; margin-right: auto;
+	display:block;
+	line-height: 15px;
+}
+.business ul 
+		{list-style-type: none; 
+		padding:10px;
+		}
+		
+.business li 
+{border: solid 1px #ccc; 
+display: inline-block; 
+width: 185px; 
+padding: 15px; 
+margin: 7px 3px;  
+vertical-align: text-top; 
+text-align: center; 
+zoom: 1; 
+*display: inline;
+float:left;
+min-height: 251px;}
+ 
+.business li img 
+{margin-top: 5px;
+border:#CCC solid 1px}
+
+.business h2 {
+	color:#000000;
+	font-size: 12px;
+	font-weight:bold;
+	margin: 0;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+.business select 
+{width: 170px; background: #fff; border: solid 1px #ffffff; margin: 10px 0;}
+
+.zoomreccomend h2 {
+	color:#0D4E91;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0;
+	text-transform: uppercase;
+	font-variant: small-caps;
+	background-color:#eee;
+}
+/*DIRECTORY RESTAURANTS AND NIGHTLIFE + ARTS & ENTERTAINMENT*/
+.restaurant 
+{
+	display: inline-block;
+	width: 600px;
+	padding: 10px;
+	margin: 7px 3px;
+	vertical-align: text-top;
+	text-align: left;
+	zoom: 1;
+*display: inline;
+	float: left;}
+	
+	.restaurant  li {
+  min-width: 540px;
+  max-width: 560px;
+  border: solid 1px #ccc;
+  min-height: 155px;
+   max-height: 160px;
+  margin: 5px 3px;
+}
+
+.restaurant  li img  {
+  float: left;
+  margin: 0 10px 0 10px;
+}
+.restaurant  div
+{
+  float: left;
+}
+
+.restaurant h2 {
+	color:#000000;
+	font-size: 12px;
+	font-weight:bold;
+	margin: 0;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+
+.directory {
+	width: 100%;
+	position: relative;
+	margin-left: auto; margin-right: auto;
+	display:block;
+	line-height: 15px;
+}
+.directory ul 
+		{list-style-type: none; 
+		padding:10px;
+		}
+		
+.directory li 
+{border: solid 1px #ccc; 
+display: inline-block; 
+width: 180px; 
+padding: 20px; 
+margin: 7px 3px;  
+vertical-align: text-top; 
+text-align: center; 
+zoom: 1; 
+*display: inline;
+float:left;
+min-height: 226px;}
+ 
+.directory li img 
+{margin-top: 5px;
+border:#CCC solid 1px}
+
+.directory h2 {
+	color:#000000;
+	font-size: 12px;
+	font-weight:bold;
+	margin: 0;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+/*DIRECTORY TOURISM*/
+.tourism 
+{
+	display: inline-block;
+	width: 600px;
+	padding: 10px;
+	margin: 0px 0px;
+	vertical-align: text-top;
+	text-align: left;
+	zoom: 1;
+*display: inline;
+	float: left;}
+	
+	.tourism li {
+  min-width: 270px;
+  max-width: 280px;
+  border: solid 1px #ccc;
+  min-height: 155px;
+   max-height: 160px;
+  margin: 5px 3px;
+}
+
+.tourism li img  {
+  float: left;
+  margin: 0 10px 0 10px;
+}
+.tourism div
+{
+  float: left;
+}
+
+	

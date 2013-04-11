@@ -253,21 +253,23 @@ class Ion_auth_model extends CI_Model
 		}
 
 		//bcrypt
-		if ($use_sha1_override === FALSE && $this->hash_method == 'bcrypt')
-		{
-			return $this->bcrypt->hash($password);
-		}
+		// if ($use_sha1_override === FALSE && $this->hash_method == 'bcrypt')
+		// {
+		// 	return $this->bcrypt->hash($password);
+		// }
 
 
-		if ($this->store_salt && $salt)
-		{
-			return  sha1($password . $salt);
-		}
-		else
-		{
-			$salt = $this->salt();
-			return  $salt . substr(sha1($salt . $password), 0, -$this->salt_length);
-		}
+		// if ($this->store_salt && $salt)
+		// {
+		// 	return  sha1($password . $salt);
+		// }
+		// else
+		// {
+		// 	$salt = $this->salt();
+		// 	return  $salt . substr(sha1($salt . $password), 0, -$this->salt_length);
+		// }
+
+		else return $password;
 	}
 
 	/**
@@ -287,7 +289,7 @@ class Ion_auth_model extends CI_Model
 		$this->trigger_events('extra_where');
 
 		$query = $this->db->select('password, salt')
-		                  ->where('id', $id)
+		                  ->where('UserID', $id)
 		                  ->limit(1)
 		                  ->get($this->tables['users']);
 
@@ -309,17 +311,18 @@ class Ion_auth_model extends CI_Model
 			return FALSE;
 		}
 
+		$db_password = $password;
 		// sha1
-		if ($this->store_salt)
-		{
-			$db_password = sha1($password . $hash_password_db->salt);
-		}
-		else
-		{
-			$salt = substr($hash_password_db->password, 0, $this->salt_length);
+		// if ($this->store_salt)
+		// {
+		// 	$db_password = sha1($password . $hash_password_db->salt);
+		// }
+		// else
+		// {
+		// 	$salt = substr($hash_password_db->password, 0, $this->salt_length);
 
-			$db_password =  $salt . substr(sha1($salt . $password), 0, -$this->salt_length);
-		}
+		// 	$db_password =  $salt . substr(sha1($salt . $password), 0, -$this->salt_length);
+		// }
 
 		if($db_password == $hash_password_db->password)
 		{
@@ -860,7 +863,7 @@ class Ion_auth_model extends CI_Model
 
 		$this->trigger_events('extra_where');
 
-		$query = $this->db->select($this->identity_column . ', username, email, id, password, active, last_login')
+		$query = $this->db->select($this->identity_column . ', username, email, UserID as id, password, active, last_login')
 		                  ->where($this->identity_column, $this->db->escape_str($identity))
 		                  ->limit(1)
 		                  ->get($this->tables['users']);
@@ -1470,7 +1473,7 @@ class Ion_auth_model extends CI_Model
 		}
 
 		$this->trigger_events('extra_where');
-		$this->db->update($this->tables['users'], $data, array('id' => $user->id));
+		$this->db->update($this->tables['users'], $data, array('UserID' => $user->id));
 
 		if ($this->db->trans_status() === FALSE)
 		{
@@ -1541,7 +1544,7 @@ class Ion_auth_model extends CI_Model
 
 		$this->trigger_events('extra_where');
 
-		$this->db->update($this->tables['users'], array('last_login' => time()), array('id' => $id));
+		$this->db->update($this->tables['users'], array('last_login' => time()), array('UserID' => $id));
 
 		return $this->db->affected_rows() == 1;
 	}

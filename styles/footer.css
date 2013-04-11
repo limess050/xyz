@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.pushfooter{
+height:100px; /* altezza footer */
+clear:both; /* clear di eventuali float se presenti nel layout */
+}
+#footer {
+    /*Position: fixed;*/
+      clear: both;
+      width: 1020px;
+      bottom: 0;
+      height: 200px;
+	  border-top:#cccccc solid 3px;
+	  text-align:center;
+	  background-color: #0D4E91;
+	  margin: 0  auto; 
+	  color: #cccccc; 
+	  font-size:11px; 
+}
+
+#footer a {
+	color: #ffffff;
+	text-decoration:none;
+}
+#footer div {
+	float: left;
+	font-style: normal;}
+	
+
+#footer h2, #footer h3, #footer h4 {
+	letter-spacing: 0px;
+	display: block;
+	outline: 0;
+	line-height: 15px;
+	color: #ffffff;
+	padding-top: 0;
+	border-top: 0;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+#footer ul {
+	list-style: none;
+}
+
+#footer ul li {
+	display: inline-block; 
+	width: 160px; 
+	padding: 0px 0px 0px 00px; 
+	margin: 7px 3px;  
+	vertical-align: text-top; 
+	text-align: left; 
+	zoom: 1; 
+	*display: inline;
+	float:left;
+	min-height: 150px;
+	border-top: 0;
+	text-height:14px;  }
+
+#footer ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}
+
+#footerContent {
+	float: left;
+	padding-top: 0px;
+	padding-left:30px;
+	text-align:left !important;
+	padding-right:20px;
+	text-transform: capitalize;
+}
+#footercopyright {
+	float: left;
+	padding-top: 0px;
+	padding-left:30px;
+	min-width: 100px;
+	max-width:200px;
+	text-align:right !important;
+
+	
+}
+
+.clear, #clear {clear:both;}
+.clear10 { height:10px;}
+*/

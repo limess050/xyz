@@ -38,9 +38,16 @@
 |
 */
 
-$route['default_controller'] = "Listings";
-$route['^(?!users|alerts).*'] = "Listings/$0";
+$route['default_controller'] = "listings";
+// $route['^(?!users|alerts|backend|formgenerator).*'] = "listings/$0";
+$route['^(?!users|alerts|backend|formgenerator).*'] = "listings/index/$0";
+// $route['formGenerator'] = "formGenerator/$0";
+// $route['(:any)'] = "listings";	
 $route['404_override'] = '';
+// $route['arts-and-entertainment'] = "listings/arts_and_entertainment";
+// $route['tanzania-business-directory'] = "listings/tanzania_business_directory";
+// $route['travel-and-tourism-directory'] = "listings/travel_and_tourism_directory";
+// $route['Restaurants-and-nightlife'] = "listings/restaurants_and_nightlife";
 
 
 /* End of file routes.php */

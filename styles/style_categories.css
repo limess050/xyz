@@ -1,0 +1,191 @@
+@charset "UTF-8";
+/* CSS Document */
+/*General for all categories boxes and menu for tourism*/
+.categories
+{
+	display: inline-block;
+	width: 600px;
+	padding: 0px;
+	margin: 0px 0px;
+	vertical-align: text-top;
+	text-align: left;
+	zoom: 1;
+*display: inline;
+	float: left;}
+
+.categories div 
+{border: solid 1px #ccc; 
+display: inline-block; 
+min-width: 180px;
+max-width:180px; 
+padding: 10px 0 10px 0; 
+margin: 7px 3px;  
+vertical-align: text-top; 
+text-align: center; 
+zoom: 1; 
+*display: inline;
+float:left;
+min-height: 210px;
+font-weight:700;}
+
+.categories h2 {
+	color:#000000;
+	font-size: 12px;
+	font-weight:bold;
+	margin: 0;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+.categories div img  {
+  margin: 0 10px 0 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+border:#CCC solid 1px;
+min-width:120px;
+max-width:150px;
+max-height:140px;
+}
+
+.categories div #special
+  #navigation {  
+  text-align:center; 
+  width: 190px;}
+ 
+  #navigation ul 
+  {margin:0; padding:0;}
+  #navigation li 
+	{list-style: none; 
+	max-height:150px; 
+	min-height:15px;}
+	ul.top-level 
+	{ background:#fff;}
+	ul.top-level li 
+	{ max-height: 30px;}
+	
+#navigation a {
+	color: #000;
+	cursor: pointer;
+	display: block;
+	height: 35px;
+	line-height: 15px;
+	text-indent: 7px;
+	text-decoration: none;
+	width: 100%;
+	z-index:100;
+}
+#navigation a:hover{
+ text-decoration:underline;
+}
+#navigation li:hover {
+ background: #FFF;
+ position: relative;
+}
+ul.sub-level {
+    display: none;
+	z-index:1000;
+	font-size:12px;
+}
+li:hover .sub-level {
+    background: #ccc;
+    border: #ccc solid;
+ 	border-width: 1px;
+    display: block;
+    position: absolute;
+    left: 150px;
+    top: 0px;
+	z-index:100;
+}
+ul.sub-level li {
+    border: none;
+    float:left;
+	max-width:200px;
+	min-width:160px;
+	min-height:200px;
+	line-height:25px;
+	height: 20px;
+   
+}
+/*Seconda Level*/
+#navigation .sub-level {
+    background: #fff;
+}
+
+/*Third Level*/
+#navigation .sub-level .sub-level {
+    background: #fff;
+}
+/*RESET STYLES*/
+li:hover .sub-level .sub-level {
+	display:none;
+}
+.sub-level li:hover .sub-level {
+	display:block;
+}
+
+.list
+{display: inline-block;
+	width: 600px;
+	margin: 0px 0px;
+	vertical-align: text-top;
+	zoom: 1;
+*display: inline;
+	float: left;
+	min-width: 600px;}
+/*CHOOSE A LOCATION*/	
+	.list div 
+{border:solid #CCC 1px;
+display: inline-block; 
+margin: 7px 3px; 
+max-width:585px;
+padding: 20px 20px 20px; 
+vertical-align: text-top; 
+text-align: left; 
+float:left;
+}
+
+.list img 
+{display: inline-block; 
+margin-right: 5px;
+margin-bottom: 5px;  
+vertical-align: text-top; 
+text-align: left; 
+float:left;
+vertical-align:middle;
+border:solid #CCC 1px;}
+
+.listlogo
+{display: inline-block;
+	width: 595px;
+	margin: 0px 0px;
+	zoom: 1;
+*display: inline;
+	float: left;}
+	
+	.listlogo div 
+{border:solid #CCC 1px;
+margin: 7px 3px; 
+padding: 20px 20px 20px; 
+text-align: left; 
+min-width: 595px;}
+
+.listlogo img 
+{display: inline-block; 
+margin-right: 5px;
+margin-bottom: 5px;  
+vertical-align: text-top; 
+text-align: left; 
+float:left;
+vertical-align:middle;
+border:#CCC 1px solid;}
+/*FORM VEHICLE SEARCH ON THE SIDEBAR*/
+#box_form {
+	width: 210px;
+	overflow: hidden;
+	float: left;
+	padding:10px 0px 0px 10px;
+	text-align: left; /* orizzontale */
+	/*border:solid #CCC 1px;*/
+}
+#box_form li img 
+{margin-top: 5px;
+}

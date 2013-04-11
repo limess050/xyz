@@ -36,6 +36,20 @@ define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
+/*
+|--------------------------------------------------------------------------
+| Application Constants
+|--------------------------------------------------------------------------
+|
+| These Constants are used by the site for various needs
+|
+*/
+
+
+define('PHONE_ONLY_USER',1125);
+
+//define('CURRENT_DATE_IN_TZ',date('Y-m-d 00:00:00'));
+define('CURRENT_DATE_IN_TZ',date('2013-02-01 00:00:00'));
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

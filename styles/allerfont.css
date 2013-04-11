@@ -1,0 +1,39 @@
+/* Michela Di Stefano March 6, 2013 */
+
+@font-face {
+    font-family: 'allerregular';
+    src: url('../font/aller_rg.eot');
+    src: url('../font/aller_rg.eot?#iefix') format('embedded-opentype'),
+         url('../font/aller_rg.woff') format('woff'),
+         url('../font/aller_rg.ttf') format('truetype'),
+         url('../font/aller_rg.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'aller_lightregular';
+    src: url('../font/aller_lt.eot');
+    src: url('../font/aller_lt.eot?#iefix') format('embedded-opentype'),
+         url('../font/aller_lt.woff') format('woff'),
+         url('../font/aller_lt.ttf') format('truetype'),
+         url('../font/aller_lt.svg#aller_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'allerbold';
+    src: url('../font/aller_bd.eot');
+    src: url('../font/aller_bd.eot?#iefix') format('embedded-opentype'),
+         url('../font/aller_bd.woff') format('woff'),
+         url('../font/aller_bd.ttf') format('truetype'),
+         url('../font/aller_bd.svg#allerbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

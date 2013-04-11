@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/* CSS Document */
+@charset "UTF-8";
+
+a.titolo {
+    color: #FFFFFF;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.webform_label_error {
+	display:block;
+    	color: #B80028;
+    	font-family: georgia; 
+    	font-size: 11px; 
+    	line-height: 10px; 
+    	padding-bottom: 10px; 
+    	margin-top:-8px;
+}
+
+.webform_field {
+	padding-top:13px;
+}
+
+.accordion-scrivi-content{
+height:430px;
+}
+
+.accordion-scrivi-content-bis{
+height:540px;
+}
+
+#accordion-scrivi-form-right span.text {
+font-family: georgia;
+font-size: 13px;
+color: 
+#676767;
+display: block;
+line-height: 15px;
+}
+
+#accordion-scrivi-form-right textarea{
+height:157px;
+width:288px;
+resize:none;
+}
+
+#accordion-scrivi-form-left textarea{
+height:157px;
+width:180px;
+resize:none;
+}
+
+.nodecoration{
+text-decoration:none;
+}
+
+#contentsuccess {
+	background-color: #6C9;
+	text-align: left;
+	height: 25px;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	border: medium solid #096;
+	
+	display:none;
+	
+}
+
+#contentsuccess p {
+	font-weight: normal;
+	color: #333;
+	vertical-align: middle;
+	margin-top: 5px; 
+	font-family: georgia;
+    	font-size: 13px;
+}
+
+
+a.titolo {
+    color: #FFFFFF;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+
+#distributore-info-contatti span.sito a{
+font-family: georgia;
+font-size: 13px;
+color: #676767;
+display: block;
+line-height: 17px;
+text-decoration: underline;
+}

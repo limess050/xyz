@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','ion_auth','session','form_validation');
+$autoload['libraries'] = array('database','session','form_validation','ion_auth');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database','ion_auth','session','form_validation'
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array('url','html');
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('Common');
+$autoload['model'] = array('common','datafetcher');
 
 // $autoload['sparks'] = array('twiggy/0.8.5');
 

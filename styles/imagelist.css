@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* CSS Document */
+* {margin: 0; padding: 0;}
+
+.classified
+ {
+	padding-top: 0px;
+	margin: 0px;
+	font-size: 12px;
+	text-align:left;
+}
+.classified ul {
+  list-style-type: none;
+  width: 470px;
+}
+/* 
+.classified h3 {
+  font: 13px ;
+}
+  */
+.classified li img {
+  float: left;
+  margin: 0 10px 0 0;
+}
+ /*
+.classified li p {
+  font: 300 12px;
+}
+ */
+.classified li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+.classified li:hover {
+  background: #eee;
+  cursor: pointer;
+}

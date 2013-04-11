@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.exchange
+{
+	margin: 0  auto; 
+	display: inline-block;
+	width: 1020px;
+	vertical-align: text-top;
+	text-align: center;
+	zoom: 1;
+	*display: inline;
+	border-top:solid 1px #0e4e92;									    border-bottom:solid 1px #0e4e92;
+	background-color:#f3f2f2;}
+
+.exchange div 
+{
+	display: inline-block;
+	min-width: 120px;
+	max-width: 150px;
+	padding: 10px;
+	margin: 7px 3px;
+	vertical-align: text-top;
+	text-align: center;
+	zoom: 1;
+*display: inline;
+	float: left;
+	min-height: 25px;
+	max-height: 35px;
+	border-right: #000 solid 1px;
+}
+
+.exchange h2 {
+	color:#000000;
+	font-size: 12px;
+	font-weight:bold;
+	margin: 0;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+.exchange div img  {
+  margin: 0 10px 0 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+min-width:120px;
+max-width:150px;
+max-height:140px;
+}
+
+
+
+.exchange ul
+{ list-style-type: none; 
+		padding:10px;
+}
+
+.exchange li
+{
+display: inline-block; 
+min-width: 150px; 
+max-width: 170px;
+padding: 0px; 
+margin: 5px 3px;  
+vertical-align: text-top; 
+text-align: center; 
+zoom: 1; 
+*display: inline;
+float:left;
+min-height: 20px;
+}
+
+
+
+

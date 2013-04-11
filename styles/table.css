@@ -1,0 +1,90 @@
+/* 
+    Document   : newCascadeStyleSheet
+    Created on : Mar 12, 2013, 3:34:23 PM
+    Author     : Vincent David
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    font-family: Arial,Helvetica,sans-serif;
+}
+h1{
+    font-size: 24px;
+    font-family: "Arial",Helvetica,sans-serif;
+    text-align: center;
+  }
+table.mytable{
+    width: 80%;
+    border-collapse: collapse;
+    border:0px;
+    font-family: Arial,Helvetica,sans-serif;
+}
+table.mytable thead {
+    border:1px solid activecaption;
+}
+table.mytable thead tr th{
+    text-decoration: none;
+    background-color:#CEDBE9;
+}
+table.mytable tbody tr {
+ 
+border:1px solid #4EA6EA;
+    
+}
+table.mytable tbody tr td textarea{
+    
+}
+table.myinnertable{
+     border-collapse: collapse;
+    border:0px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+table.myinnertable thead tr th{
+    
+    background-color: #73BA5C;
+    border-left:2px solid #ffffff;
+    color: #ffffff;
+    font-family: inherit;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+   
+    margin: 15px;
+    height: 25px;
+    
+}
+table.myinnertable tr {
+    
+    border-bottom:1px solid #4EA6EA;
+    border-bottom-style:  dashed;
+}
+table.myinnertable tr:hover{
+
+    color:#F51A15;
+    border-left: 1px solid  #ffffff;
+}
+table.myinnertable tr td a{
+    color: #1A9B50;
+}
+table.myinnertable tr td:hover{ 
+    background-color: #ffffff; 
+    
+    border:1px solid #F51A15;
+    border-radius: 5px; 
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+table.myinnertable tr td{
+
+}
+table.myinputtable{
+    border-collapse: collapse;
+    border:0px;
+}
+
+
+

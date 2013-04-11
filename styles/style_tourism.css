@@ -1,0 +1,123 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.tourism 
+{
+	display: inline-block;
+	width: 600px;
+	padding: 0px;
+	margin: 0px 0px;
+	zoom: 1;
+	*display: inline;
+	float: left;
+	vertical-align: text-top; 
+	text-align: center; }
+
+	.tourism div 
+	{border: solid 1px #ccc; 
+	display: inline-block; 
+	min-width: 190px;
+	padding: 10px; 
+	margin: 7px 3px;  
+	zoom: 1; 
+	*display: inline;
+	min-height: 190px;
+	float: left;}
+
+	.tourism h2 {
+	color:#000000;
+	font-size: 12px;
+	font-weight:bold;
+	margin: 0;
+	text-transform: uppercase;
+	font-variant: small-caps;
+}
+.tourism div img  {
+  margin: 0 10px 0 10px;
+  margin-top: 5px;
+  border:#CCC solid 1px
+}
+
+ /*box tourism tanzania with rollover dropdown menu*/
+.tourism div #special
+{   
+  MAX-width: 190px;}
+  
+ 
+  
+  .tourism li #parkbox {   
+  width: 190px;}
+ 
+  #special ul 
+  {margin:0; padding:0;}
+  
+  #special li 
+	{list-style: none; 
+	max-height:30px; 
+	min-height: 25px;
+	min-width: 190px;
+	max-width:200px; 
+	padding: 5px 0px 5px 0px; }
+	
+#special a {
+	color: #000;
+	cursor: pointer;
+	display: block;
+	line-height: 15px;
+	text-indent: 7px;
+	text-decoration: none;
+	width: 100%;
+	z-index:100;
+}
+#special a:hover{
+ text-decoration:underline;
+}
+#special li:hover {
+ background: #FFF;
+ position: relative;
+}
+	
+ul.top-level 
+	{ background:#fff;
+	}
+
+ul.top-level li 
+	{ max-height: 20px;
+	}
+
+ul.sub-level {
+    display: none;
+	z-index:1000;
+	font-size:12px;
+}
+li:hover .sub-level {
+    background: #fff;
+    border: #ccc solid 1px;
+    display: block;
+    position: absolute;
+    left: 150px;
+    top: 0px;
+	z-index:100;
+}
+ul.sub-level li {
+    border: none;
+    float:left;
+	max-width:200px;
+	min-width:160px;
+	min-height:200px;
+	line-height:25px;
+	height: 20px;
+   
+}
+/*Seconda Level*/
+#special .sub-level {
+    background: #fff;
+}
+
+/*RESET STYLES*/
+li:hover .sub-level .sub-level {
+	display:none;
+}
+.sub-level li:hover .sub-level {
+	display:block;
+}

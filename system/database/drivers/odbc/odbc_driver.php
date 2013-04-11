@@ -481,12 +481,22 @@ class CI_DB_odbc_driver extends CI_DB {
 	 */
 	function _from_tables($tables)
 	{
+	
+		if ( ! is_array($tables))
+		{
+			return strstr($tables, ',') ? '('.$tables.')' : $tables;
+		}
+		else
+		{
+			return count($tables) > 1 ? '('.implode(', ', $tables).')' : end($tables);
+		}
+		/*
 		if ( ! is_array($tables))
 		{
 			$tables = array($tables);
 		}
 
-		return '('.implode(', ', $tables).')';
+		return '('.implode(', ', $tables).')';*/
 	}
 
 	// --------------------------------------------------------------------
