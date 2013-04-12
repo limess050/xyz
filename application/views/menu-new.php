@@ -7,7 +7,7 @@
 							<!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="tanzania-business-directory" id="business">BUSINESS DIRECTORY</a>
+							<a href="tanzania-business-directory" id="business">BUSINESSES</a>
 						  <div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner">
 									<div>
@@ -93,7 +93,7 @@ The Trades & Fundis
 						</li>
 
 						<li>
-							<a href="#">TOURISM DIRECTORY</a>
+							<a href="#">TRAVEL &amp; TOURISM</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -180,7 +180,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="#">RESTAURANTS &amp; NIGHTLIFE</a>
+							<a href="#">RESTAURANTS &amp; ENTERTAINMENT</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -214,7 +214,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="#">ARTS &amp; ENTERTAINMENT</a>
+							<a href="#">EVENTS</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -253,7 +253,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="#">EVENTS</a>
+							<a href="#">JOBS</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -279,6 +279,83 @@ The Trades & Fundis
 									</div>
 									<div>
 										<h4>Learning &amp; Games</h4>
+										<ul>
+											<li><a href="#">Catch the Bullet</a></li>
+											<li><a href="#">Snoopydoo</a></li>
+											<li><a href="#">Fallen Angel</a></li>
+											<li><a href="#">Sui Maker</a></li>
+											<li><a href="#">Wave Master</a></li>
+											<li><a href="#">Golf Pro</a></li>
+										</ul>
+									</div>
+								</div><!-- /cbp-hrsub-inner -->
+							</div><!-- /cbp-hrsub -->
+						</li><li>
+							<a href="#">VEHICLES</a>
+							<div class="cbp-hrsub">
+								<div class="cbp-hrsub-inner"> 
+									<div>
+										<h4>Jobs</h4>
+										<ul>
+											<li><a href="#">Green Tree Pro</a></li>
+											<li><a href="#">Wobbler 3.0</a></li>
+											<li><a href="#">Coolkid</a></li>
+										</ul>
+										<h4>Cars</h4>
+										<ul>
+											<li><a href="#">Learn Thai</a></li>
+											<li><a href="#">Math Genius</a></li>
+											<li><a href="#">Chemokid</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>Real Estate</h4>
+										<ul>
+											<li><a href="#">Success 1.0</a></li>
+											<li><a href="#">Moneymaker</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>FSBO</h4>
+										<ul>
+											<li><a href="#">Catch the Bullet</a></li>
+											<li><a href="#">Snoopydoo</a></li>
+											<li><a href="#">Fallen Angel</a></li>
+											<li><a href="#">Sui Maker</a></li>
+											<li><a href="#">Wave Master</a></li>
+											<li><a href="#">Golf Pro</a></li>
+										</ul>
+									</div>
+								</div><!-- /cbp-hrsub-inner -->
+							</div><!-- /cbp-hrsub -->
+						</li>
+                        <li>
+							<a href="#">REAL ESTATE</a>
+							<div class="cbp-hrsub">
+								<div class="cbp-hrsub-inner"> 
+									<div>
+										<h4>Jobs</h4>
+										<ul>
+											<li><a href="#">Green Tree Pro</a></li>
+											<li><a href="#">Wobbler 3.0</a></li>
+											<li><a href="#">Coolkid</a></li>
+										</ul>
+										<h4>Cars</h4>
+										<ul>
+											<li><a href="#">Learn Thai</a></li>
+											<li><a href="#">Math Genius</a></li>
+											<li><a href="#">Chemokid</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>Real Estate</h4>
+										<ul>
+											<li><a href="#">Success 1.0</a></li>
+											<li><a href="#">Moneymaker</a></li>
+										</ul>
+									</div>
+									<div>
+										<h4>FSBO</h4>
 										<ul>
 											<li><a href="#">Catch the Bullet</a></li>
 											<li><a href="#">Snoopydoo</a></li>
@@ -328,10 +405,6 @@ The Trades & Fundis
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
-						</li>
-                        <li>
-							<a href="HTTP:">ZOOMPONS</a>
-							<!-- /cbp-hrsub -->
 						</li>
 					</ul>
 				</nav>

@@ -185,7 +185,16 @@
     </div></div>
     <div id="box_banner">
     
-        <img  src="images/home/hp_socialnetwork.jpg" height="229" alt="" />
+        <img  src="images/home/hp_socialnetwork_new.jpg" height="200" alt="Get Social with Zoom" /><!-- AddThis Button BEGIN -->
+<br/><div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_google_plusone_share"></a>
+<a class="addthis_button_stumbleupon"></a>
+<a class="addthis_button_linkedin"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+<!-- AddThis Button END -->
 
 </div></div><!-- BANNER 728--><div class="clear10"></div><div id="homerow3"><img src="images/Airtel-Bure.jpg" width="728" height="90" /></div><!-- Exchange + rates-->
 
@@ -204,19 +213,19 @@
     <i><img src="images/home/icon_tidelunar.png" width="50" height="16" align="texttop" /> <?php echo date("D, d M Y",strtotime(CURRENT_DATE_IN_TZ)); ?></i>
   </li>
   <li>
-   <h2>High 3:22 AM<br />
- 2.82 m</h2><br />
+   <b>HIGH <br/>3:22 am -
+ 2.82 m</b><br />
   
   </li>
-  <li><h2>High 3:22 AM<br />
-2.82 m</h2>
+  <li><b>LOW<br/> 3:22 am
+2.82 m</b>
   </li>
-  <li><h2>High 3:22 AM <br />
-     2.82 m</h2>
-  </li><li><h2>High 3:22 AM<br />
-2.82 m</h2>
+  <li><b>HIGH<br/> 3:22 pm 
+     2.82 m</b>
+  </li><li><b>LOW <br/>3:22 pm
+2.82 m</b>
 </li>
-  <li><a href = ""> Tomorrow</a> <br /> <a href = "">Next Seven Days</a> <br /> <a href = "">Full Schedule</a></li>
+  <li><a href = ""> TOMORROW</a> <br /> <a href = "">NEXT SEVEN DAYS</a> <br /> <a href = "">FULL SCHEDULE</a></li>
 
   </ul>
   </div>
