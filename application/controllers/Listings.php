@@ -190,6 +190,18 @@ class Listings extends CI_Controller {
 
 			$data['rates'] = $this->exchange_rates();
 
+			$tidesQuery = "select t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr 
+		from Tides t left join lunar l 
+	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
+	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
+
+	where TideDate >= '" . date("Y-m-d") . ' 00:00:00' . "'
+	AND TideDate <= '" . date("Y-m-d") . ' 23:59:00' . "'";
+
+		$data['tidesObj'] =$this->db->query($tidesQuery);
+
+	
+
 
 			$this->load->view('header',$header);
 			$this->load->view('menu-new');
@@ -203,10 +215,10 @@ class Listings extends CI_Controller {
 
 	function exchange_rates()
 	{
+		$rates = '';
 
 		$from = array('USD','EUR','GBP','ZAR','KES');
 		$to = 'TZS';
-		$rates = '';
 		$ch = curl_init();
 		foreach($from as $currency)
 		{
@@ -227,8 +239,8 @@ class Listings extends CI_Controller {
 			$result = explode(',', $csv) ;
 
 			$rates .= "<li> <h2> 1 $currency <br />";
-     		$rates .= " Buy $result[2]<br />";
-     		$rates .= " Sell $result[1]<br /></h2></li>";
+     		$rates .= " Buy: $result[2]<br />";
+     		$rates .= " Sell: $result[1]<br /></h2></li>";
 
 		}
 

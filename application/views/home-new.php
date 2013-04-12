@@ -52,7 +52,7 @@
     </ul>
 
 </div><div class="precontainer_tab"><div class="container_tab">
-<ul class="tabs" persist="true">
+<ul class="tabs" persist="true"  style = "color:#fff">
             <li><a href="#" rel="view1">LATEST</a></li>
             <li><a href="#" rel="view2">MOST VIEW</a></li>
             <li><a href="#" rel="view3">POST FREE</a></li>
@@ -60,7 +60,7 @@
         </ul>
         <div class="tabcontents">
            
-            <div id="view1" class="classified"> <div class="secondlevelmenu">show only &gt;<a href="#"> JOBS</a> |<a href="#"> VEHICLES </a>| <a href="#">REAL ESTATE</a>|<a href="#">FSBO</a></div>
+            <div id="view1" class="classified"> <div class="secondlevelmenu"  style = "color:#fff">show only &gt;<a href="#"> JOBS</a> |<a href="#"> VEHICLES </a>| <a href="#">REAL ESTATE</a>|<a href="#">CLASSIFIEDS</a></div>
               
   <ul>
     <li>
@@ -92,7 +92,7 @@
       <div class="viewall"><a href="#">view all fsbo &gt;</a></div></li>
   </ul>
 </div>
-            <div id="view2" class="classified"><div class="secondlevelmenu">show only &gt;<a href="#"> JOBS</a> |<a href="#"> VEHICLES </a>| <a href="#">REAL ESTATE</a>|<a href="#">FSBO</a></div>
+            <div id="view2" class="classified"><div class="secondlevelmenu" style = "color:#fff">show only &gt;<a href="#"> JOBS</a> |<a href="#"> VEHICLES </a>| <a href="#">REAL ESTATE</a>|<a href="#">CLASSIFIEDS</a></div>
               
   <ul>
     <li>
@@ -189,37 +189,51 @@
 
 </div></div><!-- BANNER 728--><div class="clear10"></div><div id="homerow3"><img src="images/Airtel-Bure.jpg" width="728" height="90" /></div><!-- Exchange + rates-->
 
-<div id="homerow4"><div class="exchange"><ul>
+<div id="homerow4">
+
+  <?php if(isset($rates)): ?>
+  <?php if(strlen($rates) > 0): ?>
+  <div class="exchange">
+    <ul>
       <li>
         <h2>exchange rates</h2><img src="images/sitewide/blueline.gif" width="130" height="3" /><i><br />
-        <img src="images/home/icon_exchangerates.png" width="26" height="16" align="texttop" /> <?php echo date("D, d M Y",strtotime(CURRENT_DATE_IN_TZ)); ?></i>
+        <img src="images/home/icon_exchangerates.png" width="26" height="16" align="texttop" /> <?php echo date("D, d M Y",strtotime(TODAY_CURRENT_DATE_IN_TZ)); ?></i>
       </li>
-  <?php echo $rates ?>
+     <?php echo $rates ?>
+    </ul>
+  </div>
+  <?php endif; ?>
+  <?php endif; ?>
 
- 
 
-  </ul></div><div class="exchange">
+  <?php if(isset($tidesObj)): ?>
+  <?php if($tidesObj->num_rows() > 0): ?>
+
+  <div class="exchange">
   <ul><li><h2>tide and lunar</h2>
     <img src="images/sitewide/blueline.gif" width="130" height="3" /><br />
-    <i><img src="images/home/icon_tidelunar.png" width="50" height="16" align="texttop" /> <?php echo date("D, d M Y",strtotime(CURRENT_DATE_IN_TZ)); ?></i>
+    <i><img src="images/home/icon_tidelunar.png" width="50" height="16" align="texttop" /> <?php echo date("D, d M Y",strtotime(TODAY_CURRENT_DATE_IN_TZ)); ?></i>
   </li>
+
+  <?php foreach($tidesObj->result() as $tide): ?>
   <li>
-   <h2>High 3:22 AM<br />
- 2.82 m</h2><br />
-  
+
+  <?php if($tide->High == 1): ?>
+   <h2>High <?php echo date('h:i A', strtotime($tide->tideDate)); ?><br />
+  <?php else: ?>
+   <h2>Low <?php echo date('h:i A', strtotime($tide->tideDate)); ?><br />
+  <?php endif; ?>
+  <?php echo $tide->Measurement ?> m</h2><br />
   </li>
-  <li><h2>High 3:22 AM<br />
-2.82 m</h2>
-  </li>
-  <li><h2>High 3:22 AM <br />
-     2.82 m</h2>
-  </li><li><h2>High 3:22 AM<br />
-2.82 m</h2>
-</li>
+
+  <?php endforeach; ?>
+
   <li><a href = ""> Tomorrow</a> <br /> <a href = "">Next Seven Days</a> <br /> <a href = "">Full Schedule</a></li>
 
   </ul>
   </div>
+  <?php endif; ?>
+  <?php endif; ?>
 </div>
   
   </div><!--MAIN FINISH-->
