@@ -6,6 +6,28 @@
         Purpose of the stylesheet follows.
 */
 
+#menu{
+    margin:10px;
+    
+    height: 35px;
+    
+}
+#menu ul {
+
+      width: 100%;
+      float: left;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+}
+#menu ul  li{
+
+  display: inline;
+}
+#menu ul li a {
+   
+}
+
 form.myform{
  font-family: Arial,Helvetica,sans-serif;
 }
@@ -28,13 +50,14 @@ form.myform fieldset ul li{
   }
   form.myform fieldset ul li input.priceVal{
    width: 226px;   
+   
   }
   form.myform fieldset ul li select{
-      width: 300px;
+      width: 20%;
       border:1px solid #007C00;
   }
 form.myform fieldset ul li label{
-    width:180px;
+    width:18%;
     margin-left:5px;
 /*    margin-right: 20px;*/
     font-family:inherit;
@@ -42,7 +65,7 @@ form.myform fieldset ul li label{
     display: inline-block;
 }
 form.myform fieldset ul li input{
-    width: 300px;
+    width: 20%;
     border:1px solid #007C00;
     border-radius: 3px;
     -moz-border-radius: 3px;
@@ -54,7 +77,7 @@ form.myform fieldset ul li input{
 }
 form.myform fieldset ul li select.events{
 
-    width: 300px;
+    width: 20%;
     border:1px solid #007C00;
      margin-bottom:10px;
     margin-top: 10px;
@@ -67,8 +90,8 @@ form.myform fieldset ul li select{
 }
 form.myform fieldset ul li textArea{
 
-    width: 500px;
-    height: 260px;
+    width: 45%;
+    height:260px;
     margin-bottom:10px;
     margin-top: 10px;
     margin-right: 10px;
@@ -87,7 +110,7 @@ form.myform fieldset ul li input.images{
     margin-left: 2px;
     }
 form.myform fieldset ul li input.submit{
-    width: 300px;
+    width: 20%;
     border:1px solid #007C00;
     border-radius: 5px;
     margin-left: 80px;
@@ -121,7 +144,7 @@ form.myformcreator fieldset ul li{
 }
 form.myformcreator fieldset ul li label{
     
-    width: 200px;
+    width: 20%;
     display: inline-block;
 /*    border: 1px solid #000;*/
     margin-left:2px;
@@ -130,23 +153,23 @@ form.myformcreator fieldset ul li label{
 }
 form.myformcreator fieldset ul li select{
     
-    width: 220px;
+    width: 200px;
 /*    display: inline-block;*/
     border: 1px solid  #007C00;
     margin-bottom: 5px;
     margin-top: 5px;
-    margin-left:40px;
+    margin-left:5px;
     
 /*      padding:10px;*/
    }
    form.myformcreator fieldset ul li  select.autoload{
     
-    width: 220px;
+    width: 22%px;
     display: inline-block;
     border: 1px solid  #007C00;
     margin-bottom: 5px;
     margin-top: 5px;
-    margin-left:50px;
+    margin-left:6px;
     
 /*      padding:10px;*/
    }
@@ -185,6 +208,7 @@ form.myformcreator fieldset ul li select{
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
    }
+   
    div.error{
        color:#F51A15;
        font-style: italic;
@@ -209,3 +233,5 @@ form.myformcreator fieldset ul li select{
    form.myform ul li table.price tr td select.pricetd{
        width: 80px;
    }
+   
+   
