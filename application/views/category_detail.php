@@ -14,6 +14,7 @@
        
     </p>
     </div>
+    <img src="image/categories/detailpage_shareit.jpg" /> 
   <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
 <a class="addthis_button_email"></a>
