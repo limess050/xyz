@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-$results = $this->dataFetcher->inputTypesLoader();
+$results = $this->datafetcher->inputTypesLoader();
 
 if ($results && $results->num_rows() > 0) {
 

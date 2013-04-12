@@ -72,7 +72,7 @@
 	</a>        
 	<input name="zoomidsearch" type="text" id="zoomidsearch" value="# zoom ID" size="10" maxlength="70" />
 	  <a  href="#">  
-	  <input name="idsearch" type="button" value="#search by listing ID" />
+	  <input name="idsearch" type="button" value="#search by ID" />
 		  
 	</a></div></div>
 	<div id="page">

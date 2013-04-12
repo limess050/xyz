@@ -185,7 +185,17 @@
     </div></div>
     <div id="box_banner">
     
-        <img  src="images/home/hp_socialnetwork.jpg" height="229" alt="" />
+        <img  src="images/home/hp_socialnetwork_new.jpg" height="200" alt="Get Social with Zoom" />
+        <br/>
+        
+        <!-- AddThis Button BEGIN -->
+<br/><div align="center">
+<a href="http://facebook.com"><img src="images/home/icon_facebook.jpg"></a>
+<a href="http://twitter.com"><img src="images/home/icon_twitter.jpg"></a>
+<a href="http://youtube.com"><img src="images/home/icon_youtube.jpg"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+<!-- AddThis Button END -->
 
 </div></div><!-- BANNER 728--><div class="clear10"></div><div id="homerow3"><img src="images/Airtel-Bure.jpg" width="728" height="90" /></div><!-- Exchange + rates-->
 

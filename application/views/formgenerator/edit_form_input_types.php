@@ -25,7 +25,7 @@ foreach ($results->result_array() as $editvalue) {
     array_push($checked_input_orderby, $editvalue['displayOrder']);
 }
 
-$allresults = $this->dataFetcher->inputTypesLoader();
+$allresults = $this->datafetcher->inputTypesLoader();
 
 if ($allresults && $allresults->num_rows() > 0) {
 

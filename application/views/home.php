@@ -180,7 +180,17 @@
 </div><!-- SIDEBAR RIGHT--><div id="sidebar2"><div id="box_banner">
     
 
-        <img  src="images/home/hp_socialnetwork.jpg" height="229" alt="" />
+        <img  src="images/home/hp_socialnetwork_new.jpg" height="200" alt="" />  <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_google_plusone_share"></a>
+<a class="addthis_button_stumbleupon"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_linkedin"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+<!-- AddThis Button END -->
   </div><div id="box_left">
     <h4>Latest Featured Business<br />
       <img src="images/sitewide/blueline.gif" alt="" width="170" height="5" /></h4>
