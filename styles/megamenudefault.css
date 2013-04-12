@@ -23,7 +23,7 @@
 	float: right;
 	position: absolute;
 	width: 1020px;
-	z-index:!important 1020;
+	z-index:!important 1000;
 	color:#fff;
 }
 
