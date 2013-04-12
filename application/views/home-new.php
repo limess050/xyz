@@ -185,7 +185,10 @@
     </div></div>
     <div id="box_banner">
     
-        <img  src="images/home/hp_socialnetwork_new.jpg" height="200" alt="Get Social with Zoom" /><!-- AddThis Button BEGIN -->
+        <img  src="images/home/hp_socialnetwork_new.jpg" height="200" alt="Get Social with Zoom" />
+        <br/>
+        
+        <!-- AddThis Button BEGIN -->
 <br/><div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
 <a class="addthis_button_facebook"></a>
 <a class="addthis_button_twitter"></a>
