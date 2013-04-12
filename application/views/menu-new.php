@@ -257,36 +257,34 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>Utilities</h4>
+										<h4>SEARCH A JOB</h4>
 										<ul>
 											<li><a href="#">Green Tree Pro</a></li>
 											<li><a href="#">Wobbler 3.0</a></li>
 											<li><a href="#">Coolkid</a></li>
 										</ul>
-										<h4>Education</h4>
+										<h4>APPLY FOR A JOB</h4>
 										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
+											<li><a href="#">How to Apply for a Job?</a></li>
+											<li><a href="#">How to Post a Vacancy?</a></li>
+											<li><a href="#">Post a Vacancy -free-</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>Professionals</h4>
+										<h4>LATEST VACATION IN TANZANIA</h4>
 										<ul>
 											<li><a href="#">Success 1.0</a></li>
 											<li><a href="#">Moneymaker</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>Learning &amp; Games</h4>
+										<h4>A text about JOB RECRUITMENT ADV</h4>
 										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
+											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#">text </a></li>
+							
 										</ul>
+			
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
@@ -295,13 +293,13 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>Jobs</h4>
+										<h4>SELECT A TYPE</h4>
 										<ul>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
+											<li><a href="#">Boat</a></li>
+											<li><a href="#">Machinery</a></li>
 											<li><a href="#">Coolkid</a></li>
 										</ul>
-										<h4>Cars</h4>
+										<h4>SELECT A LOCATION</h4>
 										<ul>
 											<li><a href="#">Learn Thai</a></li>
 											<li><a href="#">Math Genius</a></li>
@@ -309,22 +307,20 @@ The Trades & Fundis
 										</ul>
 									</div>
 									<div>
-										<h4>Real Estate</h4>
+										<h4>SEARCH A VEHICLE</h4>
 										<ul>
 											<li><a href="#">Success 1.0</a></li>
 											<li><a href="#">Moneymaker</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>FSBO</h4>
+										<h4>A text about VEHICLE ADV</h4>
 										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
+											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#">text </a></li>
+							
 										</ul>
+			
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
@@ -334,13 +330,13 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>Jobs</h4>
+										<h4>RENT A HOUSE</h4>
 										<ul>
 											<li><a href="#">Green Tree Pro</a></li>
 											<li><a href="#">Wobbler 3.0</a></li>
 											<li><a href="#">Coolkid</a></li>
 										</ul>
-										<h4>Cars</h4>
+										<h4>RENT COMMERCIAL</h4>
 										<ul>
 											<li><a href="#">Learn Thai</a></li>
 											<li><a href="#">Math Genius</a></li>
@@ -348,22 +344,25 @@ The Trades & Fundis
 										</ul>
 									</div>
 									<div>
-										<h4>Real Estate</h4>
+										<h4>SELL HOUSE</h4>
+										<ul>
+											<li><a href="#">Success 1.0</a></li>
+											<li><a href="#">Moneymaker</a></li>
+										</ul>
+										<h4>SELL A LAND OR COMMERCIAL</h4>
 										<ul>
 											<li><a href="#">Success 1.0</a></li>
 											<li><a href="#">Moneymaker</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>FSBO</h4>
+										<h4>A text about VEHICLE ADV</h4>
 										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
+											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#">text </a></li>
+							
 										</ul>
+			
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
