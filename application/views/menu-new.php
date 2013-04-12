@@ -1,4 +1,4 @@
-<div class="menubox">
+<div class="menubox" align="center">
 			<div>
 				<nav id="cbp-hrmenu" class="cbp-hrmenu">
 					<ul>
