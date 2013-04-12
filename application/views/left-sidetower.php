@@ -38,11 +38,11 @@
     <?php if($youMayAlsoLikeObj->num_rows() > 0): ?> 
 
     <div id="box_left">
-      <h4>You May Also Be Interested In<br />
+      <h4>You May Also Like<br />
         <img src="images/sitewide/blueline.gif" alt="" width="180" height="5" /></h4>
       <ul class="imageList">
         <li>
-          <div class="intersted">
+          <div class="zoomreccomend">
                 <?php foreach($youMayAlsoLikeObj->result() as $youMayAlsoLike): ?>
              <p><?php echo $youMayAlsoLike->Descr; ?></p><br />
                 <?php endforeach; ?>
