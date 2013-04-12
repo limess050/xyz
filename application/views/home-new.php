@@ -189,12 +189,10 @@
         <br/>
         
         <!-- AddThis Button BEGIN -->
-<br/><div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
-<a class="addthis_button_facebook"></a>
-<a class="addthis_button_twitter"></a>
-<a class="addthis_button_google_plusone_share"></a>
-<a class="addthis_button_stumbleupon"></a>
-<a class="addthis_button_linkedin"></a>
+<br/><div align="center">
+<a href="http://facebook.com"><img src="images/home/icon_facebook.jpg"></a>
+<a href="http://twitter.com"><img src="images/home/icon_twitter.jpg"></a>
+<a href="http://youtube.com"><img src="images/home/icon_youtube.jpg"></a>
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
 <!-- AddThis Button END -->
