@@ -8,7 +8,7 @@
 
 $this->load->view('formgenerator/header');
 $this->load->view('formgenerator/content');
-$results = $this->datafetcher->formsCreatedSections();
+$results = $this->datafetcher->formsCreatedSections($table="form_tbl");
 
 
 if ($results->num_rows() > 0) {
