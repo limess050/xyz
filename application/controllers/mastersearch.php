@@ -4,7 +4,7 @@ class Mastersearch extends CI_Controller {
 
     //index page
     public function index() {
-       $data['results'] = $this->datafetcher->sectionsLoader();
+        
         $this->load->view('formgenerator/searchform',$data);
     }
 
