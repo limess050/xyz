@@ -193,19 +193,21 @@ The Trades & Fundis
 										<ul>
 											<li><a href="#">Movie Theatre</a></li>
 											<li><a href="#">Museum</a></li>
-											<li><a href="#">Museum</a></li>
+											<li><a href="#">Cultural Centre & Institutes</a></li>
+											<li><a href="#">Museum, Zoos & Botanical Garden</a></li>
+											<li><a href="#">Family Fun</a></li>
 										</ul>
 									</div>
 									<div>
 										<h4>NIGHTLIFE</h4>
 										<ul>
-											<li><a href="#">Bars, Pubs and Clubs</a></li>
+											<li><a href="#">Bars, Clubs & Pubs</a></li>
 											<li><a href="#">Casinos</a></li>
 											
 										</ul>
 										<h4>THE ARTS</h4>
 										<ul>
-											<li><a href="#">Arts & Artists Gallery</a></li>
+											<li><a href="#">Artists & Arts Gallery</a></li>
 											<li><a href="#">Performing Arts</a></li>
 											
 										</ul>
