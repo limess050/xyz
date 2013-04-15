@@ -184,31 +184,39 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>Learning &amp; Games</h4>
+										<h4>DINING</h4>
 										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
+											<li><a href="#">Restaurant Guide </a></li>
+									
 										</ul>
-										<h4>Utilities</h4>
+										<h4>ENTERTAINMENT</h4>
 										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
+											<li><a href="#">Movie Theatre</a></li>
+											<li><a href="#">Museum</a></li>
+											<li><a href="#">Museum</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>Entertainment</h4>
+										<h4>NIGHTLIFE</h4>
 										<ul>
-											<li><a href="#">Gadget Finder</a></li>
-											<li><a href="#">Green Tree Express</a></li>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Holy Cannoli</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
+											<li><a href="#">Bars, Pubs and Clubs</a></li>
+											<li><a href="#">Casinos</a></li>
+											
 										</ul>
+										<h4>THE ARTS</h4>
+										<ul>
+											<li><a href="#">Arts & Artists Gallery</a></li>
+											<li><a href="#">Performing Arts</a></li>
+											
+										</ul>
+									</div><div>
+										<h4>A text about Advertise</h4>
+										<ul>
+											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#">text</a></li>
+							
+										</ul>
+			
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
