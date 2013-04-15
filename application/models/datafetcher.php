@@ -258,10 +258,10 @@ class Datafetcher extends CI_Model {
      * @return results
      * 
      */
-    public function loadSubsection($id) {
+    public function loadSubsection($id,$table) {
 
-        $sql_new = "select distinct categories.Title as categoryTitle,CategoryID,category_id from form_tbl,categories
-        where categories.CategoryID=form_tbl.category_id and
+        $sql_new = "select distinct categories.Title as categoryTitle,CategoryID,category_id from $table,categories
+        where categories.CategoryID=$table.category_id and
         categories.CategoryID='$id'";
         $results = $this->db->query($sql_new);
         return $results;
@@ -269,12 +269,12 @@ class Datafetcher extends CI_Model {
 
     /*     * load section name and id for sections with no subsections */
 
-    public function loadsection($id) {
+    public function loadsection($id,$table) {
 
-        $sql = "select distinct categories.Title as categoryTitle,CategoryID from form_tbl,categories where
-          form_tbl.sections_without_subsections=categories.SectionID and
-          form_tbl.category_id=categories.CategoryID and
-          form_tbl.sections_without_subsections='$id'
+        $sql = "select distinct categories.Title as categoryTitle,CategoryID from $table,categories where
+          $table.sections_without_subsections=categories.SectionID and
+          $table.category_id=categories.CategoryID and
+          $table.sections_without_subsections='$id'
            ";
 
         $results = $this->db->query($sql);
