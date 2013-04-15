@@ -393,6 +393,7 @@ class Formgenerator extends CI_Controller {
 
         //checking if the section or subsection
          $data = $this->datafetcher->categoryDetails($id);
+         $data['heading']=" ";
                 $this->load->view('formgenerator/categoryForm', $data);
 
     }

@@ -56,7 +56,7 @@ if ($results->num_rows() > 0) {
                         $subs_name = '';
                         ///
                         //if category is  not empty means  section with subsections
-                        $sectionwithoutsubsectionsresults = $this->datafetcher->loadsection($forms['sections_without_subsections']);
+                        $sectionwithoutsubsectionsresults = $this->datafetcher->loadsection($forms['sections_without_subsections'],$table="form_tbl");
                         foreach ($sectionwithoutsubsectionsresults->result_array() as $rows) {
                             $formid = 'subsec/';
                         }
@@ -71,7 +71,7 @@ if ($results->num_rows() > 0) {
                     } else {
 
 
-                        $sectionswithsubsectionsresults = $this->datafetcher->loadSubsection($forms['CategoryID']);
+                        $sectionswithsubsectionsresults = $this->datafetcher->loadSubsection($forms['CategoryID'],$table="form_tbl");
                         foreach ($sectionswithsubsectionsresults->result_array() as $rowsvalue) {
 
                             $formid = 'sec/';

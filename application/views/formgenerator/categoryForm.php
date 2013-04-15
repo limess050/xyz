@@ -189,6 +189,36 @@ if ($results->num_rows() > 0) {
 
                     break;
                     
+                     case "yearrange":
+                        
+                    if (!empty($value['input_tip'])) {
+                        $tipsOnlabel = $value['input_tip'];
+                    } else {
+                        $tipsOnlabel = '';
+                    }
+                    /*                     * check if label has been modified */
+                    if (empty($value['form_label'])) {
+                        $label = $value['input_name'];
+                    } else {
+                        $label = $value['form_label'];
+                    }
+
+
+                    /*                     * **an array to feed the validation rules for this input* */
+                    //fetch the validation rules as set by the user
+                    $rulesin = '';
+                    $rules_results = $this->datafetcher->loadsValidationrules($value['input_id']);
+                    foreach ($rules_results->result_array() as $rules) {
+                        $rulesin.=$rules['rule_name'] . '|';
+                    }
+                    $val['name'] = $value['fieldtypename'];
+                    $val['display'] = $label;
+                    $val['rules'] = $rulesin;
+
+                     $fieldTobegenerated = form_label($label) .form_input(array('name' => 'startdate', 'value' => '','class'=>'datepickeryear')) .'-'.form_input(array('name' => 'enddate', 'value' => '','class'=>'datepickeryear')). '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+
+                    break;
+                    
                       case "pricerange":
                         
                     if (!empty($value['input_tip'])) {
@@ -583,7 +613,7 @@ if ($results->num_rows() > 0) {
         $validation_arr[] = $val;
     }
 
-    echo form_open_multipart('formInsertion/formsdataprocessor/', $data = array('name' => 'myForm', 'id' => 'myform', 'class' => 'myform', 'onsubmit' => "")) . '<h1>' . $category . '</h1>' . '<!--.javascript form validation.-->
+    echo form_open_multipart('formInsertion/formsdataprocessor/', $data = array('name' => 'myForm', 'id' => 'myform', 'class' => 'myform', 'onsubmit' => "")) . '<h1>' .$heading. $category . '</h1>' . '<!--.javascript form validation.-->
 <div class="error_box" id ="error_box"></div><div id="success_box"></div>' . form_fieldset() . '<ul>' . form_hidden($name = "cat", $id = $catid) . $input_output . '<li>' . form_label() . form_submit(array('name' => 'submit', 'value' => 'submit', 'class' => 'submit')) . '</li></ul>' . form_fieldset_close() . form_close();
 } else {
     
