@@ -194,7 +194,7 @@
 <a href="http://twitter.com"><img src="images/home/icon_twitter.jpg"></a>
 <a href="http://youtube.com"><img src="images/home/icon_youtube.jpg"></a>
 </div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+
 <!-- AddThis Button END -->
 
 </div></div><!-- BANNER 728--><div class="clear10"></div><div id="homerow3"><img src="images/Airtel-Bure.jpg" width="728" height="90" /></div><!-- Exchange + rates-->
@@ -238,7 +238,15 @@
 
   <?php endforeach; ?>
 
-  <li><a href = ""> Tomorrow</a> <br /> <a href = "">Next Seven Days</a> <br /> <a href = "">Full Schedule</a></li>
+  <?php 
+
+  $tomorrow = new DateTime(TODAY_CURRENT_DATE_IN_TZ);
+  $week = new DateTime(TODAY_CURRENT_DATE_IN_TZ);
+  $tomorrow = $tomorrow->add(new DateInterval('P1D'));
+  $week = $week->add(new DateInterval('P7D'));
+
+  ?>
+  <li><a href = "tides?EndDate=<?php echo $tomorrow->format("Y-m-d"); ?>"> Tomorrow</a> <br /> <a href = "tides?EndDate=<?php echo $week->format("Y-m-d"); ?>">Next Seven Days</a> <br /> <a href = "tides">Full Schedule</a></li>
 
   </ul>
   </div>

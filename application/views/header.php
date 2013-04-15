@@ -7,8 +7,12 @@
 <?php
 		if(isset($Meta->BrowserTitle) and ($Meta->BrowserTitle != '' ))
 			$BrowserTitle = $Meta->BrowserTitle;
-		else
+		else if(isset($Meta->H1Text) and $Meta->H1Text !='')
 			$BrowserTitle = $Meta->H1Text;
+		else if(isset($Meta->TitleTag) and $Meta->TitleTag != '')
+			$BrowserTitle = $Meta->TitleTag;
+		else if(isset($Meta->Title) and $Meta->Title != '')
+			$BrowserTitle = $Meta->Title;
 
 		if(isset($Meta->MetaDescr) and $Meta->MetaDescr != '')
 			$MetaDescr = $Meta->MetaDescr;

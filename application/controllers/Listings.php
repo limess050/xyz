@@ -11,13 +11,11 @@ class Listings extends CI_Controller {
 
 	public function index($pageURL='')
 	{
-		// echo "hahahahaha";
-
+		
 
 		if($pageURL != '')
 		{
-			// if($pageURL == 'exchange_rates')
-			// 	$this->exchange_rates();
+
 	
 			$res=$this->listingsmodel->determiner($pageURL);
 
@@ -27,7 +25,18 @@ class Listings extends CI_Controller {
 				$this->listingdetail($res->row()->ListingID);
 			}
 
-			if(isset($res->row()->CategoryID) and !isset($res->row()->ListingID))
+			else if(isset($res->row()->ParentPageID))
+			{
+				
+				$function = explode('.', $res->row()->FileName);
+				//echo $function[0];
+				if(method_exists($this,$function[0]))
+					$this->$function[0]($res);
+				else
+					$this->page($res);
+			}
+
+			else if(isset($res->row()->CategoryID) and !isset($res->row()->ListingID))
 			{
 
 				switch ($res->row()->ParentSectionID) {
@@ -48,7 +57,7 @@ class Listings extends CI_Controller {
 						break;
 
 					case '65':
-						// $this->tanzania_classifieds($res->row()->secURL,$res->row()->catURL);
+						
 						$this->tanzania_classifieds($res->row()->SectionID,$res->row()->catURL);
 						break;
 
@@ -64,17 +73,14 @@ class Listings extends CI_Controller {
 
 			}
 
-			if(isset($res->row()->SectionID) and !isset($res->row()->CategoryID) and !isset($res->row()->ListingID) and $res->row()->ParentSectionID != 0)
+			else if(isset($res->row()->SectionID) and !isset($res->row()->CategoryID) and !isset($res->row()->ListingID) and $res->row()->ParentSectionID != 0)
 			{
 				switch ($res->row()->ParentSectionID) {
 					case '1':
 						$this->tanzania_business_directory($res->row()->URLSafeTitleDashed);
-						
 						break;
 
 					case '65':
-						//echo "is it true";
-						// echo $res->row()->SectionID;
 						$this->tanzania_classifieds($res->row()->SectionID);
 						break;
 
@@ -86,7 +92,7 @@ class Listings extends CI_Controller {
 
 			else if(isset($res->row()->SectionID) and !isset($res->row()->CategoryID) and !isset($res->row()->ListingID) and $res->row()->ParentSectionID == 0)
 			{
-				//echo $res->row()->SectionID;
+
 
 				switch ($res->row()->SectionID) {
 					case '1':
@@ -209,9 +215,6 @@ class Listings extends CI_Controller {
 			$this->load->view('footer');
 		}
 	}
-
-
-
 
 	function exchange_rates()
 	{
@@ -747,6 +750,82 @@ class Listings extends CI_Controller {
 	public function listingdetail($listing_id)
 	{
 
+	}
+
+	public function TideDetail($pageObj)
+	{
+
+		if($this->input->post('StartDate'))
+			$startDate = date("Y-m-d",strtotime($this->input->post('StartDate'))). ' 00:00:00';
+		else $startDate = date("Y-m-d") . ' 00:00:00';
+
+		if($this->input->post('EndDate'))
+			$endDate = date("Y-m-d",strtotime($this->input->post('EndDate'))) . ' 23:59:00' ;
+		else if($this->input->get('EndDate'))
+			$endDate = date("Y-m-d",strtotime($this->input->get('EndDate'))) . ' 23:59:00';
+		else $endDate = date("Y-m-d") . ' 23:59:00';
+
+		$tidesQuery = "select CONVERT(t.tideDate,date) day, t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr, SunriseDate, SunsetDate
+		from Tides t left join lunar l 
+	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
+	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
+	inner join sunrise s ON CONVERT(t.TideDate,date) = CONVERT(s.SunriseDate,date)
+	inner join sunset st ON CONVERT(t.TideDate,date) = CONVERT(st.SunsetDate,date)
+	where TideDate >= '" . $startDate . "'
+	AND TideDate <= '" . $endDate . "'";
+
+		$data['tidesObj'] =$this->db->query($tidesQuery);
+
+		$highCheckerQuery = "select CONVERT(t.tideDate,date) day, t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr, SunriseDate, SunsetDate
+		from Tides t left join lunar l 
+	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
+	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
+	inner join sunrise s ON CONVERT(t.TideDate,date) = CONVERT(s.SunriseDate,date)
+	inner join sunset st ON CONVERT(t.TideDate,date) = CONVERT(st.SunsetDate,date)
+	where TideDate >= '" . $startDate . "'
+	AND TideDate <= '" . $endDate . "' group by day";
+
+	$data['highChecker'] =$this->db->query($highCheckerQuery);
+
+
+		$this->db->where('PageID', $pageObj->row()->PageID);
+		$data['pageContent'] = $this->db->get('lh_pageparts')->row();
+		$data['pageMeta'] = $pageObj->row();
+
+		$header['Meta'] = $data['pageMeta'];
+		$this->load->view('header',$header);
+		$this->load->view('menu-new');
+		if(isset($left_side))
+			$this->load->view('left-sidetower',$left_side);
+		else
+			$this->load->view('left-sidetower');
+		$this->load->view('tidesDetailPage',$data);
+		$this->load->view('right-sidetower');
+		$this->load->view('footer');	
+	}
+
+
+	public function page($pageObj)
+	{
+
+
+		$this->db->where('PageID', $pageObj->row()->PageID);
+		$data['pageContent'] = $this->db->get('lh_pageparts')->row();
+		$data['pageMeta'] = $pageObj->row();
+
+		$header['Meta'] = $data['pageMeta'];
+
+		
+		$this->load->view('header',$header);
+		$this->load->view('menu-new');
+		if(isset($left_side))
+			$this->load->view('left-sidetower',$left_side);
+		else
+			$this->load->view('left-sidetower');
+		//$this->load->view('page',$data);
+		$this->load->view('category_detail');
+		$this->load->view('right-sidetower');
+		$this->load->view('footer');	
 	}
 
 

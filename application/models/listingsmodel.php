@@ -534,9 +534,13 @@ class listingsModel extends CI_Model {
 					if($category->num_rows() == 0)
 					{					
 
+						$this->db->select('*');
+						$this->db->from('lh_pages_live');
 						$this->db->where('MembersOnly', 0);
-						$this->db->where('upper(Name)', strtoupper($pageURL), true);
-						$page=$this->db->get('lh_pages_live');
+						$this->db->where('upper(lh_pages_live.Name)', strtoupper($pageURL), true);
+						$this->db->join('lh_templates', 'lh_templates.TemplateID = lh_pages_live.TemplateID');
+
+						$page = $this->db->get();
 
 						return $page;
 					}	

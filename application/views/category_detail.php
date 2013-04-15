@@ -1,11 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
-</head>
-
-<body><div id="columncontent">
+<div id="columncontent">
   <div id="container">
     <h4 align="center"> tanzania recruitment agencies<img src="images/blubar.gif" alt="" width="540" height="5" /></h4>
     <div id="welcometext" align="left"> 
@@ -14,7 +7,7 @@
        
     </p>
     </div>
-    <img src="image/categories/detailpage_shareit.jpg" /> 
+    <img src="images/categories/detailpage_shareit.jpg" /> 
   <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
 <a class="addthis_button_email"></a>
@@ -81,5 +74,3 @@
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
 <!-- AddThis Button END --></div>
-</body>
-</html>
