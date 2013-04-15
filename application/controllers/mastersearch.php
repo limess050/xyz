@@ -152,6 +152,7 @@ class Mastersearch extends CI_Controller {
     public function generateform() {
         $id = $this->uri->segment(3);
         $data = $this->dataFetcher->categoryDetails($id, $table = "search_forms");
+        $data['heading']=" search for ";
         $this->load->view('formgenerator/categoryForm', $data);
     }
 
