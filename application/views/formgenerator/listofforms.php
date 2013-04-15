@@ -39,7 +39,7 @@ if ($results->num_rows() > 0) {
             foreach ($results->result_array() as $value) {
                 $sn++;
                 //check if subsections detected 
-                $result_categories = $this->datafetcher->sectionCategory($value['SecID']);
+                $result_categories = $this->datafetcher->sectionCategory($value['SecID'],$table="form_tbl");
                 
                 $forms_output = '';
                 
