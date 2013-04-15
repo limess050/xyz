@@ -185,7 +185,7 @@ if ($results->num_rows() > 0) {
                     $val['display'] = $label;
                     $val['rules'] = $rulesin;
 
-                    $fieldTobegenerated = form_label($label) .form_input(array('name' => 'startdate', 'value' => '','class'=>'datepicker')) .'-'.form_input(array('name' => 'enddate', 'value' => '','class'=>'datepicker')). '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                    $fieldTobegenerated = form_label($label) .form_input(array('name' => 'startdate', 'value' => '','class'=>'datepickeryear')) .'-'.form_input(array('name' => 'enddate', 'value' => '','class'=>'datepickeryear')). '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                     break;
                     
