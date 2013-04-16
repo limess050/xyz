@@ -93,7 +93,7 @@ The Trades & Fundis
 						</li>
 
 						<li>
-							<a href="#">TRAVEL &amp; TOURISM</a>
+							<a href="Travel-And-Tourism-Directory">TRAVEL &amp; TOURISM</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -180,7 +180,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="#">RESTAURANTS &amp; ENTERTAINMENT</a>
+							<a href="Movies-Dining-Arts-And-Entertainment-Directory">RESTAURANTS &amp; ENTERTAINMENT</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -224,7 +224,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="#">EVENTS</a>
+							<a href="Tanzania-Events-Calendar">EVENTS</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -263,7 +263,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="#">JOBS</a>
+							<a href="Tanzania-Jobs-And-Employment">JOBS</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -299,7 +299,7 @@ The Trades & Fundis
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
 						</li><li>
-							<a href="#">VEHICLES</a>
+							<a href="Used-Cars-Trucks-And-Boats">VEHICLES</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -336,7 +336,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
                         <li>
-							<a href="#">REAL ESTATE</a>
+							<a href="Tanzania-Real-Estate">REAL ESTATE</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -377,7 +377,7 @@ The Trades & Fundis
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
 						</li><li>
-							<a href="#">CLASSIFIEDS</a>
+							<a href="Steals-Deals-And-Classifieds">CLASSIFIEDS</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>

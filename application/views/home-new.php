@@ -1,12 +1,13 @@
 	<!--MAIN CONTENT!--><div id="main"><!--FIRST ROW TOP-->
+  <script type="text/javascript" src="js/carousel.js" language="javascript"></script>
 	<div id="homerow1">
 <div id="box_left">
     <h4> Movie schedules     <img src="images/sitewide/blubar.gif" alt="" width="170" height="5" /></h4>
     <ul id="my-movies-carousel" class="jcarousel-skin-tango-movies-carousel">
     <?php foreach($movieSchedulesObj->result() as $movieTheatre): ?>
-      <li> <a href="#" ><?php echo $movieTheatre->TheatreName ?><br />
+      <li> <a href="<?php echo url_title(str_replace("&", "And",$movieTheatre->TheatreName)); ?>" ><?php echo $movieTheatre->TheatreName ?><br />
         <?php echo $movieTheatre->Location ?><br /></a>
-        <a href="#" ><img class="left" src="http://www.zoomtanzania.com/ListingImages/<?php echo $movieTheatre->Flier  ?>" width="130" height="200" alt="<?php echo $movieTheatre->TheatreName; ?>" /></a>
+        <a href="<?php echo url_title(str_replace("&", "And",$movieTheatre->TheatreName)); ?>" ><img class="left" src="http://www.zoomtanzania.com/ListingImages/<?php echo $movieTheatre->Flier  ?>" width="130" height="200" alt="<?php echo $movieTheatre->TheatreName; ?>" /></a>
         </li>
 
   <?php endforeach; ?>
@@ -20,7 +21,7 @@
     <?php foreach($specialEventsObj->result() as $specialEvent):  ?>
       
     <li>
-      <a href="#"><img src="http://www.zoomtanzania.com/ListingImages/HomepageThumbnails/<?php echo $specialEvent->ELPTypeThumbnailImage ?>" alt="<?php echo $specialEvent->ListingTitle; ?>" width="100"  /></a><br />
+      <a href="listingdetail?ListingID=<?php $specialEvent->ListingID; ?>"><img src="http://www.zoomtanzania.com/ListingImages/HomepageThumbnails/<?php echo $specialEvent->ELPTypeThumbnailImage ?>" alt="<?php echo $specialEvent->ListingTitle; ?>" width="100"  /></a><br />
       <a href = "#"><?php echo $specialEvent->ListingTitle ?> <strong><?php echo date('M d', strtotime($specialEvent->EventStartDate)) ?></strong></a>
     </li>
     <?php endforeach; ?>
@@ -246,7 +247,7 @@
   $week = $week->add(new DateInterval('P7D'));
 
   ?>
-  <li><a href = "tides?EndDate=<?php echo $tomorrow->format("Y-m-d"); ?>"> Tomorrow</a> <br /> <a href = "tides?EndDate=<?php echo $week->format("Y-m-d"); ?>">Next Seven Days</a> <br /> <a href = "tides">Full Schedule</a></li>
+  <li><a href = "tides?StartDate=<?php echo $tomorrow->format("Y-m-d"); ?>&EndDate=<?php echo $tomorrow->format("Y-m-d"); ?>"> Tomorrow</a> <br /> <a href = "tides?EndDate=<?php echo $week->format("Y-m-d"); ?>">Next Seven Days</a> <br /> <a href = "tides">Full Schedule</a></li>
 
   </ul>
   </div>

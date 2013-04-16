@@ -1,3 +1,10 @@
+  <script>
+  $(function() {
+  	//{ minDate: 0}
+    $( "#StartDate" ).datepicker();
+    $( "#EndDate" ).datepicker();
+  });
+  </script>
 <div id="columncontent">
   	<div id="container">
     	<h1 align="center"><?php echo $pageMeta->Title ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
@@ -57,16 +64,15 @@
 						<?php if($counter == 0): ?>
 							<?php  $counter++; ?>
 						<?php else: ?>
-							<?php
-								$main = new DateTime($high->day);
-								$sub = new DateTime($tidesObj->next_row()->day);
-
-								$interval = $sub->diff($main);
-								echo $interval->format('%R%a');
-							?>
-							<?php if($counter==3 and $interval): ?>
-							<td><?php echo date('h:i A', strtotime($day->tideDate)); ?> / <?php echo $day->Measurement ?> m</td>
-								
+							<?php if($high->valuescount==3 and $counter==3): ?>
+								<?php if($high->High): ?>
+								<td> <?php echo date('h:i A', strtotime($day->tideDate)); ?> / <?php echo $day->Measurement ?> m</td>
+								<td></td>
+								<td></td>
+								<?php else: ?>
+								<td> <?php echo date('h:i A', strtotime($day->tideDate)); ?> / <?php echo $day->Measurement ?> m</td>
+								<td></td>
+								<?php endif; ?>
 							<?php elseif($high->High and $counter==4): ?>
 								<td> <?php echo date('h:i A', strtotime($day->tideDate)); ?> / <?php echo $day->Measurement ?> m</td>
 								<td></td>

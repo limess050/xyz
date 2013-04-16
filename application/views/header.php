@@ -34,10 +34,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         
         <script type="text/javascript" src="js/legacy/jquery-ui-1.8.12.custom.min.js"></script>
+        <!-- // <script type="text/javascript" src="js/jquery.roundabout.min.js"></script> -->
 		<link rel="stylesheet" type="text/css" href="styles/megamenudefault.css" />
 		<link rel="stylesheet" type="text/css" href="styles/megamenucomponent.css" />
 <!-- 		<link href="styles/legacy/menu.css" rel="stylesheet" type="text/css" /> -->
+
 		<link href="styles/tabcontent.css" rel="stylesheet" type="text/css" />
+		<link href="styles/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
 		<link href="styles/home.css" rel="stylesheet" type="text/css" />
 		<link href="styles/style_categories.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="styles/legacy/skin.css" />
@@ -62,11 +65,15 @@
 					}
 				);
 
+
+				// $('#mycarousel').roundabout();
+
+
 			});
 		</script>
         <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
         <!--<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>-->
-         <script type="text/javascript" src="js/carousel.js" language="javascript"></script>
+        
 </head>
 
 <body>

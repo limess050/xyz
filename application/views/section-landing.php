@@ -1,3 +1,5 @@
+
+<script type="text/javascript" src="js/carousel-other.js" language="javascript"></script>
 <script>
 	$(document).ready(function() {
 		$('.CategorySelect').change(function() {

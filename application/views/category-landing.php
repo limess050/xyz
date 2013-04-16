@@ -1,3 +1,5 @@
+
+<script type="text/javascript" src="js/carousel-other.js" language="javascript"></script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "listings";
 // $route['^(?!users|alerts|backend|formgenerator).*'] = "listings/$0";
-$route['^(?!users|alerts|backend|formgenerator).*'] = "listings/index/$0";
+$route['^(?!users|alerts|backend|formgenerator|mastersearch).*'] = "listings/index/$0";
 // $route['formGenerator'] = "formGenerator/$0";
 // $route['(:any)'] = "listings";	
 $route['404_override'] = '';

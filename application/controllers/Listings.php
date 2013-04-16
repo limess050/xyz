@@ -111,8 +111,20 @@ class Listings extends CI_Controller {
 						$this->arts_and_entertainment();
 						break;
 
-					case '65':
-						$this->tanzania_classifieds();
+					case '5':
+						$this->tanzania_real_estate();
+						break;
+
+					case '4':
+						$this->steals_deals_and_classifieds();
+						break;
+
+					case '8':
+						$this->tanzania_jobs_and_employment();
+						break;
+
+					case '55':
+						$this->used_cars_trucks_and_boats();
 						break;
 
 					case '59':
@@ -334,6 +346,33 @@ class Listings extends CI_Controller {
 			$this->section_categories(66,$leftSide);
 		}
 
+	}
+
+	function tanzania_jobs_and_employment()
+	{
+
+	}
+
+	function steals_deals_and_classifieds()
+	{
+
+	}
+
+	function used_cars_trucks_and_boats()
+	{
+
+	}
+
+	function tanzania_real_estate()
+	{
+
+	}
+
+	function testpage($view)
+	{
+		$this->load->view('header');
+		$this->load->view($view);
+		$this->load->view('footer');
 	}
 
 	function tanzania_classifieds($SectionID='',$categoryURLSafeTitleDashed='')
@@ -757,11 +796,13 @@ class Listings extends CI_Controller {
 
 		if($this->input->post('StartDate'))
 			$startDate = date("Y-m-d",strtotime($this->input->post('StartDate'))). ' 00:00:00';
+		elseif($this->input->get('StartDate')) 
+			$startDate = date("Y-m-d",strtotime($this->input->get('StartDate'))). ' 00:00:00';
 		else $startDate = date("Y-m-d") . ' 00:00:00';
 
 		if($this->input->post('EndDate'))
 			$endDate = date("Y-m-d",strtotime($this->input->post('EndDate'))) . ' 23:59:00' ;
-		else if($this->input->get('EndDate'))
+		elseif($this->input->get('EndDate'))
 			$endDate = date("Y-m-d",strtotime($this->input->get('EndDate'))) . ' 23:59:00';
 		else $endDate = date("Y-m-d") . ' 23:59:00';
 
@@ -776,7 +817,7 @@ class Listings extends CI_Controller {
 
 		$data['tidesObj'] =$this->db->query($tidesQuery);
 
-		$highCheckerQuery = "select CONVERT(t.tideDate,date) day, t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr, SunriseDate, SunsetDate
+		$highCheckerQuery = "select CONVERT(t.tideDate,date) day, COUNT( CONVERT( t.tideDate, DATE ) ) valuescount, t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr, SunriseDate, SunsetDate
 		from Tides t left join lunar l 
 	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
 	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
