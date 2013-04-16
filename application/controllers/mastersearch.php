@@ -150,7 +150,7 @@ class Mastersearch extends CI_Controller {
     /*     * controller function for the pop up form anchor */
 
     public function generateform() {
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data = $this->datafetcher->categoryDetails($id, $table = "search_forms");
         $data['heading']=" search for ";
         $this->load->view('formgenerator/categoryForm', $data);
