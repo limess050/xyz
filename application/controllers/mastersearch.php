@@ -13,7 +13,7 @@ class Mastersearch extends CI_Controller {
     public function searchfilter() {
 
  
-        $results = $this->dataFetcher->subsectionLoader($this->input->post('id'));
+        $results = $this->datafetcher->subsectionLoader($this->input->post('id'));
 
         if ($results) {
 
@@ -32,7 +32,7 @@ class Mastersearch extends CI_Controller {
                 ////////////
                 //for sections with no subsections
                 $checkboxoutput = '';
-                $resultwithnosubsections = $this->dataFetcher->categoriesLoaderwithoutsubsections($this->input->post('id'));
+                $resultwithnosubsections = $this->datafetcher->categoriesLoaderwithoutsubsections($this->input->post('id'));
                 if ($resultwithnosubsections->num_rows() > 0) {
 
                     $selectopt_sub = '';
@@ -55,7 +55,7 @@ class Mastersearch extends CI_Controller {
 
     public function selectCategory() {
 
-        $results = $this->dataFetcher->categoriesautoLoader($this->input->post('catid'));
+        $results = $this->datafetcher->categoriesautoLoader($this->input->post('catid'));
 
         if ($results) {
 
@@ -151,7 +151,7 @@ class Mastersearch extends CI_Controller {
 
     public function generateform() {
         $id = $this->uri->segment(3);
-        $data = $this->dataFetcher->categoryDetails($id, $table = "search_forms");
+        $data = $this->datafetcher->categoryDetails($id, $table = "search_forms");
         $data['heading']=" search for ";
         $this->load->view('formgenerator/categoryForm', $data);
     }
@@ -160,7 +160,7 @@ class Mastersearch extends CI_Controller {
 
     public function deletesearchform() {
         $id = $this->uri->segment(3);
-        $results = $this->dataFetcher->deletesearchforms($id, $table = "search_forms");
+        $results = $this->datafetcher->deletesearchforms($id, $table = "search_forms");
         if ($results) {
             $this->listofcreatedsearchforms();
         }
@@ -186,7 +186,7 @@ class Mastersearch extends CI_Controller {
                 } else {
                     $searchform_category = $category;
                 }
-                $data = $this->dataFetcher->categoryDetails($searchform_category,$table="search_forms");
+                $data = $this->datafetcher->categoryDetails($searchform_category,$table="search_forms");
                 
                 $results=$data['results'];
                 
@@ -229,7 +229,7 @@ class Mastersearch extends CI_Controller {
         $subchekfilter = $this->uri->segment(3);
         $id = $this->uri->segment(3);
         /* set $table ="search_forms" */
-        $results = $this->dataFetcher->loadsectionFromcategory($id, $table = "search_forms");
+        $results = $this->datafetcher->loadsectionFromcategory($id, $table = "search_forms");
 
          foreach ($results->result_array() as $value) {
             $section_id = $value['SecID'];
@@ -239,10 +239,10 @@ class Mastersearch extends CI_Controller {
         $data['section_id'] = $section_id;
         $data['sectionname'] = $section_name;
 
-        $results = $this->dataFetcher->subcategoryDetails($id, 'search_forms');
+        $results = $this->datafetcher->subcategoryDetails($id, 'search_forms');
 
         $data['result'] = $results['results'];
-        $subsec_results = $this->dataFetcher->getSectionSubsections($section_id, $id);
+        $subsec_results = $this->datafetcher->getSectionSubsections($section_id, $id);
         //fetching the subsection selected id
          foreach ($subsec_results->result_array() as $rows) {
                     $subsectionid = $rows['SectionID'];
@@ -285,7 +285,7 @@ class Mastersearch extends CI_Controller {
 
                 $category = $this->input->post('cat');
                 $subsectionid = $this->input->post('subsection_id');
-                $deleteresults = $this->dataFetcher->deletesearchforms($category[0], $table = 'search_forms');
+                $deleteresults = $this->datafetcher->deletesearchforms($category[0], $table = 'search_forms');
 
                 if ($deleteresults) {
 
