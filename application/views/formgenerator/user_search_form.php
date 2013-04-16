@@ -25,6 +25,7 @@ echo form_fieldset('');
             <?php
             
             $out = '';
+            $results = $this->datafetcher->sectionsLoader();
             foreach ($results->result_array() as $section) {
 
                 $out.='<option value="' . $section['SectionID'] . set_value('section') . '">' . $section['Title'] . '</option>';
