@@ -88,7 +88,7 @@ class Datafetcher extends CI_Model {
         from categories
         inner join sections 
         on categories.SectionID=sections.SectionID
-        where  categories.SectionID='$subsectionid'";
+        where  categories.SectionID='$subsectionid' order by categories.Title asc";
 
         $results = $this->db->query($sql);
         return $results;
