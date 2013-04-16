@@ -107,7 +107,7 @@
                             $(".searchcategory").html(html);
                             
                             ///function to autoload the categories from subsection
-                            $(".autoload").change(function()
+                            $(".autoloadcat").change(function()
                             {
                                 var id=$(this).val();
                                 var dataString = 'catid='+ id;
