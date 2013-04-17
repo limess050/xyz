@@ -45,6 +45,9 @@ class Common extends CI_Model
 		$sections = $this->db->get('sections');
 
 		foreach ($sections->result() as $section) {
+			if(!$section->ParentSectionID)
+				$mainMenu[$section->SectionID] = $section->URLSafeTitleDashed;
+
 			$sections_array[$section->ParentSectionID][$section->URLSafeTitleDashed] = $section->Title;
 		}
 
@@ -58,9 +61,17 @@ class Common extends CI_Model
 			if(isset($categoryListingsCountArray[$category->CategoryID]))
 				$count =  $categoryListingsCountArray[$category->CategoryID];
 			else $count = 0;
-			$category_array[$category->ParentSectionID][$category->URLSafeTitleDashed] = $category->Title . ' (' . $count . ')';
+
+			if(!$category->ParentSectionID)
+
+				$category_array[$category->SectionID][$category->URLSafeTitleDashed] = $category->Title . ' (' . $count . ')';
+			else
+				$category_array[$category->ParentSectionID][$category->URLSafeTitleDashed] = $category->Title . ' (' . $count . ')';
 
 		}
+		// echo "<pre>";
+		// print_r($mainMenu);
+		// echo "</pre>";
 
 		$this->db->order_by('OrderNum');
 		$main=$this->db->get('main_menu_items');
@@ -68,20 +79,17 @@ class Common extends CI_Model
 		//print_r($category_array);
 
 
-		$menu = '<ul id="menu"><li><a href=" '  . base_url() .  ' " >Home</a></li>';
+		$menu = '<div class="menubox" align="center"><div><nav id="cbp-hrmenu" class="cbp-hrmenu"><ul>';
+		$menu .= '<li><a href="' . base_url() . '">HOME</a></li>';
 
 		$item_num = 0;
 		foreach ($main->result() as $item) {
 
 			if($item->DrawsFrom != '')
 			{
-				$menu .= '<li><a href="' . $item->URLSafeTitleDashed . '" class="drop">' . $item->MenuTitle . '</a>';
+				$menu .= '<li><a href="' . $mainMenu[$item->SectionID] . '" class="drop">' . $item->MenuTitle . '</a>';
 
-				if($item_num >= 3)
-					$menu .= '<div class="dropdown_5columns align_right">';
-				else
-					$menu .= '<div class="dropdown_5columns">';
-				$menu .= '<div class="col_5"><h2>' . $item->MenuTitle . '</h2></div>';
+
     			
 				if($item->DrawsFrom == 'sections')
 					$sub_menu_array = $sections_array;
@@ -89,31 +97,38 @@ class Common extends CI_Model
 					$sub_menu_array = $category_array;
 
 
-				$flag =1;
-				$count = count($sub_menu_array[$item->SectionID]); //total number of rows
-				//echo $count . '<br>';
+				$countChecker=$flag =1;
+				$count = count($sub_menu_array[$item->SectionID]); //total sub menu number of rows
+				
 
-				$col_complete = ceil($count/3); //We'll have 3 columns
+				$col_complete = ceil($count/2); //We'll have 3 columns
 
 				//echo $col_complete . '<br>';
 
+				$menu .= '<div class="cbp-hrsub"><div class="cbp-hrsub-inner">';
 				foreach($sub_menu_array[$item->SectionID] as $url => $sub_menu)
 				{
+
+
     				if($flag==1)
-						$menu .= '<div class="col_1"><ul class="greybox">';//Start Col 1 of Menu Items
+						$menu .= '<div><ul>';//Start Col of Menu Items
 
 
 					$menu .= '<li><a href="' . $url . ' ">' . $sub_menu . '</a></li>';
 
 					if($flag == $col_complete)
 					{
-						$menu .= '</ul></div>'; // If a third of the menu items have been added, close col 1
+						$menu .= '</ul></div>'; // If col is full, close col 
 						$flag = 1;
 					}
-					else if($flag == $count)
+
+					else if($countChecker == $count)
     					$menu .= '</ul></div>';
     				else
+    				{
 						$flag++;
+						$countChecker++;
+					}
 				}
 
 				$menu .= '</div></li>';
@@ -125,7 +140,7 @@ class Common extends CI_Model
 			$item_num++;
 		}
 
-		$menu .= '</ul>';
+		$menu .= '</ul></nav></div></div>';
 
 		echo $menu;
 	}

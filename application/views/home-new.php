@@ -1,5 +1,5 @@
-	<!--MAIN CONTENT!--><div id="main"><!--FIRST ROW TOP-->
   <script type="text/javascript" src="js/carousel.js" language="javascript"></script>
+  <!--MAIN CONTENT!--><div id="main"><!--FIRST ROW TOP-->
 	<div id="homerow1">
 <div id="box_left">
     <h4> Movie schedules     <img src="images/sitewide/blubar.gif" alt="" width="170" height="5" /></h4>
@@ -16,13 +16,13 @@
 
   <div class="container">
 
-        <div><h4> Upcoming Special Events<img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h4></div>
+  <div><h4> Upcoming Special Events<img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h4></div>
     <ul id="mycarousel" class="jcarousel-skin-tango">
     <?php foreach($specialEventsObj->result() as $specialEvent):  ?>
       
     <li>
-      <a href="listingdetail?ListingID=<?php $specialEvent->ListingID; ?>"><img src="http://www.zoomtanzania.com/ListingImages/HomepageThumbnails/<?php echo $specialEvent->ELPTypeThumbnailImage ?>" alt="<?php echo $specialEvent->ListingTitle; ?>" width="100"  /></a><br />
-      <a href = "#"><?php echo $specialEvent->ListingTitle ?> <strong><?php echo date('M d', strtotime($specialEvent->EventStartDate)) ?></strong></a>
+      <a href="listingdetail?ListingID=<?php echo $specialEvent->ListingID; ?>"><img src="http://www.zoomtanzania.com/ListingImages/HomepageThumbnails/<?php echo $specialEvent->ELPTypeThumbnailImage ?>" alt="<?php echo $specialEvent->ListingTitle; ?>" width="100"  /></a><br />
+      <a href = "listingdetail?ListingID=<?php echo $specialEvent->ListingID; ?>"><?php echo $specialEvent->ListingTitle ?> <strong><?php echo date('M d', strtotime($specialEvent->EventStartDate)) ?></strong></a>
     </li>
     <?php endforeach; ?>
   </ul>
@@ -35,8 +35,8 @@
       <img src="images/sitewide/blueline.gif" alt="" width="170" height="5" /></h4>
     <ul class="imageList">
       <?php $travelSpecial = $travelSpecialObj->row(); ?>
-      <li> <a href="#" ><?php echo $travelSpecial->ListingTitle; ?></a>
-        <a href = "#">
+      <li> <a href="listingdetail?ListingID=<?php echo $travelSpecial->ListingID; ?>" ><?php echo $travelSpecial->ListingTitle; ?></a>
+        <a href = "listingdetail?ListingID=<?php echo $travelSpecial->ListingID; ?>">
         <img class="left" src="http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $travelSpecial->ELPTypeThumbnailImage; ?>"   alt="<?php echo $travelSpecial->ListingTitle; ?>" />
         </a></li>
     </ul>
@@ -47,8 +47,8 @@
       <img src="images/sitewide/blueline.gif" alt="" width="170" height="5" /></h4>
     <ul class="imageList">
       <?php $featuredListing= $featuredBusinessObj->row(); ?>
-        <li><a href="#" ><?php echo $featuredListing->ListingTitle; ?></a>
-        <a href="#" ><img class="left" src="http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $featuredListing->LogoImage ?>" width="141"  alt="" /><br />
+        <li><a href="<?php echo url_title(str_replace("&", "And",$featuredListing->ListingTitle)); ?>" ><?php echo $featuredListing->ListingTitle; ?></a>
+        <a href="<?php echo url_title(str_replace("&", "And",$featuredListing->ListingTitle)); ?>" ><img class="left" src="http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $featuredListing->LogoImage ?>" width="141"  alt="" /><br />
          </a></li>
     </ul>
 

@@ -9,6 +9,11 @@ class Listings extends CI_Controller {
 
 	}
 
+	function testmenu()
+	{
+		$this->common->menu();
+	}
+
 	public function index($pageURL='')
 	{
 		
@@ -16,7 +21,8 @@ class Listings extends CI_Controller {
 		if($pageURL != '')
 		{
 
-	
+			if($pageURL == 'menu')
+				$this->testmenu();
 			$res=$this->listingsmodel->determiner($pageURL);
 
 			
@@ -222,7 +228,7 @@ class Listings extends CI_Controller {
 
 
 			$this->load->view('header',$header);
-			$this->load->view('menu-new');
+			$this->load->view('menu');
 			$this->load->view('home-new',$data);
 			$this->load->view('footer');
 		}
@@ -442,7 +448,7 @@ class Listings extends CI_Controller {
 		$leftSide['youMayAlsoLikeObj'] = $hints['youMayAlsoLikeObj'];
 
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		$this->load->view('left-sidetower',$leftSide);
 		$this->load->view('section-landing',$data);
 		//die();
@@ -461,7 +467,7 @@ class Listings extends CI_Controller {
 		$leftSide['youMayAlsoLikeObj'] = $hints['youMayAlsoLikeObj'];
 
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		if(isset($leftSide))
 			$this->load->view('left-sidetower',$leftSide);
 		else
@@ -484,7 +490,7 @@ class Listings extends CI_Controller {
 		$data['categories'] = $this->listingsmodel->getSection($data['sectionMeta']->SectionID);
 
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		$this->load->view('left-sidetower',$leftSide);
 		$this->load->view('sub-section-landing',$data);
 		$this->load->view('right-sidetower');
@@ -571,7 +577,7 @@ class Listings extends CI_Controller {
 		echo $this->db->last_query();
 
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 
 		if(isset($leftSide))
 			$this->load->view('left-sidetower',$leftSide);
@@ -647,7 +653,7 @@ class Listings extends CI_Controller {
 		$data['quoteRequestString'] = substr($data['quoteRequestString'], 0,-1);
 
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		if(isset($leftSide))
 			$this->load->view('left-sidetower',$leftSide);
 		else
@@ -700,7 +706,7 @@ class Listings extends CI_Controller {
 		$data['category_links']=$category_links;
 
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		if(isset($left_side))
 			$this->load->view('left-sidetower',$left_side);
 		else
@@ -770,7 +776,7 @@ class Listings extends CI_Controller {
 
 
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		if(isset($left_side))
 			$this->load->view('left-sidetower',$left_side);
 		else
@@ -788,7 +794,7 @@ class Listings extends CI_Controller {
 
 	public function listingdetail($listing_id)
 	{
-
+		echo "hehehe";
 	}
 
 	public function TideDetail($pageObj)
@@ -835,7 +841,7 @@ class Listings extends CI_Controller {
 
 		$header['Meta'] = $data['pageMeta'];
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		if(isset($left_side))
 			$this->load->view('left-sidetower',$left_side);
 		else
@@ -858,7 +864,7 @@ class Listings extends CI_Controller {
 
 		
 		$this->load->view('header',$header);
-		$this->load->view('menu-new');
+		$this->load->view('menu');
 		if(isset($left_side))
 			$this->load->view('left-sidetower',$left_side);
 		else

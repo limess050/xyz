@@ -9,34 +9,34 @@
 	text-align: center; /* orizzontale */
 }
 #homerow1 {
-	position: relative;
+	
 	width: 1020px;
 	margin: 0px 0px 0px 0px;
 	padding: 0px;
 	float:left;
 }
 #homerow2 {
-	position: relative;
+	
 	width: 1020px;
 	margin: 0px 5px 0px 0px;
 	padding: 8px;
 }
 #homerow3 {
-	position: relative;
+	
 	width: 1020px;
 	margin: 20px 5px 0px 0px;
 	padding: 8px;
 	text-align:center;
 }
 #homerow4 {
-	position: relative;
+	
 	width: 1020px;
 	margin: 0px 0px 0px 0px;
 	padding: 0px;
 	text-align:center;
 }
 #homerow5 {
-	position: relative;
+	
 	width: 1020px;
 	margin: 0px 0px 0px 0px;
 	padding-left: 8px;
