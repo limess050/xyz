@@ -93,7 +93,7 @@ The Trades & Fundis
 						</li>
 
 						<li>
-							<a href="#">TRAVEL &amp; TOURISM</a>
+							<a href="#">TRAVEL <br/>&amp; TOURISM</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -180,7 +180,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="#">RESTAURANTS &amp; ENTERTAINMENT</a>
+							<a href="#">DINING <br/>&amp; ENTERTAINMENT</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -191,10 +191,9 @@ The Trades & Fundis
 										</ul>
 										<h4>ENTERTAINMENT</h4>
 										<ul>
-											<li><a href="#">Movie Theatre</a></li>
-											<li><a href="#">Museum</a></li>
-											<li><a href="#">Cultural Centre & Institutes</a></li>
-											<li><a href="#">Museum, Zoos & Botanical Garden</a></li>
+											<li><a href="#">Movie Theatres</a></li>
+											<li><a href="#">Cultural Centres & Institutes</a></li>
+											<li><a href="#">Museums, Zoos & Botanical Gardens</a></li>
 											<li><a href="#">Family Fun</a></li>
 										</ul>
 									</div>
@@ -228,36 +227,42 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>Utilities</h4>
+								
 										<ul>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
+											<li><a href="#">Arts & Cultural</a></li>
+											<li><a href="#">Bar / Pub Entertainment</a></li>
+											<li><a href="#">Community Alerts</a></li>
+											<li><a href="#">Conference & Seminars</a></li>
+											<li><a href="#">Dance & Party</a></li>
+											<li><a href="#">Dining Specials</a></li>
+											<li><a href="#">Fairs / Tradeshows</a></li>
+											<li><a href="#">Family Friendly</a></li>
+											<li><a href="#">For Kids</a></li>
+											<li><a href="#">Happy Hours</a></li>
+											<li><a href="#">Live Music</a></li>
+											<li><a href="#">Sales & Grand Opening</a></li>
+											<li><a href="#">Social Clubs / Groups</a></li>
+											<li><a href="#">Sports</a></li>
+											<li><a href="#">Tanzania National Holidays</a></li>
 										</ul>
-										<h4>Education</h4>
-										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
-										</ul>
+										<h4>Post An Event - free-</h4>
+										
 									</div>
 									<div>
-										<h4>Professionals</h4>
+										<h4>LATEST EVENT</h4>
 										<ul>
 											<li><a href="#">Success 1.0</a></li>
 											<li><a href="#">Moneymaker</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>Learning &amp; Games</h4>
+										<h4>A text about EVENT ADV</h4>
 										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
+											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#">text </a></li>
+							
 										</ul>
+			
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
@@ -340,33 +345,35 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>RENT A HOUSE</h4>
+										<h4>TANZANIA HOUSING RENTALS</h4>
 										<ul>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
+											<li><a href="#">Apartments in Dar Es Salaam & Tanzania</a></li>
+											<li><a href="#">Rooms fo Let</a></li>
+											<li><a href="#">Short term housing</a></li>
+											<li><a href="#">Houses for rent in Tanzania</a></li>
 										</ul>
-										<h4>RENT COMMERCIAL</h4>
+										<h4>TANZANIA COMMERCIAL RENTALS</h4>
 										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
+											<li><a href="#">Industrial & Warehousing Properties</a></li>
+											<li><a href="#">Office Spaces</a></li>
+											<li><a href="#">Other Commercial</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>SELL HOUSE</h4>
+										<h4>HOUSES, HOME AND PROPERTIES FOR SALE</h4>
+										<ul>
+											<li><a href="#">Commercial & Industrial</a></li>
+											<li><a href="#">Home / House</a></li>
+											<li><a href="#">Land & Property</a></li>
+										</ul>
+										<h4>SEARCH A PROPERTY</h4>
 										<ul>
 											<li><a href="#">Success 1.0</a></li>
 											<li><a href="#">Moneymaker</a></li>
 										</ul>
-										<h4>SELL A LAND OR COMMERCIAL</h4>
-										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
-										</ul>
 									</div>
 									<div>
-										<h4>A text about VEHICLE ADV</h4>
+										<h4>A text about REAL ESTATE ADV</h4>
 										<ul>
 											<li><a href="#"><img src="images/image2.jpg"></a></li>
 											<li><a href="#">text </a></li>
