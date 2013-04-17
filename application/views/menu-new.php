@@ -241,24 +241,23 @@ The Trades & Fundis
 											<li><a href="#">Dining Specials</a></li>
 											<li><a href="#">Fairs / Tradeshows</a></li>
 											<li><a href="#">Family Friendly</a></li>
-											<li><a href="#">For Kids</a></li>
+											
+										</ul></div>
+										<div>
+										<ul><li><a href="#">For Kids</a></li>
 											<li><a href="#">Happy Hours</a></li>
 											<li><a href="#">Live Music</a></li>
 											<li><a href="#">Sales & Grand Opening</a></li>
 											<li><a href="#">Social Clubs / Groups</a></li>
 											<li><a href="#">Sports</a></li>
 											<li><a href="#">Tanzania National Holidays</a></li>
-										</ul>
-										<h4>Post An Event - free-</h4>
-										
+											</ul>
+											<p><a href="#"><img src="images/button_event.png" width="127" height="36" alt="classified" /></a></p>
+									
 									</div>
-									<div>
-										<h4>LATEST EVENT</h4>
-										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
-										</ul>
-									</div>
+									
+					
+									
 									<div>
 										<h4>A text about EVENT ADV</h4>
 										<ul>

@@ -9,10 +9,11 @@
 /* general ul style */
 .cbp-hrmenu ul {
 	position:relative;
-	margin: 0;
+	top-margin: 8px;
 	padding: 0;
 	list-style-type: none;
 	z-index: 1000 !important;
+	
 }
 
 /* first level ul style */
@@ -48,9 +49,9 @@
 	color: #0e4e92;
 	background: #fff;
 	padding: 0.3 1.5em;
-	/*background-image: url(../images/menuline.png);
+	background-image: url(../images/menuline.png);
 background-repeat: no-repeat;
-background-position: -2em;*/
+background-position: -2em;
 }
 
 /* sub-menu */
@@ -63,7 +64,7 @@ background-position: -2em;*/
 	border-bottom:solid #CCCCCC 3px;
 	border-left: solid #CCCCCC 1px;
 	border-right: solid #CCCCCC 1px;
-	min-height: 300px;
+	min-height: 100%;
 	/*background-image:url(../images/business.png);
 	background-repeat:no-repeat;
 	background-position:right bottom;*/

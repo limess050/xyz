@@ -31,6 +31,7 @@ class Listings extends CI_Controller {
 				$this->listingdetail($res->row()->ListingID);
 			}
 
+<<<<<<< HEAD
 			else if(isset($res->row()->ParentPageID))
 			{
 				
@@ -43,6 +44,9 @@ class Listings extends CI_Controller {
 			}
 
 			else if(isset($res->row()->CategoryID) and !isset($res->row()->ListingID))
+=======
+			if($res->row()->CategoryID and !isset($res->row()->ListingID))
+>>>>>>> kimeo
 			{
 
 				switch ($res->row()->ParentSectionID) {
