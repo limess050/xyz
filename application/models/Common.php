@@ -32,7 +32,7 @@ class Common extends CI_Model
 
 		$this->db->group_by('CategoryID');
 		$this->db->select('CategoryID, count(ListingID) as catCount',FALSE);
-		$categoryListingsCount=$this->db->get('ListingCategories');
+		$categoryListingsCount=$this->db->get('listingcategories');
 
 		foreach($categoryListingsCount->result() as $categoryListingCount)
 		{

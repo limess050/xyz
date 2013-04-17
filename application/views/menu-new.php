@@ -7,7 +7,7 @@
 							<!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="tanzania-business-directory" id="business">BUSINESSES</a>
+							<a href="tanzania-business-directory" id="business">BUSINESS<br/> DIRECTORY</a>
 						  <div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner">
 									<div>
@@ -81,11 +81,17 @@ The Trades & Fundis
 										</ul>
 									</div>
 									<div>
-										<h4> promove &amp; add your business</h4>
+										<h4>A text about Business</h4>
 										<ul>
-											<li><a href="#"><img src="images/businesssmall.png" width="300"></a></li>
-											<li><a href="#">a text</a></li>
-										
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
+											<li><a href="#">text</a></li>
+							
+										</ul>
+										<h4>A text about Business</h4>
+										<ul>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
+											<li><a href="#">text</a></li>
+							
 										</ul>
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
@@ -94,7 +100,7 @@ The Trades & Fundis
 
 						<li>
 
-							<a href="#">TRAVEL <br/>&amp; TOURISM</a>
+							<a href="#">TRAVEL &amp;<br/> TOURISM</a>
 
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
@@ -172,18 +178,23 @@ The Trades & Fundis
 									<div>
 										<h4>A text about Tourism Directory</h4>
 										<ul>
-											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
 											<li><a href="#">text</a></li>
 							
 										</ul>
-			
+			<h4>A text about Tourism Directory</h4>
+										<ul>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
+											<li><a href="#">text</a></li>
+							
+										</ul>
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
 
-							<a href="#">DINING <br/>&amp; ENTERTAINMENT</a>
+							<a href="#">DINING &amp;<br/> ENTERTAINMENT</a>
 
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
@@ -217,7 +228,7 @@ The Trades & Fundis
 									</div><div>
 										<h4>A text about Advertise</h4>
 										<ul>
-											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
 											<li><a href="#">text</a></li>
 							
 										</ul>
@@ -242,17 +253,15 @@ The Trades & Fundis
 											<li><a href="#">Fairs / Tradeshows</a></li>
 											<li><a href="#">Family Friendly</a></li>
 											
-										</ul></div>
-										<div>
-										<ul><li><a href="#">For Kids</a></li>
+										<li><a href="#">For Kids</a></li>
 											<li><a href="#">Happy Hours</a></li>
 											<li><a href="#">Live Music</a></li>
 											<li><a href="#">Sales & Grand Opening</a></li>
 											<li><a href="#">Social Clubs / Groups</a></li>
 											<li><a href="#">Sports</a></li>
 											<li><a href="#">Tanzania National Holidays</a></li>
-											</ul>
-											<p><a href="#"><img src="images/button_event.png" width="127" height="36" alt="classified" /></a></p>
+											</ul></div>
+											<div><ul><li><a href="#"><img src="images/sitewide/button_event.png" width="127" height="36" alt="classified" /></a></li></ul>
 									
 									</div>
 									
@@ -261,10 +270,11 @@ The Trades & Fundis
 									<div>
 										<h4>A text about EVENT ADV</h4>
 										<ul>
-											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
 											<li><a href="#">text </a></li>
 							
 										</ul>
+										
 			
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
@@ -298,7 +308,7 @@ The Trades & Fundis
 									<div>
 										<h4>A text about JOB RECRUITMENT ADV</h4>
 										<ul>
-											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
 											<li><a href="#">text </a></li>
 							
 										</ul>

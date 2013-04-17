@@ -1,7 +1,7 @@
 .cbp-hrmenu {
 	width: 100%;
 	margin-top: 3px;
-	background-image:url(../images/sitewide/navbg.jpg);
+	background-image:url(../images/sitewide/navbackground.jpg);
 	background-repeat:no-repeat;
 	color:#fff;
 	}
@@ -10,7 +10,8 @@
 .cbp-hrmenu ul {
 	position:relative;
 	top-margin: 8px;
-	padding: 0;
+	padding: 0.5 1.5em;
+	padding-bottom: 13px;
 	list-style-type: none;
 	z-index: 1000 !important;
 	
@@ -22,7 +23,7 @@
 	width: 100%;
 	max-width: 1020px;
 	margin: 0 auto;
-	padding: 0.5 1.5em;
+	padding-bottom: 13px;
 	text-align: left;
 }
 
@@ -33,7 +34,8 @@
 .cbp-hrmenu > ul > li > a {
 	font-weight: 300;
 	font-size:12px;
-	padding: 1.5em 0.9em;
+	text-wrap:unrestricted;
+	padding: 1em 1.7em;
 	color: #fff;
 	display: inline-block;
 	text-decoration:none;
@@ -49,9 +51,8 @@
 	color: #0e4e92;
 	background: #fff;
 	padding: 0.3 1.5em;
-	background-image: url(../images/menuline.png);
-background-repeat: no-repeat;
-background-position: -2em;
+	background-repeat: no-repeat;
+	background-position: -2em;
 }
 
 /* sub-menu */

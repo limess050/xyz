@@ -65,10 +65,10 @@ $active_record = TRUE;
 // $db['default']['stricton'] = FALSE;
 
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'ZoomTanzania';
+$db['default']['hostname'] = '66.147.244.100';
+$db['default']['username'] = 'zoomtanz';
+$db['default']['password'] = 'Koko4pufs9)';
+$db['default']['database'] = 'zoomtanz_zoomtanzania';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
