@@ -2,8 +2,18 @@
 /* CSS Document */
 
 .pushfooter{
-height:100px; /* altezza footer */
-clear:both; /* clear di eventuali float se presenti nel layout */
+	min-height:0; /* if no content will disappear */
+	max-height:90px; /* max height */
+	clear:both; 
+	min-width: 100%;
+
+/* clear di eventuali float se presenti nel layout */
+}
+.pushfooter div /* div centerd to have the banner*/
+{
+	widht:728px;
+	float:inherit;
+	text-align:center;
 }
 #footer {
     /*Position: fixed;*/
