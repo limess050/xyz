@@ -178,13 +178,13 @@ The Trades & Fundis
 									<div>
 										<h4>A text about Tourism Directory</h4>
 										<ul>
-											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x90"></a></li>
 											<li><a href="#">text</a></li>
 							
 										</ul>
 			<h4>A text about Tourism Directory</h4>
 										<ul>
-											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x90"></a></li>
 											<li><a href="#">text</a></li>
 							
 										</ul>
@@ -285,25 +285,44 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>SEARCH A JOB</h4>
+										<h4>Organization Type</h4>
 										<ul>
-											<li><a href="#">Green Tree Pro</a></li>
-											<li><a href="#">Wobbler 3.0</a></li>
-											<li><a href="#">Coolkid</a></li>
+											<li><a href="#">NGO</a></li>
+											<li><a href="#">Governamental</a></li>
+											<li><a href="#">Parastatal</a></li>
+											<li><a href="#">Private Sector</a></li>
 										</ul>
-										<h4>APPLY FOR A JOB</h4>
+										<h4>Position Type</h4>
 										<ul>
-											<li><a href="#">How to Apply for a Job?</a></li>
-											<li><a href="#">How to Post a Vacancy?</a></li>
-											<li><a href="#">Post a Vacancy -free-</a></li>
-										</ul>
+											<li><a href="#">Full Time</a></li>
+											<li><a href="#">Consultancy</a></li>
+											<li><a href="#">Volunteer</a></li>
+											<li><a href="#">Internship</a></li></ul>
+											<h4>CHOOSE A JOB CATEGORY</h4>
+										<ul>
+											<li><a href="#"><form id="form1" name="form1" method="post" action="">
+  <select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+    <option>housekeeping</option>
+    <option>management</option>
+    <option>acconunting</option>
+    <option selected="selected">choose a job</option>
+  </select>
+</form></a></li></ul>
+											<ul>
+											<li><a href="#"><img src="images/button_viewall.png" width="127" height="36" alt="classified" /></a></li></ul>
+											
 									</div>
 									<div>
 										<h4>LATEST VACATION IN TANZANIA</h4>
 										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
+											<li><a href="#">Safari Sales Team Member<br/>Erolink LTD</a></li>
+											<li><a href="#">Business Development Executive<br/>Lock and Door Systems </a></li>
+											<li><a href="#">Warehouse-Internship<br/>Human Resources Consulting of Tanzania </a></li>
+											<li><a href="#">LifeGuard<br/>AERA </a></li>
+											<li><a href="#">Project Officer (1 Post)<br/>Plan International Tanzania </a></li>
 										</ul>
+										<ul>
+											<li><img src="images/button_job.png" width="127" height="36" alt="classified" /></li></ul>
 									</div>
 									<div>
 										<h4>A text about JOB RECRUITMENT ADV</h4>
@@ -321,30 +340,33 @@ The Trades & Fundis
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
-										<h4>SELECT A TYPE</h4>
+										<h4>CHOOSE A VEHICLE TYPE</h4>
 										<ul>
 											<li><a href="#">Boat</a></li>
 											<li><a href="#">Machinery</a></li>
-											<li><a href="#">Coolkid</a></li>
-										</ul>
-										<h4>SELECT A LOCATION</h4>
-										<ul>
-											<li><a href="#">Learn Thai</a></li>
-											<li><a href="#">Math Genius</a></li>
-											<li><a href="#">Chemokid</a></li>
+											<li><a href="#">Motorbike, Bajaji, Mtoped</a></li>
+											<li><a href="#">Sedans Car</a></li>
+											<li><a href="#">Compact Car</a></li>
+											<li><a href="#">SUV/4WD</a></li>
+											<li><a href="#">Commercial Truck</a></li>
+											<li><a href="#">Pick Up Trucks</a></li>
+											<li><a href="#">Motorbike, Bajaji, Motoped</a></li>
 										</ul>
 									</div>
 									<div>
-										<h4>SEARCH A VEHICLE</h4>
+										<h4>LATEST VEHICLE CLASSIFIED</h4>
 										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
+											<li><a href="#">2001 Jeep Grand Cherokee <br/>TSH 20,000,000</a></li>
+											<li><a href="#">2003 Toyota Landcruiser Prado <br/>$US 43,450 </a></li>
+											<li><a href="#">2001 Toyota vitz  <br/>TSH 6,500,000</a></li>
+											<li><a href="#">1990 Toyota Dyna Pick up  <br/>TSH 25,000,000 </a></li>
+											<li><a href="#">1996 Toyota Rav 4 L  <br/>TSH 8,900,000 </a></li>
 										</ul>
 									</div>
 									<div>
 										<h4>A text about VEHICLE ADV</h4>
 										<ul>
-											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
 											<li><a href="#">text </a></li>
 							
 										</ul>
@@ -371,24 +393,28 @@ The Trades & Fundis
 											<li><a href="#">Office Spaces</a></li>
 											<li><a href="#">Other Commercial</a></li>
 										</ul>
-									</div>
-									<div>
 										<h4>HOUSES, HOME AND PROPERTIES FOR SALE</h4>
 										<ul>
 											<li><a href="#">Commercial & Industrial</a></li>
 											<li><a href="#">Home / House</a></li>
 											<li><a href="#">Land & Property</a></li>
 										</ul>
-										<h4>SEARCH A PROPERTY</h4>
+									</div>
+									<div>
+										
+										<h4>LATEST REAL ESTATE CLASSIFIEDS</h4>
 										<ul>
-											<li><a href="#">Success 1.0</a></li>
-											<li><a href="#">Moneymaker</a></li>
+											<li><a href="#">3 Bdrm Apartment to Let at Mikocheni<br/>$US 1500/Month Dar Es Salaam</a></li>
+											<li><a href="#">BUILDING TO LET IN TABATA-BIMA <br/>$US 2,500/6 Months</a></li>
+											<li><a href="#">House for Sale <br/>TSH 80,000,000<br/>Mwanza</a></li>
+											<li><a href="#">2 Bdrm Fully Furnished House for Rent in Mbezi Beach <br/>$US 650/Month</br>Dar Es Salaam</a></li>
+											<li><a href="#">WAREHOUSES AND OFFICES AVAILABLE FOR RENT <br/>$US 0/Year</br>Mwanza</a></li>
 										</ul>
 									</div>
 									<div>
 										<h4>A text about REAL ESTATE ADV</h4>
 										<ul>
-											<li><a href="#"><img src="images/image2.jpg"></a></li>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
 											<li><a href="#">text </a></li>
 							
 										</ul>
@@ -422,14 +448,9 @@ The Trades & Fundis
 										</ul>
 									</div>
 									<div>
-										<h4>FSBO</h4>
+										<h4>Any advertise for Classifieds</h4>
 										<ul>
-											<li><a href="#">Catch the Bullet</a></li>
-											<li><a href="#">Snoopydoo</a></li>
-											<li><a href="#">Fallen Angel</a></li>
-											<li><a href="#">Sui Maker</a></li>
-											<li><a href="#">Wave Master</a></li>
-											<li><a href="#">Golf Pro</a></li>
+											<li><a href="#"><img src="http://placehold.it/300x150"></a></li>
 										</ul>
 									</div>
 								</div><!-- /cbp-hrsub-inner -->
