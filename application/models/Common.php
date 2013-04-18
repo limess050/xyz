@@ -32,7 +32,7 @@ class Common extends CI_Model
 
 		$this->db->group_by('CategoryID');
 		$this->db->select('CategoryID, count(ListingID) as catCount',FALSE);
-		$categoryListingsCount=$this->db->get('ListingCategories');
+		$categoryListingsCount=$this->db->get('listingcategories');
 
 		foreach($categoryListingsCount->result() as $categoryListingCount)
 		{
@@ -102,6 +102,9 @@ class Common extends CI_Model
 				
 
 				$col_complete = ceil($count/2); //We'll have 3 columns
+
+				if($col_complete > 12)
+					$col_complete = ceil($count/3);
 
 				//echo $col_complete . '<br>';
 

@@ -113,10 +113,6 @@ class Listings extends CI_Controller {
 						$this->restaurants_and_nightlife();
 						break;
 
-					case '66':
-						$this->arts_and_entertainment();
-						break;
-
 					case '5':
 						$this->tanzania_real_estate();
 						break;
@@ -126,7 +122,14 @@ class Listings extends CI_Controller {
 						break;
 
 					case '8':
-						$this->tanzania_jobs_and_employment();
+						$details = array();
+
+						if($res->row()->ParentSectionID)
+							$details['ParentSectionID']=$res->row()->ParentSectionID;
+						if($res->row()->SectionID)
+							$details['SectionID']=$res->row()->SectionID;
+
+						$this->tanzania_jobs_and_employment($details);
 						break;
 
 					case '55':
@@ -215,7 +218,7 @@ class Listings extends CI_Controller {
 			$data['rates'] = $this->exchange_rates();
 
 			$tidesQuery = "select t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr 
-		from Tides t left join lunar l 
+		from tides t left join lunar l 
 	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
 	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
 
@@ -354,8 +357,20 @@ class Listings extends CI_Controller {
 
 	}
 
-	function tanzania_jobs_and_employment()
+	function tanzania_jobs_and_employment($details, $categoryURLSafeTitleDashed='')
 	{
+		if($categoryURLSafeTitleDashed != '')
+		{
+			$this->category($categoryURLSafeTitleDashed);
+		}
+		
+		elseif($details['SectionID'] != '' and $categoryURLSafeTitleDashed == '')
+		{
+
+			$this->section_listings($details);
+			
+		}
+
 
 	}
 
@@ -429,8 +444,7 @@ class Listings extends CI_Controller {
 
 	function getRelatedEvents($eventcategories)
 	{
-		return $this->listingsmodel->getRelatedEvents($eventcategories);
-		
+		return $this->listingsmodel->getRelatedEvents($eventcategories);	
 	}
 
 	function section_subsections($SectionID,$leftSide='')
@@ -499,19 +513,31 @@ class Listings extends CI_Controller {
 	}
 
 
-	function section_listings($SectionID,$categoryURLSafeTitleDashed='')
+	function section_listings($details,$categoryURLSafeTitleDashed='')
 	{
-	
+		
 		$data['locations'] = $this->listingsmodel->getTables('locations');
 		//echo $SectionID;
 		$params = array();
-		$this->db->where('SectionID', $SectionID);
+
+		if(isset($details['ParentSectionID']))
+			$this->db->where('SectionID', $details['ParentSectionID']);
+		else
+			$this->db->where('SectionID', $details['SectionID']);
+
 		$header['Meta']=$data['sectionMeta'] = $this->db->get('sections')->row();
 
-		$params['SectionID']=$SectionID;
+
+		$params['SectionID']=$details['SectionID'];
+		if(isset($details['ParentSectionID']))
+			$params['ParentSectionID']=$details['ParentSectionID'];
+
+		if($header['Meta']->ParentSectionID)
+			$hints = $this->listingsmodel->getHints($header['Meta']->ParentSectionID, $header['Meta']->SectionID);
+		else
+			$hints = $this->listingsmodel->getHints(0, $header['Meta']->SectionID);
 
 
-		$hints = $this->listingsmodel->getHints($header['Meta']->ParentSectionID, $header['Meta']->SectionID);
 
 
 
@@ -529,14 +555,14 @@ class Listings extends CI_Controller {
 
 
 		$this->db->where('active', 1);
-		$this->db->where('SectionID', $SectionID);
+		$this->db->where('SectionID', $details['SectionID']);
 		$categories=$this->db->get('categories');
 
 
 		if($categories->num_rows() == 0)
 		{
 			$this->db->where('active', 1);
-			$this->db->where('ParentSectionID', $SectionID);
+			$this->db->where('ParentSectionID', $details['SectionID']);
 			$categories=$this->db->get('categories');
 		}
 
@@ -560,7 +586,7 @@ class Listings extends CI_Controller {
 		$params=$this->listingsmodel->getCategory($catID[0]);
 		$params['CategoryIDs'] = $string ;
 
-		if($SectionID == 8)
+		if($details['SectionID'] == 8)
 		{
 			$params['JETID']=1;
 			$params['InJobSectionOverview']=1;
@@ -568,13 +594,15 @@ class Listings extends CI_Controller {
 
 		}
 
-		$data['SectionID'] = $SectionID;
+		$data['SectionID'] = $details['SectionID'];
 		if($this->input->get('LocationID') > 0)
 			$params['LocationID']=$this->input->get('LocationID');
 
+		$params['limit']=true;
+		$params['SortBy']='MostRecent';
 		$data['listings']=$this->listingsmodel->getListings($params);
 
-		echo $this->db->last_query();
+		//echo $this->db->last_query();
 
 		$this->load->view('header',$header);
 		$this->load->view('menu');
@@ -584,7 +612,7 @@ class Listings extends CI_Controller {
 		else
 			$this->load->view('left-sidetower');
 
-		switch ($SectionID) {
+		switch ($details['SectionID']) {
 			case '59':
 				$this->load->view('events-landing',$data);
 				break;
@@ -792,9 +820,14 @@ class Listings extends CI_Controller {
 
 	
 
-	public function listingdetail($listing_id)
+	public function listingdetail($ListingID='')
 	{
-		echo "hehehe";
+		if($this->input->get('ListingID'))
+			$ListingID = $this->input->get('ListingID');
+		$listingObj=$this->listingsmodel->getsinglelisting($ListingID);
+		echo $listingObj->num_rows();
+		$listing = $listingObj->row();
+
 	}
 
 	public function TideDetail($pageObj)

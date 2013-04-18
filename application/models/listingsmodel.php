@@ -70,8 +70,8 @@ class listingsModel extends CI_Model {
 
 	function Filters()
 	{
-		$Locations = "Select LocationID as SelectValue, Title as SelectText 
-		From Locations With 		Where Active=1
+		$locations = "Select LocationID as SelectValue, Title as SelectText 
+		From locations With 		Where Active=1
 		Order By OrderNum";
 
 
@@ -175,7 +175,7 @@ class listingsModel extends CI_Model {
 	{
 
 		//echo $CategoryID;
-		$categoryQuery = "Select C.Title, C.ParentSectionID, C.SectionID, C.Descr as CallOut, C.H1Text, C.MetaKeywords, C.URLSafeTitle, PS.Title as ParentSection, S.Title as SubSection From categories C Left Outer Join ParentsectionsView PS on C.ParentSectionID=PS.ParentSectionID Left Outer Join sections S on C.SectionID=S.SectionID Where C.CategoryID = ";
+		$categoryQuery = "Select C.Title, C.ParentSectionID, C.SectionID, C.Descr as CallOut, C.H1Text, C.MetaKeywords, C.URLSafeTitle, PS.Title as ParentSection, S.Title as SubSection From categories C Left Outer Join parentsectionsview PS on C.ParentSectionID=PS.ParentSectionID Left Outer Join sections S on C.SectionID=S.SectionID Where C.CategoryID = ";
 
 		$categoryQuery = $categoryQuery . $CategoryID;
 		//echo $CategoryID;
@@ -187,7 +187,7 @@ class listingsModel extends CI_Model {
 
 
 
-		$ListingTypeQuery = "Select ListingTypeID From CategoryListingTypes Where CategoryID = ";
+		$ListingTypeQuery = "Select ListingTypeID From categorylistingtypes Where CategoryID = ";
 
 
 		$ListingTypeQuery = $ListingTypeQuery . $CategoryID . " And ListingTypeID in (3,4,5,6,7,8)";
@@ -250,7 +250,7 @@ class listingsModel extends CI_Model {
 
 		if($category['showThumbNail'])
 			$listingsQuery .= "(Select FileName
-			From ListingImages 
+			From listingimages 
 			Where ListingID=L.ListingID
 			Order By OrderNum, ListingImageID Limit 1) as FileNameForTN, ";
 
@@ -261,7 +261,7 @@ class listingsModel extends CI_Model {
 		
 //
 		$listingsQuery .= "CASE WHEN L.UserID = " . PHONE_ONLY_USER . " THEN 1 ELSE 0 END as PhoneOnlyListing_fl
-		From ParentsectionsView PS 
+		From parentsectionsview PS 
 		Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
 		Inner Join categories C  on S.SectionID=C.SectionID
 		Inner Join listingcategories LC  on C.CategoryID=LC.CategoryID
@@ -269,25 +269,34 @@ class listingsModel extends CI_Model {
 		if (isset($category['QID']))
 			$listingsQuery .= " Inner Join CategoryQueries CQ  on C.CategoryID=CQ.CategoryID and CQ.	CategoryQueryID= " . $category['QID'] . " Inner Join CategoryQueryLines CQL  on CQ.CategoryQueryID=CQL.CategoryQueryID and CQL.ListingID=L.ListingID";
 	
-		$listingsQuery .= "Left Outer Join Makes M  on L.MakeID=M.MakeID
-		Left Outer Join ListingLocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
-		Inner Join Locations LOC on LL.LocationID = LOC.LocationID
-		Left Outer Join Transmissions T  on L.TransmissionID=T.TransmissionID
-		Left outer Join Terms Te  on L.TermID=Te.TermID
+		$listingsQuery .= "Left Outer Join makes M  on L.MakeID=M.MakeID
+		Left Outer Join listinglocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
+		Inner Join locations LOC on LL.LocationID = LOC.LocationID
+		Left Outer Join transmissions T  on L.TransmissionID=T.TransmissionID
+		Left outer Join terms Te  on L.TermID=Te.TermID
 		 Where S.Active=1";
-		// if (isset($category['SectionID']) and $category['SectionID'] == '8' and isset($category['JETID']))
-		// {
+		if (isset($category['ParentSectionID']) and $category['ParentSectionID'] == '8' and isset($category['JETID']))
+		{
 
-		// 	$listingsQuery .= " and L.ListingTypeID in (10,12)";	
-		// }	
+			$listingsQuery .= " and L.ListingTypeID in (10,12)";	
+		}	
 		
-		// else
+		else
 
-		// {
+		{
 			 $listingsQuery .= " and (L.ListingTypeID IN (1,2,14,15) or (L.ExpirationDate >= '" . CURRENT_DATE_IN_TZ . "' ))";
-		// }
+		}
+
+		if(isset($category['ParentSectionID']))
+			$listingsQuery .= " and S.ParentSectionID = " . $category['ParentSectionID'] ;
+
+		elseif (isset($category['SectionID'])) {
+			
+			$listingsQuery .= " and S.SectionID = " . $category['SectionID'] ;
+		}
+			
 		
-		if(isset($category['CategoryIDs']))
+		elseif(isset($category['CategoryIDs']))
 			$listingsQuery .= " and C.CategoryID in ('" . $category['CategoryIDs'] . "')";
 
 		if ( isset($category['InJobSectionOverview']))
@@ -343,6 +352,9 @@ class listingsModel extends CI_Model {
 				break;
 		}
 
+		if($category['limit'])
+			$listingsQuery .= " Limit " . LISTINGS_PER_PAGE;
+
 
 		// echo $category['ParentSectionID'];
 		// echo $category['SectionID'];
@@ -353,8 +365,71 @@ class listingsModel extends CI_Model {
 		return $listings;
 	}
 
+	function getsinglelisting($ListingID)
+	{
 
-	function gethints($ParentSectionID, $SectionID=0,$CategoryID=0)
+		//print_r($category);STRAIGHT_JOIN
+		$listingsQuery = "Select  L.Deadline, L.ExpirationDate, L.ListingID, L.ListingTypeID, L.ListingTitle, L.ShortDescr, L.DateListed, L.PriceUS, L.PriceTZS,
+		L.RentUS, L.RentTZS, L.Bedrooms, L.Bathrooms, L.AmenityOther, L.LocationOther, L.LocationText,
+		L.LongDescr, L.MakeID, L.DateSort,
+		L.Make as MakeOther, L.Model as ModelOther, L.VehicleYear, L.Kilometers, L.FourWheelDrive,
+		L.Deadline, L.WebsiteURL, L.PublicPhone,  L.PublicPhone2,  L.PublicPhone3,  L.PublicPhone4, L.PublicEmail, L.URLSafeTitle as ListingURL, 
+		L.EventStartDate, L.EventEndDate, L.RecurrenceID, L.RecurrenceMonthID,
+		L.ExpandedListingHTML, L.ExpandedListingPDF,
+		L.CuisineOther, L.AccountName,
+		GROUP_CONCAT(LOC.Title SEPARATOR ', ') Location,
+		CASE WHEN L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "' Then 1 Else 0 END as HasExpandedListing,
+		L.SquareFeet, L.SquareMeters,
+		L.LogoImage, L.ELPTypeThumbnailImage, L.ELPThumbnailFromDoc,
+		PS.ParentSectionID, PS.Title as ParentSection, PS.URLSafeTitleDashed as ParentSectionURLSafeTitle,
+		S.SectionID, S.Title as SubSection,
+		C.CategoryID, C.Title as Category, 
+		M.Title as Make, T.Title as Transmission,
+		Te.Title as Term, RAND() as RandOrderID, ";
+
+		
+		$listingsQuery .= "CASE WHEN L.UserID = " . PHONE_ONLY_USER . " THEN 1 ELSE 0 END as PhoneOnlyListing_fl
+		From parentsectionsview PS 
+		Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
+		Inner Join categories C  on S.SectionID=C.SectionID
+		Inner Join listingcategories LC  on C.CategoryID=LC.CategoryID
+		Inner Join listingsview L  on LC.ListingID=L.ListingID ";
+
+	
+		$listingsQuery .= "Left Outer Join makes M  on L.MakeID=M.MakeID
+		Left Outer Join listinglocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
+		Inner Join locations LOC on LL.LocationID = LOC.LocationID
+		Left Outer Join transmissions T  on L.TransmissionID=T.TransmissionID
+		Left outer Join terms Te  on L.TermID=Te.TermID
+		 Where S.Active=1";
+
+		$listingsQuery .= " and (L.ListingTypeID IN (1,2,14,15) or (L.ExpirationDate >= '" . CURRENT_DATE_IN_TZ . "' ))";
+
+
+		$listingsQuery .= "
+		and L.Active=1
+
+		and L.Reviewed=1 
+
+		and L.DeletedAfterSubmitted=0 
+
+		and (L.Deadline is null or L.Deadline >= '" . CURRENT_DATE_IN_TZ . "')
+
+		AND (L.ListingTypeID <> 15
+			OR EXISTS (SELECT ListingID FROM listingeventdays  WHERE ListingID=L.ListingID 
+					AND ListingEventDate >= '" . CURRENT_DATE_IN_TZ . "'))
+
+
+		AND L.ListingID = $ListingID";
+
+		$listing= $this->db->query($listingsQuery);
+
+
+		return $listing;
+	}
+
+
+	function gethints($ParentSectionID=0, $SectionID=0,$CategoryID=0)
 	{
 		//Getting Page Text
 
@@ -450,7 +525,7 @@ class listingsModel extends CI_Model {
 
 	function determiner($pageURL)
 	{
-		$this->db->where('ListingTypeID', 1);
+		$this->db->where_in('ListingTypeID', array(1,2,20));
 		$this->db->where('upper(URLSafeTitle)', strtoupper(str_replace("-", "", $pageURL)), true);
 		$listing=$this->db->get('listingsview');
 
@@ -474,17 +549,17 @@ class listingsModel extends CI_Model {
 			S.SectionID, S.Title as SubSection,
 			C.CategoryID, C.Title as Category, 
 			(Select FileName
-		 	From ListingImages 
+		 	From listingimages 
 			Where ListingID=L.ListingID
 		 	Order By OrderNum, ListingImageID Limit 1) as FileNameForTN
-			From ParentsectionsView PS 
+			From parentsectionsview PS 
 			Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
 			Inner Join categories C  on S.SectionID=C.SectionID
 			Inner Join listingcategories LC  on C.CategoryID=LC.CategoryID
 			Inner Join listingsview L  on LC.ListingID=L.ListingID
 
-			Left Outer Join ListingLocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
-			Inner Join Locations LOC on LL.LocationID = LOC.LocationID
+			Left Outer Join listinglocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
+			Inner Join locations LOC on LL.LocationID = LOC.LocationID
 
 			Where S.Active=1
 

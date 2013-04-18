@@ -29,7 +29,7 @@
         <br />
       <br />
       <?php foreach($listings->result() as $listing): ?>
-        <span class="smallcategory"><?php echo $listing->ListingTitle; ?></span><br />
+        <span class="smallcategory"><a href = "listingdetail?ListingID=<?php echo $listing->ListingID; ?>" title = "<?php echo $listing->ShortDescr; ?>"><?php echo $listing->ShortDescr; ?></a></span><br />
         <?php echo $listing->Location; ?><br />
         Deadline: <?php echo date('d-m-Y',strtotime($listing->Deadline)); ?>
         <br />
