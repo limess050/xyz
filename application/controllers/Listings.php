@@ -64,10 +64,7 @@ class Listings extends CI_Controller {
 						$this->arts_and_entertainment($res->row()->catURL);
 						break;
 
-					case '65':
-						
-						$this->tanzania_classifieds($res->row()->SectionID,$res->row()->catURL);
-						break;
+
 
 
 					case '59':
@@ -88,9 +85,6 @@ class Listings extends CI_Controller {
 						$this->tanzania_business_directory($res->row()->URLSafeTitleDashed);
 						break;
 
-					case '65':
-						$this->tanzania_classifieds($res->row()->SectionID);
-						break;
 
 					default:
 						echo "ha";
@@ -116,7 +110,16 @@ class Listings extends CI_Controller {
 						break;
 
 					case '5':
-						$this->tanzania_real_estate();
+						$details = array();
+
+						// if($res->row()->ParentSectionID)
+						// 	$details['ParentSectionID']=$res->row()->ParentSectionID;
+						if($res->row()->SectionID)
+						{
+							$details['ParentSectionID']=$res->row()->SectionID;
+							$details['SectionID']=$res->row()->SectionID;
+						}
+						$this->tanzania_real_estate($details);
 						break;
 
 					case '4':
@@ -135,7 +138,17 @@ class Listings extends CI_Controller {
 						break;
 
 					case '55':
-						$this->used_cars_trucks_and_boats();
+
+						$details = array();
+
+						// if($res->row()->ParentSectionID)
+						// 	$details['ParentSectionID']=$res->row()->ParentSectionID;
+						if($res->row()->SectionID)
+						{
+							$details['ParentSectionID']=$res->row()->SectionID;
+							$details['SectionID']=$res->row()->SectionID;
+						}
+						$this->used_cars_trucks_and_boats($details);
 						break;
 
 					case '59':
@@ -381,14 +394,38 @@ class Listings extends CI_Controller {
 
 	}
 
-	function used_cars_trucks_and_boats()
+	function used_cars_trucks_and_boats($details)
 	{
+		//print_r($details);
+		
+		if($categoryURLSafeTitleDashed != '')
+		{
+			$this->category($categoryURLSafeTitleDashed);
+		}
+		
+		elseif($details['ParentSectionID'] != '' and $categoryURLSafeTitleDashed == '')
+		{
 
+			$this->section_listings($details);
+			
+		}
 	}
 
-	function tanzania_real_estate()
+	function tanzania_real_estate($details)
 	{
+		print_r($details);
 
+		if($categoryURLSafeTitleDashed != '')
+		{
+			$this->category($categoryURLSafeTitleDashed);
+		}
+		
+		elseif($details['ParentSectionID'] != '' and $categoryURLSafeTitleDashed == '')
+		{
+
+			$this->section_listings($details);
+			
+		}
 	}
 
 	function testpage($view)
@@ -518,6 +555,7 @@ class Listings extends CI_Controller {
 	function section_listings($details,$categoryURLSafeTitleDashed='')
 	{
 		
+		//print_r($details);
 		$data['locations'] = $this->listingsmodel->getTables('locations');
 		//echo $SectionID;
 		$params = array();
@@ -623,6 +661,7 @@ class Listings extends CI_Controller {
 				$this->load->view('jobs-landing',$data);
 				break;
 
+			case '5':
 			case '4':
 			case '55':
 				$this->load->view('cars-landing-page',$data);

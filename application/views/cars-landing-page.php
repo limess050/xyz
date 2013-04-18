@@ -44,14 +44,14 @@
       $ListingTitle = $listing->ListingTitle;
 
   ?>
-  <div><a href="listingdetail?<?php echo $listing->ListingID; ?>"><img src="http://www.zoomtanzania.com/ListingImages/CategoryThumbnails/<?php echo $listing->FileNameForTN; ?>" alt="<?php echo $ListingTitle; ?>" width = "150" height = "100" /></a><br> <a href="listingdetail?<?php echo $listing->ListingID; ?>"><?php echo $ListingTitle ?></a> <?php echo $price; ?><br />
+  <div><a href="listingdetail?<?php echo $listing->ListingID; ?>"><img src="http://www.zoomtanzania.com/ListingImages/CategoryThumbnails/<?php echo $listing->FileNameForTN; ?>" alt="<?php echo $ListingTitle; ?>" width = "150" height = "100" /></a><br> <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>"><?php echo $ListingTitle ?></a><br><?php echo $price; ?><br />
           <span class="smallcategorynormal"> <?php echo $listing->Location ?></span>
 	      </h2>
 	    </div>
 <?php endforeach; ?>
 
           <div><a href="#">
-		  <h2><img src="images/C_postfree.png" alt="Tourism and travels" width = "150" height = "150" /></h2>
+		  <h2><img src="images/sitewide/C_postfree.png" alt="Tourism and travels" width = "150" height = "150" /></h2>
 		  </a>
 		    <h2>&nbsp;</h2>
           </div>
