@@ -6,6 +6,7 @@
 	max-height:90px; /* max height */
 	clear:both; 
 	min-width: 100%;
+	margin-bottom:10px;
 
 /* clear di eventuali float se presenti nel layout */
 }

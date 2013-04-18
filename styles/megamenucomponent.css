@@ -96,8 +96,11 @@
 .cbp-hrmenu .cbp-hrsub-inner > div a {
 	/*line-height: 2em;*/
 	font-size:13px;
-	line-height:180%;
-	
+	text-decoration:none;
+	line-height: 15px;
+}
+.cbp-hrsub-inner li {
+	margin-top:8px !important;
 }
 
 .cbp-hrsub h4 {
