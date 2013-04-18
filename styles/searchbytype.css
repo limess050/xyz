@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#box_car {
+	width: 210px;
+	overflow: hidden;
+	float:left;
+	padding:10px 0px 0px 0px;
+	 /* orizzontale */
+}
+#box_car div{
+	
+	float:left;
+	 /* orizzontale */
+}
+#box_car ul {
+	list-style: none !important;
+}
+#box_car li {
+	font-size: 12px;
+	text-wrap:unrestricted; 
+	margin-top:4px;
+	min-width:180px !important;
+	min-height:25px !important;
+}
+#box_car li img 
+{margin-bottom: 3px;
+float:right;
+
+}
+#box_car a{
+	display: block;
+	cursor:pointer;
+}

@@ -31,6 +31,7 @@ class Listings extends CI_Controller {
 				$this->listingdetail($res->row()->ListingID);
 			}
 
+
 			else if(isset($res->row()->ParentPageID))
 			{
 				
@@ -43,6 +44,7 @@ class Listings extends CI_Controller {
 			}
 
 			else if(isset($res->row()->CategoryID) and !isset($res->row()->ListingID))
+
 			{
 
 				switch ($res->row()->ParentSectionID) {
@@ -504,7 +506,7 @@ class Listings extends CI_Controller {
 		$data['categories'] = $this->listingsmodel->getSection($data['sectionMeta']->SectionID);
 
 		$this->load->view('header',$header);
-		$this->load->view('menu');
+		$this->load->view('menu-new');
 		$this->load->view('left-sidetower',$leftSide);
 		$this->load->view('sub-section-landing',$data);
 		$this->load->view('right-sidetower');
