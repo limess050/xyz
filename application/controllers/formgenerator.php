@@ -449,7 +449,7 @@ class Formgenerator extends CI_Controller {
                 $data['catid'] = $catid;
                 $data['category'] = $catname;
                 $data['subsectionname'] = $subsectionname;
-                //$data['category']=$catname;
+                $data['controller']='formgenerator/editorprocessor';
 
                 $this->load->view('formgenerator/formCreatorUpdater', $data);
 
@@ -463,6 +463,7 @@ class Formgenerator extends CI_Controller {
                 $data['subsectionname'] = '';
                 $data['category'] = $results['category'];
                 $data['result'] = $results['results'];
+                $data['controller']='formgenerator/editorprocessor';
                 $this->load->view('formgenerator/formCreatorUpdater', $data);
                 break;
 
