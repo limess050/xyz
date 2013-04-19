@@ -851,7 +851,8 @@ class Datafetcher extends CI_Model {
     /////////////////here after lunch/////////////////////////
     
     public function subsectionsforsearchform($sectionid) {
-        $sql = "select distinct categories.section_id,subsections,cat_name,categories.cat_id,sections.subsections_id from subsections,search_forms,categories where
+        
+        $sql = "select distinct categories.SectionID,subsections,cat_name,categories.cat_id,sections.subsections_id from subsections,search_forms,categories where
                 categories.SectionID='$sectionid' and
                  search_forms.category_id ='' and   
                  
