@@ -1,6 +1,6 @@
 <?php
-  $this->load->view('header');      
-  $this->load->view('content');      
+  $this->load->view('formgenerator/header');      
+  $this->load->view('formgenerator/content');      
 
 $results=$this->datafetcher->loadparentsectioninsearchforms();
 $results2=$this->datafetcher->loadparentsectionandsubection();
@@ -120,5 +120,5 @@ $results3 =$this->datafetcher->formsCreatedSections($table = "search_forms");
       <?php }else{
             echo 'no data ';
         }
-  $this->load->view('footer');      
+  $this->load->view('formgenerator/footer');      
 ?>

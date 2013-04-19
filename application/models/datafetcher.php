@@ -775,7 +775,7 @@ class Datafetcher extends CI_Model {
     
     //load section from  category
     public function loadparentsectioninsearchforms() {
-        $sql="select distinct parentsectionid,Title as SectionTitle from search_forms,sections
+        $sql="select distinct parentsectionid,sections.Title as SectionTitle from search_forms,sections
             where
             category_id='' and
             subsectionid='' and
@@ -852,7 +852,7 @@ class Datafetcher extends CI_Model {
     
     public function subsectionsforsearchform($sectionid) {
         
-        $sql = "select distinct categories.SectionID,subsections,cat_name,categories.cat_id,sections.subsections_id from subsections,search_forms,categories where
+        $sql = "select distinct categories.SectionID,subsections,categories.Title as cat_name,categories.CategoryID as cat_id,sections.subsections_id from subsections,search_forms,categories where
                 categories.SectionID='$sectionid' and
                  search_forms.category_id ='' and   
                  
