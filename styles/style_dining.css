@@ -1,0 +1,163 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.dining {
+	width: 100%;
+	position: relative;
+	margin-left: auto; margin-right: auto;
+	display:block;
+	vertical-align:text-top;
+	line-height: 15px;
+	float:left; 
+}
+.dining ul 
+		{list-style-type: none; 
+		}
+		
+.dining li 
+	{ 	display: inline-block; 
+		margin: 7px 3px;   
+		zoom: 1; 
+		*display: inline;
+		float:left;
+		padding: 20px !important;
+		text-align: center;	
+	}
+	
+.onetime{
+		border: solid 1px #ccc;
+		max-width: 185px;
+		min-width: 185px;
+		min-height: 220px !important;
+		 }
+		
+.twotimes{
+		border: solid 1px #ccc;
+		min-width: 280px !important;
+		min-height:180px;
+}
+			
+.threetimes
+		{		
+		border: solid 1px #ccc;
+		min-width: 575px;
+		min-height:160px;
+		text-align:right ; 
+		}	
+	
+.dining h2  {
+	font-size: 12px !important;
+	line-height: 14px;
+}
+		
+		
+		
+.dining li img 
+	{		
+	margin-top: 5px;
+	margin-right: 10px;
+	border:#CCC solid 1px;
+}
+
+
+label,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+label {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 20px;
+  
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.label {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 14px;
+  text-transform:uppercase;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #999999;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+.label:empty,
+ {
+  display: none;
+}
+
+a.label:hover,
+a.label:focus,
+a.badge:hover,
+a.badge:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.label-important,
+.badge-important {
+  background-color: #b94a48;
+}
+
+.label-important[href],
+.badge-important[href] {
+  background-color: #953b39;
+}
+
+.label-warning,
+.badge-warning {
+  background-color: #f89406;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
+.label-success,
+.badge-success {
+  background-color: #468847;
+}
+
+.label-success[href],
+.badge-success[href] {
+  background-color: #356635;
+}
+
+.label-info,
+.badge-info {
+  background-color: #3a87ad;
+}
+
+.label-info[href],
+.badge-info[href] {
+  background-color: #2d6987;
+}
+
+.label-inverse,
+.badge-inverse {
+  background-color: #333333;
+}
+
+.label-inverse[href],
+.badge-inverse[href] {
+  background-color: #1a1a1a;
+}
