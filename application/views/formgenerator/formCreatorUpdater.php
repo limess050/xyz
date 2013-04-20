@@ -24,7 +24,7 @@ if (!empty($catname)) {
 $data = array('id' => '','class'=>'myformcreator');
 ///the section name should be displayed of here
 
-echo form_open_multipart('formgenerator/editorprocessor/', $data);
+echo form_open_multipart($controller.'/', $data);
 echo form_fieldset('');
 echo 'section name :' . $sectionname . '</br>';
 echo form_hidden('section_id', $section_id);
