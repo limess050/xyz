@@ -91,5 +91,5 @@
 	<div id="header">
 	<div id="logo">
 		<span><img src="images/sitewide/logoZoom.png"  style=""/></span>
-		<span id="banner"><a href="#"><img style = "margin-top:12px;" src="images/Airtel-Bure.jpg" alt="banner" width="675" height="83" /></a></span>
+		<span id="banner"><a href="#"><img style = "margin-top:12px; float: right;" src="images/Airtel-Bure.jpg" alt="banner" width="675" height="90" /></a></span>
 	</div>

@@ -261,8 +261,15 @@ class listingsModel extends CI_Model {
 		
 //
 		$listingsQuery .= "CASE WHEN L.UserID = " . PHONE_ONLY_USER . " THEN 1 ELSE 0 END as PhoneOnlyListing_fl
-		From parentsectionsview PS 
-		Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
+		From parentsectionsview PS";
+
+		if($category['SectionID']==4)
+		$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.SectionID ";
+
+		else
+		$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID ";
+			
+		$listingsQuery .="	
 		Inner Join categories C  on S.SectionID=C.SectionID
 		Inner Join listingcategories LC  on C.CategoryID=LC.CategoryID
 		Inner Join listingsview L  on LC.ListingID=L.ListingID ";
@@ -287,10 +294,10 @@ class listingsModel extends CI_Model {
 			 $listingsQuery .= " and (L.ListingTypeID IN (1,2,14,15) or (L.ExpirationDate >= '" . CURRENT_DATE_IN_TZ . "' ))";
 		}
 
-		if(isset($category['ParentSectionID']))
+		if(isset($category['ParentSectionID']) and !in_array($category['ParentSectionID'], array(1,21,32))  )
 			$listingsQuery .= " and S.ParentSectionID = " . $category['ParentSectionID'] ;
 
-		elseif (isset($category['SectionID'])) {
+		elseif (isset($category['SectionID']) and !in_array($category['ParentSectionID'], array(1,21,32))) {
 			
 			$listingsQuery .= " and S.SectionID = " . $category['SectionID'] ;
 		}
@@ -325,7 +332,7 @@ class listingsModel extends CI_Model {
 
 			
 		$listingsQuery .= ' Group By L.ListingID';
-		// <cfif Len(FilterWhereClause)>#PreserveSingleQuotes(FilterWhereClause)#</cfif>
+	
 
 		switch ($category['SortBy']) {
 			case 'Year':
@@ -358,8 +365,10 @@ class listingsModel extends CI_Model {
 
 		// echo $category['ParentSectionID'];
 		// echo $category['SectionID'];
-		 //echo $listingsQuery; die();
+		 //echo $listingsQuery; 
 		$listings= $this->db->query($listingsQuery);
+
+		//echo $this->db->last_query();
 
 
 		return $listings;

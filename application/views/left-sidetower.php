@@ -24,8 +24,8 @@
         <img src="images/sitewide/blueline.gif" alt="" width="180" height="5" /></h4>
       <ul id="sidebar1" class="jcarousel-skin-tango-sidebar1">
         <?php foreach($relatedEventsObj->result() as $relatedEvent): ?>
-        <li> <a href="#" ><?php echo $relatedEvent->ListingTitle; ?></a><br />
-         <a href="#" > <img class="left" src="http://www.zoomtanzania.com/ListingImages/HomepageThumbnails/<?php echo $relatedEvent->ELPTypeThumbnailImage  ?>" width="100"  alt="<?php echo $relatedEvent->ListingTitle; ?>" />
+        <li> <a href="listingdetail?ListingID=<?php echo $relatedEvent->ListingID; ?>" ><?php echo $relatedEvent->ListingTitle; ?></a><br />
+         <a href="listingdetail?ListingID=<?php echo $relatedEvent->ListingID; ?>" > <img class="left" src="http://www.zoomtanzania.com/ListingImages/HomepageThumbnails/<?php echo $relatedEvent->ELPTypeThumbnailImage  ?>" width="100"  alt="<?php echo $relatedEvent->ListingTitle; ?>" />
           </a></li>
         <?php endforeach; ?>
       </ul>
