@@ -14,7 +14,9 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/zoomtanzania/';
+
+$config['base_url']	= 'http://192.168.1.128/zoomtanzania/';
+
 
 /*
 |--------------------------------------------------------------------------
