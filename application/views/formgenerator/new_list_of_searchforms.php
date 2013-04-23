@@ -105,8 +105,10 @@ $results3 =$this->datafetcher->formsCreatedSections($table = "search_forms");
             
             foreach ($results2->result_array() as $value2) {
               
+                //query for fetching section name
+              $sectionname=$this->datafetcher->loaddistinctsectionfromsubsec($value2['parentsectionid']);  
               $checker2= '<td>'.anchor('mastersearch/editform/' .'sectionsubsection/' . $value2['parentsectionid'].'/'.$value2['subsectionid'], $title = img(array('src' => 'icons/edit.png')), $attrib = array('title' => 'edit', 'class' => ''), $attrib = array('title' => 'edit', 'class' => '')) . nbs(3) . anchor_popup('mastersearch/generateform/'.'sectionsubsection/' . $value2['parentsectionid'].'/'.$value2['subsectionid'], $title = img(array('src' => 'icons/accept.png')), $attrib = array('title' => 'view', 'class' => '')) . nbs(3) . anchor('mastersearch/deletesearchform/'.'sectionsubsection/' . $value2['parentsectionid'].'/'.$value2['subsectionid'], $title = img(array('src' => 'icons/cancel.png')), $attrib = array('title' => 'delete', 'class' => ''), $attrib = array('title' => 'delete', 'class' => '')).'</td>';
-              $output2.='<tr><td>'.$value2['section_name'].'</td><td><table width="100%" border="0" class="myinnertable"><td>'.$value2['subsections'].'</td><td>'.'--all--'.'</td><td>'.$checker2.'</td></tr></table></td>';
+              $output2.='<tr><td>'.$sectionname.'</td><td><table width="100%" border="0" class="myinnertable"><td>'.$value2['subsections'].'</td><td>'.'--all--'.'</td><td>'.$checker2.'</td></tr></table></td>';
         
                 
             } echo $output2;

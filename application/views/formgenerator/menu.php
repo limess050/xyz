@@ -16,7 +16,7 @@
     </li>
     <li>
         <?php
-        echo anchor('mastersearch/listofcreatedsearchforms/',$title=img(array('src'=>'icons/search.png','title'=>'list of search forms')));
+        echo anchor('mastersearch/searchformsmasterlisting/',$title=img(array('src'=>'icons/search.png','title'=>'list of search forms')));
         ?>
     </li>
     <li>
