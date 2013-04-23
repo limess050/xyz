@@ -36,20 +36,14 @@ function search(SearchTerm,ID)
 		<!--Breadcrumbs-->
       <p class="smallbreadcrumbs">Home &gt; Tanzania Business Directory &gt; Business Services &gt; Tanzania Recruitment Agencies</p>
 
-      <!--Page Text-->
-      <p>
-        <br />
-		<?php if(isset($pageText)): ?>
-			<?php echo $pageText; ?><br>
-		<?php endif; ?>
-       <br />
-      </p>
+
+
 
       <!--Facebook-->
   	<div  class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
 
   	<div style = "float: left; clear: none;">
-      <div class="titlecategory" style = "width:250px;"><br />Featured <?php echo $catMeta->H1Text ?></div>
+      <div class="titlecategory" style = "width:250px;"><br />Featured:</div>
 
        <div align="right" style = "width:300px;">
 	       	<img src="images/sitewide/button_post.png" alt="post a listing" />
@@ -84,7 +78,7 @@ function search(SearchTerm,ID)
 		<?php if($Listing->HasExpandedListing): ?>
 	  <div><a href="<?php echo $Listing->ListingURL; ?>">
 	  	<img src="http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $Listing->LogoImage ?>" alt="<?php echo $Listing->ListingTitle ?>"  /></a><br /><a href="<?php echo url_title(str_replace("&", "And",$Listing->ListingTitle)); ?>"> <span class="smallcategory"><?php echo $Listing->ListingTitle ?></a><br />
-	      </span><span class="smallcategorynormal"><?php echo trim($Listing->Location); ?><?php if($Listing->LocationOther != ''): ?><?php echo ', ' . $Listing->LocationOther; ?><?php endif; ?>
+	      </span><span class="smallcategorynormal"><?php //echo trim($Listing->Location); ?><?php //if($Listing->LocationOther != ''): ?><?php //echo ', ' . $Listing->LocationOther; ?><?php //endif; ?>
 	  	</span>
 	      </h2>
 	    </div>
@@ -107,12 +101,13 @@ function search(SearchTerm,ID)
 	<?php endif; ?>
 
 	 </div><div class="list"><br />
-      <div><p class="titlecategory">All <?php echo $catMeta->H1Text; ?></p><br />
+      <div><p class="titlecategory">All:</p><br />
       <br />
       <?php foreach($Listings_result_obj->result() as $Listing): ?>
     	<a href="<?php echo url_title($Listing->ListingTitle); ?>"><span class="smallcategory"><?php echo $Listing->ListingTitle; ?></span></a><br />
-     		<?php echo trim($Listing->Location); ?><?php if($Listing->LocationOther != ''): ?><?php echo ', ' . $Listing->LocationOther; ?>
-			<?php endif; ?>
+    	
+     		<?php //echo trim($Listing->Location); ?><?php //if($Listing->LocationOther != ''): ?><?php //echo ', ' . $Listing->LocationOther; ?>
+			<?php //endif; ?>
 
      		<br />
       <br />
@@ -124,3 +119,18 @@ function search(SearchTerm,ID)
 
 
 </div>
+    <div id="welcometext" align="left"> 
+	
+		
+
+      <!--Page Text-->
+      <p>
+        <br />
+		<?php if(isset($pageText)): ?>
+			<?php echo $pageText; ?><br>
+		<?php endif; ?>
+       <br />
+      </p>
+
+      
+	</div>

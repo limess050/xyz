@@ -51,7 +51,8 @@ define('PHONE_ONLY_USER',1125);
 //define('CURRENT_DATE_IN_TZ',date('Y-m-d 00:00:00'));
 define('TODAY_CURRENT_DATE_IN_TZ',date('Y-m-d 00:00:00'));
 define('CURRENT_DATE_IN_TZ',date('2013-02-01 00:00:00'));
-define('LISTINGS_PER_PAGE',50);
+define('LISTINGS_PER_PAGE',200);
+define('LISTINGUPLOADEDDOCS','http://www.zoomtanzania.com/ListingUploadedDocs/');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

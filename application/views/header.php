@@ -23,7 +23,7 @@
 	?>
 	<title><?php echo $BrowserTitle; ?></title>
 
-	<META NAME="description" CONTENT="<?php echo $MetaDescr; ?>">
+	<META NAME="description" CONTENT="<?php echo strip_tags($MetaDescr); ?>">
 
 	<script>
 

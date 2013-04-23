@@ -203,17 +203,21 @@
 <div id="homerow4">
 
   <?php if(isset($rates)): ?>
-  <?php if(strlen($rates) > 0): ?>
+
   <div class="exchange">
     <ul>
       <li>
         <h2>exchange rates</h2><img src="images/sitewide/blueline.gif" width="130" height="3" /><i><br />
         <img src="images/home/icon_exchangerates.png" width="26" height="16" align="texttop" /> <?php echo date("D, d M Y",strtotime(TODAY_CURRENT_DATE_IN_TZ)); ?></i>
       </li>
-     <?php echo $rates ?>
+     <?php foreach($rates->result() as $rate): ?>
+          <li> <h2> 1 <?php echo $rate->currency; ?> <br />
+        Buy: <?php echo $rate->buy; ?><br />
+        Sell: <?php echo $rate->sell; ?><br /></h2></li>
+     <?php endforeach; ?>
     </ul>
   </div>
-  <?php endif; ?>
+
   <?php endif; ?>
 
 

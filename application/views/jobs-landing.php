@@ -38,8 +38,13 @@
       
       </div>
   
-		</div><div id="welcometext" align="left"> 
-        Welcome to the<strong> Used Car, Truck and Boat Classifieds</strong> section on ZoomTanzania.com.  Search hundreds of Used Cars and Trucks for Sale in Tanzania.  Automotive classifieds are free.  Select a category and then use the search filters to show only vehicles in your area, in your price range, or the make/model of your choice</div><div class="list"><br />
+		</div>
+    <div id="welcometext" align="left"> 
+          <?php if(isset($pageTextObj) and $pageTextObj->num_rows() > 0): ?>
+          <?php echo $pageTextObj->row()->Descr; ?><br>
+        <?php endif; ?>   
+      </div>
+        <div class="list"><br />
     </div>
 
 

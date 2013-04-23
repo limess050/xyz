@@ -12,11 +12,7 @@
   <div id="container">
     <h1 align="center"> <?php echo $sectionMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div id="welcometext" align="left">
-	<?php if(isset($pageTextObj)): ?>
-		<?php if($pageTextObj->num_rows() > 0): ?>
-			<?php echo $pageTextObj->row()->Descr; ?><br>
-		<?php endif; ?>
-	<?php endif; ?>
+
 
 	<div class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
     </div>
@@ -50,4 +46,13 @@
 	</ul>
 	</div>
 
+    <div id="welcometext" align="left" style = "clear: all">
+	<?php if(isset($pageTextObj)): ?>
+		<?php if($pageTextObj->num_rows() > 0): ?>
+			<?php echo $pageTextObj->row()->Descr; ?><br>
+		<?php endif; ?>
+	<?php endif; ?>
+
+
+    </div>
 </div>

@@ -1,0 +1,1 @@
+<center><img src = "<?php echo $flier ?>" style = "max-width:1020px; " /></center>

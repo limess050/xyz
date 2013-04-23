@@ -359,7 +359,7 @@ class listingsModel extends CI_Model {
 				break;
 		}
 
-		if($category['limit'])
+		if(isset($category['limit']))
 			$listingsQuery .= " Limit " . LISTINGS_PER_PAGE;
 
 
@@ -378,7 +378,7 @@ class listingsModel extends CI_Model {
 	{
 
 		//print_r($category);STRAIGHT_JOIN
-		$listingsQuery = "Select  L.Deadline, L.ExpirationDate, L.ListingID, L.ListingTypeID, L.ListingTitle, L.ShortDescr, L.DateListed, L.PriceUS, L.PriceTZS,
+		$listingsQuery = "Select  L.Deadline, L.Instructions, L.UploadedDoc, L.ExpirationDate, L.ListingID, L.ListingTypeID, L.ListingTitle, L.ShortDescr, L.DateListed, L.PriceUS, L.PriceTZS,
 		L.RentUS, L.RentTZS, L.Bedrooms, L.Bathrooms, L.AmenityOther, L.LocationOther, L.LocationText,
 		L.LongDescr, L.MakeID, L.DateSort,
 		L.Make as MakeOther, L.Model as ModelOther, L.VehicleYear, L.Kilometers, L.FourWheelDrive,
@@ -430,6 +430,8 @@ class listingsModel extends CI_Model {
 
 
 		AND L.ListingID = $ListingID";
+
+		//echo $listingsQuery;
 
 		$listing= $this->db->query($listingsQuery);
 

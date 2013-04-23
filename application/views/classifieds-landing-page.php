@@ -30,7 +30,9 @@
     <div class="categories">
 
 <?php foreach($listings->result() as $listing): ?>
-
+<?php if($listing->ListingTypeID == 1): ?>
+    <?php continue; ?>
+  <?php else: ?>
   <?php
 
     if($listing->ListingTypeID == 6 or $listing->ListingTypeID==7)
@@ -51,15 +53,30 @@
 
     }
     if($SectionID == 55)
+    {
+      if($listing->ListingTypeID==3)
+       $ListingTitle = $listing->ListingTitle;
+     else
       $ListingTitle = $listing->VehicleYear . ' ' . $listing->Make . ' ' . $listing->ModelOther;
+    }
     else
       $ListingTitle = $listing->ListingTitle;
 
   ?>
-  <div><a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>"><img src="http://www.zoomtanzania.com/ListingImages/CategoryThumbnails/<?php echo $listing->FileNameForTN; ?>" alt="<?php echo $ListingTitle; ?>"  /></a><br> <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>"><?php echo $ListingTitle ?></a><br><?php echo $price; ?><br />
+  <div>
+
+    <?php if($listing->FileNameForTN): ?>
+    <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>">
+    <img src="http://www.zoomtanzania.com/ListingImages/CategoryThumbnails/<?php echo $listing->FileNameForTN; ?>" alt="<?php echo $ListingTitle; ?>" width = "150"  /></a>
+    <?php else: ?>
+      <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>">
+    <img src="images/sitewide/no_image.jpg" alt="<?php echo $ListingTitle; ?>" width = "150"  /></a>
+    <?php endif; ?>
+    <br> <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>"><?php echo $ListingTitle ?></a><br><?php echo $price; ?><br />
           <span class="smallcategorynormal"> <?php echo $listing->Location ?></span>
 	      </h2>
 	    </div>
+    <?php endif; ?>
 <?php endforeach; ?>
 
           <div><a href="#">
@@ -68,8 +85,9 @@
 		    <h2>&nbsp;</h2>
           </div>
 	    </ul>
-    </div><div id="welcometext" align="left"> 
-                  <?php if(isset($pageTextObj)): ?>
+    </div>
+    <div id="welcometext" align="left"> 
+                  <?php if(isset($pageTextObj) and $pageTextObj->num_rows() > 0): ?>
           <?php echo $pageTextObj->row()->Descr; ?><br>
         <?php endif; ?> </div><div class="list"><br />
     </div>

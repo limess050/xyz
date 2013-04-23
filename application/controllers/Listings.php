@@ -35,6 +35,7 @@ class Listings extends CI_Controller {
 				
 				$function = explode('.', $res->row()->FileName);
 
+				//print_r($function);
 				if(method_exists($this,$function[0]))
 					$this->$function[0]($res);
 				else
@@ -269,37 +270,8 @@ class Listings extends CI_Controller {
 
 	function exchange_rates()
 	{
-		$rates = '';
-
-		$from = array('USD','EUR','GBP','ZAR','KES');
-		$to = 'TZS';
-		$ch = curl_init();
-		foreach($from as $currency)
-		{
-			// $url = 'http://finance.yahoo.com/d/quotes.csv?f=l1ab&s='.$currency.$to.'=X';
-			// $handle = fopen($url, 'r');
-			 
-			// if ($handle) {
-			//     $result = fgetcsv($handle);
-			//     fclose($handle);
-			// }
-
-			$url = "http://download.finance.yahoo.com/d/quotes.csv?f=l1ab&e=.csv&s=" . $currency.$to . "=X";
-
-		    curl_setopt($ch, CURLOPT_URL,$url);
-		    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-		    $csv = curl_exec($ch);
-
-			$result = explode(',', $csv) ;
-
-			$rates .= "<li> <h2> 1 $currency <br />";
-     		$rates .= " Buy: $result[2]<br />";
-     		$rates .= " Sell: $result[1]<br /></h2></li>";
-
-		}
-
-	    curl_close ($ch);
-		return $rates;
+		$this->db->order_by('orderNum');
+		return $this->db->get('exchange_rates');
 	}
 
 //and EXISTS (SELECT ListingID FROM listingeventdays  WHERE ListingID=L.ListingID and ListingEventDate <=DATE_ADD(2013-01-01, INTERVAL 28 DAY)
@@ -404,7 +376,7 @@ class Listings extends CI_Controller {
 
 	}
 
-	function steals_deals_and_classifieds($details)
+	function steals_deals_and_classifieds($details,$categoryURLSafeTitleDashed ='')
 	{
 		if($categoryURLSafeTitleDashed != '')
 		{
@@ -419,7 +391,7 @@ class Listings extends CI_Controller {
 		}
 	}
 
-	function used_cars_trucks_and_boats($details)
+	function used_cars_trucks_and_boats($details,$categoryURLSafeTitleDashed='')
 	{
 		//print_r($details);
 		
@@ -436,7 +408,7 @@ class Listings extends CI_Controller {
 		}
 	}
 
-	function tanzania_real_estate($details)
+	function tanzania_real_estate($details, $categoryURLSafeTitleDashed='')
 	{
 		//print_r($details);
 
@@ -589,6 +561,8 @@ class Listings extends CI_Controller {
 			$categoryDetails['LocationID']=$this->input->get('LocationID');
 
 		$data['pageTextObj'] = $hints['pageTextObj'];
+
+		// print_r(($data['pageTextObj']));
 
 		$leftSide['youMayAlsoLikeObj'] = $hints['youMayAlsoLikeObj'];
 
@@ -870,11 +844,114 @@ class Listings extends CI_Controller {
 		if($this->input->get('ListingID'))
 			$ListingID = $this->input->get('ListingID');
 		$listingObj=$this->listingsmodel->getsinglelisting($ListingID);
+
+		$data['target']='';
+		
+		$data['listing'] = $listingObj->row();
+
+		switch ($data['listing']->ParentSectionID) {
+
+			case '1':
+			$header['Meta']->BrowserTitle = $data['listing']->ListingTitle . ' in ' . $data['listing']->Location . ', Tanzania' ; 
+			$header['Meta']->MetaDescr =  $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+			$leftSide['featuredBusinessObj'] = $this->getFeaturedListings(1);
+			$leftSide['relatedEventsObj'] = $this->getRelatedEvents(406,342,347);
+
+			if($data['listing']->HasExpandedListing)
+			{
+				$file_parts = pathinfo(LISTINGUPLOADEDDOCS . $data['listing']->ExpandedListingPDF);
+
+				switch ($file_parts['extension']) {
+					case 'jpeg':
+					case 'jpg':
+					case 'png':
+					case 'gif':
+						$data['featuredURL'] = 'zoomedlisting?ListingID='.$data['listing']->ListingID;
+
+						break;	
+
+
+
+					case 'pdf':
+						$data['target'] .= "target = '_blank'";
+						$data['featuredURL'] = LISTINGUPLOADEDDOCS . $data['listing']->ExpandedListingPDF;
+						break;
+					
+					default:
+						# code...
+						break;
+				}
+			}
+
+			break;
+
+			case '8':
+			$header['Meta']->BrowserTitle = $data['listing']->ShortDescr . ' Job in ' . $data['listing']->Location . ', Tanzania' ; 
+			$header['Meta']->MetaDescr =  $header['Meta']->BrowserTitle;
+
+			break;
+
+
+			case '55':
+			$header['Meta']->BrowserTitle =  $data['listing']->VehicleYear . ' ' . $data['listing']->Make . ' ' . $data['listing']->ModelOther . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified' ; 
+			$header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+
+			break;
+		}
+
+		$this->load->view('header',$header);
+		$this->load->view('menu');
+		if(isset($leftSide))
+			$this->load->view('left-sidetower',$leftSide);
+		else
+			$this->load->view('left-sidetower');
+
+		switch ($data['listing']->ParentSectionID) {
+
+			case '1':
+				$this->load->view('businesses-detail-page',$data);
+				break;
+			
+			case '8':
+				$this->load->view('job-detail-page',$data);
+				break;
+
+			case '55':
+				$this->load->view('job-detail-page',$data);
+				break;
+
+			case '5':
+			case '4':
+			case '55':
+			case '59':
+				$this->load->view('classifieds-landing-page',$data);
+				break;
+
+			default:
+				# code...
+				break;
+		}
+		$this->load->view('right-sidetower');
+		$this->load->view('footer');
+
+	}
+
+	public function ELP($res)
+	{
+		$listingObj=$this->listingsmodel->getsinglelisting($this->input->get('ListingID'));
 		
 		$listing = $listingObj->row();
 
-		echo $listing->SectionID;
+		$data['flier'] = LISTINGUPLOADEDDOCS . $listing->ExpandedListingPDF;
 
+		$header['Meta']->BrowserTitle = $listing->ListingTitle . ' in ' . $listing->Location . ', Tanzania' ; 
+		$header['Meta']->MetaDescr =  $header['Meta']->BrowserTitle . $listing->ShortDescr;
+
+
+		$this->load->view('header',$header);
+		$this->load->view('menu');
+		$this->load->view('plain',$data);
+		$this->load->view('footer');
 	}
 
 	public function TideDetail($pageObj)
