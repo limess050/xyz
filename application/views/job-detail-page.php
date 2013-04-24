@@ -7,9 +7,9 @@
        
     </p>
     </div>
-<img src="images/categories/detailpage_shareit.jpg" /> <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
-<a class="addthis_button_email"></a>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<img src="images/categories/detailpage_shareit.jpg" class="pullleft"/><a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>
 <a class="addthis_button_twitter"></a>
@@ -21,20 +21,22 @@
 <a class="addthis_button_compact"></a><!--<a class="addthis_counter addthis_bubble_style"></a>-->
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
-<!-- AddThis Button END --></div>
- <!--BUSINESS DETAIL COMPLETE--><div class="listlogo"><h3>
+<!-- AddThis Button END -->
+ <!--BUSINESS DETAIL COMPLETE-->
+ <div class="list"><h3>
     <br />
     <br />
-      <?php echo $listing->ShortDescr; ?><br />
+    <h3><?php echo $listing->ShortDescr; ?><br />
 <br />
-          </h3><div class="list">
+          </h3>
+          
       
-     <ul><li><span class="smallcategorynormal"><b>job Category:</b> <?php echo $listing->Category; ?><br />
-<b>position type:</b> NOT YET FUNCTIONAL <b><br />
-organization type: </b>NOT YET FUNCTIONAL <b><br />
-location:</b> <?php echo $listing->Location; ?></span><h5><br />
+     <div><ul><li><b>job Category:</b> <?php echo $listing->Category; ?><br />
+<!--<b>position type:</b> NOT YET FUNCTIONAL <b><br />
+organization type: </b>NOT YET FUNCTIONAL <b><br />-->
+location:</b> <?php echo $listing->Location; ?><br />
            <br /> 
-           COMPANY:
+          <h5> COMPANY:
            </h5><?php echo $listing->ListingTitle; ?><br />
 
      </li>
@@ -47,10 +49,11 @@ location:</b> <?php echo $listing->Location; ?></span><h5><br />
 
 </li><li></li>  
 </ul></div>
-        <div class="list" align="left"><br />
+
+        <div  align="left"><br />
         <h5>POSITION DESCRIPTION:</h5><br />
         <?php if($listing->UploadedDoc): ?>
-         <a href="ListingUploadedDocs/<?php echo $listing->UploadedDoc;?>">Position Description Document</a>
+         <a href="ListingUploadedDocs/<?php echo $listing->UploadedDoc;?>">Position Description Document (download)</a>
        <?php else: ?>
          <?php echo strip_tags($listing->LongDescr,'<p><br>'); ?>
        <?php endif; ?>
@@ -62,10 +65,15 @@ location:</b> <?php echo $listing->Location; ?></span><h5><br />
          
          
           
-</div><div><h5>if you are qualified for this position</h5><br />
-  <img src="images/sitewide/button_apply.png" alt="apply now" width="127" height="36" align="texttop" /></div></div>
- <div align="right">
-        <h6><a href="#"><img src="images/sitewide/button_report.gif" width="21" height="18" /> report abuse or incorrect content</a></h6></div><div class="addthis_toolbox addthis_default_style addthis_16x16_style" align="left">
+</div>
+
+<div><h5>if you are qualified for this position<br />
+  <img src="images/sitewide/button_apply.png" alt="apply now" width="127" height="36" align="texttop" /></h5>
+   <h6 class="pullright padit"><a href="#"> report abuse or incorrect content<img src="images/sitewide/button_report.gif" width="21" height="18" /></a></h6></div>
+ </div> 
+
+       
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style padit">
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>
@@ -74,4 +82,5 @@ location:</b> <?php echo $listing->Location; ?></span><h5><br />
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
 <!-- AddThis Button END --></div>
+
 </div>
