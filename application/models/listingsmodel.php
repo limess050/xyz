@@ -397,7 +397,11 @@ class listingsModel extends CI_Model {
 		Te.Title as Term, RAND() as RandOrderID, ";
 
 		
-		$listingsQuery .= "CASE WHEN L.UserID = " . PHONE_ONLY_USER . " THEN 1 ELSE 0 END as PhoneOnlyListing_fl
+		$listingsQuery .= "CASE WHEN L.UserID = " . PHONE_ONLY_USER . " THEN 1 ELSE 0 END as PhoneOnlyListing_fl,
+		(Select GROUP_CONCAT(FileName SEPARATOR ',')
+		 	From listingimages 
+			Where ListingID=L.ListingID
+		 	Order By OrderNum, ListingImageID) as ListingImages
 		From parentsectionsview PS 
 		Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
 		Inner Join categories C  on S.SectionID=C.SectionID

@@ -17,9 +17,10 @@ class Listings extends CI_Controller {
 	public function index($pageURL='')
 	{
 		
-
 		if($pageURL != '')
 		{
+			if($pageURL == 'testsearch')
+				$this->search(1);
 
 			$res=$this->listingsmodel->determiner($pageURL);
 
@@ -893,8 +894,20 @@ class Listings extends CI_Controller {
 
 
 			case '55':
-			$header['Meta']->BrowserTitle =  $data['listing']->VehicleYear . ' ' . $data['listing']->Make . ' ' . $data['listing']->ModelOther . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified' ; 
-			$header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+
+			if($data['listing']->ListingTypeID == 3)
+			{
+				$header['Meta']->BrowserTitle =  $data['listing']->ListingTitle . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified' ; 
+				$header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+
+			}
+
+			else
+			{
+				$header['Meta']->BrowserTitle =  $data['listing']->VehicleYear . ' ' . $data['listing']->Make . ' ' . $data['listing']->ModelOther . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified' ; 
+				$header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+
+			}
 
 			break;
 		}
@@ -917,12 +930,11 @@ class Listings extends CI_Controller {
 				break;
 
 			case '55':
-				$this->load->view('job-detail-page',$data);
+				$this->load->view('cars-detail-page',$data);
 				break;
 
 			case '5':
 			case '4':
-			case '55':
 			case '59':
 				$this->load->view('classifieds-landing-page',$data);
 				break;
@@ -1030,6 +1042,14 @@ class Listings extends CI_Controller {
 		$this->load->view('category_detail');
 		$this->load->view('right-sidetower');
 		$this->load->view('footer');	
+	}
+
+	public function search($SectionID)
+	{
+		$this->load->model('datafetcher');
+		$searchFields=$this->datafetcher->selectsearchforms('search_forms',8);
+		$searchFields['results']->num_rows();
+
 	}
 
 
