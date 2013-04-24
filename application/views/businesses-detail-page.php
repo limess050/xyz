@@ -2,13 +2,11 @@
 <div id="container">
     <h1 align="center"><?php echo $listing->ListingTitle; ?> > <?php echo $listing->Category; ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div id="welcometext" align="left"> 
-<p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p><p>
+<p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p>
         <br />
-       
-    </p>
-    </div>
- <img src="images/categories/detailpage_shareit.jpg" /> <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
+        <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style" >
+<img src="images/categories/detailpage_shareit.jpg" align="top" class="pullleft"/>
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>
@@ -21,7 +19,9 @@
 <a class="addthis_button_compact"></a><!--<a class="addthis_counter addthis_bubble_style"></a>-->
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
-<!-- AddThis Button END --></div>
+<!-- AddThis Button END -->
+    </div>
+</div>
  <!--BUSINESS DETAIL COMPLETE--><div class="listlogo"><h2>
     <br />
     <br />
@@ -31,7 +31,8 @@
 <?php echo $listing->ListingTitle; ?><br />
     <?php endif; ?>
 <br />
-          </h2><div class="list">
+          </h2>
+          <div>
       
      <ul>
       <?php if($listing->HasExpandedListing): ?>
@@ -41,8 +42,8 @@
       <?php endif; ?>
 
       <li>
-        <h5>Contacts:</h5><br />
-          <b><br />
+        <h5>Contacts:</h5>
+          <b>
           Location:</b> Dar Es Salaam <br />
             <?php if($listing->PublicPhone): ?>
               <b>Tel:</b> <?php echo $listing->PublicPhone; ?><br />
@@ -73,7 +74,7 @@
 </ul></div>
 <?php if($listing->HasExpandedListing): ?>
  
-<div class="list">
+<div>
 <img src="http://placehold.it/120x120" width="120" height="120" />
 <img src="http://placehold.it/120x120" width="120" height="120" />
 <img src="http://placehold.it/120x120" width="120" height="120" />
@@ -82,7 +83,7 @@
 </div>
  
 <?php endif; ?>
-<div class="list" align="left">
+<div align="left">
   <?php if($listing->HasExpandedListing): ?>
 
 <a href = "<?php echo $featuredURL; ?>" <?php echo $target; ?>><img src="images/sitewide/icon_lens.png" alt="" width="20" height="19" />zoom our flyer</a><br />
@@ -91,24 +92,17 @@
 <?php endif; ?>
           <h5>          About <?php echo $listing->ListingTitle; ?>: </h5>
           <?php echo $listing->ShortDescr; ?>
-        <br />
-          <br />
+        
         <h5>Location/Directions:</h5><br />
         <?php echo $listing->LocationText; ?><br />
-        <br />
-        <br />
-        <br />
-</div>
         
-        
-      
-
-       
-
-     
+        <br />
+<h6 class="pullright"><a href="#"><img src="images/sitewide/button_report.gif" width="21" height="18" /> report abuse or incorrect content</a></h6></div>
+           
   </div>
-  <div align="right">
-        <h6><a href="#"><img src="images/sitewide/button_report.gif" width="21" height="18" /> report abuse or incorrect content</a></h6></div><!-- AddThis Button START --><div class="addthis_toolbox addthis_default_style addthis_16x16_style" align="left">
+
+        <!-- AddThis Button START -->
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style" align="left">
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>

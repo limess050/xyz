@@ -20,7 +20,7 @@
        
     </p>
     </div>
- <img src="images/categories/detailpage_shareit.jpg" /> <!-- AddThis Button BEGIN -->
+  <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
@@ -32,9 +32,9 @@
 <a class="addthis_button_linkedin"></a>
 <a class="addthis_button_blogger"></a>
 <a class="addthis_button_compact"></a><!--<a class="addthis_counter addthis_bubble_style"></a>-->
-</div>
+<img src="images/categories/detailpage_shareit.jpg" align="top"/></div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
-<!-- AddThis Button END --></div>
+<!-- AddThis Button END -->
  <!--BUSINESS DETAIL COMPLETE--><div class="listlogo"><h2>
     <br />
     <br />
@@ -42,7 +42,7 @@
 <?php echo $ListingTitle; ?><br />
 <br />
           </h2>
-<div class="list" align="left">
+<div class="pullleft">
   
           <h5>          About <?php echo $ListingTitle; ?>: </h5>
           <br>
@@ -127,7 +127,9 @@
      
   </div>
   <div align="right">
-        <h6><a href="#"><img src="images/sitewide/button_report.gif" width="21" height="18" /> report abuse or incorrect content</a></h6></div><!-- AddThis Button START --><div class="addthis_toolbox addthis_default_style addthis_16x16_style" align="left">
+        <h6 class="padit"><a href="#"><img src="images/sitewide/button_report.gif" width="21" height="18" /> report abuse or incorrect content</a></h6></div>
+        <!-- AddThis Button START -->
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style padit" >
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>

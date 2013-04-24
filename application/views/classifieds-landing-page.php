@@ -2,15 +2,21 @@
 <div id="container">
     <h1 align="center"> <?php echo $sectionMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div id="welcometext" align="left"> 
-      <p class="smallbreadcrumbs">Home &gt; Classifieds &gt; Vehicles&gt; Used Cars, Trucks and Boats<span class="titlecategory"></span></p>
-      <p align="right"><img src="images/sitewide/button_classified.png" width="127" height="36" alt="classified" />
-        
-      </p><div><div  class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="400" data-show-faces="true"></div></div>
-      <p class="titlecategory" align="center"> <?php echo $sectionMeta->H1Text ?> available - <?php echo $listings->num_rows(); ?> - </p>
-      <br />
+    <!--breadcrumbs TO SET-->
+      <p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p>
+      
     </div>
-
-    
+ <!--facebook page -->
+    <div><div class="fb-like" data-href="http://www.zoomtanzania.com" data-send="true" data-width="550" data-show-faces="true" data-font="arial"></div>
+    </div><div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+      <!--choose a location inside a line-->
 <div class="list">
     <div><span class="uppercap">Choose a location</span><br />
     <span class="smallcategory"><a href="<?php echo current_url(); ?>?LocationID=1">Dar Es Salaam </a>       |         <a href="<?php echo current_url(); ?>?LocationID=13">Zanzibar </a>          |      <a href="<?php echo current_url(); ?>?LocationID=9-16">  Arusha/Moshi </a>           </span>
@@ -25,8 +31,30 @@
   <form>
   </div>
   </div>
-    </div><div align="right">Pages 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 ...</div>
+  <!--title h2 and buttons-->
+  <div class="list">
+      <h2 style = "width:300px;"> <?php echo $sectionMeta->H1Text ?> available - <?php echo $listings->num_rows(); ?> - </h2>
+      <p align="right"><img src="images/sitewide/button_classified.png" width="127" height="36" alt="classified" /></p>
+      
+      </div>
+      
+    </div>
+    
+    <!--pagination TO DEFINE STYLE-->
+<div class="pagination pullright">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
 
+    <!--CONTENT FOR CLASSIFIEDS - VEHICLES. REAL ESTATE. BUY AND SELL-->
+    
     <div class="categories">
 
 <?php foreach($listings->result() as $listing): ?>

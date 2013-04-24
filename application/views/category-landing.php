@@ -34,29 +34,10 @@ function search(SearchTerm,ID)
     <div id="welcometext" align="left"> 
 	
 		<!--Breadcrumbs-->
-      <p class="smallbreadcrumbs">Home &gt; Tanzania Business Directory &gt; Business Services &gt; Tanzania Recruitment Agencies</p>
+      <p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p>
 
-
-
-
-      <!--Facebook-->
-  	<div  class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
-
-  	<div style = "float: left; clear: none;">
-      <div class="titlecategory" style = "width:250px;"><br />Featured:</div>
-
-       <div align="right" style = "width:300px;">
-	       	<img src="images/sitewide/button_post.png" alt="post a listing" />
-			<form name = "se" id = "se" method="post" action = "request-quote" style = "display: inline;">
-				<input type="hidden" name="ListingResults" value="<?php echo $quoteRequestString; ?>">
-				<input type="hidden" name="CategoryID" value="93">	
-				<input type="hidden" name="CategoryURL" value="AirlinesinTanzania">	
-	       		<input type = "image" name = "SGI" id = "SGI" src="images/sitewide/button_quote.png"  title = "TIP:  Use the 'Filter Listings' fields above to narrow your options before opening the group inquiry form." />
-			</form>
-		</div>
-	</div> 
-	</div><!--Close Welcome Text-->
-   	<div class="list">
+<!--Choose a location-->
+	<div class="list">
   	<div><span class="uppercap">Choose a location</span><br />
     <span class="smallcategory"><a href="<?php echo current_url(); ?>?LocationID=1">Dar Es Salaam </a>       |         <a href="<?php echo current_url(); ?>?LocationID=13">Zanzibar </a>          |      <a href="<?php echo current_url(); ?>?LocationID=9-16">  Arusha/Moshi </a>           </span>
     <form style = "width:100px; display:inline;" action = "" method = "post">
@@ -70,7 +51,31 @@ function search(SearchTerm,ID)
 	<form>
 	</div>
 	</div>
+
+      <!--Facebook-->
+      <div>
+  	<div  class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div></div>
+<!--h2 title and button-->
+  	<div class="list pullleft"  clear: none;">
+      <h2 style = "width:250px;"><br />Featured:</h2>
+
+       <p class="pullright">
+	       	<img src="images/sitewide/button_post.png" alt="post a listing" />
+			<form name = "se" id = "se" method="post" action = "request-quote" style = "display: inline;">
+				<input type="hidden" name="ListingResults" value="<?php echo $quoteRequestString; ?>">
+				<input type="hidden" name="CategoryID" value="93">	
+				<input type="hidden" name="CategoryURL" value="AirlinesinTanzania">	
+	       		<input type = "image" name = "SGI" id = "SGI" src="images/sitewide/button_quote.png"  title = "TIP:  Use the 'Filter Listings' fields above to narrow your options before opening the group inquiry form." />
+			</form>
+		</p>
+	</div> 
+	</div>
+	
+	<!--Close Welcome Text-->
+   
     </div>
+    
+    <!--Business & Categories Landing Page featured-->
     <div class="categories">
     	
     <?php $i=0; ?>
@@ -100,18 +105,24 @@ function search(SearchTerm,ID)
 	<?php endif; ?>
 	<?php endif; ?>
 
-	 </div><div class="list"><br />
-      <div><p class="titlecategory">All:</p><br />
-      <br />
+	 </div>
+	 
+	 <!--Business & Categories Landing Page All list in 2 row for all the categories in the section or subsection-->
+	 <div class="list"><br />
+      <div><h3>All:</h3>
+      <ul>
       <?php foreach($Listings_result_obj->result() as $Listing): ?>
-    	<a href="<?php echo url_title($Listing->ListingTitle); ?>"><span class="smallcategory"><?php echo $Listing->ListingTitle; ?></span></a><br />
+    	<a href="<?php echo url_title($Listing->ListingTitle); ?>">
+    	<span class="smallcategory"><?php echo $Listing->ListingTitle; ?></span></a>
+     <li> 
     	
      		<?php //echo trim($Listing->Location); ?><?php //if($Listing->LocationOther != ''): ?><?php //echo ', ' . $Listing->LocationOther; ?>
 			<?php //endif; ?>
 
-     		<br />
-      <br />
+     		</li>
       <?php endforeach; ?>
+      </ul>
+      
       </div>
   
 		</div>

@@ -11,25 +11,27 @@
 	text-align: left;
 	zoom: 1;
 	*display: inline;
-	float: left;}
+	float: left;
+	}
 
 	.categories div 
 	{border: solid 1px #ccc; 
 	display: inline-block; 
 	min-width: 180px;
 	max-width:180px; 
+	min-height: 215px;
 	padding: 10px 0 10px 0; 
 	margin: 7px 3px;  
 	vertical-align: text-top; 
-	text-align: center; 
+	text-align: center !important; 
 	zoom: 1; 
 	*display: inline;
 	float:left;
-	min-height: 210px;
-	font-weight:700;}
+	font-weight:700;
+	font-size:11px;
+	line-height:12px;}
 
 	.categories h2 {
-	font-size: 12px;
 	font-weight:bold;}
 	
 	.categories div img  {
@@ -39,12 +41,12 @@
 	border:#CCC solid 1px;
 	min-width:120px;
 	max-width:150px;
-	max-height:140px;
+	max-height:120px;
 	}
 
 /* This is very important for any listing detail page content*/
 
-	.list
+	.list, .listlogo
 	{display: inline-block;
 	width: 600px;
 	margin: 0px 0px;
@@ -53,7 +55,7 @@
 	float: left;
 	min-width: 600px;}
 	
-	.list div 
+/*	.list div 
 	{border:solid #CCC 1px;
 	display: inline-block; 
 	margin: 7px 3px; 
@@ -63,20 +65,43 @@
 	text-align: left; 
 	float:left;
 	}
+*/
+	.list div, .listlogo div {
+	border:solid #CCC 1px;
+	margin: 7px 3px; 
+	display: inline-block;
+	max-width:585px;
+	min-width:585px; 
+	text-align: left; 
+	float:left;
+	padding: 20px 20px 20px; 
+	}
 
-	.list img 
+	.list img, .listlogo img 
 {	display: inline-block; 
 	margin-right: 5px;
 	margin-bottom: 5px;  
 	vertical-align: text-top; 
 	text-align: left; 
 	float:left;
-	vertical-align:middle;
-	border:solid #CCC 1px;}
+	vertical-align:middle;}
+	
+	.list ul {
+	list-style: none;	
+	}
+	
+	.list li{
+	min-width: 250px;
+	max-width: 250px;
+	min-height:40px;
+	float:left;
+	padding:10px;
+	margin:10px;
+	}
 
-	.listlogo
+/*	.listlogo
 	{display: inline-block;
-	width: 595px;
+	max-width: 585px;
 	margin: 0px 0px;
 	zoom: 1;
 	*display: inline;
@@ -87,7 +112,7 @@
 	margin: 7px 3px; 
 	padding: 20px 20px 20px; 
 	text-align: left; 
-	min-width: 595px;}
+	min-width: 585px;}
 
 	.listlogo img 
 	{display: inline-block; 
@@ -96,8 +121,21 @@
 	vertical-align: text-top; 
 	text-align: left; 
 	float:left;
-	vertical-align:middle;
-	border:#CCC 1px solid;}
+	vertical-align:middle;}
+	*/
+	
+	.listlogo ul {
+	list-style: none;	
+	}
+	
+	.listlogo li{
+	margin: 7px 3px; 
+	padding: 10px; 
+	text-align: left; 
+	min-width: 180px;
+	max-width: 180px;
+	float: left;}
+	
 	
 /*FORM SEARCH ON THE SIDEBAR*/
 	#box_form {
@@ -111,3 +149,6 @@
 	#box_form li img 
 	{margin-top: 5px;
 	}
+
+.buttonshareit 
+{ 

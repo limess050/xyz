@@ -57,11 +57,9 @@ $SectionURL = $subSection->SectionURL;
 <?php endfor; ?>
 </ul>
 </div>
-    <div id="welcometext" align="left">
+    <div id="welcometext" class="pullleft">
     			<?php if(isset($pageTextObj)): ?>
 					<?php echo $pageTextObj->row()->Descr; ?><br>
 				<?php endif; ?>				
 
-				<div class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
-				</div>
 </div>
