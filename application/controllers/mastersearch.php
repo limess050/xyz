@@ -147,6 +147,7 @@ class Mastersearch extends CI_Controller {
 
             case "sectiononly":
                 $data = $this->datafetcher->selectsearchforms($table = "search_forms", $id);
+                                
                 $data['heading'] = "Search  for ";
                 $this->load->view('formgenerator/categoryForm', $data);
 

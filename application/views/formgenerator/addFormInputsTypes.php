@@ -85,7 +85,8 @@ echo form_fieldset();
         ?>
 
     </li>
-    <li>
+    
+       <li>
         <?php
         if (form_error('displaycolumn')) {
             echo form_error('displaycolumn');
@@ -97,6 +98,79 @@ echo form_fieldset();
         ?>
 
     </li>
+    
+    <li>
+        <?php
+        if (form_error('referenceid')) {
+            echo form_error('referenceid');
+        }
+        echo form_label('related reference id to table two');
+        
+        echo form_input(array('name' => 'referenceid', 'value' => '' . set_value('referenceid'))).'</br><i><font color="#1A9B50">'.
+             form_label("ID related to table two", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+        ?>
+
+    </li>
+    
+    <!--..-->
+    
+        <li>
+
+        <?php
+//error checking
+        if (form_error('section')) {
+            echo '<div class="error">';
+            echo form_error("section") . form_error();
+            echo '</div>';
+        }
+
+        echo form_label('reference from section');
+        ?>
+        <select name="section" class="section">
+
+            <option  value="" selected="">--Select section--</option>
+            <?php
+            
+            $out = '';
+            $results=$this->datafetcher->sectionsLoader();
+            foreach ($results->result_array() as $section) {
+
+                $out.='<option value="' . $section['SectionID'] . set_value('section') . '">' . $section['Title'] . '</option>';
+            } echo $out;
+            ?>
+        </select> 
+
+
+    </li>
+    
+    
+     <li>
+        <?php
+        if (form_error('tabletwo')) {
+            echo form_error('tabletwo');
+        }
+        echo form_label('Joins from table name');
+        echo form_input(array('name' => 'tabletwo', 'value' => '' . set_value('tabletwo')));
+        ?>
+
+    </li>
+    <li>
+        <?php
+        if (form_error('displaycolumnid_two')) {
+            echo form_error('displaycolumnid_two');
+        }
+        echo form_label('hidden display column id two');
+        
+        echo form_input(array('name' => 'displaycolumnid_two', 'value' => '' . set_value('displaycolumnid_two'))).'</br><i><font color="#1A9B50">'.
+             form_label("Write the column ID as it is from the database", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+        ?>
+
+    </li>
+    
+
+    
+    <!--//-->
+ 
          
     
             <?php

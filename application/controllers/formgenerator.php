@@ -11,9 +11,8 @@ class Formgenerator extends CI_Controller {
     public function index() {
         //load the first phase form generator
         $data['results'] = $this->datafetcher->sectionsLoader();
-        $this->load->view('formgenerator/formCreator',$data);
+        $this->load->view('formgenerator/formCreator', $data);
     }
-   
 
     /*     * controller function to load the subsections */
 
@@ -33,7 +32,7 @@ class Formgenerator extends CI_Controller {
                 $checkboxoutput .= '<option selected value = "">Select Option</option>';
                 foreach ($results->result_array() as $value) {
                     $checkboxoutput.='<option value="' . $value['SectionID'] . '">' . $value['Title'] . '</option>';
-                }echo form_label('sub-section(s)'). '<select name="subcat" class="autoloadcat" >' . $checkboxoutput . '</select>' . '</br></br>';
+                }echo form_label('sub-section(s)') . '<select name="subcat" class="autoloadcat" >' . $checkboxoutput . '</select>' . '</br></br>';
             } else {
                 ////////////
                 //for sections with no subsections
@@ -42,7 +41,7 @@ class Formgenerator extends CI_Controller {
                 if ($resultwithnosubsections->num_rows() > 0) {
 
                     $selectopt_sub = '';
-                     $checkboxoutput .= '<option selected value = "">Select Option</option>';
+                    $checkboxoutput .= '<option selected value = "">Select Option</option>';
                     foreach ($resultwithnosubsections->result_array() as $subsectionscategorires) {
                         $checkboxoutput.='<option value="' . $subsectionscategorires['CategoryID'] . '">' . $subsectionscategorires['Title'] . '</option>';
                     }
@@ -66,7 +65,7 @@ class Formgenerator extends CI_Controller {
 
             if ($results->num_rows() > 0) {
                 $concatenator = '';
-                 $concatenator .= '<option selected value = "">Select Option</option>';
+                $concatenator .= '<option selected value = "">Select Option</option>';
                 foreach ($results->result_array() as $value) {
                     $concatenator.='<option value="' . $value['CategoryID'] . '">' . $value['Title'] . '</option>';
                 }
@@ -266,7 +265,7 @@ class Formgenerator extends CI_Controller {
                                 $selectedCheckboxValue = $_POST['count_' . $checkboxId];
                                 $selectedLabel = $_POST['label_' . $checkboxId];
                                 $data['no_input'] = $selectedCheckboxValue;
-                                $data['displayOrder'] = $_POST['order_'.$checkboxId];
+                                $data['displayOrder'] = $_POST['order_' . $checkboxId];
                                 $data['input_type_id'] = $checkboxId;
                                 $data['sections_without_subsections'] = $subsection;
                                 $data['category_id'] = $category;
@@ -281,7 +280,7 @@ class Formgenerator extends CI_Controller {
                 }
 
 
-                
+
                 $results = $this->db->insert_batch('form_tbl', $datas);
                 if ($results) {
                     $this->listOfCreatedForms();
@@ -344,7 +343,7 @@ class Formgenerator extends CI_Controller {
                                     $selectedCheckboxValue = $_POST['count_' . $checkboxId];
                                     $selectedLabel = $_POST['label_' . $checkboxId];
                                     $data['no_input'] = $selectedCheckboxValue;
-                                    $data['displayOrder'] = $_POST['order_'.$checkboxId];
+                                    $data['displayOrder'] = $_POST['order_' . $checkboxId];
                                     $data['input_type_id'] = $checkboxId;
                                     $data['sections_without_subsections'] = $subsection;
                                     $data['category_id'] = $category;
@@ -392,10 +391,9 @@ class Formgenerator extends CI_Controller {
         $sectionfilter = strtolower($this->uri->segment(3));
 
         //checking if the section or subsection
-         $data = $this->datafetcher->categoryDetails($id,$table="form_tbl");
-         $data['heading']=" ";
-                $this->load->view('formgenerator/categoryForm', $data);
-
+        $data = $this->datafetcher->categoryDetails($id, $table = "form_tbl");
+        $data['heading'] = " ";
+        $this->load->view('formgenerator/categoryForm', $data);
     }
 
     /* list all the categories which already have generated forms* */
@@ -410,7 +408,7 @@ class Formgenerator extends CI_Controller {
 
         $subchekfilter = $this->uri->segment(3);
         $id = $this->uri->segment(4);
-        $results = $this->datafetcher->loadsectionFromcategory($id,$table="form_tbl");
+        $results = $this->datafetcher->loadsectionFromcategory($id, $table = "form_tbl");
         foreach ($results->result_array() as $value) {
             $section_id = $value['SecID'];
             $section_name = $value['sectionTitle'];
@@ -428,7 +426,7 @@ class Formgenerator extends CI_Controller {
 
 
 
-                $results = $this->datafetcher->subcategoryDetails($id,'form_tbl');
+                $results = $this->datafetcher->subcategoryDetails($id, 'form_tbl');
                 $data['result'] = $results['results'];
                 $subsec_results = $this->datafetcher->getSectionSubsections($section_id, $id);
                 //fetching the subsection selected id
@@ -449,7 +447,7 @@ class Formgenerator extends CI_Controller {
                 $data['catid'] = $catid;
                 $data['category'] = $catname;
                 $data['subsectionname'] = $subsectionname;
-                $data['controller']='formgenerator/editorprocessor';
+                $data['controller'] = 'formgenerator/editorprocessor';
 
                 $this->load->view('formgenerator/formCreatorUpdater', $data);
 
@@ -457,13 +455,13 @@ class Formgenerator extends CI_Controller {
             case "sec":
 
 
-                $results = $this->datafetcher->categoryDetails($id,'form_tbl');
+                $results = $this->datafetcher->categoryDetails($id, 'form_tbl');
                 $data['catid'] = $results['catid'];
                 $data['subsection_id'] = '';
                 $data['subsectionname'] = '';
                 $data['category'] = $results['category'];
                 $data['result'] = $results['results'];
-                $data['controller']='formgenerator/editorprocessor';
+                $data['controller'] = 'formgenerator/editorprocessor';
                 $this->load->view('formgenerator/formCreatorUpdater', $data);
                 break;
 
@@ -478,186 +476,206 @@ class Formgenerator extends CI_Controller {
 
         $this->load->view('formgenerator/listofforms');
     }
+
     /*
      * controller function for adding form inputs
      */
+
     public function addInputsTypes() {
-        
-        if($this->input->post('submit')){
-            
-            $this->form_validation->set_rules('inputname','input name','required');
+
+        if ($this->input->post('submit')) {
+
+            $this->form_validation->set_rules('inputname', 'input name', 'required');
             //$this->form_validation->set_rules('inputtype','input types','required');
-            $this->form_validation->set_rules('formfieldtype','input type','required');
-            $this->form_validation->set_rules('validation_chck[]','atleast a single validation rule ','required');
-            $this->form_validation->set_rules('max_no_inputs','Maximum number of inputs','required');
-            if($this->form_validation->run()==FALSE){
-                
-               $this->load->view('formgenerator/addFormInputsTypes');
+            $this->form_validation->set_rules('formfieldtype', 'input type', 'required');
+            $this->form_validation->set_rules('validation_chck[]', 'atleast a single validation rule ', 'required');
+            $this->form_validation->set_rules('max_no_inputs', 'Maximum number of inputs', 'required');
+            if ($this->form_validation->run() == FALSE) {
+
+                $this->load->view('formgenerator/addFormInputsTypes');
+            } else {
+
+
+                $inputname = $this->input->post('inputname');
+                //$inputtypes=$this->input->post('inputtype');  
+                $formfieldtype = $this->input->post('formfieldtype');
+                $fieldtypename = str_replace(' ', '', $inputname);
+
+                $tablename = $this->input->post('tablename');
+                $tabletwo = $this->input->post('tabletwo');
+
+                $tablecolumnid = $this->input->post('displaycolumnid');
+                $tablecolumnid_two = $this->input->post('displaycolumnid_two');
+                $tabledisplaycolumn = $this->input->post('displaycolumn');
+                $max_no_inputs = $this->input->post('max_no_inputs');
+                $referenceid = $this->input->post('referenceid');
+
+                $section = $this->input->post('section');
+                $validation_chkboxes = $this->input->post('validation_chck');
+
+
+                $results = $this->datafetcher->addFormInputsTypes($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn, $tabletwo, $tablecolumnid_two, $section, $referenceid);
+
+                if ($results) {
+                    //load the  list of tables
+                    $this->loadInputs();
+                } else {
+                    
+                }
             }
-            else{
-                
-                
-            $inputname=$this->input->post('inputname');    
-            //$inputtypes=$this->input->post('inputtype');  
-            $formfieldtype=$this->input->post('formfieldtype');
-            $fieldtypename = str_replace(' ', '', $inputname);
-            
-            $tablename=$this->input->post('tablename');
-            $tablecolumnid=$this->input->post('displaycolumnid');
-            $tabledisplaycolumn=$this->input->post('displaycolumn');
-            $max_no_inputs=$this->input->post('max_no_inputs'); 
-            
-            $validation_chkboxes=$this->input->post('validation_chck');
-                
-            
-            $results=$this->datafetcher->addFormInputsTypes($inputname,$formfieldtype,$max_no_inputs,$fieldtypename,$validation_chkboxes,$tablename,$tablecolumnid,$tabledisplaycolumn);
-            
-            if($results){
-              //load the  list of tables
-                $this->loadInputs();
-            }
-            else{
-                
-            }
-                
-            }
-        }
-        else{
+        } else {
             $this->load->view('formgenerator/addFormInputsTypes');
         }
-        
     }
-    
+
     /*
-     * controller function to list all input types  from the db**/
-   public function loadInputs() {
-       $data['results']=$this->datafetcher->listAllInputstypes();
-       $this->load->view('formgenerator/listOfinputs',$data);
-       
-   }
-   /**controller function for fetching inputs details*/
-   public function editinputs() {
-       $id=$this->uri->segment(3);
-       $this->session->set_userdata('update_id',$id);
-       $data['results']=$this->datafetcher->loadInputTypesDetails($id);
-       $this->load->view('formgenerator/editFormInputs',$data);
-       
-   }
-   public function updateInputTypesDetails() {
-       
-       if($this->input->post('update')){
-            
-            $this->form_validation->set_rules('inputname','input name','required');
+     * controller function to list all input types  from the db* */
+
+    public function loadInputs() {
+        $data['results'] = $this->datafetcher->listAllInputstypes();
+        $this->load->view('formgenerator/listOfinputs', $data);
+    }
+
+    /*     * controller function for fetching inputs details */
+
+    public function editinputs() {
+        $id = $this->uri->segment(3);
+        $this->session->set_userdata('update_id', $id);
+        $data['results'] = $this->datafetcher->loadInputTypesDetails($id);
+        $this->load->view('formgenerator/editFormInputs', $data);
+    }
+
+    public function updateInputTypesDetails() {
+
+        if ($this->input->post('update')) {
+
+            $this->form_validation->set_rules('inputname', 'input name', 'required');
             //$this->form_validation->set_rules('inputtype','input types','required');
-            $this->form_validation->set_rules('formfieldtype','input type','required');
-            $this->form_validation->set_rules('validation_chck[]','atleast a single validation rule ','required');
-            $this->form_validation->set_rules('max_no_inputs','Maximum number of inputs','required');
-            if($this->form_validation->run()==FALSE){
-                
-               $this->load->view('formgenerator/editFormInputs');
-            }
-            else{
-            $inputname=$this->input->post('inputname');    
-            $id=$this->input->post('id');
-            $this->session->set_userdata('update_id',$id);
-            $formfieldtype=$this->input->post('formfieldtype');
-            $fieldtypename = str_replace(' ', '', $inputname);
-            $tablename=$this->input->post('tablename');
-            $tablecolumnid=$this->input->post('displaycolumnid');
-            $tabledisplaycolumn=$this->input->post('displaycolumn');
-            $max_no_inputs=$this->input->post('max_no_inputs'); 
-            $validation_chkboxes=$this->input->post('validation_chck');
-                    
-            $results=$this->datafetcher->updateInputsTypesDetails($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn,$id);
-            
-            if($results){
-              //load the  list of tables
-                $this->loadInputs();
-            
-            }
-            else{
-                echo 'error occured during updating';  
-            }
-                
+            $this->form_validation->set_rules('formfieldtype', 'input type', 'required');
+            $this->form_validation->set_rules('validation_chck[]', 'atleast a single validation rule ', 'required');
+            $this->form_validation->set_rules('max_no_inputs', 'Maximum number of inputs', 'required');
+            if ($this->form_validation->run() == FALSE) {
+
+                $this->load->view('formgenerator/editFormInputs');
+            } else {
+
+                ///////////////////////////////////////////////////   
+                $inputname = $this->input->post('inputname');
+                $id = $this->input->post('id');
+                $this->session->set_userdata('update_id', $id);
+                $formfieldtype = $this->input->post('formfieldtype');
+                $fieldtypename = str_replace(' ', '', $inputname);
+
+                $tablename = $this->input->post('tablename');
+                $tabletwo = $this->input->post('tabletwo');
+
+                $tablecolumnid = $this->input->post('displaycolumnid');
+                $tablecolumnid_two = $this->input->post('displaycolumnid_two');
+                $tabledisplaycolumn = $this->input->post('displaycolumn');
+                $max_no_inputs = $this->input->post('max_no_inputs');
+                $referenceid = $this->input->post('referenceid');
+                $validation_chkboxes = $this->input->post('validation_chck');
+                $section = $this->input->post('section');
+
+
+
+
+
+
+                ////////////////////////////////////////////////
+
+                $results = $this->datafetcher->updateInputsTypesDetails($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn, $id,$tabletwo,$tablecolumnid_two,$section,$referenceid);
+
+                if ($results) {
+                    //load the  list of tables
+                    $this->loadInputs();
+                } else {
+                    echo 'error occured during updating';
+                }
             }
         }
-   
-       
-       
-   }
-   /**delete input type*/
-   public function deleteInput() {
-       $results=$this->datafetcher->deleteInput($this->uri->segment(3));
-       if($results){
-         $this->loadInputs();  
-           
-       }
-   }
-   
-   /**add inputs to be appeared on select dropdown menu in inputs creator form*/
-   public function addinputforselectfieldprocessor() {
-       if($this->input->post('submit')){
-           $this->form_validation->set_rules('inputname','input name','required|alpha');
-           if($this->form_validation->run()==FALSE){
-               $this->load->view('formgenerator/form_add_select_inputs');
-           }else{
-              //get the posted data
-               $results=$this->datafetcher->insertinputsforselect($this->input->post('inputname'));
-               if($results){
-                   //load the list of inputs
-                   $this->inputscreatorselects();
-               }else{
-                  $this->load->view('formgenerator/form_add_select_inputs');   
-               }
-           }
-       }else{
-         $this->load->view('formgenerator/form_add_select_inputs');  
-       }
-   }
-   /*list of inputs to be appeared on input creator form**/
-   public function inputscreatorselects() {
-       $data['results']=$this->datafetcher->loadSelectInputTypes();
-       $this->load->view('formgenerator/listofinputs_for_select_in_inputscreator',$data);
-   }
-   /**processor for the select input types in inputs creator form*/
- public function editinputforselectfieldprocessor() {
-       if($this->input->post('submit')){
-           $this->form_validation->set_rules('inputname','input name','required|alpha');
-           if($this->form_validation->run()==FALSE){
-               $this->load->view('formgenerator/form_add_select_inputs');
-           }else{
-              //get the posted data
-               $results=$this->datafetcher->updateinputtypetoappearonselect($id=$this->session->userdata('select_id'),$this->input->post('inputname'));
-               if($results){
-                   //load the list of inputs
-                   $this->inputscreatorselects();
-               }else{
-                  $this->load->view('formgenerator/form_add_select_inputs');   
-               }
-           }
-       }else{
-         $this->load->view('formgenerator/form_add_select_inputs');  
-       }
-   }
-   /**delete select for the input form creator*/
-   public function deleteinputforselect() {
-       $id=$this->uri->segment('3');
-       $results=$this->datafetcher->deleteinputtypeforselect($id);
-       
-       if($results){          
-       $this->inputscreatorselects();    
-       }else{
-           
-       }
-   }
-   /**load details per selected link*/
-   public function laodselectdetails() {
-       $id=$this->uri->segment('3');
-       $data['results']=$this->datafetcher->selectsdetails($id);
-       $this->load->view('formgenerator/edit_select_input',$data);
-   }
+    }
 
+    /*     * delete input type */
 
+    public function deleteInput() {
+        $results = $this->datafetcher->deleteInput($this->uri->segment(3));
+        if ($results) {
+            $this->loadInputs();
+        }
+    }
+
+    /*     * add inputs to be appeared on select dropdown menu in inputs creator form */
+
+    public function addinputforselectfieldprocessor() {
+        if ($this->input->post('submit')) {
+            $this->form_validation->set_rules('inputname', 'input name', 'required|alpha');
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('formgenerator/form_add_select_inputs');
+            } else {
+                //get the posted data
+                $results = $this->datafetcher->insertinputsforselect($this->input->post('inputname'));
+                if ($results) {
+                    //load the list of inputs
+                    $this->inputscreatorselects();
+                } else {
+                    $this->load->view('formgenerator/form_add_select_inputs');
+                }
+            }
+        } else {
+            $this->load->view('formgenerator/form_add_select_inputs');
+        }
+    }
+
+    /* list of inputs to be appeared on input creator form* */
+
+    public function inputscreatorselects() {
+        $data['results'] = $this->datafetcher->loadSelectInputTypes();
+        $this->load->view('formgenerator/listofinputs_for_select_in_inputscreator', $data);
+    }
+
+    /*     * processor for the select input types in inputs creator form */
+
+    public function editinputforselectfieldprocessor() {
+        if ($this->input->post('submit')) {
+            $this->form_validation->set_rules('inputname', 'input name', 'required|alpha');
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('formgenerator/form_add_select_inputs');
+            } else {
+                //get the posted data
+                $results = $this->datafetcher->updateinputtypetoappearonselect($id = $this->session->userdata('select_id'), $this->input->post('inputname'));
+                if ($results) {
+                    //load the list of inputs
+                    $this->inputscreatorselects();
+                } else {
+                    $this->load->view('formgenerator/form_add_select_inputs');
+                }
+            }
+        } else {
+            $this->load->view('formgenerator/form_add_select_inputs');
+        }
+    }
+
+    /*     * delete select for the input form creator */
+
+    public function deleteinputforselect() {
+        $id = $this->uri->segment('3');
+        $results = $this->datafetcher->deleteinputtypeforselect($id);
+
+        if ($results) {
+            $this->inputscreatorselects();
+        } else {
+            
+        }
+    }
+
+    /*     * load details per selected link */
+
+    public function laodselectdetails() {
+        $id = $this->uri->segment('3');
+        $data['results'] = $this->datafetcher->selectsdetails($id);
+        $this->load->view('formgenerator/edit_select_input', $data);
+    }
 
 }
 ?>

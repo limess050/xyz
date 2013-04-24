@@ -16,6 +16,7 @@ if ($results->num_rows() > 0) {
         $input_type = $value['input_type'];
         $input_name = $value['input_name'];
         $max_no_inputs = $value['max_no_inputs'];
+        $section_id=$value['section'];
     }
 
 ///check if form errors occured during submission
@@ -24,10 +25,12 @@ if ($results->num_rows() > 0) {
         $inputname = '';
         $inputtype = '';
         $maxnoinputs = '';
+        $sectionid=$section_id;
     } else {
         $inputname = $input_name;
         $inputtype = $input_type;
         $maxnoinputs = $max_no_inputs;
+        $sectionid='';
     }
 
     echo'<div class="error_box" id ="error_box"></div>';
@@ -71,98 +74,180 @@ if ($results->num_rows() > 0) {
 
 
         <li>
-        <?php
-        
+            <?php
             $val['name'] = 'formfieldtype';
             $val['display'] = 'select type for the form field';
             $val['rules'] = 'required';
             $validation_arr[] = $val;
-        echo form_label('form field type');
-        
-        $results_to_selectField=$this->datafetcher->loadSelectInputTypes();
-        if($results_to_selectField->num_rows()>0){
-         ?>
-         <select name="formfieldtype" class="">
-              <option value="">choose a field type</option>
-         <?php   
-            $select_out='';
-           foreach ($results_to_selectField->result_array()as $rowsTobedisplayed) {
-               $select='';
-               $results_two=$this->datafetcher->loadSelectInputTypesByid($id);
-               
-               foreach ($results_two->result_array() as $rowTocompare) {
-                   
-               if(strcasecmp($rowsTobedisplayed['selectinputtypes'],$rowTocompare['input_type'])==0){
-                 $select="selected";
-                 }
-               else{
-                  $select=""; 
-               }
-                   
-               }
-             
-             $select_out.='<option  '.$select.' value="'.$rowsTobedisplayed['selectinputtypes'].'">'.$rowsTobedisplayed['selectinputtypes'].'</option>';   
-            } echo $select_out;
-       ?>
-         </select>
-      <?php }
-        
-        ?>
-        
-    </li>
-        
-        <?php
-        /*         * *****************************draws from column*************************************************************** */
+            echo form_label('form field type');
+
+            $results_to_selectField = $this->datafetcher->loadSelectInputTypes();
+            
+            if ($results_to_selectField->num_rows() > 0) {
+                ?>
+                <select name="formfieldtype" class="">
+                    <option value="">choose a field type</option>
+                    <?php
+                    $select_out = '';
+                    foreach ($results_to_selectField->result_array()as $rowsTobedisplayed) {
+                        $select = '';
+                        $results_two = $this->datafetcher->loadSelectInputTypesByid($id);
+
+                        foreach ($results_two->result_array() as $rowTocompare) {
+
+                            if (strcasecmp($rowsTobedisplayed['selectinputtypes'], $rowTocompare['input_type']) == 0) {
+                                $select = "selected";
+                            } else {
+                                $select = "";
+                            }
+                        }
+
+                        $select_out.='<option  ' . $select . ' value="' . $rowsTobedisplayed['selectinputtypes'] . '">' . $rowsTobedisplayed['selectinputtypes'] . '</option>';
+                    } echo $select_out;
+                    ?>
+                </select>
+                <?php }
+                ?>
+
+        </li>
+
+            <?php
+            /*             * *****************************draws from column*************************************************************** */
 //        $val['name'] = 'validation_chck[]';
 //        $val['display'] = 'atleast one validation rule ';
 //        $val['rules'] = 'required';
 //        $validation_arr[] = $val;
-        
-
-        $results_drawsfrom = $this->datafetcher->drawsFromColumn($id);
-        if ($results_drawsfrom->num_rows() > 0) {
-            foreach ($results_drawsfrom->result_array() as $drawsfields) {
-
-                //check  if the table exists and columns too
-                if (is_null($drawsfields['draws_from']) || empty($drawsfields['draws_from'])) {
-
-                    $tablename = '<li>' . form_label('Draws form table name') . form_input(array('name' => 'tablename', 'value' => '' . set_value('tablename'))) . '</li>';
-                    echo $tablename;
-                } else {
-                    $tablename = '<li>' . form_label('Draws form table name') . form_input(array('name' => 'tablename', 'value' => $drawsfields['draws_from'] . set_value('tablename'))) . '</li>';
-                    echo $tablename;
-                }
-                ///column  id
-                if (is_null($drawsfields['column_id']) || empty($drawsfields['column_id'])) {
 
 
-                    $tablename = '<li>' . form_label('hidden display column id') . form_input(array('name' => 'displaycolumnid', 'value' => '' . set_value('displaycolumnid'))) . '</li>';
-                    echo $tablename;
-                } else {
-                    $tablename = '<li>' . form_label('hidden display column id') . form_input(array('name' => 'displaycolumnid', 'value' => $drawsfields['column_id'] . set_value('displaycolumnid'))) . '</br><i><font color="#1A9B50">' .
-                            form_label("Write the column ID as it is from the database", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i></li>';
-                    echo $tablename;
-                }
+            $results_drawsfrom = $this->datafetcher->drawsFromColumn($id);
+            if ($results_drawsfrom->num_rows() > 0) {
+                
+                foreach ($results_drawsfrom->result_array() as $drawsfields) {
 
-                ///column name 
-                if (is_null($drawsfields['display_id']) || empty($drawsfields['display_id'])) {
+                    //check  if the table exists and columns too
+                    if (is_null($drawsfields['draws_from']) || empty($drawsfields['draws_from'])) {
 
-                    $tablename = '<li>' . form_label('Display column name') . form_input(array('name' => 'displaycolumn', 'value' => '' . set_value('displaycolumn'))) . '</br><i><font color="#1A9B50">' .
-                            form_label("Write the column name which will go to output the description as it is from the database", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i></li>';
-                    echo $tablename;
-                } else {
+                        $tablename = '<li>' . form_label('Draws form table name') . form_input(array('name' => 'tablename', 'value' => '' . set_value('tablename'))) . '</li>';
+                        echo $tablename;
+                    } else {
+                        $tablename = '<li>' . form_label('Draws form table name') . form_input(array('name' => 'tablename', 'value' => $drawsfields['draws_from'] . set_value('tablename'))) . '</li>';
+                        echo $tablename;
+                    }
+                    ///column  id
+                    if (is_null($drawsfields['column_id']) || empty($drawsfields['column_id'])) {
 
-                    $tablename = '<li>' . form_label('Display column name') . form_input(array('name' => 'displaycolumn', 'value' => $drawsfields['display_id'] . set_value('displaycolumn'))) . '</li>';
-                    echo $tablename;
+
+                        $tablename = '<li>' . form_label('hidden display column id') . form_input(array('name' => 'displaycolumnid', 'value' => '' . set_value('displaycolumnid'))) . '</li>';
+                        echo $tablename;
+                    } else {
+                        $tablename = '<li>' . form_label('hidden display column id') . form_input(array('name' => 'displaycolumnid', 'value' => $drawsfields['column_id'] . set_value('displaycolumnid'))) . '</br><i><font color="#1A9B50">' .
+                                form_label("Write the column ID as it is from the database", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i></li>';
+                        echo $tablename;
+                    }
+
+                    ///column name 
+                    if (is_null($drawsfields['display_id']) || empty($drawsfields['display_id'])) {
+
+                        $tablename = '<li>' . form_label('Display column name') . form_input(array('name' => 'displaycolumn', 'value' => '' . set_value('displaycolumn'))) . '</br><i><font color="#1A9B50">' .
+                                form_label("Write the column name which will go to output the description as it is from the database", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i></li>';
+                        echo $tablename;
+                    } else {
+
+                        $tablename = '<li>' . form_label('Display column name') . form_input(array('name' => 'displaycolumn', 'value' => $drawsfields['display_id'] . set_value('displaycolumn'))) . '</li>';
+                        echo $tablename;
+                    }
+                    /////////////////////////////////////////////////////////////////////////////
+                    ///column name for refence id 
+                    if (is_null($drawsfields['referenceid']) || empty($drawsfields['referenceid'])) {
+
+                        $tablename = '<li>' . form_label('related reference id to table two') . form_input(array('name' => 'referenceid', 'value' => '' . set_value('referenceid'))) . '</br><i><font color="#1A9B50">' .
+                                form_label("ID related to table two", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i></li>';
+                        echo $tablename;
+                    } else {
+
+                        $tablename = '<li>' . form_label('related reference id to table two') . form_input(array('name' => 'referenceid', 'value' => $drawsfields['referenceid'] . set_value('referenceid'))) . '</li>';
+                        echo $tablename;
+                    }
+
+
+                    ///joins from table
+                    if (is_null($drawsfields['draws_from_table_two']) || empty($drawsfields['draws_from_table_two'])) {
+
+                        $tablename = '<li>' . form_label('Joins from table name') . form_input(array('name' => 'table_two', 'value' => '' . set_value('draws_from_table_two'))) . '</br><i><font color="#1A9B50">' .
+                                form_label("table to join", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i></li>';
+                        echo $tablename;
+                    } else {
+
+                        $tablename = '<li>' . form_label('Joins from table name') . form_input(array('name' => 'table_two', 'value' => $drawsfields['draws_from_table_two'] . set_value('draws_from_table_two'))) . '</li>';
+                        echo $tablename;
+                    }
+
+
+
+                    ///joins table id
+                    if (is_null($drawsfields['draws_from_table_two']) || empty($drawsfields['column_id_two'])) {
+
+                        $tablename = '<li>' . form_label('hidden display column id two') . form_input(array('name' => 'displaycolumnid_two', 'value' => '' . set_value('column_id_two'))) . '</br><i><font color="#1A9B50">' .
+                                form_label("table to join", $name = "tips", $attributes = array('class' => 'tips')) . '</font></i></li>';
+                        echo $tablename;
+                    } else {
+
+                        $tablename = '<li>' . form_label('hidden display column id two') . form_input(array('name' => 'displaycolumnid_two', 'value' => $drawsfields['column_id_two'] . set_value('column_id_two'))) . '</li>';
+                        echo $tablename;
+                    }
+
+
+
+                    /////////////////////////////////////////////////////////////////////////
                 }
             }
+
+
+
+            /*             * *****************************end*************************************************************** */
+            ?>
+    <!--..-->
+    
+        <li>
+
+        <?php
+//error checking
+        if (form_error('section')) {
+            echo '<div class="error">';
+            echo form_error("section") . form_error();
+            echo '</div>';
         }
 
-
-
-        /*         * *****************************end*************************************************************** */
+        echo form_label('reference from section');
         ?>
+        <select name="section" class="section">
 
+            <option  value="" selected="">--Select section--</option>
+            <?php
+            
+            $out = '';
+            $results=$this->datafetcher->sectionsLoader();
+            
+            foreach ($results->result_array() as $section) {
+                
+                $results_secid=$this->datafetcher->sectioninfosbyid($sectionid);
+                
+                foreach ($results_secid->result_array() as $value) {
+                    
+                      if (strcasecmp($section['SectionID'], $value['section']) == 0) {
+                                $select = "selected";
+                            } else {
+                                $select = "";
+                            }
+                }
+
+                $out.='<option value="' .$select. $section['SectionID'] . set_value('section') . '">' . $section['Title'] . '</option>';
+            } echo $out;
+            ?>
+        </select> 
+
+
+    </li>
 
 
         <?php
@@ -205,10 +290,10 @@ if ($results->num_rows() > 0) {
 
 
     </ul>
-        <?php
-        echo form_fieldset_close();
-        echo form_close();
-        ?>  
+    <?php
+    echo form_fieldset_close();
+    echo form_close();
+    ?>  
 
     <?php
 } else {
@@ -216,12 +301,12 @@ if ($results->num_rows() > 0) {
     echo 'error';
 }
 ?>
-        <?php
+<?php
 //json encoding for the form validations attributes;
 
-        $array_final = json_encode($validation_arr);
-        $array_final = preg_replace('/"([a-zA-Z]+[a-zA-Z0-9]*)":/', '$1:', $array_final);
-        ?>
+$array_final = json_encode($validation_arr);
+$array_final = preg_replace('/"([a-zA-Z]+[a-zA-Z0-9]*)":/', '$1:', $array_final);
+?>
 <!--.form validation script goes here.-->
 <script type="text/javascript">
     var validator = new FormValidator('editinputs',<?php print_r($array_final); ?>, function(errors, event) {        
