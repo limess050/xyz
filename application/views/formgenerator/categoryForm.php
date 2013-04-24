@@ -411,7 +411,7 @@ if ($results->num_rows() > 0) {
                     $val['rules'] = $rulesin;
                     
                     $out = '';
-                    $tabletesults = $this->datafetcher->selecTfromTable($value['draws_from']);
+                    $tabletesults = $this->datafetcher->selecTfromTable($table=$value['draws_from'], $table_two=$value['draws_from_table_two'], $column_id_one=$value['column_id'], $column_id_two=$value['column_id_two'],$sec=$value['section'],$reference=$value['referenceid'],$title=$value['display_id']);
 
                     foreach ($tabletesults->result_array()as $rows) {
 
@@ -656,5 +656,5 @@ $array_final = preg_replace('/"([a-zA-Z]+[a-zA-Z0-9]*)":/', '$1:', $array_final)
  
 </script>
 <?php
-$this->load->view('footer');
+$this->load->view('formgenerator/footer');
 ?>

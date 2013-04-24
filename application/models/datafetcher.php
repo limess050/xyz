@@ -146,54 +146,7 @@ class Datafetcher extends CI_Model {
         return $id;
     }
 
-    ////////////////////////////////////////the discarded algorithm//////////////////////////////////////////////////////////////
-    /**
-     * @method :Insertion of pre-generated form settings
-     * @param: variables
-     * @return boolean
-     * 
-     */
-    public function insertFormSettings($selections, $section, $categories_selected) {
-
-        $count = 0;
-
-        $last_inserted_ids = array();
-        $data = array();
-
-
-        foreach ($categories_selected as $key => $value) {
-            $sectionId = $section;
-            $categoryId = $value;
-            $form_id = $this->insertFormsTitle($sectionId);
-            //getting selected check box and their corresponding values
-
-            array_push($last_inserted_ids, $form_id);
-
-            foreach ($selections as $key => $value) {
-                if (!empty($value)) {
-                    $checkBoxIndex = $key;
-                    $checkBoxSelectedValue = $value;
-
-
-                    $sql = "INSERT INTO form_tbl(form_id,category_id,section_id,no_input,input_type_id)
-              VALUES('$form_id',$categoryId,'$sectionId',$checkBoxSelectedValue,$checkBoxIndex)";
-
-                    $results = $this->db->query($sql);
-
-                    if ($results) {
-                        $count++;
-                    }
-                }
-            }
-        }
-
-
-        $data['last_inserted_ids'] = $last_inserted_ids;
-        $data['results'] = $count;
-
-        return $data;
-    }
-
+  
     /////////////////////////////////////////end////////////////////////////////////////////// 
     /**
      * @method :get last inserted form
@@ -258,7 +211,7 @@ class Datafetcher extends CI_Model {
      * @return results
      * 
      */
-    public function loadSubsection($id,$table) {
+    public function loadSubsection($id, $table) {
 
         $sql_new = "select distinct categories.Title as categoryTitle,CategoryID,category_id from $table,categories
         where categories.CategoryID=$table.category_id and
@@ -269,7 +222,7 @@ class Datafetcher extends CI_Model {
 
     /*     * load section name and id for sections with no subsections */
 
-    public function loadsection($id,$table) {
+    public function loadsection($id, $table) {
 
         $sql = "select distinct categories.Title as categoryTitle,categories.CategoryID as CategoryID from $table,categories where
           $table.sections_without_subsections=categories.SectionID and
@@ -287,7 +240,7 @@ class Datafetcher extends CI_Model {
      * @return results
      * 
      */
-    public function categoryDetails($id,$table) {
+    public function categoryDetails($id, $table) {
         $data = array();
         $sql = "SELECT *
          FROM categories, $table, input_type_tbl
@@ -296,24 +249,21 @@ class Datafetcher extends CI_Model {
           AND $table.category_id ='$id'
           ORDER BY displayOrder ASC";
         $results = $this->db->query($sql);
-        
-        if($results){
-            
-             foreach ($results->result_array() as $value) {
 
-            $category_name = $value['Title'];
-            $category_id = $value['CategoryID'];
-        }
-        $data['results'] = $results;
-        $data['catid'] = $category_id;
-        $data['category'] = $category_name;
-        return $data;
-            
-        }else{
-            return $data['results']=FALSE;
-        }
+        if ($results) {
 
-       
+            foreach ($results->result_array() as $value) {
+
+                $category_name = $value['Title'];
+                $category_id = $value['CategoryID'];
+            }
+            $data['results'] = $results;
+            $data['catid'] = $category_id;
+            $data['category'] = $category_name;
+            return $data;
+        } else {
+            return $data['results'] = FALSE;
+        }
     }
 
     /**
@@ -322,7 +272,7 @@ class Datafetcher extends CI_Model {
      * @return results
      * 
      */
-    public function subcategoryDetails($id,$table) {
+    public function subcategoryDetails($id, $table) {
         $data = array();
         $category_name = '';
         $sql = "select*,categories.Title as CategoryName from sections,$table,categories,input_type_tbl where 
@@ -385,7 +335,7 @@ class Datafetcher extends CI_Model {
      * 
      * 
      */
-    public function sectionCategory($sectionid,$table) {
+    public function sectionCategory($sectionid, $table) {
 
         $sql_new = "select distinct sections_without_subsections,Title,$table.category_id as category_id,categories.CategoryID as CategoryID from categories,$table 
               where 
@@ -404,7 +354,7 @@ class Datafetcher extends CI_Model {
      * @return results
      * 
      */
-    public function loadsectionFromcategory($cat_id,$table) {
+    public function loadsectionFromcategory($cat_id, $table) {
 
         $sql = "select distinct sections.SectionID as SecID,sections.Title as sectionTitle from $table,sections,categories
           where 
@@ -414,7 +364,7 @@ class Datafetcher extends CI_Model {
           ";
         $results = $this->db->query($sql);
 
-       // echo $this->db->last_query();
+        // echo $this->db->last_query();
         return $results;
     }
 
@@ -484,21 +434,37 @@ class Datafetcher extends CI_Model {
      * 
      * 
      */
-    public function addFormInputsTypes($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn) {
+    public function addFormInputsTypes($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn,$tabletwo,$tablecolumnid_two,$section,$referenceid) {
         ///insert validation rules in a db
         //check if form field type is select
         if (strcasecmp($formfieldtype, "select") == 0) {
             $columnid = $tablecolumnid;
             $displayid = $tabledisplaycolumn;
             $table = $tablename;
+            
+            ///check if it is a join select 
+            if(!empty($tabletwo)&& !empty($tablecolumnid_two)){
+                
+                $table_2=$tabletwo;
+                $column_2=$tablecolumnid_two;
+                $secid=$section;
+                $reference=$referenceid;
+                
+            }else{
+                $table_2='';
+                $column_2='';
+                $secid='';
+                $reference='';
+            }
+            
         } else {
             $columnid = '';
             $displayid = '';
             $table = '';
         }
 
-        $sql = "insert into input_type_tbl(input_name,input_type,max_no_inputs,fieldtypename,draws_from,column_id,display_id)
-        values('$inputname','$formfieldtype','$max_no_inputs','$fieldtypename','$table','$columnid','$displayid')";
+        $sql = "insert into input_type_tbl(input_name,input_type,max_no_inputs,fieldtypename,draws_from,column_id,display_id,draws_from_table_two,column_id_two,section,referenceid)
+        values('$inputname','$formfieldtype','$max_no_inputs','$fieldtypename','$table','$columnid','$displayid','$table_2','$column_2','$secid','$reference')";
         $results = $this->db->query($sql);
         $lastid = $this->db->insert_id($results);
         if ($results) {
@@ -539,19 +505,48 @@ class Datafetcher extends CI_Model {
      * @return boolean
      * 
      */
-    public function updateInputsTypesDetails($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn, $id) {
+    public function updateInputsTypesDetails($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn, $id,$tabletwo,$tablecolumnid_two,$section,$referenceid) {
 
         if (strcasecmp($formfieldtype, "select") == 0) {
             $columnid = $tablecolumnid;
             $displayid = $tabledisplaycolumn;
             $table = $tablename;
+            
+               ///check if it is a join select 
+            if(!empty($tabletwo)&& !empty($tablecolumnid_two)){
+                
+                $table_2=$tabletwo;
+                $column_2=$tablecolumnid_two;
+                $secid=$section;
+                $reference=$referenceid;
+                
+            }else{
+                $table_2='';
+                $column_2='';
+                $secid='';
+                $reference='';
+            }
+            
+            ////---------end------------
+            
         } else {
             $columnid = '';
             $displayid = '';
             $table = '';
         }
 
-        $sql = "update input_type_tbl set input_name='$fieldtypename',input_type='$formfieldtype',draws_from='$tablename',max_no_inputs='$max_no_inputs',fieldtypename='$fieldtypename',column_id='$tablecolumnid',display_id='$tabledisplaycolumn' where input_id='$id'";
+        $sql = "update input_type_tbl set input_name='$fieldtypename',
+                                      input_type='$formfieldtype',
+                                      draws_from='$tablename',
+                                      max_no_inputs='$max_no_inputs',
+                                      fieldtypename='$fieldtypename',
+                                      column_id='$tablecolumnid',
+                                      display_id='$tabledisplaycolumn' 
+                                      draws_from_table_two='$table_2',
+                                      column_id_two='$column_2',
+                                      section='$secid',
+                                      referenceid='$reference',
+                                      where input_id='$id'";
         $results = $this->db->query($sql);
 
         if ($results) {
@@ -624,8 +619,25 @@ class Datafetcher extends CI_Model {
      * 
      * 
      */
-    public function selecTfromTable($table) {
-        $sql = "select * from $table";
+    public function selecTfromTable($table, $table_two, $column_id_one, $column_id_two,$section,$reference,$Title) {
+        //------start--------------
+        if (!empty($table_two)||  !is_null($table_two)) {
+
+            $sqltable = ','.$table_two;
+            $distinctchecker = "distinct $table.$Title, $table.$column_id_one";
+            $append = "where 
+                     $table.$reference=$table_two.$column_id_two and
+                     $table_two.$column_id_two='$section' 
+                      ";
+            
+        } else {
+            $sqltable = '';
+            $distinctchecker = '*';
+            $append='';
+        }
+        //-----end---------
+        $sql = "select $distinctchecker from $table $sqltable $append";
+
         $results = $this->db->query($sql);
         return $results;
     }
@@ -649,67 +661,65 @@ class Datafetcher extends CI_Model {
      * 
      */
     public function drawsFromColumn($id) {
-        $sql = "select draws_from,column_id,display_id from input_type_tbl where input_type_tbl.input_id='$id'";
+        $sql = "select * from input_type_tbl where input_type_tbl.input_id='$id'";
         $results = $this->db->query($sql);
         return $results;
     }
-    
-    /***
+
+    /*     * *
      * @method :load input to be displayed on select dropdowns
      * @param :none
      * @return results
      * 
      */
+
     public function loadSelectInputTypes() {
-        $sql="select* from selectinputtypes";
-        $results=$this->db->query($sql);
+        $sql = "select* from selectinputtypes";
+        $results = $this->db->query($sql);
         return $results;
-        
     }
-     /***
+
+    /*     * *
      * @method :load input to be displayed on select dropdowns
      * @param :none
      * @return results
      * 
      */
+
     public function loadSelectInputTypesByid($id) {
-        $sql="select* from input_type_tbl where input_id='$id'";
-        $results=$this->db->query($sql);
+        $sql = "select* from input_type_tbl where input_id='$id'";
+        $results = $this->db->query($sql);
         return $results;
-        
     }
-    
-    
+
     //april 10,2013 model function for delete forms
-    
-    
-         /**
-    * @method load search form
-    * @param none
-    * @return results
-    */
-   public function loadofsearchformscreatedsections() {
-       $sql="select distinct section_name,section_tbl.section_id from search_forms,categories,section_tbl where
+
+    /**
+     * @method load search form
+     * @param none
+     * @return results
+     */
+    public function loadofsearchformscreatedsections() {
+        $sql = "select distinct section_name,section_tbl.section_id from search_forms,categories,section_tbl where
              search_forms.category_id=categories.cat_id and
              section_tbl.section_id=categories.section_id
              ";
-       $results=$this->db->query($sql);
-       return $results;
-   }
-    
-    
-     /**
+        $results = $this->db->query($sql);
+        return $results;
+    }
+
+    /**
      * @method: delete search forms created
      * @param id
      * @return results
      * 
      */
-    public function deletesearchforms($id,$table) {
-       $sql="delete from $table where $table.category_id='$id'"; 
-       $results=$this->db->query($sql);
-       return $results;
+    public function deletesearchforms($id, $table) {
+        $sql = "delete from $table where $table.category_id='$id'";
+        $results = $this->db->query($sql);
+        return $results;
     }
-    
+
     /**
      * @method : insert inputs to be appeared on a select dropdown
      * @param none
@@ -717,43 +727,47 @@ class Datafetcher extends CI_Model {
      * 
      */
     public function insertinputsforselect($param) {
-      $sql="insert into selectinputtypes (selectinputtypes) values('$param')"; 
-      $results=$this->db->query($sql);
-      return $results;
+        $sql = "insert into selectinputtypes (selectinputtypes) values('$param')";
+        $results = $this->db->query($sql);
+        return $results;
     }
+
     /**
-     *@method : update input type to appear on select dropdown
-     *@param id ,input type name 
+     * @method : update input type to appear on select dropdown
+     * @param id ,input type name 
      * @return results
      * 
      *  
-    **/
-  public function updateinputtypetoappearonselect($id,$name) {
-      $sql="update  selectinputtypes set selectinputtypes='$name' where selectinputtypes.selectinputtypes_id='$id'";
-      $results=$this->db->query($sql);
-      return $results;
-  }
-  /**
-   * @method delete the input type to appear on select
-   */
-  public function deleteinputtypeforselect($id) {
-      $sql="delete from selectinputtypes where selectinputtypes_id='$id'";
-      $results=$this->db->query($sql);
-      return $results;
-  }
-  /**
-   * @method "select details for the select input 
-   * @param id
-   * @return results
-   */
-  public function selectsdetails($id) {
-      $sql="select * from selectinputtypes where selectinputtypes.selectinputtypes_id='$id'";
-      $results=$this->db->query($sql);
-      return $results;
-  }
+     * */
+    public function updateinputtypetoappearonselect($id, $name) {
+        $sql = "update  selectinputtypes set selectinputtypes='$name' where selectinputtypes.selectinputtypes_id='$id'";
+        $results = $this->db->query($sql);
+        return $results;
+    }
+
+    /**
+     * @method delete the input type to appear on select
+     */
+    public function deleteinputtypeforselect($id) {
+        $sql = "delete from selectinputtypes where selectinputtypes_id='$id'";
+        $results = $this->db->query($sql);
+        return $results;
+    }
+
+    /**
+     * @method "select details for the select input 
+     * @param id
+     * @return results
+     */
+    public function selectsdetails($id) {
+        $sql = "select * from selectinputtypes where selectinputtypes.selectinputtypes_id='$id'";
+        $results = $this->db->query($sql);
+        return $results;
+    }
+
 ////////////////////////////////////////////////friday ,19th 2013////////////////////////////////////////////////////////////
 
-   /**
+    /**
      * @method :load a specific section
      * @param :Parent section Id
      * @return results 
@@ -769,28 +783,27 @@ class Datafetcher extends CI_Model {
         } else {
             return FALSE;
         }
-
     }
-    
-    
+
     //load section from  category
     public function loadparentsectioninsearchforms() {
-        $sql="select distinct search_forms.parentsectionid,sections.Title as SectionTitle from search_forms,sections
+        $sql = "select distinct search_forms.parentsectionid,sections.Title as SectionTitle from search_forms,sections
             where
             category_id='' and
             subsectionid='' and
             search_forms.parentsectionid !='' and
             sections.SectionID=search_forms.parentsectionid";
-        $results=$this->db->query($sql);  
+        $results = $this->db->query($sql);
         return $results;
     }
+
     /**
      * @method  :load section if category is empty and subsection is not empty
      * @param 
      * @return results 
      */
     public function loadparentsectionandsubection() {
-         $sql="select distinct search_forms.parentsectionid,subsectionid,sections.Title as subsections from sections,search_forms 
+        $sql = "select distinct search_forms.parentsectionid,subsectionid,sections.Title as subsections from sections,search_forms 
             where
             subsectionid !=''and
             category_id ='' and
@@ -798,59 +811,59 @@ class Datafetcher extends CI_Model {
             sections.ParentSectionID=search_forms.parentsectionid and
             search_forms.subsectionid=sections.SectionID
             ";
-        $results=$this->db->query($sql);  
+        $results = $this->db->query($sql);
         return $results;
     }
-    
-    
-  /**
-   * @method :load distinct section for subsection selected
-   * @param subsection id
-   * @return results
-   */  
-  public function loaddistinctsectionfromsubsec($id) {
-      $sql="select distinct sections.Title as subsectionname from sections where
+
+    /**
+     * @method :load distinct section for subsection selected
+     * @param subsection id
+     * @return results
+     */
+    public function loaddistinctsectionfromsubsec($id) {
+        $sql = "select distinct sections.Title as subsectionname from sections where
           sections.SectionID='$id' and 
           sections.ParentSectionID is null";
-      $results=$this->db->query($sql);
-      $data=array();
-      foreach ($results->result_array() as $value) {
-          
-      }
-      return $data['sectionname']=$value['subsectionname'];
-  }
+        $results = $this->db->query($sql);
+        $data = array();
+        foreach ($results->result_array() as $value) {
+            
+        }
+        return $data['sectionname'] = $value['subsectionname'];
+    }
 
-  /**
+    /**
      * @method load parent section from empty subsection and empty category
      * @param none
      * @return results 
      * 
      */
-    public function selectsearchforms($table,$id) {
-        
-          $data = array();
+    public function selectsearchforms($table, $id) {
+
+        $data = array();
 
         $sql = "SELECT *
          FROM $table, input_type_tbl
           WHERE input_type_tbl.input_id = $table.input_type_id
           AND $table.parentsectionid ='$id'
           ORDER BY displayOrder ASC";
-       
-         $results = $this->db->query($sql);
+
+        $results = $this->db->query($sql);
 
         if ($results->num_rows() > 0) {
 
-           $data['results'] = $results;
-           
+            $data['results'] = $results;
+
             return $data;
         } else {
             return $data['results'] = FALSE;
         }
     }
+
     ////////////////////////////////////////////////
-     public function selectsearchformswithsectionandsubsec($table,$parentsecid,$subsecid) {
-        
-          $data = array();
+    public function selectsearchformswithsectionandsubsec($table, $parentsecid, $subsecid) {
+
+        $data = array();
 
         $sql = "SELECT distinct *
          FROM $table, input_type_tbl,sections
@@ -860,18 +873,14 @@ class Datafetcher extends CI_Model {
            $table.subsectionid='$subsecid' 
           ORDER BY displayOrder ASC";
 
-         $results = $this->db->query($sql);
-         return $results;
-       
+        $results = $this->db->query($sql);
+        return $results;
     }
-    
-    
-    
-    
+
     /////////////////here after lunch/////////////////////////
-    
+
     public function subsectionsforsearchform($sectionid) {
-        
+
         $sql = "select distinct categories.SectionID,subsections,categories.Title as cat_name,categories.CategoryID as cat_id,sections.subsections_id from subsections,search_forms,categories where
                 categories.SectionID='$sectionid' and
                  search_forms.category_id ='' and   
@@ -883,14 +892,14 @@ class Datafetcher extends CI_Model {
     }
 
 ///////////////////////////////////////////////////
-      /**
+    /**
      * @method load parent section from empty subsection and empty category
      * @param none
      * @return results 
      * 
      */
-    public function selectsearchformswithsectionandsubsection($table,$parentid,$subsectionid) {
-        
+    public function selectsearchformswithsectionandsubsection($table, $parentid, $subsectionid) {
+
         $data = array();
 
         $sql = "SELECT *
@@ -899,8 +908,8 @@ class Datafetcher extends CI_Model {
           AND $table.parentsectionid ='$parentid' AND
            $table.subsectionid='$subsectionid'
           ORDER BY displayOrder ASC";
-         $results = $this->db->query($sql);
-         return $results;
+        $results = $this->db->query($sql);
+        return $results;
 
 //        if ($results->num_rows() > 0) {
 //
@@ -911,9 +920,8 @@ class Datafetcher extends CI_Model {
 //            return $data['results'] = FALSE;
 //        }
     }
-    
-    
-          /**
+
+    /**
      * @method: delete search forms created with section only as an attribute
      * @param id
      * @return results
@@ -926,14 +934,14 @@ class Datafetcher extends CI_Model {
         $results = $this->db->query($sql);
         return $results;
     }
-    
-        /**
+
+    /**
      * @method: delete search forms created with section only as an attribute
      * @param id
      * @return results
      * 
      */
-    public function deletesearchformswithsectionsubsection($parentsectionid, $table,$subsection) {
+    public function deletesearchformswithsectionsubsection($parentsectionid, $table, $subsection) {
         $sql = "delete from $table where $table.parentsectionid='$parentsectionid'AND 
                   $table.subsectionid='$subsection'";
         $results = $this->db->query($sql);
@@ -941,6 +949,19 @@ class Datafetcher extends CI_Model {
     }
     
     
+    /**
+     * 
+     * @method load the section id for input form
+     * @param :section id
+     * @return results
+     * 
+     */
+    public function sectioninfosbyid($id) {
+          $sql = "select * from sections where ParentSectionID is null and SectionID='$id'";
+          $results = $this->db->query($sql);
+          return $results;
+    }
+
 /////////////////////////////////////////////////////--ends here///////////////////
 }
 
