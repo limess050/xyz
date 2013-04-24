@@ -770,10 +770,9 @@ class Listings extends CI_Controller {
                 break;
 
 
-<<<<<<< HEAD
-			break;
 
-			case 5:
+
+			case '5':
 
 			$header['Meta']->BrowserTitle = $data['listing']->ListingTitle;  
 			switch ($data['listing']->ListingTypeID) {
@@ -785,6 +784,18 @@ class Listings extends CI_Controller {
 				case '8':
 					$header['Meta']->BrowserTitle .= ' For Sale in ';
 					break;
+
+				case '55':
+                if ($data['listing']->ListingTypeID == 3) {
+                    $header['Meta']->BrowserTitle = $data['listing']->ListingTitle . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified';
+                    $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+                } else {
+                    $header['Meta']->BrowserTitle = $data['listing']->VehicleYear . ' ' . $data['listing']->Make . ' ' . $data['listing']->ModelOther . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified';
+                    $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+                }
+
+                break;
+       		 }
 				
 				default:
 					# code...
@@ -795,66 +806,9 @@ class Listings extends CI_Controller {
 			$header['Meta']->MetaDescr =  $header['Meta']->BrowserTitle;
 			
 			break;
-		}
-=======
-            case '55':
->>>>>>> 1ebe939cdc146b46c2023c1cfd8204ad6ae2d4c8
-
-                if ($data['listing']->ListingTypeID == 3) {
-                    $header['Meta']->BrowserTitle = $data['listing']->ListingTitle . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified';
-                    $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
-                } else {
-                    $header['Meta']->BrowserTitle = $data['listing']->VehicleYear . ' ' . $data['listing']->Make . ' ' . $data['listing']->ModelOther . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified';
-                    $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
-                }
-
-                break;
-        }
-
-<<<<<<< HEAD
-			case '1':
-				$this->load->view('businesses-detail-page',$data);
-				break;
-			
-			case '8':
-				$this->load->view('job-detail-page',$data);
-				break;
-
-			case '55':
-				$this->load->view('cars-detail-page',$data);
-				break;
-
-			case '5':
-				$this->load->view('realestate-detail-page',$data);
-				break;
-
-			case '4':
-			case '59':
-				$this->load->view('classifieds-landing-page',$data);
-				break;
-
-			default:
-				# code...
-				break;
-		}
-		$this->load->view('right-sidetower');
-		$this->load->view('footer');
-
-	}
-
-	public function ELP($res)
-	{
-		$listingObj=$this->listingsmodel->getsinglelisting($this->input->get('ListingID'));
 		
-		$listing = $listingObj->row();
-=======
-        $this->load->view('header', $header);
-        $this->load->view('menu');
-        if (isset($leftSide))
-            $this->load->view('left-sidetower', $leftSide);
-        else
-            $this->load->view('left-sidetower');
->>>>>>> 1ebe939cdc146b46c2023c1cfd8204ad6ae2d4c8
+
+            
 
         switch ($data['listing']->ParentSectionID) {
 
@@ -883,6 +837,7 @@ class Listings extends CI_Controller {
         $this->load->view('right-sidetower');
         $this->load->view('footer');
     }
+
 
     public function ELP($res) {
         $listingObj = $this->listingsmodel->getsinglelisting($this->input->get('ListingID'));
