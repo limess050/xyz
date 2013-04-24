@@ -30,11 +30,11 @@ function search(SearchTerm,ID)
 </script>
 <div id="columncontent">
   <div id="container">
-    <h1 align="center"><?php echo $catMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
+    <h1 align="center"><?php echo $catMeta->catH1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div id="welcometext" align="left"> 
 	
 		<!--Breadcrumbs-->
-      <p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p>
+      <p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $catMeta->secTitle; ?></a> &gt; <a href="#"><?php echo $catMeta->catH1Text ?></a></p>
 
 <!--Choose a location-->
 	<div class="list">
@@ -56,8 +56,10 @@ function search(SearchTerm,ID)
       <div>
   	<div  class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div></div>
 <!--h2 title and button-->
-  	<div class="list pullleft"  clear: none;">
-      <h2 style = "width:250px;"><br />Featured:</h2>
+  	<div class="list pullleft"  >
+  		<?php if($Featured_listings_result_obj->num_rows() != 0): ?>
+     		 <h2 style = "width:250px;"><br />Featured:</h2>
+  		<?php endif; ?>
 
        <p class="pullright">
 	       	<img src="images/sitewide/button_post.png" alt="post a listing" />
@@ -77,21 +79,22 @@ function search(SearchTerm,ID)
     
     <!--Business & Categories Landing Page featured-->
     <div class="categories">
-    	
     <?php $i=0; ?>
+    <?php if($Featured_listings_result_obj->num_rows() != 0): ?>	
 	<?php foreach($Featured_listings_result_obj->result() as $Listing): ?>
 		<?php if($Listing->HasExpandedListing): ?>
 	  <div><a href="<?php echo $Listing->ListingURL; ?>">
 	  	<img src="http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $Listing->LogoImage ?>" alt="<?php echo $Listing->ListingTitle ?>"  /></a><br /><a href="<?php echo url_title(str_replace("&", "And",$Listing->ListingTitle)); ?>"> <span class="smallcategory"><?php echo $Listing->ListingTitle ?></a><br />
-	      </span><span class="smallcategorynormal"><?php //echo trim($Listing->Location); ?><?php //if($Listing->LocationOther != ''): ?><?php //echo ', ' . $Listing->LocationOther; ?><?php //endif; ?>
+	      </span><span class="smallcategorynormal"><?php echo trim($Listing->Location); ?><?php if($Listing->LocationOther != ''): ?><?php echo ', ' . $Listing->LocationOther; ?><?php endif; ?>
 	  	</span>
 	      </h2>
 	    </div>
 			<?php $i++; ?>
 		<?php endif; ?>
 	<?php endforeach; ?>
-
+	<?php endif; ?>
 	
+		
 	<?php if($i%3 != 0): ?>
 	
 	<?php if(($i+1)%3 == 0): ?>
@@ -112,12 +115,13 @@ function search(SearchTerm,ID)
       <div><h3>All:</h3>
       <ul>
       <?php foreach($Listings_result_obj->result() as $Listing): ?>
+      <li> 
     	<a href="<?php echo url_title($Listing->ListingTitle); ?>">
-    	<span class="smallcategory"><?php echo $Listing->ListingTitle; ?></span></a>
-     <li> 
+    	<span class="smallcategory"><?php echo $Listing->ListingTitle; ?></span></a><br>
+     
     	
-     		<?php //echo trim($Listing->Location); ?><?php //if($Listing->LocationOther != ''): ?><?php //echo ', ' . $Listing->LocationOther; ?>
-			<?php //endif; ?>
+     		<?php echo trim($Listing->Location); ?><?php if($Listing->LocationOther != ''): ?><?php echo ', ' . $Listing->LocationOther; ?>
+			<?php endif; ?>
 
      		</li>
       <?php endforeach; ?>

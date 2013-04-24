@@ -662,8 +662,13 @@ class Listings extends CI_Controller {
 	function category($categoryURLSafeTitleDashed,$leftSide='')
 	{
 		$data['locations'] = $this->listingsmodel->getTables('locations');
-		$this->db->where('upper(URLSafeTitleDashed)', strtoupper($categoryURLSafeTitleDashed),true);
-		$category=$this->db->get('categories')->row();
+		$this->db->where('upper(categories.URLSafeTitleDashed)', strtoupper($categoryURLSafeTitleDashed),true);
+
+		$this->db->select('categories.Title as catTitle, categories.H1Text as catH1Text, CategoryID, categories.ParentSectionID, categories.SectionID, sections.Title secTitle');
+		$this->db->from('categories');
+		$this->db->join('sections', 'categories.ParentSectionID = sections.SectionID');
+		$category=$this->db->get()->row();
+
 		$header['Meta']=$data['catMeta'] = $category;
 
 		$categoryDetails=$this->listingsmodel->getCategory($category->CategoryID);

@@ -22,6 +22,7 @@
     </div>
   <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
+<img src="images/categories/detailpage_shareit.jpg" align="top" class = "pullleft" />
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>
@@ -32,7 +33,7 @@
 <a class="addthis_button_linkedin"></a>
 <a class="addthis_button_blogger"></a>
 <a class="addthis_button_compact"></a><!--<a class="addthis_counter addthis_bubble_style"></a>-->
-<img src="images/categories/detailpage_shareit.jpg" align="top"/></div>
+</div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
 <!-- AddThis Button END -->
  <!--BUSINESS DETAIL COMPLETE--><div class="listlogo"><h2>
@@ -62,7 +63,7 @@
           <?php endif; ?>
 
           <strong>Date Listed:</strong> <?php echo date('d-m-Y',strtotime($listing->DateListed)); ?><br /><Br />
-          <?php echo $listing->ShortDescr; ?>
+          <?php echo strip_tags($listing->ShortDescr,'<p><b><strong>'); ?>
 
           <ul>
   

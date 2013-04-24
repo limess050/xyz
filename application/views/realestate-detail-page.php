@@ -36,7 +36,7 @@
     </p>
     </div>
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
- <img  src="images/categories/detailpage_shareit.jpg" /> <!-- AddThis Button BEGIN -->
+ <img  src="images/categories/detailpage_shareit.jpg" align='top' class ="pullleft" /> <!-- AddThis Button BEGIN -->
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>
