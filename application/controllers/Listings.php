@@ -910,6 +910,29 @@ class Listings extends CI_Controller {
 			}
 
 			break;
+
+			case 5:
+
+			$header['Meta']->BrowserTitle = $data['listing']->ListingTitle;  
+			switch ($data['listing']->ListingTypeID) {
+				case '7':
+				case '6':
+					$header['Meta']->BrowserTitle .= ' For Rent in ';
+					break;	
+
+				case '8':
+					$header['Meta']->BrowserTitle .= ' For Sale in ';
+					break;
+				
+				default:
+					# code...
+					break;
+			}
+
+			$header['Meta']->BrowserTitle .= $data['listing']->Location . ', Tanzania' ;
+			$header['Meta']->MetaDescr =  $header['Meta']->BrowserTitle;
+			
+			break;
 		}
 
 		$this->load->view('header',$header);
@@ -934,6 +957,9 @@ class Listings extends CI_Controller {
 				break;
 
 			case '5':
+				$this->load->view('realestate-detail-page',$data);
+				break;
+
 			case '4':
 			case '59':
 				$this->load->view('classifieds-landing-page',$data);

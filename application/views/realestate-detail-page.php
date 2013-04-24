@@ -1,13 +1,28 @@
 <?php
-  if($listing->PriceUS)
-    $price = '$US ' . number_format($listing->PriceUS);
-  else
-    $price = 'TZS ' . number_format($listing->PriceTZS);
+    if($listing->ListingTypeID == 6 or $listing->ListingTypeID==7)
+    {
+        $price = '<strong>Rent: </strong>';
 
-  if($listing->ListingTypeID==3)
-       $ListingTitle = $listing->ListingTitle;
-     else
-      $ListingTitle = $listing->VehicleYear . ' ' . $listing->Make . ' ' . $listing->ModelOther;
+        if(isset($listing->RentUS))
+          $price .= '$US ' . number_format($listing->RentUS);
+        else
+          $price .= 'TZS ' . number_format($listing->RentTZS);
+
+        $price .= '/' . $listing->Term;
+    }
+    else
+    {
+        $price = '<strong>Price: </strong>';
+        if(isset($listing->PriceUS))
+          $price .= '$US ' . number_format($listing->PriceUS);
+        else
+          $price .= 'TZS ' . number_format($listing->PriceTZS);    
+
+    }  
+
+
+   $ListingTitle = $listing->ListingTitle;
+   
 
 ?>
 
@@ -20,8 +35,8 @@
        
     </p>
     </div>
- <img src="images/categories/detailpage_shareit.jpg" /> <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_32x32_style" align="right">
+ <img  src="images/categories/detailpage_shareit.jpg" /> <!-- AddThis Button BEGIN -->
 <a class="addthis_button_email"></a>
 <a class="addthis_button_print"></a>
 <a class="addthis_button_facebook"></a>
@@ -44,32 +59,42 @@
           </h2>
 <div class="list" align="left">
   
-          <h5>          About <?php echo $ListingTitle; ?>: </h5>
+          <h5>About <?php echo $ListingTitle; ?>: </h5>
           <br>
 
-          <strong>Price:</strong> <?php echo $price; ?><br />
+         <b>Area:</b> <?php echo $listing->Location; ?><br />
 
-          <?php if($listing->Kilometers): ?>
-            <strong>Kilometers:</strong> <?php echo number_format($listing->Kilometers); ?><br />
+         <?php if($listing->LocationText): ?>
+            <b>Directions:</b> <?php echo strip_tags($listing->LocationText); ?><br />
+         <?php endif; ?>
+
+
+          <?php echo $price; ?><br />
+
+          <?php if($listing->Bedrooms): ?>
+            <strong>Bedrooms:</strong> <?php echo number_format($listing->Bedrooms); ?><br />
           <?php endif ?>
 
-          <?php if($listing->Transmission): ?>
-             <strong>Transmission:</strong> <?php echo $listing->Transmission; ?><br />
+          <?php if($listing->Bathrooms): ?>
+             <strong>Bathrooms:</strong> <?php echo $listing->Bathrooms; ?><br />
           <?php endif ?>
           
-          <?php if($listing->FourWheelDrive): ?>
-            <strong>Four Wheel Drive</strong> <br />
+          <?php if($listing->Amenities): ?>
+             <strong>Amenities:</strong> <?php echo $listing->Amenities; ?>
+            <?php if($listing->AmenityOther): ?>
+              <?php echo ', ' . $listing->AmenityOther;  ?>
+            <?php endif; ?>
+             <br />
           <?php endif; ?>
-
+          
           <strong>Date Listed:</strong> <?php echo date('d-m-Y',strtotime($listing->DateListed)); ?><br /><Br />
-          <?php echo $listing->ShortDescr; ?>
+          <?php echo strip_tags($listing->ShortDescr,'<p><b><strong>'); ?>
 
           <ul>
   
 
       <li>
         <h5>Contacts:</h5><br />
-          <b>Location:</b> <?php echo $listing->Location; ?> <br />
             <?php if($listing->PublicPhone): ?>
               <b>Tel:</b> <?php echo $listing->PublicPhone; ?><br />
             <?php endif; ?>            
@@ -97,8 +122,8 @@
 
 </li>
 <?php if($listing->PublicEmail): ?>
-<li><img src="images/sitewide/button_send.png" width="127" height="36" /></li>
-<?php endif; ?>  
+<li><img src="images/sitewide/button_send.png" width="127" height="36" /></li> 
+<?php endif; ?> 
 </ul>
 
 </div>
@@ -120,7 +145,6 @@
  
 
 
-      
 
        
 

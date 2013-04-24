@@ -401,7 +401,11 @@ class listingsModel extends CI_Model {
 		(Select GROUP_CONCAT(FileName SEPARATOR ',')
 		 	From listingimages 
 			Where ListingID=L.ListingID
-		 	Order By OrderNum, ListingImageID) as ListingImages
+		 	Order By OrderNum, ListingImageID) as ListingImages, 
+		(Select GROUP_CONCAT(Title SEPARATOR ', ')
+			From listingamenities la inner join amenities a on la.AmenityID = a.AmenityID 
+			where la.ListingID = L.ListingID
+			) as Amenities 
 		From parentsectionsview PS 
 		Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
 		Inner Join categories C  on S.SectionID=C.SectionID
