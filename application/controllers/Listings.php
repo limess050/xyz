@@ -728,6 +728,12 @@ class Listings extends CI_Controller {
 
         $data['listing'] = $listingObj->row();
 
+        
+        if(!$data['listing']->ParentSectionID)
+            $data['listing']->ParentSectionID = 4;
+
+
+
         switch ($data['listing']->ParentSectionID) {
 
             case '1':
@@ -774,19 +780,25 @@ class Listings extends CI_Controller {
 
 			case '5':
 
-			$header['Meta']->BrowserTitle = $data['listing']->ListingTitle;  
-			switch ($data['listing']->ListingTypeID) {
-				case '7':
-				case '6':
-					$header['Meta']->BrowserTitle .= ' For Rent in ';
-					break;	
+    			$header['Meta']->BrowserTitle = $data['listing']->ListingTitle;  
+        			switch ($data['listing']->ListingTypeID) {
+        				case '7':
+        				case '6':
+        					$header['Meta']->BrowserTitle .= ' For Rent in ';
+        					break;	
 
-				case '8':
-					$header['Meta']->BrowserTitle .= ' For Sale in ';
-					break;
+        				case '8':
+        					$header['Meta']->BrowserTitle .= ' For Sale in ';
+        					break;
 
-				case '55':
-				
+                    $header['Meta']->BrowserTitle .= $data['listing']->Location . ', Tanzania' ;
+                    $header['Meta']->MetaDescr .=  $header['Meta']->BrowserTitle;
+
+    				
+           		 }
+
+             case '55':
+                
                 if ($data['listing']->ListingTypeID == 3) {
                     $header['Meta']->BrowserTitle = $data['listing']->ListingTitle . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified';
                     $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
@@ -796,17 +808,22 @@ class Listings extends CI_Controller {
                 }
 
                 break;
-       		 }
+
+            case '4':
+
+                $header['Meta']->BrowserTitle = $data['listing']->ListingTitle . ' For Sale in ' . $data['listing']->Location . ', Tanzania';
+                $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
+
+                break;
 				
 				default:
-					# code...
+					echo $data['listing']->ParentSectionID;
 					break;
 			}
 
-			$header['Meta']->BrowserTitle .= $data['listing']->Location . ', Tanzania' ;
-			$header['Meta']->MetaDescr .=  $header['Meta']->BrowserTitle;
 
-     	  $this->load->view('header', $header);
+
+     	$this->load->view('header', $header);
         $this->load->view('menu');
         if (isset($left_side))
             $this->load->view('left-sidetower', $left_side);
@@ -829,9 +846,12 @@ class Listings extends CI_Controller {
 
             case '5':
                 $this->load->view('realestate-detail-page', $data);
-            	break; 
+                break; 
 
             case '4':
+                $this->load->view('fsbo-detail-page', $data);
+                break;
+
             case '59':
                 $this->load->view('classifieds-landing-page', $data);
                 break;
