@@ -3,11 +3,11 @@
 				<nav id="cbp-hrmenu" class="cbp-hrmenu">
 					<ul>
 						<li>
-							<a href="<?php echo base_url(); ?>">HOME</a>
+							<a href="<?php echo base_url(); ?>">Home</a>
 							<!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="tanzania-business-directory" id="business">BUSINESS<br/> DIRECTORY</a>
+							<a href="tanzania-business-directory" id="business">Business<br/> Directory</a>
 						  <div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner">
 									<div>
@@ -100,7 +100,7 @@ The Trades & Fundis
 
 						<li>
 
-							<a href="#">TRAVEL &amp;<br/> TOURISM</a>
+							<a href="#">Travel &amp;<br/> Tourism</a>
 
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
@@ -194,7 +194,7 @@ The Trades & Fundis
 						</li>
 						<li>
 
-							<a href="#">DINING &amp;<br/> ENTERTAINMENT</a>
+							<a href="#">Dining, Arts &amp;<br/> Entertainment</a>
 
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
@@ -238,7 +238,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="Tanzania-Events-Calendar">EVENTS</a>
+							<a href="Tanzania-Events-Calendar">Events</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -281,7 +281,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
 						<li>
-							<a href="Tanzania-Jobs-And-Employment">JOBS</a>
+							<a href="Tanzania-Jobs-And-Employment">Job Vacancies</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -336,7 +336,7 @@ The Trades & Fundis
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
 						</li><li>
-							<a href="Used-Cars-Trucks-And-Boats">VEHICLES</a>
+							<a href="Used-Cars-Trucks-And-Boats">Vehicles <br/>Classifieds</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -376,7 +376,7 @@ The Trades & Fundis
 							</div><!-- /cbp-hrsub -->
 						</li>
                         <li>
-							<a href="Tanzania-Real-Estate">REAL ESTATE</a>
+							<a href="Tanzania-Real-Estate">Real Estate <br/> Classifieds</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
@@ -423,7 +423,7 @@ The Trades & Fundis
 								</div><!-- /cbp-hrsub-inner -->
 							</div><!-- /cbp-hrsub -->
 						</li><li>
-							<a href="Steals-Deals-And-Classifieds">CLASSIFIEDS</a>
+							<a href="Steals-Deals-And-Classifieds">Buy &amp; Sell <br/>Classifieds</a>
 							<div class="cbp-hrsub">
 								<div class="cbp-hrsub-inner"> 
 									<div>
