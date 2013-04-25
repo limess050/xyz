@@ -439,7 +439,7 @@ class listingsModel extends CI_Model {
 
 		AND L.ListingID = $ListingID";
 
-		echo $listingsQuery;
+		//echo $listingsQuery;
 
 		$listing= $this->db->query($listingsQuery);
 

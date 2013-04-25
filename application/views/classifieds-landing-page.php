@@ -123,7 +123,7 @@
                   <?php if(isset($pageTextObj) and $pageTextObj->num_rows() > 0): ?>
           <?php echo $pageTextObj->row()->Descr; ?><br>
         <?php endif; ?> 
-      <!--  <div class="pagination pagination-mini">
+        <div class="pagination pagination-mini">
   <ul>
     <li><a href="#">Prev</a></li>
     <li><a href="#">1</a></li>
@@ -134,7 +134,7 @@
     <li><a href="#">Next</a></li>
   </ul>
 </div>
---></div>
+</div>
   
 
 

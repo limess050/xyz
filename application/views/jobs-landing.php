@@ -74,13 +74,21 @@
         <div class="list">
       
      <div><ul>
-      <li > <?php foreach($listings->result() as $listing): ?>
+
+       <?php $i = 0; ?>
+       <?php foreach($listings->result() as $listing): ?>
+       <?php $i++; ?>
+       <li >
         <a href = "listingdetail?ListingID=<?php echo $listing->ListingID; ?>" title = "<?php echo $listing->ShortDescr; ?>"><?php echo $listing->ShortDescr; ?></a><br />
         <?php echo $listing->Location; ?><br />
         Deadline: <?php echo date('d-m-Y',strtotime($listing->Deadline)); ?>
-        <br />
-        <br />
-      <?php endforeach;?></li></ul>
+      <?php if($i==2): ?>
+      <?php $i=0; ?>
+      <div style = "clear: both; border: none; padding:0; margin:0;"></div>
+      <?php endif; ?>
+      </li>   <?php endforeach;?>
+
+    </ul>
      
   
 		</div></div>
@@ -93,7 +101,7 @@
           <?php echo $pageTextObj->row()->Descr; ?><br>
         <?php endif; ?> 
           
- <!--<div class="pagination pagination-mini">
+ <div class="pagination pagination-mini">
   <ul>
     <li><a href="#">Prev</a></li>
     <li><a href="#">1</a></li>
@@ -103,7 +111,7 @@
     <li><a href="#">5</a></li>
     <li><a href="#">Next</a></li>
   </ul>
-</div>-->
+</div>
 </div>
 
 
