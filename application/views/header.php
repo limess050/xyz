@@ -28,26 +28,22 @@
 	<script>
 
 </script>
-<link href="styles/common.css" rel="stylesheet" type="text/css" />
-
-<link rel="shortcut icon" href="../favicon.ico">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        
-        <script type="text/javascript" src="js/legacy/jquery-ui-1.8.12.custom.min.js"></script>
+		<link href="styles/common.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="../favicon.ico">
         <!-- // <script type="text/javascript" src="js/jquery.roundabout.min.js"></script> -->
 		<link rel="stylesheet" type="text/css" href="styles/megamenudefault.css" />
 		<link rel="stylesheet" type="text/css" href="styles/megamenucomponent.css" />
 <!-- 		<link href="styles/legacy/menu.css" rel="stylesheet" type="text/css" /> -->
-
 		<link href="styles/tabcontent.css" rel="stylesheet" type="text/css" />
 		<link href="styles/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
-		<link href="styles/home.css" rel="stylesheet" type="text/css" />
 		<link href="styles/style_categories.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="styles/legacy/skin.css" />
-				<link href="styles/footer.css?323343" rel="stylesheet" type="text/css" />
+		<link href="styles/footer.css?323343" rel="stylesheet" type="text/css" />
 		<link href="styles/exchange.css" rel="stylesheet" type="text/css" />
-		 <script src="js/tabcontent.js" type="text/javascript"></script>
-		 <script src="js/modernizr.custom.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/legacy/jquery-ui-1.8.12.custom.min.js"></script>
+        <script src="js/tabcontent.js" type="text/javascript"></script>
+		<script src="js/modernizr.custom.js"></script>
       <script src="js/modernizr.custom.63321.js"></script>
         <script src="js/cbpHorizontalMenu.js"></script>
 		<script>

@@ -96,7 +96,7 @@ class Listings extends CI_Controller {
                         $details = array();
 
                         // if($res->row()->ParentSectionID)
-                        // 	$details['ParentSectionID']=$res->row()->ParentSectionID;
+                        //  $details['ParentSectionID']=$res->row()->ParentSectionID;
                         if ($res->row()->SectionID) {
                             $details['ParentSectionID'] = $res->row()->SectionID;
                             $details['SectionID'] = $res->row()->SectionID;
@@ -130,7 +130,7 @@ class Listings extends CI_Controller {
                         $details = array();
 
                         // if($res->row()->ParentSectionID)
-                        // 	$details['ParentSectionID']=$res->row()->ParentSectionID;
+                        //  $details['ParentSectionID']=$res->row()->ParentSectionID;
                         if ($res->row()->SectionID) {
                             $details['ParentSectionID'] = $res->row()->SectionID;
                             $details['SectionID'] = $res->row()->SectionID;
@@ -142,7 +142,7 @@ class Listings extends CI_Controller {
                         $details = array();
 
                         // if($res->row()->ParentSectionID)
-                        // 	$details['ParentSectionID']=$res->row()->ParentSectionID;
+                        //  $details['ParentSectionID']=$res->row()->ParentSectionID;
                         if ($res->row()->SectionID) {
                             $details['ParentSectionID'] = $res->row()->SectionID;
                             $details['SectionID'] = $res->row()->SectionID;
@@ -163,59 +163,59 @@ class Listings extends CI_Controller {
             $header['Meta']->MetaDescr = 'Welcome to ZoomTanzania, where locals go to find  accurate and up-to-date business, entertainment, jobs, real estate, cars, travel and classified information.';
 
             $movieSchedulesQuery = "
-				SELECT L.Title as TheatreName, LOC.Title as Location, L.URLSafeTitle, (Select MovieImage from listingmovies as LM where L.ListingID = LM.ListingID order by OrderNum limit 1) as Flier FROM listingsview as L inner join listinglocations as LL on L.ListingID = LL.ListingID inner join locations as LOC on LL.LocationID = LOC.LocationID where L.ListingTypeID = 20 and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0";
+                SELECT L.Title as TheatreName, LOC.Title as Location, L.URLSafeTitle, (Select MovieImage from listingmovies as LM where L.ListingID = LM.ListingID order by OrderNum limit 1) as Flier FROM listingsview as L inner join listinglocations as LL on L.ListingID = LL.ListingID inner join locations as LOC on LL.LocationID = LOC.LocationID where L.ListingTypeID = 20 and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0";
 
             $data['movieSchedulesObj'] = $this->db->query($movieSchedulesQuery);
 
             $specialEventsQuery = "
-			Select L.ListingID, L.ListingTitle, L.EventStartDate, L.RecurrenceID, L.RecurrenceMonthID,
-		(Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) as StartDate, (Select Max(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) as EndDate,
-		
-		CASE WHEN (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) <= '" . CURRENT_DATE_IN_TZ . "'
-			THEN (Select Max(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) 
-			ELSE (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) 
-			END as EventSortDate,	
-		CASE WHEN RecurrenceID is NULL and (EventEndDate is null or cast(EventStartDate as char) = cast(EventEndDate as char)) THEN 1
-			WHEN RecurrenceID is NULL and (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) <= '" . CURRENT_DATE_IN_TZ . "' THEN 6 
-			WHEN RecurrenceID is null THEN 5 
-			WHEN RecurrenceID=3 THEN 2 
-			WHEN RecurrenceID=2 THEN 3 
-			WHEN RecurrenceID=1 THEN 4 
-			ELSE 10 END as EventRank,
-		
-		CASE WHEN L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "' Then 1 Else 0 END as HasExpandedListing,
-		L.ELPTypeThumbnailImage, L.ExpandedListingPDF		
-		From listingsview L 
-		Where (
-				EXISTS (SELECT ListingID FROM listingeventdays  WHERE ListingID=L.ListingID AND ListingEventDate >= '" . CURRENT_DATE_IN_TZ . "')
-				
-					)
-			
-		and (RecurrenceID  in (3,4) or RecurrenceID is null)
-		and L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "'
-		and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0 
-		Order By EventSortDate, EventRank,  L.ListingTitle";
+            Select L.ListingID, L.ListingTitle, L.EventStartDate, L.RecurrenceID, L.RecurrenceMonthID,
+        (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) as StartDate, (Select Max(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) as EndDate,
+        
+        CASE WHEN (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) <= '" . CURRENT_DATE_IN_TZ . "'
+            THEN (Select Max(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) 
+            ELSE (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) 
+            END as EventSortDate,   
+        CASE WHEN RecurrenceID is NULL and (EventEndDate is null or cast(EventStartDate as char) = cast(EventEndDate as char)) THEN 1
+            WHEN RecurrenceID is NULL and (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) <= '" . CURRENT_DATE_IN_TZ . "' THEN 6 
+            WHEN RecurrenceID is null THEN 5 
+            WHEN RecurrenceID=3 THEN 2 
+            WHEN RecurrenceID=2 THEN 3 
+            WHEN RecurrenceID=1 THEN 4 
+            ELSE 10 END as EventRank,
+        
+        CASE WHEN L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "' Then 1 Else 0 END as HasExpandedListing,
+        L.ELPTypeThumbnailImage, L.ExpandedListingPDF       
+        From listingsview L 
+        Where (
+                EXISTS (SELECT ListingID FROM listingeventdays  WHERE ListingID=L.ListingID AND ListingEventDate >= '" . CURRENT_DATE_IN_TZ . "')
+                
+                    )
+            
+        and (RecurrenceID  in (3,4) or RecurrenceID is null)
+        and L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "'
+        and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0 
+        Order By EventSortDate, EventRank,  L.ListingTitle";
 
             $data['specialEventsObj'] = $this->db->query($specialEventsQuery);
 
 
             $featuredBusinessQuery = "Select L.ListingID, L.ListingTitle, L.ShortDescr, L.Deadline,
-			L.ELPTypeThumbnailImage, L.LogoImage, L.ELPThumbnailFromDoc
-			From listingsview L
-			Where L.ListingTypeID  in (1,2,14)
-			and L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "'
-			and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0
-			Order by L.FeaturedListing desc, L.DateSort desc Limit 1";
+            L.ELPTypeThumbnailImage, L.LogoImage, L.ELPThumbnailFromDoc
+            From listingsview L
+            Where L.ListingTypeID  in (1,2,14)
+            and L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "'
+            and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0
+            Order by L.FeaturedListing desc, L.DateSort desc Limit 1";
 
             $data['featuredBusinessObj'] = $this->db->query($featuredBusinessQuery);
 
             $travelSpecialQuery = "Select L.ListingID, L.ListingTitle, L.ShortDescr, L.Deadline,
-			L.ELPTypeThumbnailImage, L.LogoImage, L.ELPThumbnailFromDoc
-			From listingsview L
-			Where L.ListingTypeID  in (9)
-			and L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "' and L.Deadline >= '" . CURRENT_DATE_IN_TZ . "' 
-			and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0
-			Order by L.FeaturedTravelListing desc, L.DateSort desc Limit 1";
+            L.ELPTypeThumbnailImage, L.LogoImage, L.ELPThumbnailFromDoc
+            From listingsview L
+            Where L.ListingTypeID  in (9)
+            and L.PaymentStatusID in (2,3) and L.HasExpandedListing=1 and L.ExpirationDateELP >= '" . CURRENT_DATE_IN_TZ . "' and L.Deadline >= '" . CURRENT_DATE_IN_TZ . "' 
+            and L.Active=1 and L.Reviewed=1 and L.DeletedAfterSubmitted=0 and L.Blacklist_fl = 0
+            Order by L.FeaturedTravelListing desc, L.DateSort desc Limit 1";
 
             $data['travelSpecialObj'] = $this->db->query($travelSpecialQuery);
 
@@ -223,12 +223,12 @@ class Listings extends CI_Controller {
             $data['rates'] = $this->exchange_rates();
 
             $tidesQuery = "select t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr 
-		from tides t left join lunar l 
-	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
-	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
+        from tides t left join lunar l 
+    ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
+    left join moontype mt  ON l.moonTypeID = mt.moonTypeID
 
-	where TideDate >= '" . date("Y-m-d") . ' 00:00:00' . "'
-	AND TideDate <= '" . date("Y-m-d") . ' 23:59:00' . "'";
+    where TideDate >= '" . date("Y-m-d") . ' 00:00:00' . "'
+    AND TideDate <= '" . date("Y-m-d") . ' 23:59:00' . "'";
 
             $data['tidesObj'] = $this->db->query($tidesQuery);
 
@@ -528,8 +528,8 @@ class Listings extends CI_Controller {
 
         switch ($details['SectionID']) {
             // case '59':
-            // 	$this->load->view('events-landing',$data);
-            // 	break;
+            //  $this->load->view('events-landing',$data);
+            //  break;
 
             case '8':
                 $this->load->view('jobs-landing', $data);
@@ -555,10 +555,10 @@ class Listings extends CI_Controller {
         $data['locations'] = $this->listingsmodel->getTables('locations');
        
 
-		$this->db->select('categories.Title as catTitle, categories.H1Text as catH1Text, CategoryID, categories.ParentSectionID, categories.SectionID, sections.Title secTitle');
-		$this->db->from('categories');
-		$this->db->join('sections', 'categories.ParentSectionID = sections.SectionID');
-		$category=$this->db->get()->row();
+        $this->db->select('categories.Title as catTitle, categories.H1Text as catH1Text, CategoryID, categories.ParentSectionID, categories.SectionID, sections.Title secTitle');
+        $this->db->from('categories');
+        $this->db->join('sections', 'categories.ParentSectionID = sections.SectionID');
+        $category=$this->db->get()->row();
 
 
         $header['Meta'] = $data['catMeta'] = $category;
@@ -778,24 +778,24 @@ class Listings extends CI_Controller {
 
 
 
-			case '5':
+            case '5':
 
-    			$header['Meta']->BrowserTitle = $data['listing']->ListingTitle;  
-        			switch ($data['listing']->ListingTypeID) {
-        				case '7':
-        				case '6':
-        					$header['Meta']->BrowserTitle .= ' For Rent in ';
-        					break;	
+                $header['Meta']->BrowserTitle = $data['listing']->ListingTitle;  
+                    switch ($data['listing']->ListingTypeID) {
+                        case '7':
+                        case '6':
+                            $header['Meta']->BrowserTitle .= ' For Rent in ';
+                            break;  
 
-        				case '8':
-        					$header['Meta']->BrowserTitle .= ' For Sale in ';
-        					break;
+                        case '8':
+                            $header['Meta']->BrowserTitle .= ' For Sale in ';
+                            break;
 
                     $header['Meta']->BrowserTitle .= $data['listing']->Location . ', Tanzania' ;
                     $header['Meta']->MetaDescr .=  $header['Meta']->BrowserTitle;
 
-    				
-           		 }
+                    
+                 }
 
              case '55':
                 
@@ -815,15 +815,15 @@ class Listings extends CI_Controller {
                 $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
 
                 break;
-				
-				default:
-					echo $data['listing']->ParentSectionID;
-					break;
-			}
+                
+                default:
+                    echo $data['listing']->ParentSectionID;
+                    break;
+            }
 
 
 
-     	$this->load->view('header', $header);
+        $this->load->view('header', $header);
         $this->load->view('menu');
         if (isset($left_side))
             $this->load->view('left-sidetower', $left_side);
@@ -899,24 +899,24 @@ class Listings extends CI_Controller {
             $endDate = date("Y-m-d") . ' 23:59:00';
 
         $tidesQuery = "select CONVERT(t.tideDate,date) day, t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr, SunriseDate, SunsetDate
-		from Tides t left join lunar l 
-	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
-	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
-	inner join sunrise s ON CONVERT(t.TideDate,date) = CONVERT(s.SunriseDate,date)
-	inner join sunset st ON CONVERT(t.TideDate,date) = CONVERT(st.SunsetDate,date)
-	where TideDate >= '" . $startDate . "'
-	AND TideDate <= '" . $endDate . "'";
+        from Tides t left join lunar l 
+    ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
+    left join moontype mt  ON l.moonTypeID = mt.moonTypeID
+    inner join sunrise s ON CONVERT(t.TideDate,date) = CONVERT(s.SunriseDate,date)
+    inner join sunset st ON CONVERT(t.TideDate,date) = CONVERT(st.SunsetDate,date)
+    where TideDate >= '" . $startDate . "'
+    AND TideDate <= '" . $endDate . "'";
 
         $data['tidesObj'] = $this->db->query($tidesQuery);
 
         $highCheckerQuery = "select CONVERT(t.tideDate,date) day, COUNT( CONVERT( t.tideDate, DATE ) ) valuescount, t.tideDate, t.High, t.Measurement,l.LunarDate,l.MoonTypeID,mt.descr, SunriseDate, SunsetDate
-		from Tides t left join lunar l 
-	ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
-	left join moontype mt  ON l.moonTypeID = mt.moonTypeID
-	inner join sunrise s ON CONVERT(t.TideDate,date) = CONVERT(s.SunriseDate,date)
-	inner join sunset st ON CONVERT(t.TideDate,date) = CONVERT(st.SunsetDate,date)
-	where TideDate >= '" . $startDate . "'
-	AND TideDate <= '" . $endDate . "' group by day";
+        from Tides t left join lunar l 
+    ON CONVERT(t.TideDate,  date)=CONVERT(l.LunarDate ,  date)
+    left join moontype mt  ON l.moonTypeID = mt.moonTypeID
+    inner join sunrise s ON CONVERT(t.TideDate,date) = CONVERT(s.SunriseDate,date)
+    inner join sunset st ON CONVERT(t.TideDate,date) = CONVERT(st.SunsetDate,date)
+    where TideDate >= '" . $startDate . "'
+    AND TideDate <= '" . $endDate . "' group by day";
 
         $data['highChecker'] = $this->db->query($highCheckerQuery);
 
@@ -1746,7 +1746,7 @@ class Listings extends CI_Controller {
 //echo gettype($listings->row()->DueDate);
 //$filds=$listings->result_array();
 //print_r($filds);
-//	echo	$listings->row()->PaymentConfirmationEmailDateSent;
+//  echo    $listings->row()->PaymentConfirmationEmailDateSent;
 
         $data = array();
         $datas = array();

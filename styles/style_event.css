@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 /*General for all categories boxes and menu for tourism*/
-	.categories
+	.event
 	{
 	display: inline-block;
 	width: 600px;
@@ -13,7 +13,7 @@
 	*display: inline;
 	float: left;}
 
-	.categories div 
+	.event div 
 	{
 		border: solid 1px #ccc; 
 		display: inline-block; 
@@ -29,17 +29,17 @@
 		float:left;
 	}
 
-	.categories a 
+	.event a 
 	{ cursor:pointer;
 	}
 	
-	.categories h2 {
+	.event h2 {
 	font-size: 12px;
 	font-weight:bold;
 	line-height:14px;
 	}
 
-	.categories div img  {
+	.event div img  {
 	margin: 0 10px 0 10px;
   	margin-top: 5px;
   	margin-bottom: 5px;
@@ -55,71 +55,3 @@
 
 /*CONTAINER FOR CONTENT IN LISTING DETAIL BUT ALSO LIST FOR THE SUBSECTIONS*/	
 
-.list
-{
-	min-width: 600px;
-	display: inline-block;
-	margin: 0px 0px;
-	vertical-align: text-top;
-	zoom: 1;
-	*display: inline;
-	float: left;
-	}
-	
-	.list div 
-{	border:solid #CCC 1px;
-	display: inline-block; 
-	margin: 7px 3px; 
-	min-width:585px;
-	padding: 20px 20px 20px; 
-	vertical-align: text-top; 
-	text-align: left; 
-	float:left;
-}
-
-	.list img 
-{	display: inline-block; 
-	margin-right: 5px;
-	margin-bottom: 5px;  
-	vertical-align: text-top; 
-	text-align: left; 
-	border:solid #CCC 1px;}
-
-	.listlogo
-{	display: inline-block;
-	width: 595px;
-	margin: 0px 0px;
-	zoom: 1;
-	*display: inline;
-	float: left;}
-	
-	.listlogo div 
-{	border:solid #CCC 1px;
-	margin: 7px 3px; 
-	padding: 20px 20px 20px; 
-	text-align: left; 
-	min-width: 595px;}
-
-	.listlogo img 
-{	display: inline-block; 
-	margin-right: 5px;
-	margin-bottom: 5px;  
-	vertical-align: text-top; 
-	text-align: left; 
-	float:left;
-	vertical-align:middle;
-	border:#CCC 1px solid;}
-
-/*FORM SEARCH ON THE SIDEBAR  for vehicle classifieds, job classifieds, events, real estate, */
-
-	#box_form {
-	width: 210px;
-	overflow: hidden;
-	float: left;
-	padding:10px 0px 0px 10px;
-	text-align: left; /* orizzontale */
-	/*border:solid #CCC 1px;*/
-}
-	#box_form li img 
-{	margin-top: 5px;
-}

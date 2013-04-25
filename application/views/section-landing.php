@@ -21,12 +21,15 @@
 <div id="columncontent">
 <div id="container">
     <h1 align="center"><?php echo $sectionMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
-    <div id="welcometext" align="left">		
+    <div class="welcometext" align="left">		
 
 				<div class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
 				</div>
 			
 </div>
+<!-- Close container for header open Business layout for Section and jump for subsection business.css-->
+
+
     <div class="business" align="center">
      <ul>
 <?php  $subSection = $subsections->row(); ?>
@@ -57,9 +60,10 @@ $SectionURL = $subSection->SectionURL;
 <?php endfor; ?>
 </ul>
 </div>
-    <div id="welcometext" class="pullleft">
+    <div class="welcometext" class="pullleft">
     			<?php if(isset($pageTextObj)): ?>
 					<?php echo $pageTextObj->row()->Descr; ?><br>
 				<?php endif; ?>				
 
+</div>
 </div>

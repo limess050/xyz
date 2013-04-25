@@ -36,7 +36,7 @@
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
 <!-- AddThis Button END -->
- <!--BUSINESS DETAIL COMPLETE--><div class="listlogo"><h2>
+ <!--CARS DETAIL COMPLETE--><div class="listlogo"><h2>
     <br />
     <br />
 
