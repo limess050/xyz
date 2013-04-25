@@ -7,7 +7,7 @@
       
     </div>
  <!--facebook page -->
-    <div><div class="fb-like" data-href="http://www.zoomtanzania.com" data-send="true" data-width="550" data-show-faces="true" data-font="arial"></div>
+    <div><div class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="550" data-show-faces="true" data-font="arial"></div>
     </div><div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

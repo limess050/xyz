@@ -17,7 +17,7 @@ class Listings extends CI_Controller {
 
         if ($pageURL != '') {
             if ($pageURL == 'testsearch')
-                $this->search(1);
+                $this->search(4);
 
             $res = $this->listingsmodel->determiner($pageURL);
 
@@ -786,6 +786,7 @@ class Listings extends CI_Controller {
 					break;
 
 				case '55':
+				
                 if ($data['listing']->ListingTypeID == 3) {
                     $header['Meta']->BrowserTitle = $data['listing']->ListingTitle . ' For Sale in ' . $data['listing']->Location . ', Tanzania | Classified';
                     $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
@@ -803,12 +804,14 @@ class Listings extends CI_Controller {
 			}
 
 			$header['Meta']->BrowserTitle .= $data['listing']->Location . ', Tanzania' ;
-			$header['Meta']->MetaDescr =  $header['Meta']->BrowserTitle;
-			
-			break;
-		
+			$header['Meta']->MetaDescr .=  $header['Meta']->BrowserTitle;
 
-            
+     	  $this->load->view('header', $header);
+        $this->load->view('menu');
+        if (isset($left_side))
+            $this->load->view('left-sidetower', $left_side);
+        else
+            $this->load->view('left-sidetower');
 
         switch ($data['listing']->ParentSectionID) {
 
@@ -825,6 +828,9 @@ class Listings extends CI_Controller {
                 break;
 
             case '5':
+                $this->load->view('realestate-detail-page', $data);
+            	break; 
+
             case '4':
             case '59':
                 $this->load->view('classifieds-landing-page', $data);
