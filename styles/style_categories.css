@@ -32,7 +32,8 @@
 	line-height:12px;}
 
 	.categories h2 {
-	font-weight:bold;}
+	font-weight:bold;
+	text-transform:uppercase;}
 	
 	.categories div img  {
   	margin: 0 10px 0 10px;
