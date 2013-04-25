@@ -34,11 +34,12 @@
    <!--Jobs All list in 2 row for all the categories in the section or subsection-->
     <div class="list">
       <br/>
-        <h2 style = "width:300px;"> Job vacancies in Tanzania <?php echo $listings->num_rows(); ?></h2><p align="right"><img src="images/sitewide/button_job.png" width="127" height="36" alt="classified" /></p>
+        <h2 style = "width:300px;"> Job vacancies in Tanzania <?php echo $listings->num_rows(); ?></h2>
+        <p align="right"><img src="images/sitewide/button_job.png" width="127" height="36" alt="classified" /></p>
         <br />
      <div><ul>
       <li > <?php foreach($listings->result() as $listing): ?>
-        <span class="smallcategory"><a href = "listingdetail?ListingID=<?php echo $listing->ListingID; ?>" title = "<?php echo $listing->ShortDescr; ?>"><?php echo $listing->ShortDescr; ?></a></span><br />
+        <a href = "listingdetail?ListingID=<?php echo $listing->ListingID; ?>" title = "<?php echo $listing->ShortDescr; ?>"><?php echo $listing->ShortDescr; ?></a><br />
         <?php echo $listing->Location; ?><br />
         Deadline: <?php echo date('d-m-Y',strtotime($listing->Deadline)); ?>
         <br />

@@ -102,15 +102,15 @@
     <?php endif; ?>
     <br> <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>"><?php echo $ListingTitle ?></a><br><?php echo $price; ?><br />
           <span class="smallcategorynormal"> <?php echo $listing->Location ?></span>
-	      </h2>
+	      </h3>
 	    </div>
     <?php endif; ?>
 <?php endforeach; ?>
 
           <div><a href="#">
-		  <h2><img src="images/sitewide/C_postfree.png" alt="Tourism and travels" width = "150" height = "150" /></h2>
+		 <img src="images/sitewide/C_postfree.png" alt="Tourism and travels" width = "150" height = "150" />
 		  </a>
-		    <h2>&nbsp;</h2>
+		  
           </div>
 	    </ul>
     </div>

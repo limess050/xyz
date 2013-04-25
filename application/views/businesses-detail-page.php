@@ -74,7 +74,7 @@
 </ul></div>
 <?php if($listing->HasExpandedListing): ?>
  
-<div>
+<div class="pullcenter">
 <img src="http://placehold.it/120x120" width="120" height="120" />
 <img src="http://placehold.it/120x120" width="120" height="120" />
 <img src="http://placehold.it/120x120" width="120" height="120" />

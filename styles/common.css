@@ -77,9 +77,11 @@ br.clear {
 	color: #fff;
 	}
 
+
 #loginbutton a:hover{
 	color: #eee;
 	}
+	
 #searchbutton {
 	text-align: left;
 	position: absolute;
@@ -103,12 +105,15 @@ br.clear {
 	padding-top: 10px;
 	left: 0;
 	}
+/* on the top out of page*/
 #bannerextrapage {
 	position: relative;
 	width: 1020px;
 	margin: 0;
 	top: 0;
 	}
+	
+	
 #main {
 	position: relative;
 	padding-top: 0px;
@@ -132,27 +137,9 @@ br.clear {
 	border-top: 0;
 }	
 
+/*pagination style for classifieds, jobs, real estate and vehicles*/
 
-.badreport {
-	border:none;
-	padding:0;
-}
 
-.pullright
-{
-	float:right;
-}
-
-.pullleft
-{
-	float:left;
-}
-	
-.padit
-{ 
-padding-bottom: 10px;}
-
-/*pagination*/
 .pagination {
   margin: 20px 0;
 }
@@ -298,3 +285,366 @@ padding-bottom: 10px;}
   padding: 0 6px;
   font-size: 10.5px;
 }
+
+/* extraspace*/
+
+	.badreport {
+	border:none;
+	padding:0;
+	}
+
+	.pullright
+	{
+	float:right;
+	}
+
+	.pullleft
+	{
+	float:left;
+	}
+	
+	.pullcenter
+	{ float: center;
+	text-align: center;
+	}
+	
+	.padit
+	{ 
+	padding-bottom: 10px;}
+
+	.padittop
+	{ 
+	padding-top: 10px;}
+
+
+/*extra text */
+
+	.smallcap {
+	font-variant: normal;
+	font-weight: 700;
+	text-transform: lowercase;
+}
+	.smallcategory {
+	font-variant: normal;
+	font-weight: 600;
+	text-transform: none;
+	line-height: 12px;
+	color: #22558F;
+}
+	.smallcategorynormal {
+	font-variant: normal;
+	font-weight: 200;
+	text-transform: capitalize;
+	line-height: 12px;
+}
+	.uppercap {
+	font-weight: 700;
+	text-transform: uppercase;}
+	.titlecategory {
+	font-size: 16px;
+	font-weight: 600;
+	font-variant: normal;
+	text-transform: uppercase;
+	color: #000000;
+}
+	.smallbreadcrumbs {
+	font-variant: normal;
+	font-weight: 500;
+	text-transform: capitalize;
+	font-size: 12px;
+	line-height: 12px;
+	color: #4A7D81;
+}
+		
+
+/* CSS Document /* only in the homepage*/*/
+#upcomingeventslide {
+	position: absolute;
+	width: 600px;
+	margin: 0px 5px 0px 220px;
+	padding: 8px;
+	float:left;
+	text-align: center; /* orizzontale */
+}
+
+
+#homerow1 {
+	
+	width: 1020px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	float:left;
+}
+#homerow2 {
+	
+	width: 1020px;
+	margin: 0px 5px 0px 0px;
+	padding: 8px;
+}
+#homerow3 {
+	
+	width: 1020px;
+	margin: 20px 5px 0px 0px;
+	padding: 8px;
+	text-align:center;
+}
+#homerow4 {
+	
+	width: 1020px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	text-align:center;
+}
+#homerow5 {
+	
+	width: 1020px;
+	margin: 0px 0px 0px 0px;
+	padding-left: 8px;
+	text-align:center;
+}
+.container {
+	width: 580px;
+	position: relative;
+	float:left;
+	padding:10px 0px 0px 0px;
+	text-align:center;
+}
+.precontainer_tab {
+	width: 580px;
+	overflow: visible;
+	position: relative;
+	visibility: visible;
+	z-index: 1;
+	float:left !important; 	
+}
+.container_tab {
+	width: 500px;
+	overflow: visible;
+	position: relative;
+	visibility: visible;
+	margin-left:40px;
+	padding-top: 20px;	
+}
+	
+	/*center column 600*/
+#columncontent {
+	/*position: absolute;*/
+	width: 600px;
+	padding-top: 30px;
+	float: left;
+	line-height: 15px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+/*	margin-left: 210px;*/
+	top: 1px;
+}
+
+/*welcome up and down for text and other intro elements0*/
+.welcometext, #welcometext{
+	padding-top:18px;
+	padding-left:20px;
+	padding-right:20px;
+	/*color:#FFF*/
+	
+}
+.welcometext div, #welcometext div {
+	float:left;
+}
+
+/*this is the title in the box for section and categories*/
+h1, h2, h3, h4, h5, h6 {
+letter-spacing: 0px;
+display: block;
+outline: 0;
+text-decoration: none;
+}
+
+h1{
+	font-size: 16px;
+	line-height: 18px;
+	letter-spacing: -1px !important;
+	text-transform:capitalize;}
+	
+h2{
+	font-size: 14px;
+	line-height: 16px;
+	text-transform:uppercase;
+	}
+	
+h3{
+	font-size: 13px;
+	line-height: 16px;
+	text-transform: capitalize;
+	}
+h4{
+	font-size: 14px;
+	line-height: 18px;
+	text-transform: uppercase;
+	letter-spacing: -1px !important;
+}
+h5{
+	font-size: 13px;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+h6{
+	font-size: 11px;
+	line-height: 13px;
+}
+
+/*these are the main element in the side bar and where is required a box with same standard text centered and padded */
+
+#box_center {
+	width: 530px;
+	overflow: hidden;
+	margin: 0px 0 30px 0;
+}
+#box_left {
+	width: 210px;
+	overflow: hidden;
+	float:left;
+	padding:10px 0px 10px 0px;
+	text-align: center;
+	cursor: pointer;
+	 /* orizzontale */
+}
+#box_left div {
+	font-size: 12px;
+	text-align: center !important; 
+}
+
+#box_left li img 
+{margin-top: 5px;
+border:#CCC solid 1px;
+}
+
+#box_left a{
+	line-height: 11px;
+	display: block;
+	cursor:pointer;
+}
+#box_event {
+	width: 180px;
+	overflow: hidden;
+	float: left;
+	padding:30px 20px 10px 10px;
+	text-align: center; /* orizzontale */
+	
+}
+#box_event img{
+	border:#CCC solid 1px;
+	
+}
+
+
+
+/*banner*/
+#box_banner {
+	max-width: 210px;
+	overflow: hidden;
+	float:left;
+	padding:20px 0px 0px 0px;
+	text-align: center; /* orizzontale */
+}
+.box h2
+.box h3 
+.box h4 {
+	letter-spacing: 0px;
+	display: block;
+	outline: 0;
+	text-decoration: none;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+/*INDEX  and PAGES SIDEBAR left */
+#sidebar {
+	width: 220px;
+	float: left;
+	margin-left: auto; margin-right: auto;
+	display:block;
+	line-height: 15px;
+	padding-left:0px;
+	padding-top:20px;
+}
+#sidebar ul {
+	list-style: none;
+}
+
+#sidebar ul li {
+	padding: 10px 0 10px 0;
+}
+
+#sidebar ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}
+
+/*FORM SEARCH ON THE LEFT SIDEBAR  classifieds, job, vahicles, real estate*/
+	#box_form {
+	width: 210px;
+	overflow: hidden;
+	float: left;
+	padding:10px 0px 0px 10px;
+	text-align: left; /* orizzontale */
+	/*border:solid #CCC 1px;*/
+	}
+	#box_form li img 
+	{margin-top: 5px;
+	}
+	
+	
+
+/*INDEX + BANNER SIDEBAR right*/
+
+#sidebar2 {
+	width: 200px;
+	float: left;
+	margin-right:0px;
+	clear: none;
+	}
+
+	#sidebar2 ul {
+	list-style: none;
+	}
+
+	#sidebar2 ul li {
+	padding: 20px 0 20px 0;
+	}
+
+	#sidebar2 ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}
+
+/*possibly delete*/
+
+#directorytitle {
+	position: absolute;
+	width: 600px;
+	padding: 10px;
+	float: left;
+	line-height: 15px;
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+	margin-left: 200px;
+}
+		
+/*I've to check if used*/
+
+
+#box_right {
+	width: 210px;
+	overflow: hidden;
+	float: right;
+	padding:30px 20px 0px 0px;
+	text-align: center; /* orizzontale */
+}
+
+#box_right li img 
+{margin-top: 5px;
+}
+
+	

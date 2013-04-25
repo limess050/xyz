@@ -78,7 +78,7 @@
 				</div>
 
 
-<div class="float-left"> <h3 class="h3Featured">Featured <?php echo $current_category->H1Text ?></h3></div>			
+<div class="float-left"> <h2 class="h3Featured">Featured <?php echo $current_category->H1Text ?></h2></div>			
 <div class="clear"></div>
 
 <div class="promo-upcomingspecialevents-inner">
@@ -89,7 +89,7 @@
 	<?php if($Listing->ELEDateUpdated_Fl == 1): ?>
 		<li>
 			<a href="<?php echo $Listing->URLSafeTitle ?>"><img src="http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $Listing->LogoImage ?>" alt="<?php echo $Listing->Title ?>"></a>
-			<h2><a href = "<?php echo $Listing->URLSafeTitle ?>"><?php echo $Listing->Title ?></a></h2>
+			<h3><a href = "<?php echo $Listing->URLSafeTitle ?>"><?php echo $Listing->Title ?></a></h3>
 			<span class = "smalltext"><?php echo $ListingLocationNames[$Listing->ListingID]; ?></span>
 
 	<?php endif; ?>
@@ -103,14 +103,14 @@
 
 
 <ul class="dining-nonfeatured">
-			<div class="float-left"><h4 class="h4Category">All <?php echo $current_category->H1Text ?></h4></div>
+			<div class="float-left"><h2 class="h4Category">All <?php echo $current_category->H1Text ?></h2></div>
 			
 			<div class="clear"></div>
 
 			<?php foreach($Listings_result_obj->result() as $Listing): ?>
 					
 			<li> 
-            	<h2><a href="<?php echo $Listing->URLSafeTitle; ?>"><?php echo $Listing->Title; ?></a></h2>
+            	<h3><a href="<?php echo $Listing->URLSafeTitle; ?>"><?php echo $Listing->Title; ?></a></h3>
 				<span class="smalltext"><?php echo $ListingLocationNames[$Listing->ListingID]; ?></span>
 			</li>				
 					

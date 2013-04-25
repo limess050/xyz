@@ -27,7 +27,7 @@
   </div>
     </div><div align="right">Pages 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 ...</div>
 
-    <div class="categories">
+    <div class="event">
   
   <div><a href="#"><img src="images/event1.png" alt="artists & arts gallery" width = "117" height = "170" /></a><a name="S44" id="S44"></a> 
     <h2> <a href="#"> Nyama Choma Festival@ kijitonyama Dar Es Salaam<br />

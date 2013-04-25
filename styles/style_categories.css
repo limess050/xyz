@@ -1,6 +1,10 @@
 @charset "UTF-8";
 /* CSS Document */
 /*General for all categories boxes and menu for tourism*/
+	
+	/*CATEGORIES LISTING PAGE */
+
+
 	.categories
 	{
 	display: inline-block;
@@ -60,7 +64,7 @@
 	{border:solid #CCC 1px;
 	display: inline-block; 
 	margin: 7px 3px; 
-	max-width:585px;
+	max-width:575px;
 	padding: 20px 20px 20px; 
 	vertical-align: text-top; 
 	text-align: left; 
@@ -71,8 +75,8 @@
 	border:solid #CCC 1px;
 	margin: 7px 3px; 
 	display: inline-block;
-	max-width:585px;
-	min-width:585px; 
+	max-width:575px;
+	min-width:575px; 
 	text-align: left; 
 	float:left;
 	padding: 20px 20px 20px; 
@@ -136,20 +140,83 @@
 	min-width: 180px;
 	max-width: 180px;
 	float: left;}
-	
-	
-/*FORM SEARCH ON THE SIDEBAR*/
-	#box_form {
-	width: 210px;
-	overflow: hidden;
-	float: left;
-	padding:10px 0px 0px 10px;
-	text-align: left; /* orizzontale */
-	/*border:solid #CCC 1px;*/
-	}
-	#box_form li img 
-	{margin-top: 5px;
-	}
 
-.buttonshareit 
-{ 
+/*BUSINESS PAGE SECTION LANDING PAGE*/
+	
+	.business {
+	width: 100%;
+	position: relative;
+	margin-left: auto; margin-right: auto;
+	display:block;
+	line-height: 15px;
+}
+
+	.business ul {
+	list-style-type: none; 
+	padding:10px;
+}
+		
+	.business li {
+	border: solid 1px #ccc; 
+	display: inline-block; 
+	width: 185px; 
+	padding: 15px; 
+	margin: 7px 3px;  
+	vertical-align: text-top; 
+	text-align: center; 
+	zoom: 1; 
+	*display: inline;
+	float:left;
+	min-height: 250px;}
+ 
+	.business li img {
+	margin-top: 5px;
+	border:#CCC solid 1px}
+
+	
+	.business select {
+	width: 170px; 
+	background: #fff; 
+	border: solid 1px #ffffff; 
+	margin: 10px 0;}
+
+	.zoomreccomend h2 {
+	color:#0D4E91;
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0;
+	text-transform: uppercase;
+	background-color:#eee;
+	}
+	
+	/*SUB SECTION LANDING PAGE */
+
+	.directory {
+	width: 100%;
+	position: relative;
+	margin-left: auto; margin-right: auto;
+	display:block;
+	line-height: 15px;
+	}
+	
+	.directory ul {
+	list-style-type: none; 
+	padding:10px;
+	}
+		
+	.directory li 
+	{border: solid 1px #ccc; 
+	display: inline-block; 
+	width: 180px; 
+	padding: 20px; 
+	margin: 7px 3px;  
+	vertical-align: text-top; 
+	text-align: center; 
+	zoom: 1; 
+	*display: inline;
+	float:left;
+	min-height: 226px;}
+ 
+	.directory li img {
+	margin-top: 5px;
+	border:#CCC solid 1px}
