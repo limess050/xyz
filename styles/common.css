@@ -141,7 +141,9 @@ br.clear {
 
 
 .pagination {
-  margin: 20px 0;
+  	margin: 8px auto;
+    text-align: centered;
+    width:100%; 
 }
 
 .pagination ul {
@@ -304,8 +306,9 @@ br.clear {
 	}
 	
 	.pullcenter
-	{ float: center;
-	text-align: center;
+	{ 	display: block;
+    	margin-left: auto;
+    	margin-right: auto}
 	}
 	
 	.padit
@@ -354,6 +357,7 @@ br.clear {
 	font-size: 12px;
 	line-height: 12px;
 	color: #4A7D81;
+	padding-bottom:10px;
 }
 		
 
@@ -440,16 +444,19 @@ br.clear {
 	top: 1px;
 }
 
-/*welcome up and down for text and other intro elements0*/
+/*welcome up and down for text and other intro elements on top and bottom*/
 .welcometext, #welcometext{
-	padding-top:18px;
+	display: block;
+	padding-top:10px;
 	padding-left:20px;
-	padding-right:20px;
+	padding-right:20px !important;
+	min-width: 560px;
 	/*color:#FFF*/
 	
 }
 .welcometext div, #welcometext div {
-	float:left;
+	padding-top: 0px;
+	
 }
 
 /*this is the title in the box for section and categories*/
@@ -467,18 +474,18 @@ h1{
 	text-transform:capitalize;}
 	
 h2{
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 16px;
-	text-transform:uppercase;
+	text-transform:capitalize;
 	}
 	
 h3{
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 16px;
 	text-transform: capitalize;
 	}
 h4{
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 18px;
 	text-transform: uppercase;
 	letter-spacing: -1px !important;

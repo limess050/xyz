@@ -24,13 +24,11 @@
 	min-height: 190px;
 	float: left;}
 
-	.tourism h2 {
-	color:#000000;
-	font-size: 12px;
-	font-weight:bold;
-	margin: 0;
-	text-transform: uppercase;
-	font-variant: small-caps;
+	.tourism h2, .tourim h2 a{
+	font-size:12px; 
+	line-height:12px;
+	text-transform:uppercase;
+}
 	}
 	.tourism div img  {
   	margin: 0 10px 0 10px;

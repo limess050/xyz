@@ -1,21 +1,22 @@
-<div id="columncontent">
-<div id="container">
-    <h1 align="center"> <?php echo $sectionMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
-    <div id="welcometext" align="left"> 
-    <!--breadcrumbs TO SET-->
-      <p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p>
-      
-    </div>
- <!--facebook page -->
-    <div><div class="fb-like" data-href="http://www.zoomtanzania.com" data-send="true" data-width="550" data-show-faces="true" data-font="arial"></div>
-    </div><div id="fb-root"></div>
+<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=231785620286787";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<div id="columncontent">
+<div id="container">
+    <h1 align="center"> <?php echo $sectionMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
+    <div class="welcometext" align="left"> 
+    <!--breadcrumbs TO SET-->
+      <div class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></div>
+      <!--facebook page  inside welcometext-->
+    <div class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
+	</div>
+ 
+    
       <!--choose a location inside a line-->
 <div class="list">
     <div><span class="uppercap">Choose a location</span><br />
@@ -31,17 +32,15 @@
   <form>
   </div>
   </div>
-  <!--title h2 and buttons-->
-  <div class="list">
-      <h2 style = "width:300px;"> <?php echo $sectionMeta->H1Text ?> available - <?php echo $listings->num_rows(); ?> - </h2>
-      <p align="right"><img src="images/sitewide/button_classified.png" width="127" height="36" alt="classified" /></p>
+  
+  
+  <!--container close / open pagination / title h2 and buttons-->
+  
       
-      </div>
-      
-    </div>
     
-    <!--pagination TO DEFINE STYLE-->
-<div class="pagination pullright">
+    
+<!--pagination MINI STYLE-->
+<div class="pagination pagination-mini">
   <ul>
     <li><a href="#">Prev</a></li>
     <li><a href="#">1</a></li>
@@ -52,6 +51,13 @@
     <li><a href="#">Next</a></li>
   </ul>
 </div>
+<div class="welcometext">
+       <div class="pullright"><img src="images/sitewide/button_classified.png" width="127" height="36" alt="classified" /></div>
+        <div> 
+<h2 style = "width:300px;"> <?php echo $sectionMeta->H1Text ?> available - <?php echo $listings->num_rows(); ?> </h2>
+        </div>
+        </div> 
+    </div>
 
     <!--CONTENT FOR CLASSIFIEDS - VEHICLES. REAL ESTATE. BUY AND SELL-->
     
@@ -117,9 +123,20 @@
     <div id="welcometext" align="left"> 
                   <?php if(isset($pageTextObj) and $pageTextObj->num_rows() > 0): ?>
           <?php echo $pageTextObj->row()->Descr; ?><br>
-        <?php endif; ?> </div><div class="list"><br />
-    </div>
-
+        <?php endif; ?> 
+      <!--  <div class="pagination pagination-mini">
+  <ul>
+    <li><a href="#">Prev</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</div>
+--></div>
+  
 
 
 </div>
