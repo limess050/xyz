@@ -146,7 +146,6 @@ class Datafetcher extends CI_Model {
         return $id;
     }
 
-  
     /////////////////////////////////////////end////////////////////////////////////////////// 
     /**
      * @method :get last inserted form
@@ -434,33 +433,35 @@ class Datafetcher extends CI_Model {
      * 
      * 
      */
-    public function addFormInputsTypes($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn,$tabletwo,$tablecolumnid_two,$section,$referenceid) {
+    public function addFormInputsTypes($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn, $tabletwo, $tablecolumnid_two, $section, $referenceid) {
         ///insert validation rules in a db
         //check if form field type is select
         if (strcasecmp($formfieldtype, "select") == 0) {
             $columnid = $tablecolumnid;
             $displayid = $tabledisplaycolumn;
             $table = $tablename;
-            
+
             ///check if it is a join select 
-            if(!empty($tabletwo)&& !empty($tablecolumnid_two)){
-                
-                $table_2=$tabletwo;
-                $column_2=$tablecolumnid_two;
-                $secid=$section;
-                $reference=$referenceid;
-                
-            }else{
-                $table_2='';
-                $column_2='';
-                $secid='';
-                $reference='';
+            if (!empty($tabletwo) && !empty($tablecolumnid_two)) {
+
+                $table_2 = $tabletwo;
+                $column_2 = $tablecolumnid_two;
+                $secid = $section;
+                $reference = $referenceid;
+            } else {
+                $table_2 = '';
+                $column_2 = '';
+                $secid = '';
+                $reference = '';
             }
-            
         } else {
             $columnid = '';
             $displayid = '';
             $table = '';
+            $table_2 = '';
+            $column_2 = '';
+            $secid = '';
+            $reference = '';
         }
 
         $sql = "insert into input_type_tbl(input_name,input_type,max_no_inputs,fieldtypename,draws_from,column_id,display_id,draws_from_table_two,column_id_two,section,referenceid)
@@ -505,47 +506,49 @@ class Datafetcher extends CI_Model {
      * @return boolean
      * 
      */
-    public function updateInputsTypesDetails($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn, $id,$tabletwo,$tablecolumnid_two,$section,$referenceid) {
+    public function updateInputsTypesDetails($inputname, $formfieldtype, $max_no_inputs, $fieldtypename, $validation_chkboxes, $tablename, $tablecolumnid, $tabledisplaycolumn, $id, $tabletwo, $tablecolumnid_two, $section, $referenceid) {
 
         if (strcasecmp($formfieldtype, "select") == 0) {
             $columnid = $tablecolumnid;
             $displayid = $tabledisplaycolumn;
             $table = $tablename;
-            
-               ///check if it is a join select 
-            if(!empty($tabletwo)&& !empty($tablecolumnid_two)){
-                
-                $table_2=$tabletwo;
-                $column_2=$tablecolumnid_two;
-                $secid=$section;
-                $reference=$referenceid;
-                
-            }else{
-                $table_2='';
-                $column_2='';
-                $secid='';
-                $reference='';
+
+            ///check if it is a join select 
+            if (!empty($tabletwo) && !empty($tablecolumnid_two)) {
+
+                $table_2 = $tabletwo;
+                $column_2 = $tablecolumnid_two;
+                $secid = $section;
+                $reference = $referenceid;
+            } else {
+                $table_2 = '';
+                $column_2 = '';
+                $secid = '';
+                $reference = '';
             }
-            
+
             ////---------end------------
-            
         } else {
             $columnid = '';
             $displayid = '';
             $table = '';
+            $table_2 = '';
+            $column_2 = '';
+            $secid = '';
+            $reference = '';
         }
 
-        $sql = "update input_type_tbl set input_name='$fieldtypename',
+        $sql = "update input_type_tbl set input_name='$inputname',
                                       input_type='$formfieldtype',
                                       draws_from='$tablename',
                                       max_no_inputs='$max_no_inputs',
                                       fieldtypename='$fieldtypename',
                                       column_id='$tablecolumnid',
-                                      display_id='$tabledisplaycolumn' 
+                                      display_id='$tabledisplaycolumn' ,
                                       draws_from_table_two='$table_2',
                                       column_id_two='$column_2',
                                       section='$secid',
-                                      referenceid='$reference',
+                                      referenceid='$reference'
                                       where input_id='$id'";
         $results = $this->db->query($sql);
 
@@ -619,21 +622,20 @@ class Datafetcher extends CI_Model {
      * 
      * 
      */
-    public function selecTfromTable($table, $table_two, $column_id_one, $column_id_two,$section,$reference,$Title) {
+    public function selecTfromTable($table, $table_two, $column_id_one, $column_id_two, $section, $reference, $Title) {
         //------start--------------
-        if (!empty($table_two)||  !is_null($table_two)) {
+        if (!empty($table_two) || !is_null($table_two)) {
 
-            $sqltable = ','.$table_two;
+            $sqltable = ',' . $table_two;
             $distinctchecker = "distinct $table.$Title, $table.$column_id_one";
             $append = "where 
                      $table.$reference=$table_two.$column_id_two and
                      $table_two.$column_id_two='$section' 
                       ";
-            
         } else {
             $sqltable = '';
             $distinctchecker = '*';
-            $append='';
+            $append = '';
         }
         //-----end---------
         $sql = "select $distinctchecker from $table $sqltable $append";
@@ -947,8 +949,7 @@ class Datafetcher extends CI_Model {
         $results = $this->db->query($sql);
         return $results;
     }
-    
-    
+
     /**
      * 
      * @method load the section id for input form
@@ -957,9 +958,9 @@ class Datafetcher extends CI_Model {
      * 
      */
     public function sectioninfosbyid($id) {
-          $sql = "select * from sections where ParentSectionID is null and SectionID='$id'";
-          $results = $this->db->query($sql);
-          return $results;
+        $sql = "select * from sections where ParentSectionID is null and SectionID='$id'";
+        $results = $this->db->query($sql);
+        return $results;
     }
 
 /////////////////////////////////////////////////////--ends here///////////////////
