@@ -1,5 +1,14 @@
-	<div id="main">
+	<style type = "text/css">
+    select { max-width:200px;}
+  </style>
+
+  <div id="main">
   <div id="sidebar">
+  <?php if(isset($searchForm)): ?>
+    <?php echo $searchForm; ?>
+  <?php endif; ?>
+
+
   <?php if(isset($featuredBusinessObj)):?>
     <?php if($featuredBusinessObj->num_rows() > 0):?>
     <div id="box_left">

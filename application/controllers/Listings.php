@@ -17,7 +17,10 @@ class Listings extends CI_Controller {
 
         if ($pageURL != '') {
             if ($pageURL == 'testsearch')
-                $this->search(4);
+            {
+                echo $this->search(4);
+
+            }
 
             $res = $this->listingsmodel->determiner($pageURL);
 
@@ -509,7 +512,10 @@ class Listings extends CI_Controller {
             $hints = $this->listingsmodel->getHints(0, $header['Meta']->SectionID);
 
 
+         $leftSide['searchForm'] = $this->search($details['SectionID']);
 
+         if(!$leftSide['searchForm'])
+             $leftSide['searchForm'] = $this->search($details['ParentSectionID']);
 
 
         //print_r($categoryDetails);
@@ -663,6 +669,9 @@ class Listings extends CI_Controller {
         }
 
         $data['quoteRequestString'] = substr($data['quoteRequestString'], 0, -1);
+
+
+
 
         $this->load->view('header', $header);
         $this->load->view('menu');
@@ -1044,7 +1053,7 @@ class Listings extends CI_Controller {
         $data = $this->datafetcher->selectsearchforms($table = "search_forms", $SectionID);
         /** title for the search form if none set it empty */
         $data['heading'] = "Search  for ";
-
+        if(isset($data['results']))
          if ($data['results']->num_rows() > 0) {
 
             $input_output = '';
@@ -1622,60 +1631,23 @@ class Listings extends CI_Controller {
                 $heading = '';
                 $category = '';
             }
-            echo form_open_multipart('formInsertion/formsdataprocessor/', $data = array('name' => 'myForm', 'id' => 'myform', 'class' => 'myform', 'onsubmit' => "")) . '<h1>' . $heading . $category . '</h1>' . '<!--.javascript form validation.-->
-                    <div class="error_box" id ="error_box"></div><div id="success_box"></div>' 
-                    . form_fieldset() . '<ul>' 
+            $form = form_open_multipart('formInsertion/formsdataprocessor/', $data = array('name' => 'myForm',  'onsubmit' => "")) . '<h1>' . $heading . $category . '</h1>' . '<!--.javascript form validation.-->
+                    <div class="error_box" id ="error_box"></div><div id="success_box"></div>' . '<ul>' 
                     . form_hidden($name = "cat", $id = '') .
                     $input_output . '<li>' . form_label() . 
-                    form_submit(array('name' => 'submit', 'value' => 'submit', 'class' => 'submit')) .
+                    form_submit(array('name' => 'Search', 'value' => 'Search', 'class' => 'submit')) .
                     '</li></ul>' .
-                    form_fieldset_close() . 
                     form_close();
+
+            return $form;
         } else {
-            echo 'no form data';
+            return false;
         }
         
         
     }
 
-    /*     * controller function for interpret any form */
 
-    public function form() {
-
-
-       
-
-        //json encoding for the form validations attributes;
-
-        $array_final = json_encode($validation_arr);
-        $array_final = preg_replace('/"([a-zA-Z]+[a-zA-Z0-9]*)":/', '$1:', $array_final);
-        ?>
-        <!--.form validation script goes here.-->
-        <script type="text/javascript">
-
-                 
-            var validator = new FormValidator('myForm',<?php print_r($array_final); ?>, function(errors, event) {
-                
-                if (errors.length > 0) {
-                               
-                    // Show the errors
-                    var errorString = '';
-                
-                    for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
-                        errorString += errors[i].message + '<br />';
-                    }
-                
-                    error_box.innerHTML = errorString;
-             
-                }
-                
-                  
-            });
-            
-         
-        </script>
-        <?php
-    }
 
     function missing() {
         $db1['hostname'] = 'zoom';
