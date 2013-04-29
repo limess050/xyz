@@ -10,7 +10,7 @@
     <h1 align="center"> <?php echo $sectionMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div class="welcometext" align="left"> 
     <!--breadcrumbs TO SET-->
-      <div class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></div>
+<!--       <div class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></div> -->
       <!--facebook page  inside welcometext-->
     <div class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
 	</div>
@@ -68,22 +68,27 @@
   <?php else: ?>
   <?php
 
-    if($listing->ListingTypeID == 6 or $listing->ListingTypeID==7)
-    {
-        if(isset($listing->RentUS))
-          $price = '$US ' . number_format($listing->RentUS);
-        else
-          $price = 'TZS ' . number_format($listing->RentTZS);
 
-        $price .= '/' . $listing->Term;
-    }
-    else
+    if($listing->ListingTypeID != 15)
     {
-        if(isset($listing->PriceUS))
-          $price = '$US ' . number_format($listing->PriceUS);
-        else
-          $price = 'TZS ' . number_format($listing->PriceTZS);    
 
+      if($listing->ListingTypeID == 6 or $listing->ListingTypeID==7)
+      {
+          if(isset($listing->RentUS))
+            $price = '$US ' . number_format($listing->RentUS);
+          else
+            $price = 'TZS ' . number_format($listing->RentTZS);
+
+          $price .= '/' . $listing->Term;
+      }
+      else
+      {
+          if(isset($listing->PriceUS))
+            $price = '$US ' . number_format($listing->PriceUS);
+          else
+            $price = 'TZS ' . number_format($listing->PriceTZS);    
+
+      }
     }
     if($SectionID == 55)
     {
@@ -98,15 +103,36 @@
   ?>
   <div>
 
-    <?php if($listing->FileNameForTN): ?>
+    <?php if($listing->ELPTypeThumbnailImage): ?>
+    <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>">
+    <img src="http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $listing->ELPTypeThumbnailImage; ?>" alt="<?php echo $ListingTitle; ?>" width = "150"  /></a>
+    <?php elseif($listing->FileNameForTN): ?>
     <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>">
     <img src="http://www.zoomtanzania.com/ListingImages/CategoryThumbnails/<?php echo $listing->FileNameForTN; ?>" alt="<?php echo $ListingTitle; ?>" width = "150"  /></a>
+
     <?php else: ?>
       <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>">
     <img src="images/sitewide/no_image.jpg" alt="<?php echo $ListingTitle; ?>" width = "150"  /></a>
     <?php endif; ?>
-    <br> <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>"><?php echo $ListingTitle ?></a><br><?php echo $price; ?><br />
-          <span class="smallcategorynormal"> <?php echo $listing->Location ?></span>
+    <br> <a href="listingdetail?ListingID=<?php echo $listing->ListingID; ?>"><?php echo $ListingTitle ?></a><br>
+    <?php if(isset($price)): ?>
+    <?php echo $price; ?>
+    <?php endif; ?>
+
+    <?php if($listing->RecurrenceID): ?>
+
+    <?php else: ?>  
+    <?php if($listing->EventStartDate): ?>
+    <?php echo date('M d', strtotime($listing->EventStartDate)) ?>
+    <?php endif; ?>
+
+    <?php if($listing->EventEndDate): ?>
+    - <?php echo date('M d', strtotime($listing->EventEndDate)) ?>
+    <?php endif; ?>
+    <?php endif; ?>
+
+
+          <br /><span class="smallcategorynormal"> <?php echo $listing->Location ?></span>
 	      </h3>
 	    </div>
     <?php endif; ?>

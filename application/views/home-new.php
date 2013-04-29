@@ -22,7 +22,11 @@
       
     <li>
       <a href="listingdetail?ListingID=<?php echo $specialEvent->ListingID; ?>"><img src="http://www.zoomtanzania.com/ListingImages/HomepageThumbnails/<?php echo $specialEvent->ELPTypeThumbnailImage ?>" alt="<?php echo $specialEvent->ListingTitle; ?>" width="100"  /></a><br />
-      <a href = "listingdetail?ListingID=<?php echo $specialEvent->ListingID; ?>"><?php echo $specialEvent->ListingTitle ?> <strong><?php echo date('M d', strtotime($specialEvent->EventStartDate)) ?></strong></a>
+      <a href = "listingdetail?ListingID=<?php echo $specialEvent->ListingID; ?>"><?php echo $specialEvent->ListingTitle ?> <strong><?php echo date('M d', strtotime($specialEvent->EventStartDate)) ?>
+        <?php if($specialEvent->EventEndDate): ?>
+        - <?php echo date('M d', strtotime($specialEvent->EventEndDate)) ?>
+        <?php endif; ?>
+      </strong></a>
     </li>
     <?php endforeach; ?>
   </ul>

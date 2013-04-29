@@ -37,9 +37,46 @@ class Listings extends CI_Controller {
 
             else if (isset($res->row()->CategoryID) and !isset($res->row()->ListingID)) {
 
+                if(!$res->row()->ParentSectionID)
+                    $res->row()->ParentSectionID = $res->row()->SectionID;
+
                 switch ($res->row()->ParentSectionID) {
                     case '1':
                         $this->tanzania_business_directory($res->row()->secURL, $res->row()->catURL);
+                        break;
+
+                    case '4':
+                        $details = array();
+                        if ($res->row()->SectionID) {
+
+                            $details['SectionID'] = $res->row()->SectionID;
+                        }
+                        $this->steals_deals_and_classifieds($details,$res->row()->CategoryID);
+                        break;
+                  
+
+                    case '5':
+                        $details = array();
+
+                        // if($res->row()->ParentSectionID)
+                        //  $details['ParentSectionID']=$res->row()->ParentSectionID;
+                        if ($res->row()->ParentSectionID) {
+                            $details['ParentSectionID'] = $res->row()->ParentSectionID;
+                            $details['SectionID'] = $res->row()->ParentSectionID;
+                        }
+                        $this->tanzania_real_estate($details,$res->row()->CategoryID);
+                        break;
+
+                     case '8':
+                        $details = array();
+
+
+                        if ($res->row()->ParentSectionID) {
+                            $details['ParentSectionID'] = $res->row()->ParentSectionID;
+                            $details['SectionID'] = $res->row()->ParentSectionID;
+                        }
+
+                        $this->tanzania_jobs_and_employment($details,$res->row()->CategoryID);
                         break;
 
                     case '21':
@@ -50,16 +87,34 @@ class Listings extends CI_Controller {
                         $this->restaurants_and_nightlife($res->row()->catURL);
                         break;
 
+                    case '55':
+
+                        $details = array();
+
+
+                        if ($res->row()->ParentSectionID) {
+                            $details['ParentSectionID'] = $res->row()->ParentSectionID;
+                            $details['SectionID'] = $res->row()->ParentSectionID;
+                        }
+
+                        $this->used_cars_trucks_and_boats($details,$res->row()->CategoryID);
+                        break;
+
+                    case '59':
+                        $details = array();
+                        if ($res->row()->SectionID) {
+
+                            $details['SectionID'] = $res->row()->SectionID;
+                        }
+                        $this->tanzania_events_calendar($details,$res->row()->CategoryID);
+                        break;
+
                     case '66':
                         $this->arts_and_entertainment($res->row()->catURL);
                         break;
 
 
 
-
-                    case '59':
-                        $this->tanzania_events_calendar($res->row()->catURL);
-                        break;
 
                     default:
                         echo "Ha" . $res->row()->ParentSectionID;
@@ -70,6 +125,8 @@ class Listings extends CI_Controller {
                     case '1':
                         $this->tanzania_business_directory($res->row()->URLSafeTitleDashed);
                         break;
+
+
 
 
                     default:
@@ -140,13 +197,11 @@ class Listings extends CI_Controller {
 
                     case '59':
                         $details = array();
-
-                        // if($res->row()->ParentSectionID)
-                        //  $details['ParentSectionID']=$res->row()->ParentSectionID;
                         if ($res->row()->SectionID) {
-                            $details['ParentSectionID'] = $res->row()->SectionID;
+
                             $details['SectionID'] = $res->row()->SectionID;
                         }
+                        
                         $this->tanzania_events_calendar($details);
                         break;
 
@@ -168,7 +223,7 @@ class Listings extends CI_Controller {
             $data['movieSchedulesObj'] = $this->db->query($movieSchedulesQuery);
 
             $specialEventsQuery = "
-            Select L.ListingID, L.ListingTitle, L.EventStartDate, L.RecurrenceID, L.RecurrenceMonthID,
+            Select L.ListingID, L.ListingTitle, L.EventStartDate, L.EventEndDate, L.RecurrenceID, L.RecurrenceMonthID,
         (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) as StartDate, (Select Max(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) as EndDate,
         
         CASE WHEN (Select Min(ListingEventDate) From listingeventdays  Where ListingID=L.ListingID) <= '" . CURRENT_DATE_IN_TZ . "'
@@ -301,44 +356,37 @@ class Listings extends CI_Controller {
         }
     }
 
-    function tanzania_jobs_and_employment($details, $categoryURLSafeTitleDashed = '') {
-        if ($categoryURLSafeTitleDashed != '') {
-            $this->category($categoryURLSafeTitleDashed);
-        } elseif ($details['ParentSectionID'] != '' and $categoryURLSafeTitleDashed == '') {
+    function tanzania_jobs_and_employment($details, $categoryID = '') {
 
+        if ($details['ParentSectionID'] != '' and $categoryID == '')
             $this->section_listings($details);
-        }
+        else
+            $this->section_listings($details,$categoryID);
+
     }
 
-    function steals_deals_and_classifieds($details, $categoryURLSafeTitleDashed = '') {
-        if ($categoryURLSafeTitleDashed != '') {
-            $this->category($categoryURLSafeTitleDashed);
-        } elseif ($details['SectionID'] != '' and $categoryURLSafeTitleDashed == '') {
-
+    function steals_deals_and_classifieds($details, $categoryID = '') {
+        if ($details['SectionID'] != '' and $categoryID == '')
             $this->section_listings($details);
-        }
+        else
+            $this->section_listings($details,$categoryID);
     }
 
-    function used_cars_trucks_and_boats($details, $categoryURLSafeTitleDashed = '') {
+    function used_cars_trucks_and_boats($details, $categoryID = '') {
         //print_r($details);
 
-        if ($categoryURLSafeTitleDashed != '') {
-            $this->category($categoryURLSafeTitleDashed);
-        } elseif ($details['SectionID'] != '' and $categoryURLSafeTitleDashed == '') {
-
+         if ($details['ParentSectionID'] != '' and $categoryID == '')
             $this->section_listings($details);
-        }
+        else
+            $this->section_listings($details,$categoryID);
     }
 
-    function tanzania_real_estate($details, $categoryURLSafeTitleDashed = '') {
+    function tanzania_real_estate($details, $categoryID = '') {
         //print_r($details);
-
-        if ($categoryURLSafeTitleDashed != '') {
-            $this->category($categoryURLSafeTitleDashed);
-        } elseif ($details['ParentSectionID'] != '' and $categoryURLSafeTitleDashed == '') {
-
+         if ($details['ParentSectionID'] != '' and $categoryID == '')
             $this->section_listings($details);
-        }
+        else
+            $this->section_listings($details,$categoryID);
     }
 
     function testpage($view) {
@@ -347,14 +395,12 @@ class Listings extends CI_Controller {
         $this->load->view('footer');
     }
 
-    function tanzania_events_calendar($details) {
+    function tanzania_events_calendar($details,$categoryID='') {
 
-        if ($categoryURLSafeTitleDashed != '') {
-            $this->category($categoryURLSafeTitleDashed);
-        } elseif ($details['ParentSectionID'] != '' and $categoryURLSafeTitleDashed == '') {
-
+        if ($details['SectionID'] != '' and $categoryID == '')
             $this->section_listings($details);
-        }
+        else
+            $this->section_listings($details,$categoryID);
     }
 
     function getFeaturedListings($ParentSectionID) {
@@ -426,20 +472,32 @@ class Listings extends CI_Controller {
         $this->load->view('footer');
     }
 
-    function section_listings($details, $categoryURLSafeTitleDashed = '') {
+    function section_listings($details, $categoryID=0) {
 
-        //print_r($details);
+        // print_r(($details));
         $data['locations'] = $this->listingsmodel->getTables('locations');
-        //echo $SectionID;
+
         $params = array();
+        
 
-        if (isset($details['ParentSectionID']))
-            $this->db->where('SectionID', $details['ParentSectionID']);
+
+
+        if($categoryID != 0)
+        {
+            $this->db->where('CategoryID', $categoryID);
+            $header['Meta'] = $data['sectionMeta'] = $this->db->get('categories')->row();
+        }
+
         else
-            $this->db->where('SectionID', $details['SectionID']);
+        {
 
-        $header['Meta'] = $data['sectionMeta'] = $this->db->get('sections')->row();
+            if (isset($details['ParentSectionID']))
+                $this->db->where('SectionID', $details['ParentSectionID']);
+            else
+                $this->db->where('SectionID', $details['SectionID']);
 
+            $header['Meta'] = $data['sectionMeta'] = $this->db->get('sections')->row();
+        }
 
         $params['SectionID'] = $details['SectionID'];
         if (isset($details['ParentSectionID']))
@@ -498,11 +556,13 @@ class Listings extends CI_Controller {
 
         $params = $this->listingsmodel->getCategory($catID[0]);
         $params['CategoryIDs'] = $string;
+        $params['showThumbNail']=true;
 
         if ($details['SectionID'] == 8) {
             $params['JETID'] = 1;
             $params['InJobSectionOverview'] = 1;
             $params['ParentSectionID'] = $details['SectionID'];
+            $params['showThumbNail']=false;
             //unset($params['CategoryIDs']);
         }
 
@@ -513,6 +573,13 @@ class Listings extends CI_Controller {
 
         $params['limit'] = true;
         $params['SortBy'] = 'MostRecent';
+
+        if($categoryID)
+            $params['catID']=$categoryID;
+
+        //echo $params['catID'] . 'hehehe';
+
+       // print_r($params);
         $data['listings'] = $this->listingsmodel->getListings($params);
 
 
@@ -558,6 +625,7 @@ class Listings extends CI_Controller {
         $this->db->select('categories.Title as catTitle, categories.H1Text as catH1Text, CategoryID, categories.ParentSectionID, categories.SectionID, sections.Title secTitle');
         $this->db->from('categories');
         $this->db->join('sections', 'categories.ParentSectionID = sections.SectionID');
+        $this->db->where('categories.URLSafeTitleDashed', strtolower($categoryURLSafeTitleDashed));
         $category=$this->db->get()->row();
 
 
@@ -720,8 +788,10 @@ class Listings extends CI_Controller {
     }
 
     public function listingdetail($ListingID = '') {
+
         if ($this->input->get('ListingID'))
             $ListingID = $this->input->get('ListingID');
+
         $listingObj = $this->listingsmodel->getsinglelisting($ListingID);
 
         $data['target'] = '';
@@ -730,13 +800,20 @@ class Listings extends CI_Controller {
 
         
         if(!$data['listing']->ParentSectionID)
-            $data['listing']->ParentSectionID = 4;
+        {
+            $listingObj = $this->listingsmodel->getsinglelisting($ListingID,4);   
+            $data['listing'] = $listingObj->row();
+        }
+            
 
 
 
         switch ($data['listing']->ParentSectionID) {
 
             case '1':
+            case '21':
+            case '32':
+            case '59':
                 $header['Meta']->BrowserTitle = $data['listing']->ListingTitle . ' in ' . $data['listing']->Location . ', Tanzania';
                 $header['Meta']->MetaDescr = $header['Meta']->BrowserTitle . $data['listing']->ShortDescr;
                 $leftSide['featuredBusinessObj'] = $this->getFeaturedListings(1);
@@ -830,9 +907,12 @@ class Listings extends CI_Controller {
         else
             $this->load->view('left-sidetower');
 
+
         switch ($data['listing']->ParentSectionID) {
 
             case '1':
+            case '21':
+            case '32':
                 $this->load->view('businesses-detail-page', $data);
                 break;
 
@@ -853,7 +933,7 @@ class Listings extends CI_Controller {
                 break;
 
             case '59':
-                $this->load->view('classifieds-landing-page', $data);
+                $this->load->view('events-detail-page', $data);
                 break;
 
             default:

@@ -263,18 +263,17 @@ class listingsModel extends CI_Model {
 		$listingsQuery .= "CASE WHEN L.UserID = " . PHONE_ONLY_USER . " THEN 1 ELSE 0 END as PhoneOnlyListing_fl
 		From parentsectionsview PS";
 
-		if($category['SectionID']==4)
-		$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.SectionID ";
+		if($category['SectionID']==4 or $category['SectionID']==59  )
+			$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.SectionID ";
 
 		else
-		$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID ";
+			$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID ";
 			
 		$listingsQuery .="	
 		Inner Join categories C  on S.SectionID=C.SectionID
 		Inner Join listingcategories LC  on C.CategoryID=LC.CategoryID
 		Inner Join listingsview L  on LC.ListingID=L.ListingID ";
-		if (isset($category['QID']))
-			$listingsQuery .= " Inner Join CategoryQueries CQ  on C.CategoryID=CQ.CategoryID and CQ.	CategoryQueryID= " . $category['QID'] . " Inner Join CategoryQueryLines CQL  on CQ.CategoryQueryID=CQL.CategoryQueryID and CQL.ListingID=L.ListingID";
+
 	
 		$listingsQuery .= "Left Outer Join makes M  on L.MakeID=M.MakeID
 		Left Outer Join listinglocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
@@ -306,8 +305,12 @@ class listingsModel extends CI_Model {
 		elseif(isset($category['CategoryIDs']))
 			$listingsQuery .= " and C.CategoryID in ('" . $category['CategoryIDs'] . "')";
 
+
 		if ( isset($category['InJobSectionOverview']))
 			$listingsQuery .= " and LC.CategoryID = (Select CategoryID From listingcategories  where ListingID=L.ListingID Limit 1)";
+		
+		if(isset($category['catID']))
+			$listingsQuery .= " and C.CategoryID = " . $category['catID'];
 
 		$listingsQuery .= "
 		and L.Active=1
@@ -374,7 +377,7 @@ class listingsModel extends CI_Model {
 		return $listings;
 	}
 
-	function getsinglelisting($ListingID)
+	function getsinglelisting($ListingID,$SectionID=0)
 	{
 
 		//print_r($category);STRAIGHT_JOIN
@@ -394,7 +397,7 @@ class listingsModel extends CI_Model {
 		S.SectionID, S.Title as SubSection,
 		C.CategoryID, C.Title as Category, 
 		M.Title as Make, T.Title as Transmission,
-		Te.Title as Term, RAND() as RandOrderID, ";
+		Te.Title as Term, ";
 
 		
 		$listingsQuery .= "CASE WHEN L.UserID = " . PHONE_ONLY_USER . " THEN 1 ELSE 0 END as PhoneOnlyListing_fl,
@@ -406,15 +409,23 @@ class listingsModel extends CI_Model {
 			From listingamenities la inner join amenities a on la.AmenityID = a.AmenityID 
 			where la.ListingID = L.ListingID
 			) as Amenities 
-		From parentsectionsview PS 
-		Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
+		From parentsectionsview PS ";
+
+		if($SectionID==4)
+			$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.SectionID ";
+
+		 else
+		 	$listingsQuery .= " Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID ";
+		//Inner Join sections S  on PS.ParentSectionID=S.ParentSectionID	
+
+		$listingsQuery .= " 
 		Inner Join categories C  on S.SectionID=C.SectionID
 		Inner Join listingcategories LC  on C.CategoryID=LC.CategoryID
 		Inner Join listingsview L  on LC.ListingID=L.ListingID ";
 
 	
 		$listingsQuery .= "Left Outer Join makes M  on L.MakeID=M.MakeID
-		Left Outer Join listinglocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
+		Inner Join listinglocations LL on L.ListingID = LL.ListingID and LL.LocationID <> 4
 		Inner Join locations LOC on LL.LocationID = LOC.LocationID
 		Left Outer Join transmissions T  on L.TransmissionID=T.TransmissionID
 		Left outer Join terms Te  on L.TermID=Te.TermID
@@ -439,7 +450,7 @@ class listingsModel extends CI_Model {
 
 		AND L.ListingID = $ListingID";
 
-		//echo $listingsQuery;
+		// echo $listingsQuery;
 
 		$listing= $this->db->query($listingsQuery);
 

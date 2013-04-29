@@ -40,11 +40,11 @@ function search(SearchTerm,ID)
   <div id="container">
 
 
-    <h1 align="center"><?php echo $catMeta->H1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
+    <h1 align="center"><?php echo $catMeta->catH1Text ?><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div class="welcometext" align="left"> 
 	
 		<!--Breadcrumbs-->
-      <div class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p>
+      <div class="smallbreadcrumbs"><!-- <a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ListingTitle; ?></p> -->
 </div>
 <div class="fb-like" data-href="http://www.facebook.com/pages/ZoomTanzaniacom/196820157025531" data-send="true" data-width="572" data-show-faces="true"></div>
 				</div>
@@ -72,7 +72,7 @@ function search(SearchTerm,ID)
 <!--h2 title and button-->
 
   	<div class="list pullleft"  clear: "none;">
-      <h2 style = "width:250px;"><br />Featured <?php echo $catMeta->H1Text ?></h2> </div><div class="pullright">
+      <h2 style = "width:250px;"><br />Featured <?php echo $catMeta->catH1Text ?></h2> </div><div class="pullright">
 
 	       	<img src="images/sitewide/button_post.png" alt="post a listing" />
 			<form name = "se" id = "se" method="post" action = "request-quote" style = "display: inline;">
@@ -128,7 +128,7 @@ function search(SearchTerm,ID)
 	 
 	 <!--Business & Categories Landing Page All list in 2 row for all the categories in the section or subsection-->
 	 <div class="list">
-      <div><h2>All <?php echo $catMeta->H1Text ?></h2>
+      <div><h2>All <?php echo $catMeta->catH1Text ?></h2>
       <ul>
       <?php foreach($Listings_result_obj->result() as $Listing): ?>
       <li> 
