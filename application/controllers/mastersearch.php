@@ -325,7 +325,7 @@ class Mastersearch extends CI_Controller {
                     $data['result'] = $results['results'];
                     $data['controller'] = 'mastersearch/editorprocessor';
 
-                    $this->load->view('formCreatorUpdater', $data);
+                    $this->load->view('formgenerator/formCreatorUpdater', $data);
                     break;
 
 
@@ -341,7 +341,7 @@ class Mastersearch extends CI_Controller {
                     $data['section_id'] = $id;
                     $data['result'] = $results['results'];
                     $data['controller'] = 'mastersearch/editorprocessor';
-                    $this->load->view('formCreatorUpdater', $data);
+                    $this->load->view('formgenerator/formCreatorUpdater', $data);
                     break;
 
 
@@ -365,7 +365,7 @@ class Mastersearch extends CI_Controller {
                     $data['section_id'] = $id;
                     $data['result'] = $results2;
                     $data['controller'] = 'mastersearch/editorprocessor';
-                    $this->load->view('formCreatorUpdater', $data);
+                    $this->load->view('formgenerator/formCreatorUpdater', $data);
                     break;
 
                 default:

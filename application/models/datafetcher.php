@@ -624,6 +624,7 @@ class Datafetcher extends CI_Model {
      */
     public function selecTfromTable($table, $table_two, $column_id_one, $column_id_two, $section, $reference, $Title) {
         //------start--------------
+
         if (!empty($table_two) || !is_null($table_two)) {
 
             $sqltable = ',' . $table_two;
