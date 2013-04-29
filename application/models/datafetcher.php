@@ -640,7 +640,6 @@ class Datafetcher extends CI_Model {
         }
         //-----end---------
         $sql = "select $distinctchecker from $table $sqltable $append";
-
         $results = $this->db->query($sql);
         return $results;
     }
