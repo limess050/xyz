@@ -631,7 +631,7 @@ class Datafetcher extends CI_Model {
             $distinctchecker = "distinct $table.$Title, $table.$column_id_one";
             $append = "where 
                      $table.$reference=$table_two.$column_id_two and
-                     $table_two.$column_id_two='$section' 
+                     $table_two.$column_id_two='$section' order by $table.OrderNum asc
                       ";
         } else {
             $sqltable = '';
