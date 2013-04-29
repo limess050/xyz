@@ -1106,7 +1106,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . form_textarea(array('name' => $value['fieldtypename'], 'cols' => '25', 'rows' => '3')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . form_textarea(array('name' => $value['fieldtypename'], 'cols' => '25', 'rows' => '3')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
                         case"textinput":
@@ -1134,7 +1134,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . form_input(array('name' => $value['fieldtypename'], 'value' => '')).'</br>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . form_input(array('name' => $value['fieldtypename'], 'value' => '')).'</br>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1164,7 +1164,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . form_input(array('name' => $value['fieldtypename'], 'value' => '', 'class' => 'datepicker')) .'</br>'. '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . form_input(array('name' => $value['fieldtypename'], 'value' => '', 'class' => 'datepicker')) .'</br>'. '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1194,7 +1194,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . form_input(array('name' => $value['fieldtypename'], 'value' => '', 'class' => 'datepicker')) .'<br>'. '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . form_input(array('name' => $value['fieldtypename'], 'value' => '', 'class' => 'datepicker')) .'<br>'. '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1225,7 +1225,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' .'From'.'</br>'. form_input(array('name' => 'startdate', 'value' => '', 'class' => 'datepicker')) . '</br>'.'To'. form_input(array('name' => 'enddate', 'value' => '', 'class' => 'datepicker')) .'</br>'. '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' .'From :'.'</br>'. form_input(array('name' => 'startdate', 'value' => '', 'class' => 'datepicker')) . '</br>'.'To :'. form_input(array('name' => 'enddate', 'value' => '', 'class' => 'datepicker')) .'</br>'. '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1255,7 +1255,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' .'From'.'</br>' . form_input(array('name' => 'startdate', 'value' => '', 'class' => 'datepickeryear')) . '</br>' .'To'.'</br>' . form_input(array('name' => 'enddate', 'value' => '', 'class' => 'datepickeryear')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' .'From :'.'</br>' . form_input(array('name' => 'startdate', 'value' => '', 'class' => 'datepickeryear')) . '</br>' .'To :'.'</br>' . form_input(array('name' => 'enddate', 'value' => '', 'class' => 'datepickeryear')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1285,7 +1285,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' .'Min -'. form_input(array('name' => 'minprice', 'value' => '', 'class' => '')) . '</br>Max' . form_input(array('name' => 'maxprice', 'value' => '', 'class' => '')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' .'Min:'.  nbs(3). form_input(array('name' => 'minprice', 'value' => '', 'class' => '')) . '</br>Max :'.  nbs(3) . form_input(array('name' => 'maxprice', 'value' => '', 'class' => '')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1318,7 +1318,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . form_checkbox(array('name' => $value['fieldtypename'], 'value' => '')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . form_checkbox(array('name' => $value['fieldtypename'], 'value' => '')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1347,7 +1347,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . '<input type="file" name="' . $value['fieldtypename'] . '[]" class="images"/>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . '<input type="file" name="' . $value['fieldtypename'] . '[]" class="images"/>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1376,7 +1376,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . form_password(array('name' => $value['fieldtypename'], 'value' => '')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . form_password(array('name' => $value['fieldtypename'], 'value' => '')) . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1419,7 +1419,7 @@ class Listings extends CI_Controller {
 
 
 
-                            $fieldTobegenerated = form_label($label).'</br>' . '<select  name="' . $value['fieldtypename'] . '[]" class="" multiple="multiple" size="4"><option value="" selected>--Select an option--</option>' . $out . '</select>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . '<select  name="' . $value['fieldtypename'] . '[]" class="" multiple="multiple" size="4"><option value="" selected>--Select an option--</option>' . $out . '</select>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1460,7 +1460,7 @@ class Listings extends CI_Controller {
 
 
 
-                            $fieldTobegenerated = form_label($label).'</br>' . '<select name="' . $value['fieldtypename'] . '" class=""><option value="" selected>--Select an option--</option>' . $out . '</select>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . '<select name="' . $value['fieldtypename'] . '" class=""><option value="" selected>--Select an option--</option>' . $out . '</select>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
@@ -1485,7 +1485,7 @@ class Listings extends CI_Controller {
                                 $label = $value['form_label'];
                             }
 
-                            $fieldTobegenerated = form_label($label).'</br>' . '<select name="" class="events"><option value="">Select</option>' . $out . '</select><div class="events_display"></div>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . '<select name="" class="events"><option value="">Select</option>' . $out . '</select><div class="events_display"></div>';
                             break;
                         case "price":
                             //$fieldTobegenerated='<table border="0"><tr><td></td><td></td></tr></table>';
@@ -1513,7 +1513,7 @@ class Listings extends CI_Controller {
                             $val['display'] = $label;
                             $val['rules'] = $rulesin;
 
-                            $fieldTobegenerated = form_label($label).'</br>' . '<table border="0" class="price"><tr>
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . '<table border="0" class="price"><tr>
                         <td>' . form_input(array('name' => $value['fieldtypename'], 'value' => '', 'class' => 'priceVal')) . '</td>
                         <td>' . '<select name="price" class="pricetd"><option value="usd">$USD</option><option value="tzs">TZS</option></select>' . '</td>
                         </tr></table>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
@@ -1598,7 +1598,7 @@ class Listings extends CI_Controller {
                            ';
 
 
-                            $fieldTobegenerated = form_label($label).'</br>' . '<select name="' . $value['fieldtypename'] . '" class=""><option value="" selected>--Select an option--</option>' . $out . '</select>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
+                            $fieldTobegenerated = '<strong>'.form_label($label).'</strong>'.'</br>' . '<select name="' . $value['fieldtypename'] . '" class=""><option value="" selected>--Select an option--</option>' . $out . '</select>' . '<i><font color="#1A9B50">' . form_label($tipsOnlabel, $name = "tips", $attributes = array('class' => 'tips')) . '</font></i>';
 
                             break;
 
