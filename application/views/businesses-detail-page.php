@@ -26,7 +26,7 @@
     <br />
     <br />
     <?php if($listing->HasExpandedListing): ?>
-     <a href = "http://www.zoomtanzania.com/ListingUploadedDocs/<?php echo $listing->ExpandedListingPDF  ?>" <?php echo $target; ?>><?php echo $listing->ListingTitle; ?></a><br />
+     <a href = "<?php echo $featuredURL; ?>" <?php echo $target; ?>><?php echo $listing->ListingTitle; ?></a><br />
     <?php else: ?>
 <?php echo $listing->ListingTitle; ?><br />
     <?php endif; ?>
@@ -44,7 +44,7 @@
       <li>
         <h5>Contacts:</h5>
           <b>
-          Location:</b> Dar Es Salaam <br />
+          Location:</b> <?php echo $listing->Location; ?> <br />
             <?php if($listing->PublicPhone): ?>
               <b>Tel:</b> <?php echo $listing->PublicPhone; ?><br />
             <?php endif; ?>            

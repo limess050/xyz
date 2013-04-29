@@ -31,7 +31,14 @@ class Common extends CI_Model
 		
 
 		$this->db->group_by('CategoryID');
-		$this->db->select('CategoryID, count(ListingID) as catCount',FALSE);
+		$this->db->select('CategoryID, count(listingsview.ListingID) as catCount',FALSE);
+		$this->db->join('listingsview', 'listingsview.ListingID = listingcategories.ListingID');
+		$this->db->where('listingsview.Active',1);
+		$this->db->where('listingsview.Reviewed',1);
+		$this->db->where('listingsview.DeletedAfterSubmitted',0);
+		$this->db->where('listingsview.Blacklist_fl',0);
+		$this->db->where('listingsview.Deadline','is null');
+		$this->db->or_where('listingsview.Deadline >=',CURRENT_DATE_IN_TZ);
 		$categoryListingsCount=$this->db->get('listingcategories');
 
 		foreach($categoryListingsCount->result() as $categoryListingCount)

@@ -1,6 +1,6 @@
 <div id="columncontent">
   <div id="container">
-    <h4 align="center"><?php echo $listing->Category; ?><br><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h4>
+    <h1 align="center"><?php echo $listing->ShortDescr; ?><br><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div id="welcometext" align="left"> 
       <p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $listing->ShortDescr; ?></p><p>
         <br />
@@ -24,20 +24,15 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
 <!-- AddThis Button END -->
  <!--BUSINESS DETAIL COMPLETE-->
- <div class="list"><h3>
-    <br />
-    <br />
-    <h3><?php echo $listing->ShortDescr; ?><br />
-<br />
-          </h3>
+ <div class="list">
           
       
-     <div><ul><li><b>job Category:</b> <?php echo $listing->Category; ?><br />
+     <div><ul><li><b>Job Category:</b> <?php echo $listing->Category; ?><br />
 <!--<b>position type:</b> NOT YET FUNCTIONAL <b><br />
 organization type: </b>NOT YET FUNCTIONAL <b><br />-->
-location:</b> <?php echo $listing->Location; ?><br />
+Location:</b> <?php echo $listing->Location; ?><br />
            <br /> 
-          <h5> COMPANY:
+          <h5> Company:
            </h5><?php echo $listing->ListingTitle; ?><br />
 
      </li>
@@ -61,7 +56,7 @@ location:</b> <?php echo $listing->Location; ?><br />
           <br />
             <br />
             <h5>APPLICATION INSTRUCTIONS:</h5><br />
-            <?php echo $listing->Instructions; ?>
+            <?php echo strip_tags($listing->Instructions,'<p><br>'); ?>
 
          
          

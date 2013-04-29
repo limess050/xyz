@@ -28,7 +28,7 @@
 
 <div id="columncontent">
 <div id="container">
-    <h1 align="center"><?php echo $listing->Category; ?><br><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
+    <h1 align="center"><?php echo $ListingTitle; ?><br><img src="images/sitewide/blubar.gif" alt="" width="540" height="5" /></h1>
     <div id="welcometext" align="left"> 
 <p class="smallbreadcrumbs"><a href="#">Home</a> &gt;<a href="#"> <?php echo $listing->ParentSection; ?></a> &gt; <a href="#"><?php echo $listing->Category; ?></a> &gt; <?php echo $ListingTitle; ?></p><p>
         <br />
@@ -50,13 +50,9 @@
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
 <!-- AddThis Button END --></div>
- <!--BUSINESS DETAIL COMPLETE--><div class="listlogo"><h2>
-    <br />
-    <br />
+ <!--BUSINESS DETAIL COMPLETE--><div class="listlogo">
 
-<?php echo $ListingTitle; ?><br />
-<br />
-          </h2>
+ 
 <div class="list" align="left">
   
           <h5>About <?php echo $ListingTitle; ?>: </h5>

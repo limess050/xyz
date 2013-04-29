@@ -8,7 +8,9 @@
 		if(isset($Meta->BrowserTitle) and ($Meta->BrowserTitle != '' ))
 			$BrowserTitle = $Meta->BrowserTitle;
 		else if(isset($Meta->H1Text) and $Meta->H1Text !='')
-			$BrowserTitle = $Meta->H1Text;
+			$BrowserTitle = $Meta->H1Text;		
+		else if(isset($Meta->catH1Text) and $Meta->catH1Text !='')
+			$BrowserTitle = $Meta->catH1Text;
 		else if(isset($Meta->TitleTag) and $Meta->TitleTag != '')
 			$BrowserTitle = $Meta->TitleTag;
 		else if(isset($Meta->Title) and $Meta->Title != '')

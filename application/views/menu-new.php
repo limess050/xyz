@@ -309,7 +309,7 @@ The Trades & Fundis
   </select>
 </form></a></li></ul>
 											<ul>
-											<li><a href="#"><img src="images/button_viewall.png" width="127" height="36" alt="classified" /></a></li></ul>
+											<li><a href="#"><img src="images/sitewide/button_viewall.png" width="127" height="36" alt="classified" /></a></li></ul>
 											
 									</div>
 									<div>
@@ -322,7 +322,7 @@ The Trades & Fundis
 											<li><a href="#">Project Officer (1 Post)<br/>Plan International Tanzania </a></li>
 										</ul>
 										<ul>
-											<li><img src="images/button_job.png" width="127" height="36" alt="classified" /></li></ul>
+											<li><img src="images/sitewide/button_job.png" width="127" height="36" alt="classified" /></li></ul>
 									</div>
 									<div>
 										<h4>A text about JOB RECRUITMENT ADV</h4>
